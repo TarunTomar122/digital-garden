@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 export default function Page() {
     return (
         <main className="flex min-h-screen flex-col py-8 px-48">
