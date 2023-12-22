@@ -15,7 +15,7 @@ export default function Page() {
           {
             books.map((book, index) => {
               return (
-                <a className="cursor-alias py-3 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-end justify-between" key={index} href="https://www.goodreads.com/book/show/99561.Looking_for_Alaska" target="_blank" rel="noopener noreferrer">
+                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-end justify-between" key={index} href="https://www.goodreads.com/book/show/99561.Looking_for_Alaska" target="_blank" rel="noopener noreferrer">
 
                   {book.status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{book.status}</div>}
                   {book.status === 'to read' && <div className='bg-red-200 w-20 text-center'>{book.status}</div>}

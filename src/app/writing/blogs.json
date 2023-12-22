@@ -1,0 +1,18 @@
+{
+    "blogs":[
+        {
+            "title":"Are we closing in on Artificial General Intelligence?",
+            "description":"Why are people suddenly talking about AGI and how is this related to the OpenAI’s recent firing of its CEO?",
+            "date":"25-11-2023",
+            "category":"Tech",
+            "link": "https://medium.com/@tarat122/are-we-closing-in-on-artificial-general-intelligence-952c062dcbab"
+        },
+        {
+            "title":"How to stand out as a software developer in 2023",
+            "description":"Too many languages, too many frameworks, too many libraries, and too many average developers. How do you stand out?",
+            "date":"09-11-2023",
+            "category":"Tech",
+            "link":"https://medium.com/@tarat122/how-to-stand-out-as-a-software-developer-in-2023-8844d1ef4cc6"
+        }
+    ]
+}
