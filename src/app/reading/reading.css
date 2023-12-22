@@ -1,0 +1,4 @@
+.card:hover img {
+    transform: scale(1.1) rotate(-2deg);
+    transition: transform 0.2s ease;
+}
