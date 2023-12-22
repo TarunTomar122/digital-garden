@@ -8,12 +8,34 @@
             "status": "to read"
         },
         {
+            "title": "Rework",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fwww.nokarisandharbha.com%2Fbooks%2Fauth%2Fimages%2F15143_Large_05012023054723.jpg?id=02f33ea9-ed65-42c4-8ff5-033ec892c753&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Jason Fried",
+            "rating": "",
+            "status": "to read"
+        },
+        {
             "title": "Looking for Alaska",
             "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
             "author": "John Green",
             "rating": "",
             "status": "reading"
         },
+        {
+            "title": "The courage to be disliked",
+            "img": "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/71k7V0QvcdL._AC_UF1000,1000_QL80_.jpg",
+            "author": "Ichiro Kishimi",
+            "rating": "",
+            "status": "reading"
+        },
+        {
+            "title": "Sorrounded by idiots",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FW%2FMEDIAX_792452-T2%2Fimages%2FI%2F71K7nN6Mu%2BL._AC_UF1000%2C1000_QL80_.jpg?id=8a095f7f-05d9-4ad6-b7a2-dc3175d9e772&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Thomas Erikson",
+            "rating": "3/5",
+            "status": "read"
+        },
+        
         {
             "title": "A hundred years old man who climbed out of the window and disappeared",
             "img": "https://www.notion.so/image/https%3A%2F%2Frukminim2.flixcart.com%2Fimage%2F850%2F1000%2Fk2dm7bk0%2Fbook%2F8%2F0%2F0%2Fthe-hundred-year-old-man-who-climbed-out-of-the-window-and-original-imafhqv7zjhh7zhz.jpeg%3Fq%3D90?id=54607b5c-d830-4ba3-9f06-5db7f36807a9&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
@@ -22,59 +44,38 @@
             "status": "read"
         },
         {
-            "title": "Sorrounded by idiots",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FW%2FMEDIAX_792452-T2%2Fimages%2FI%2F71K7nN6Mu%2BL._AC_UF1000%2C1000_QL80_.jpg?id=8a095f7f-05d9-4ad6-b7a2-dc3175d9e772&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "Thomas Erikson",
-            "rating": "2.5/5",
+            "title": "Why has nobody told me this before?",
+            "img": "https://www.notion.so/image/https%3A%2F%2Frukminim2.flixcart.com%2Fimage%2F850%2F1000%2Fkzfvzww0%2Fbook%2Fy%2Fw%2F7%2Fwhy-has-nobody-told-me-this-before-original-imagbfzcwbqcjjdf.jpeg%3Fq%3D20?id=7c7e4ba0-aa41-4f5b-b99f-eb0274944668&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Julie Smith",
+            "rating": "4/5",
             "status": "read"
         },
         {
-            "title": "Turtles All the Way Down",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "John Green",
+            "title": "About face",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F51BoeCq3BkS._AC_UF1000%2C1000_QL80_.jpg?id=253e46ca-5cc3-4fdb-b76e-5c003b299d75&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Allan Cooper",
+            "rating": "3.5/5",
+            "status": "read"
+        },
+        {
+            "title": "Mayflies",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F91Qld76VC3L._AC_UF1000%2C1000_QL80_.jpg?id=f0d4da03-9937-4bc6-a633-7018b0f8a63e&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Andrew O'Hagan",
+            "rating": "4/5",
+            "status": "read"
+        },
+        {
+            "title": "The people we keep",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71LykNwIdqL._AC_UF1000%2C1000_QL80_.jpg?id=5abf1d76-eaf3-43a7-83ec-75585223de6c&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Allison Larkin",
             "rating": "4.5/5",
             "status": "read"
         },
         {
-            "title": "The Hunger Games",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "Suzanne Collins",
-            "rating": "4.5/5",
-            "status": "read"
-        },
-        {
-            "title": "Catching Fire",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "Suzanne Collins",
-            "rating": "4.5/5",
-            "status": "read"
-        },
-        {
-            "title": "Mockingjay",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "Suzanne Collins",
-            "rating": "4.5/5",
-            "status": "read"
-        },
-        {
-            "title": "The Maze Runner",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "James Dashner",
-            "rating": "4.5/5",
-            "status": "read"
-        },
-        {
-            "title": "The Scorch Trials",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "James Dashner",
-            "rating": "4.5/5",
-            "status": "read"
-        },
-        {
-            "title": "The Death Cure",
-            "img": "https://www.notion.so/image/https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6f%2Fac%2Fea%2F6facea89235c9dea920258cc89daa2c9.png?id=74d66294-155e-4d2d-a409-0132325ac3b3&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
-            "author": "James Dashner",
-            "rating": "4.5/5",
+            "title": "A man called Ove",
+            "img": "https://www.notion.so/image/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81DXIOk9glL._AC_UF1000%2C1000_QL80_.jpg?id=2e6bc588-eec7-4568-bbd0-ed303c8ee9e1&table=block&spaceId=44d494cf-786e-496c-b18a-aae3998d8aa5&width=600&userId=01bceef2-866d-47c1-87fa-533e2e16d10f&cache=v2",
+            "author": "Fredrik Backman",
+            "rating": "5/5",
             "status": "read"
         }
     ]
