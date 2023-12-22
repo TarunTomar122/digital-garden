@@ -2,22 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face { 
+  font-family: "VS"; 
+  src: url('../../public/fonts/verona-serial/vs-regular.ttf'); 
+  font-weight: 700; 
+  font-style: normal; 
+} 
+  
+@font-face { 
+  font-family: "VS"; 
+  src: url('../../public/fonts/verona-serial/vs-bold.ttf'); 
+  font-weight: 800; 
+  font-style: normal; 
+} 
+  
+@font-face { 
+  font-family: "VS"; 
+  src: url('../../public/fonts/verona-serial/vs-l.ttf'); 
+  font-weight: 400; 
+  font-style: normal; 
+}
+
+@font-face { 
+  font-family: "VS"; 
+  src: url('../../public/fonts/verona-serial/vs-xl.ttf'); 
+  font-weight: 200; 
+  font-style: normal; 
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 22255;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
