@@ -14,12 +14,20 @@ export default function Page() {
                     {
                         hobbies.map((hobby, index) => {
                             return (
-                                <a className="cursor-alias pt-2 pb-6 px-6 hobbies-card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={hobby.link} target="_blank" rel="noopener noreferrer">
+                                <a className="cursor-alias py-6 px-6 hobbies-card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={hobby.link} target="_blank" rel="noopener noreferrer">
 
-                                    <div>
-                                        <p className="text-lg font-medium text-gray-900">{hobby.title.length > 70 ? hobby.title.slice(0, 70) + "..." : hobby.title}</p>
-                                        <p className="text-gray-600">{hobby.description}</p>
+                                    <div className='grid grid-cols-8'>
+                                        
+                                        <div className='col-span-7'>
+                                            <p className="text-lg font-medium text-gray-900">{hobby.title.length > 70 ? hobby.title.slice(0, 70) + "..." : hobby.title}</p>
+                                            <p className="text-gray-600">{hobby.description}</p>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 col-span-1 justify-self-end">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                        </svg>
+
                                     </div>
+
                                     <div className="mt-6 gap-3 flex flex-col">
 
                                         <img src={hobby.img} alt={hobby.title} className="rounded shadow" />

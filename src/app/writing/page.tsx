@@ -14,9 +14,14 @@ export default function Page() {
                             return (
                                 <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={blog.link} target="_blank" rel="noopener noreferrer">
 
-                                    <div className='text-gray-600 text-sm'>
-                                        <p>{blog.category}</p>
-                                        <p>{blog.date}</p>
+                                    <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
+                                        <div>
+                                            <p>{blog.category}</p>
+                                            <p>{blog.date}</p>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                        </svg>
                                     </div>
 
                                     <div className="mt-6 gap-3 flex flex-col">

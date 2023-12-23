@@ -17,10 +17,15 @@ export default function Page() {
                         projects.map((project, index) => {
                             return (
                                 <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={project.link} target="_blank" rel="noopener noreferrer">
-                                    <div className='mb-2'>
+
+                                    <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
                                         <p className='text-m lg:text-xl'>{project.title}</p>
-                                        <p className="text-sm lg:text-lg text-gray-600 pt-1">{project.description}</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                        </svg>
                                     </div>
+                                    <p className="text-sm lg:text-lg text-gray-600 pt-1 mb-2">{project.description}</p>
+
                                     <img src={project.img} className="border-2 border-red-50 mt-3 rounded-t" alt={project.title} />
                                 </a>
                             )
