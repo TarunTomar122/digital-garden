@@ -5,7 +5,7 @@ import data from './books.json';
 export default function Page() {
   const books = data['books'];
   return (
-    <main className="flex min-h-screen flex-col py-8 px-6 md:px-48">
+    <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
       <p className="text-3xl lg:text-6xl font-normal leading-relaxed">reading.</p>
       <p className="text-neutral-500 text:lg lg:text-xl font-light">A list of books I'm reading, want to read or have read already.</p>
 

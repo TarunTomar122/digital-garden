@@ -1,10 +1,10 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col py-8 px-6 md:px-48">
+    <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
 
 
       <div className="">
-        <p className="text-2xl lg:text-4xl leading-relaxed text-neutral-400 font-extralight">
+        <p className="text-xl lg:text-4xl leading-relaxed text-neutral-400 font-extralight">
           Hey  there, I’m <a href="https://bento.me/tarat" target="_blank" className="text-neutral-950 cursor-alias hover:border-purple-400 hover:border-b-2" >TaraT</a> 👋 Welcome to my
           digital garden 🐛
           I am currently developing

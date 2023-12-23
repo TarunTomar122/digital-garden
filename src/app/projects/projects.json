@@ -4,19 +4,19 @@
             "title": "This Week on Internet",
             "description": "A weekly newsletter with the best links I find on Internet.",
             "link": "https://tarat122.substack.com/",
-            "img": "./assets/substack.png"
+            "img": "./assets/projects/substack.png"
         },
         {
             "title": "Lainforge",
             "description": "An open-source Organization on Github.",
             "link": "https://lainforge.org/",
-            "img": "./assets/lainforge.png"
+            "img": "./assets/projects/lainforge.png"
         },
         {
             "title": "TaraT's Discord",
             "description": "A community of people who love to talk about tech, programming, and other random stuff.",
             "link": "https://discord.gg/h5p49eUbS8",
-            "img": "./assets/discord.png"
+            "img": "./assets/projects/discord.png"
         }
     ]
 }

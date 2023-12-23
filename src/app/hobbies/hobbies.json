@@ -1,0 +1,22 @@
+{
+    "hobbies": [
+        {
+            "title": "art",
+            "description": "Marker art of a feeling. 🎨",
+            "img": "./assets/hobbies/imfine-draw.png",
+            "link": "https://www.instagram.com/p/C1Mb_2WIxPu0aor5X-pWIQ9q96PN7npIxRj4UQ0/"
+        },
+        {
+            "title": "piano cover",
+            "description": "Mary by Big Thief. 🎸",
+            "img": "./assets/hobbies/mary-big-theif.png",
+            "link": "https://www.instagram.com/reel/C1MbgPHp17JNq2eaYbL-yLi7LMQyE46paj6AjI0/"
+        },
+        {
+            "title": "rock climbing",
+            "description": "Tried climbing paper rocks for the first time. ✍️",
+            "img": "./assets/hobbies/rock-climbing-1.png",
+            "link": "https://www.instagram.com/reel/C1MaMc0o07tMVMRkxyBvcgZ7nUHOB3H7qrm-b00/"
+        }
+    ]
+}

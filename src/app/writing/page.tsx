@@ -2,7 +2,7 @@ import data from './blogs.json';
 export default function Page() {
     const blogs = data['blogs'];
     return (
-        <main className="flex min-h-screen flex-col py-8 px-6 md:px-48">
+        <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
             <p className="text-3xl lg:text-6xl font-normal leading-relaxed">writing.</p>
             <p className="text-neutral-500 text:lg lg:text-xl font-light">I write about latest tech, old tech, and everything that is not related to tech.</p>
 
