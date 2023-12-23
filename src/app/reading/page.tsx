@@ -15,14 +15,16 @@ export default function Page() {
           {
             books.map((book, index) => {
               return (
-                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-end justify-between" key={index} href="https://www.goodreads.com/book/show/99561.Looking_for_Alaska" target="_blank" rel="noopener noreferrer">
+                <a href={book.link} target="_blank" rel="noopener noreferrer" className="cursor-alias py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-end" key={index}>
 
                   {book.status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{book.status}</div>}
                   {book.status === 'to read' && <div className='bg-red-200 w-20 text-center'>{book.status}</div>}
                   {book.status === 'read' && <div className='bg-green-200 w-20 text-center'>{book.status}</div>}
 
                   <div className="mt-6 gap-3 flex">
-                    <img src={book.img} className="max-h-32 h-full md:max-w-52 rounded-t" alt={book.title} />
+
+                    <img src={book.img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={book.title} />
+
                     <div className="p-4">
                       <p className="text-lg font-medium text-gray-900">{book.title.length > 20 ? book.title.slice(0, 20) + "..." : book.title}</p>
                       <p className="text-gray-600">{book.author}</p>
