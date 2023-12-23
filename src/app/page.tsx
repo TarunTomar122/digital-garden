@@ -140,6 +140,10 @@ export default function Home() {
 
       </div>
 
+      <div className='my-2'>
+        Made with ❤️ by <a href="https://bento.me/tarat" target="_blank" className="text-neutral-950 cursor-alias hover:border-purple-400 hover:border-b-2" >TaraT</a>
+      </div>
+
     </main >
   )
 }
