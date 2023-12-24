@@ -5,6 +5,9 @@ import hobbiesdata from './hobbies/hobbies.json';
 import readingdata from './reading/books.json';
 import writingdata from './writing/blogs.json';
 
+import './hobbies/hobbies.css';
+import './projects/projects.css'; 
+
 export default function Home() {
   const projects = projectdata['projects'];
   const hobbies = hobbiesdata['hobbies'];
