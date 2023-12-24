@@ -4,7 +4,7 @@ export default function Page() {
     return (
         <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
             <p className="text-3xl lg:text-6xl font-normal leading-relaxed">writing.</p>
-            <p className="text-neutral-500 text:lg lg:text-xl font-light">I write about latest tech, old tech, and everything that is not related to tech.</p>
+            <p className="text-neutral-500 text:lg lg:text-xl font-light">I write about tech and everything that is not related to tech.</p>
 
             {/* Main Container */}
             <div className="pt-8 flex flex-col">
@@ -12,7 +12,7 @@ export default function Page() {
                     {
                         blogs.map((blog, index) => {
                             return (
-                                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={blog.link} target="_blank" rel="noopener noreferrer">
+                                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-start" key={index} href={blog.link} target="_blank" rel="noopener noreferrer">
 
                                     <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
                                         <div>

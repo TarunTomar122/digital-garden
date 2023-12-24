@@ -75,7 +75,7 @@ export default function Home() {
 
       <div className='gap-8 flex flex-col'>
 
-        <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href={writing[0].link} target="_blank" rel="noopener noreferrer">
+        <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-start" href={writing[0].link} target="_blank" rel="noopener noreferrer">
 
           <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
             <div>
