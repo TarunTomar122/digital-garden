@@ -17,7 +17,7 @@ export default async function Home() {
   const reading = readingdata['books'];
   const writing = writingdata['blogs'];
 
-  const latestTracks = await getLatestTracks('TaRaT_122');
+  const latestTracks = (await getLatestTracks('TaRaT_122')).slice(1, 4);
 
 
   return (

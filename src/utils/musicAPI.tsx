@@ -1,7 +1,7 @@
 export const getLatestTracks = async (id: string) => {
 
     // make a fetch request to the last.fm api to get the latest tracks
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${id}&api_key=${process.env.LASTFM_API_KEY}&format=json&limit=2`, { cache: 'no-store' })
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${id}&api_key=${process.env.LASTFM_API_KEY}&format=json&limit=4`, { cache: 'no-store' })
     const data = await response.json()
 
     // return the tracks
