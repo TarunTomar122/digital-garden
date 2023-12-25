@@ -72,7 +72,7 @@ export default async function Home() {
 
           <div className='flex flex-col gap-4 mt-6 xl:mt-0'>
             {latestTracks.map((track: any, index: any) => (
-              <a key={index} className='cursor-alias flex flex-row gap-4' href={track.url} target="_blank" rel="noopener noreferrer">
+              <div key={index} className='cursor-alias flex flex-row gap-4'>
                 <img src={track.image[2]['#text']} className="max-h-12 h-full md:max-w-18 rounded-t" alt={track.name} />
                 <div className='flex flex-col'>
                   <p className='text-lg'>{
@@ -83,7 +83,7 @@ export default async function Home() {
                     track.artist['#text'].length > 20 ? track.artist['#text'].slice(0, 20) + "..." : track.artist['#text']
                   }</p>
                 </div>
-              </a>
+              </div>
             ))}
 
           </div>
