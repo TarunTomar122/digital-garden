@@ -6,13 +6,20 @@ import readingdata from './reading/books.json';
 import writingdata from './writing/blogs.json';
 
 import './hobbies/hobbies.css';
-import './projects/projects.css'; 
+import './projects/projects.css';
 
-export default function Home() {
+import { getLatestTracks } from '@/utils/musicAPI';
+
+export default async function Home() {
+
   const projects = projectdata['projects'];
   const hobbies = hobbiesdata['hobbies'];
   const reading = readingdata['books'];
   const writing = writingdata['blogs'];
+
+  const latestTracks = await getLatestTracks('TaRaT_122');
+
+
   return (
     <main className="min-h-screen py-8 px-10 md:px-48 flex flex-col xl:grid xl:grid-cols-2 gap-8">
 
@@ -52,30 +59,39 @@ export default function Home() {
         </a>
       </div>
 
-      <a className="cursor-alias py-6 px-6 hobbies-card bg-neutral-50 border rounded shadow flex flex-col justify-between" href={hobbies[0].link} target="_blank" rel="noopener noreferrer">
+      <div className='flex flex-col xl:col-span-2 xl:grid xl:grid-cols-7 gap-4'>
 
-        <div className='grid grid-cols-8'>
+        <a className="col-span-3 cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href="https://www.last.fm/user/TaRaT_122" target="_blank" rel="noopener noreferrer">
 
-          <div className='col-span-7'>
-            <p className="text-lg font-medium text-gray-900">{hobbies[0].title.length > 70 ? hobbies[0].title.slice(0, 70) + "..." : hobbies[0].title}</p>
-            <p className="text-gray-600">{hobbies[0].description}</p>
+          <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
+            <p className='text-lg'>Latest Scrobbles</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 col-span-1 justify-self-end">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-          </svg>
 
-        </div>
+          <div className='flex flex-col gap-4 mt-6 xl:mt-0'>
+            {latestTracks.map((track: any, index: any) => (
+              <a key={index} className='cursor-alias flex flex-row gap-4' href={track.url} target="_blank" rel="noopener noreferrer">
+                <img src={track.image[2]['#text']} className="max-h-12 h-full md:max-w-18 rounded-t" alt={track.name} />
+                <div className='flex flex-col'>
+                  <p className='text-lg'>{
+                    track.name.length > 20 ? track.name.slice(0, 20) + "..." : track.name
+                  }</p>
 
-        <div className="mt-6 gap-3 flex flex-col">
+                  <p className='text-sm lg:text-sm text-gray-600'>{
+                    track.artist['#text'].length > 20 ? track.artist['#text'].slice(0, 20) + "..." : track.artist['#text']
+                  }</p>
+                </div>
+              </a>
+            ))}
 
-          <img src={hobbies[0].img} alt={hobbies[0].title} className="rounded shadow" />
+          </div>
 
-        </div>
-      </a>
+        </a>
 
-      <div className='gap-8 flex flex-col'>
 
-        <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-start" href={writing[0].link} target="_blank" rel="noopener noreferrer">
+        <a className="col-span-2 cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href={writing[0].link} target="_blank" rel="noopener noreferrer">
 
           <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
             <div>
@@ -87,7 +103,7 @@ export default function Home() {
             </svg>
           </div>
 
-          <div className="mt-6 gap-3 flex flex-col">
+          <div className="gap-2 flex flex-col mt-6 xl:mt-0">
 
             <p className="text-lg font-medium text-gray-900">{writing[0].title.length > 70 ? writing[0].title.slice(0, 70) + "..." : writing[0].title}</p>
             <p className="text-gray-600">{writing[0].description}</p>
@@ -95,30 +111,7 @@ export default function Home() {
           </div>
         </a>
 
-        <a href={reading[1].link} target="_blank" rel="noopener noreferrer" className="cursor-alias py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
-
-          <div className='flex flex-row justify-between items-center'>
-            {reading[1].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[1].status}</div>}
-            {reading[1].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[1].status}</div>}
-            {reading[1].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[1].status}</div>}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </div>
-
-          <div className="mt-6 gap-3 flex items-end">
-
-            <img src={reading[1].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[1].title} />
-
-            <div className="p-4">
-              <p className="text-lg font-medium text-gray-900">{reading[1].title.length > 20 ? reading[1].title.slice(0, 20) + "..." : reading[1].title}</p>
-              <p className="text-gray-600">{reading[1].author}</p>
-              {reading[1].rating !== "" && <p className="text-gray-600">Rating: {reading[1].rating} </p>}
-            </div>
-          </div>
-        </a>
-
-        <a href={reading[2].link} target="_blank" rel="noopener noreferrer" className="cursor-alias py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
+        <a href={reading[2].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
 
           <div className='flex flex-row justify-between items-center'>
             {reading[2].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[2].status}</div>}
