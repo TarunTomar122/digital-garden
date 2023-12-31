@@ -1,14 +1,6 @@
 {
     "books":[
         {
-            "title": "Just enough research",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1379351795i/17236175.jpg",
-            "author": "Erica Hall",
-            "rating": "",
-            "status": "to read",
-            "link": "https://www.goodreads.com/book/show/17236175-just-enough-research"
-        },
-        {
             "title": "Rework",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391275636i/6732019.jpg",
             "author": "Jason Fried",
@@ -31,6 +23,14 @@
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked"
+        },
+        {
+            "title": "Just enough research",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1379351795i/17236175.jpg",
+            "author": "Erica Hall",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/17236175-just-enough-research"
         },
         {
             "title": "Sorrounded by idiots",

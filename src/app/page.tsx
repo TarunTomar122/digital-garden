@@ -59,9 +59,9 @@ export default async function Home() {
         </a>
       </div>
 
-      <div className='flex flex-col xl:col-span-2 xl:grid xl:grid-cols-7 gap-4'>
+      <div className='flex flex-col xl:col-span-2 xl:grid xl:grid-cols-8 gap-4'>
 
-        <a className="col-span-3 cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href="https://www.last.fm/user/TaRaT_122" target="_blank" rel="noopener noreferrer">
+        <a className="col-span-2 cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href="https://www.last.fm/user/TaRaT_122" target="_blank" rel="noopener noreferrer">
 
           <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
             <p className='text-lg'>Latest Scrobbles</p>
@@ -111,12 +111,12 @@ export default async function Home() {
           </div>
         </a>
 
-        <a href={reading[2].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
+        <a href={reading[0].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
 
           <div className='flex flex-row justify-between items-center'>
-            {reading[2].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[2].status}</div>}
-            {reading[2].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[2].status}</div>}
-            {reading[2].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[2].status}</div>}
+            {reading[0].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[0].status}</div>}
+            {reading[0].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[0].status}</div>}
+            {reading[0].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[0].status}</div>}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
@@ -124,12 +124,35 @@ export default async function Home() {
 
           <div className="mt-6 gap-3 flex items-end">
 
-            <img src={reading[2].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[2].title} />
+            <img src={reading[0].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[0].title} />
 
             <div className="p-4">
-              <p className="text-lg font-medium text-gray-900">{reading[2].title.length > 20 ? reading[2].title.slice(0, 20) + "..." : reading[2].title}</p>
-              <p className="text-gray-600">{reading[2].author}</p>
-              {reading[2].rating !== "" && <p className="text-gray-600">Rating: {reading[2].rating} </p>}
+              <p className="text-lg font-medium text-gray-900">{reading[0].title.length > 20 ? reading[0].title.slice(0, 20) + "..." : reading[0].title}</p>
+              <p className="text-gray-600">{reading[0].author}</p>
+              {reading[0].rating !== "" && <p className="text-gray-600">Rating: {reading[0].rating} </p>}
+            </div>
+          </div>
+        </a>
+
+        <a href={reading[1].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
+
+          <div className='flex flex-row justify-between items-center'>
+            {reading[1].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[1].status}</div>}
+            {reading[1].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[1].status}</div>}
+            {reading[1].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[1].status}</div>}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+
+          <div className="mt-6 gap-3 flex items-end">
+
+            <img src={reading[1].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[1].title} />
+
+            <div className="p-4">
+              <p className="text-lg font-medium text-gray-900">{reading[1].title.length > 20 ? reading[1].title.slice(0, 20) + "..." : reading[1].title}</p>
+              <p className="text-gray-600">{reading[1].author}</p>
+              {reading[1].rating !== "" && <p className="text-gray-600">Rating: {reading[1].rating} </p>}
             </div>
           </div>
         </a>
@@ -137,7 +160,7 @@ export default async function Home() {
       </div>
 
       <div className='my-2'>
-        Made with ❤️ by <a href="https://bento.me/tarat" target="_blank" className="text-neutral-950 cursor-alias hover:border-purple-400 hover:border-b-2" >TaraT</a>
+        Made with 💛 by <a href="https://bento.me/tarat" target="_blank" className="text-neutral-950 underline cursor-alias hover:border-purple-400 hover:border-b-2" >TaraT</a>
       </div>
 
     </main >

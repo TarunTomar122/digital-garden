@@ -12,7 +12,7 @@ export default function Page() {
                     {
                         blogs.map((blog, index) => {
                             return (
-                                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-start" key={index} href={blog.link} target="_blank" rel="noopener noreferrer">
+                                <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" key={index} href={blog.link} target="_blank" rel="noopener noreferrer">
 
                                     <div className='text-gray-600 text-sm flex flex-row justify-between items-center'>
                                         <div>
