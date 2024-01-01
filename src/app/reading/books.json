@@ -9,20 +9,20 @@
             "link": "https://www.goodreads.com/book/show/6732019-rework"
         },
         {
-            "title": "Looking for Alaska",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1652042180i/99561.jpg",
-            "author": "John Green",
-            "rating": "",
-            "status": "reading",
-            "link": "https://www.goodreads.com/book/show/99561.Looking_for_Alaska"
-        },
-        {
             "title": "The courage to be disliked",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
             "author": "Ichiro Kishimi",
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked"
+        },
+        {
+            "title": "Looking for Alaska",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1652042180i/99561.jpg",
+            "author": "John Green",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/99561.Looking_for_Alaska"
         },
         {
             "title": "Just enough research",
