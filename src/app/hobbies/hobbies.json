@@ -1,14 +1,26 @@
 {
     "hobbies": [
         {
+            "title": "photography",
+            "description": "Random click of a sunset.",
+            "img": "./assets/hobbies/sunset.png",
+            "link": "https://www.instagram.com/p/C2FX6Mfp0sG/"
+        },
+        {
+            "title": "physique update",
+            "description": "64Kgs | 5'9\" | Jan-2024",
+            "img": "./assets/hobbies/physique.png",
+            "link": "https://www.instagram.com/p/C1_mJRUpBQr/"
+        },
+        {
             "title": "art",
-            "description": "Marker art of a certain feeling. 🎨",
+            "description": "I suck at drawing but I enjoy it.",
             "img": "./assets/hobbies/imfine-draw.png",
             "link": "https://www.instagram.com/p/C1Mb_2WIxPu0aor5X-pWIQ9q96PN7npIxRj4UQ0/"
         },
         {
-            "title": "piano cover",
-            "description": "Mary by Big Thief. 🎸",
+            "title": "music",
+            "description": "Piano cover of Mary by Big Thief",
             "img": "./assets/hobbies/mary-big-theif.png",
             "link": "https://www.instagram.com/reel/C1MbgPHp17JNq2eaYbL-yLi7LMQyE46paj6AjI0/"
         },

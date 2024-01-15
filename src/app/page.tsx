@@ -21,7 +21,7 @@ export default async function Home() {
 
 
   return (
-    <main className="min-h-screen py-8 px-10 md:px-48 flex flex-col xl:grid xl:grid-cols-2 gap-8">
+    <main className="min-h-screen py-8 px-10 md:px-48 flex flex-col gap-8">
 
 
       <div>
@@ -43,23 +43,23 @@ export default async function Home() {
 
       </div>
 
-
-      <div>
-        <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href={projects[0].link} target="_blank" rel="noopener noreferrer">
-
-          <div className='flex flex-row justify-between items-center'>
-            <p className='text-lg lg:text-xl'>{projects[0].title}</p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </div>
-          <p className="text-sm lg:text-lg text-gray-600 pt-1 mb-2">{projects[0].description}</p>
-
-          <img src={projects[0].img} className="border-2 border-red-50 mt-3 rounded-t" alt={projects[0].title} />
-        </a>
-      </div>
-
       <div className='flex flex-col xl:col-span-2 xl:grid xl:grid-cols-8 gap-4'>
+
+
+        <div>
+          <a className="cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href={projects[0].link} target="_blank" rel="noopener noreferrer">
+
+            <div className='flex flex-row justify-between items-center'>
+              <p className='text-lg lg:text-xl'>{projects[0].title}</p>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </div>
+            <p className="text-sm lg:text-lg text-gray-600 pt-1 mb-2">{projects[0].description}</p>
+
+            <img src={projects[0].img} className="border-2 border-red-50 mt-3 rounded-t max-w-md" alt={projects[0].title} />
+          </a>
+        </div>
 
         <a className="col-span-2 cursor-alias py-6 px-6 card bg-neutral-50 border rounded shadow flex flex-col justify-between" href="https://www.last.fm/user/TaRaT_122" target="_blank" rel="noopener noreferrer">
 
