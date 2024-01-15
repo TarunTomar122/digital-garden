@@ -1,19 +1,59 @@
 {
     "books":[
         {
+            "title": "The Secret",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659289885i/52529.jpg",
+            "author": "Rhonda Byrne",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/52529.The_Secret?ac=1&from_search=true&qid=ccz8tGV1Z0&rank=2"
+        },
+        {
+            "title": "Focus on What Matters",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671139683i/68040872.jpg",
+            "author": "Darius Foroux",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/68040872-focus-on-what-matters"
+        },
+        {
+            "title": "Men Without Women",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483232988i/33652490.jpg",
+            "author": "Haruki Murakami",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/33652490-men-without-women?ref=nav_sb_ss_1_15"
+        },
+        {
+            "title": "The Mountain Is You",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1590806892i/53642699.jpg",
+            "author": "Brianna Wiest",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/53642699-the-mountain-is-you?from_search=true&from_srp=true&qid=nJUaAW9VFu&rank=1"
+        },
+        {
+            "title": "Before the Coffee Gets Cold",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1704153539i/44421460.jpg",
+            "author": "Toshikazu Kawaguchi",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/44421460-before-the-coffee-gets-cold"
+        },
+        {
             "title": "Rework",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391275636i/6732019.jpg",
             "author": "Jason Fried",
             "rating": "",
-            "status": "to read",
+            "status": "reading",
             "link": "https://www.goodreads.com/book/show/6732019-rework"
         },
         {
             "title": "The courage to be disliked",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
             "author": "Ichiro Kishimi",
-            "rating": "",
-            "status": "reading",
+            "rating": "4/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked"
         },
         {
@@ -66,6 +106,14 @@
             "link": "https://www.goodreads.com/book/show/18737922-about-face"
         },
         {
+            "title": "Steal Like an Artist",
+            "img": "https://th.bing.com/th/id/OIP.dLWGBEhmAWI5ZAXV0k3NewHaJm?rs=1&pid=ImgDetMain",
+            "author": "Austin Kleon",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/13099738-steal-like-an-artist"
+        },
+        {
             "title": "Mayflies",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598771531i/50162215.jpg",
             "author": "Andrew O'Hagan",
@@ -80,6 +128,14 @@
             "rating": "4.5/5",
             "status": "read",
             "link": "https://www.goodreads.com/book/show/55711726-the-people-we-keep"
+        },
+        {
+            "title": "Earthlings",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580144195i/50269327.jpg",
+            "author": "Sayaka Murata",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/50269327-earthlings?ref=nav_sb_ss_1_10"
         },
         {
             "title": "A man called Ove",

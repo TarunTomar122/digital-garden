@@ -111,12 +111,12 @@ export default async function Home() {
           </div>
         </a>
 
-        <a href={reading[0].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
+        <a href={reading[4].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
 
           <div className='flex flex-row justify-between items-center'>
-            {reading[0].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[0].status}</div>}
-            {reading[0].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[0].status}</div>}
-            {reading[0].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[0].status}</div>}
+            {reading[4].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[4].status}</div>}
+            {reading[4].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[4].status}</div>}
+            {reading[4].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[4].status}</div>}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
@@ -124,22 +124,22 @@ export default async function Home() {
 
           <div className="mt-6 gap-3 flex items-end">
 
-            <img src={reading[0].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[0].title} />
+            <img src={reading[4].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[4].title} />
 
             <div className="p-4">
-              <p className="text-lg font-medium text-gray-900">{reading[0].title.length > 20 ? reading[0].title.slice(0, 20) + "..." : reading[0].title}</p>
-              <p className="text-gray-600">{reading[0].author}</p>
-              {reading[0].rating !== "" && <p className="text-gray-600">Rating: {reading[0].rating} </p>}
+              <p className="text-lg font-medium text-gray-900">{reading[4].title.length > 20 ? reading[4].title.slice(0, 20) + "..." : reading[4].title}</p>
+              <p className="text-gray-600">{reading[4].author}</p>
+              {reading[4].rating !== "" && <p className="text-gray-600">Rating: {reading[4].rating} </p>}
             </div>
           </div>
         </a>
 
-        <a href={reading[1].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
+        <a href={reading[3].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 py-6 px-6 reading-card bg-neutral-50 border rounded shadow flex flex-col justify-between">
 
           <div className='flex flex-row justify-between items-center'>
-            {reading[1].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[1].status}</div>}
-            {reading[1].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[1].status}</div>}
-            {reading[1].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[1].status}</div>}
+            {reading[3].status === 'reading' && <div className='bg-yellow-200 w-20 text-center'>{reading[3].status}</div>}
+            {reading[3].status === 'to read' && <div className='bg-red-200 w-20 text-center'>{reading[3].status}</div>}
+            {reading[3].status === 'read' && <div className='bg-green-200 w-20 text-center'>{reading[3].status}</div>}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
@@ -147,12 +147,12 @@ export default async function Home() {
 
           <div className="mt-6 gap-3 flex items-end">
 
-            <img src={reading[1].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[1].title} />
+            <img src={reading[3].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[3].title} />
 
             <div className="p-4">
-              <p className="text-lg font-medium text-gray-900">{reading[1].title.length > 20 ? reading[1].title.slice(0, 20) + "..." : reading[1].title}</p>
-              <p className="text-gray-600">{reading[1].author}</p>
-              {reading[1].rating !== "" && <p className="text-gray-600">Rating: {reading[1].rating} </p>}
+              <p className="text-lg font-medium text-gray-900">{reading[3].title.length > 20 ? reading[3].title.slice(0, 20) + "..." : reading[3].title}</p>
+              <p className="text-gray-600">{reading[3].author}</p>
+              {reading[3].rating !== "" && <p className="text-gray-600">Rating: {reading[3].rating} </p>}
             </div>
           </div>
         </a>
