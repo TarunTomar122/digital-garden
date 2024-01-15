@@ -1,13 +1,16 @@
 'use client'
 
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 export default function Page() {
   const pathname = usePathname()
   return (
-    <main className="min-h-14 border-b-2 border-slate-200 flex items-center flex-col justify-center font-vs">
-      <ul className='flex flex-column justify-end gap-6'>
+    <main className="min-h-14 border-b-2 border-slate-200 flex flex-row items-center justify-between font-vs px-7 md:px-48 lg:px-96">
+      <ul className='flex flex-row w-full justify-center gap-6'>
         <li>
           <Link className={`link ${pathname === '/' ? 'text-red-500' : ''}`} href="/">
             home
@@ -46,6 +49,11 @@ export default function Page() {
           </Link>
         </li>
       </ul>
+
+      {/* <div className='hidden sm:block'>
+        <img src="./assets/profile.png" alt="profile" className='h-8 w-8 rounded-2xl' />
+      </div> */}
+
     </main>
   )
 }
