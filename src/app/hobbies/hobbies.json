@@ -1,16 +1,16 @@
 {
     "hobbies": [
         {
+            "title": "running",
+            "description": "slow and steady 10K run",
+            "img": "./assets/hobbies/run.png",
+            "link": "https://www.instagram.com/reel/C2XQ4jrr724/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        },
+        {
             "title": "photography",
             "description": "Random click of a sunset.",
             "img": "./assets/hobbies/sunset.png",
             "link": "https://www.instagram.com/p/C2FX6Mfp0sG/"
-        },
-        {
-            "title": "physique update",
-            "description": "64Kgs | 5'9\" | Jan-2024",
-            "img": "./assets/hobbies/physique.png",
-            "link": "https://www.instagram.com/p/C1_mJRUpBQr/"
         },
         {
             "title": "art",

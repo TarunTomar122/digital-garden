@@ -1,6 +1,13 @@
 {
     "blogs":[
         {
+            "title": "How do I get my shit done?",
+            "description": "too many things to do and not enough time? well, maybe u need to rethink your strategies…",
+            "date": "23-01-2024",
+            "category": "blog • thoughts",
+            "link": "https://medium.com/@tarat122/how-do-i-get-my-shit-done-a04f1f1f87cd"
+        },
+        {
             "title": "2023 review",
             "description": "This was unarguably the most happening year of my life so far and as it is about to end, I feel like introspecting and reviewing my year in this blog.",
             "date": "31-12-2023",
