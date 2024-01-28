@@ -1,28 +1,12 @@
 {
     "books":[
         {
-            "title": "The Secret",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659289885i/52529.jpg",
-            "author": "Rhonda Byrne",
-            "rating": "",
-            "status": "to read",
-            "link": "https://www.goodreads.com/book/show/52529.The_Secret?ac=1&from_search=true&qid=ccz8tGV1Z0&rank=2"
-        },
-        {
             "title": "Focus on What Matters",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671139683i/68040872.jpg",
             "author": "Darius Foroux",
             "rating": "",
             "status": "to read",
             "link": "https://www.goodreads.com/book/show/68040872-focus-on-what-matters"
-        },
-        {
-            "title": "Men Without Women",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483232988i/33652490.jpg",
-            "author": "Haruki Murakami",
-            "rating": "",
-            "status": "to read",
-            "link": "https://www.goodreads.com/book/show/33652490-men-without-women?ref=nav_sb_ss_1_15"
         },
         {
             "title": "The Mountain Is You",
@@ -33,19 +17,35 @@
             "link": "https://www.goodreads.com/book/show/53642699-the-mountain-is-you?from_search=true&from_srp=true&qid=nJUaAW9VFu&rank=1"
         },
         {
+            "title": "The Secret",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659289885i/52529.jpg",
+            "author": "Rhonda Byrne",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/52529.The_Secret?ac=1&from_search=true&qid=ccz8tGV1Z0&rank=2"
+        },
+        {
+            "title": "Men Without Women",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483232988i/33652490.jpg",
+            "author": "Haruki Murakami",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/33652490-men-without-women?ref=nav_sb_ss_1_15"
+        },
+        {
             "title": "Before the Coffee Gets Cold",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1704153539i/44421460.jpg",
             "author": "Toshikazu Kawaguchi",
-            "rating": "",
-            "status": "reading",
+            "rating": "5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/44421460-before-the-coffee-gets-cold"
         },
         {
             "title": "Rework",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391275636i/6732019.jpg",
             "author": "Jason Fried",
-            "rating": "",
-            "status": "reading",
+            "rating": "3.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/6732019-rework"
         },
         {
@@ -122,6 +122,14 @@
             "link": "https://www.goodreads.com/book/show/50162215-mayflies"
         },
         {
+            "title": "It ends with us",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1688011813i/27362503.jpg",
+            "author": "Colleen Hoover",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/27362503-it-ends-with-us"
+        },
+        {
             "title": "The people we keep",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1625673640i/55711726.jpg",
             "author": "Allison Larkin",
@@ -136,6 +144,14 @@
             "rating": "3.5/5",
             "status": "read",
             "link": "https://www.goodreads.com/book/show/50269327-earthlings?ref=nav_sb_ss_1_10"
+        },
+        {
+            "title": "How to Win Friends and Influence People",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442726934i/4865.jpg",
+            "author": "Dale Carnegie",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_and_Influence_People"
         },
         {
             "title": "A man called Ove",

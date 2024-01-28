@@ -2,31 +2,31 @@
     "hobbies": [
         {
             "title": "running",
-            "description": "slow and steady 10K run",
+            "description": "first 10K of 2024",
             "img": "./assets/hobbies/run.png",
             "link": "https://www.instagram.com/reel/C2XQ4jrr724/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         },
         {
             "title": "photography",
-            "description": "Random click of a sunset.",
+            "description": "sunset in the city",
             "img": "./assets/hobbies/sunset.png",
             "link": "https://www.instagram.com/p/C2FX6Mfp0sG/"
         },
         {
             "title": "art",
-            "description": "I suck at drawing but I enjoy it.",
+            "description": "marking emotions",
             "img": "./assets/hobbies/imfine-draw.png",
             "link": "https://www.instagram.com/p/C1Mb_2WIxPu0aor5X-pWIQ9q96PN7npIxRj4UQ0/"
         },
         {
             "title": "music",
-            "description": "Piano cover of Mary by Big Thief",
+            "description": "mary by big theif",
             "img": "./assets/hobbies/mary-big-theif.png",
             "link": "https://www.instagram.com/reel/C1MbgPHp17JNq2eaYbL-yLi7LMQyE46paj6AjI0/"
         },
         {
             "title": "rock climbing",
-            "description": "Tried climbing paper rocks for the first time. ✍️",
+            "description": "climbing paper rocks",
             "img": "./assets/hobbies/rock-climbing-1.png",
             "link": "https://www.instagram.com/reel/C1MaMc0o07tMVMRkxyBvcgZ7nUHOB3H7qrm-b00/"
         }
