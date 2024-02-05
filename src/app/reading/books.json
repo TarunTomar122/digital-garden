@@ -2,7 +2,7 @@
     "books":[
         {
             "title": "Tomorrow, and Tomorrow, and Tomorrow",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671139683i/68040872.jpg",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1636978687i/58784475.jpg",
             "author": "Gabrielle Zevin",
             "rating": "",
             "status": "to read",
@@ -13,7 +13,7 @@
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671139683i/68040872.jpg",
             "author": "Darius Foroux",
             "rating": "",
-            "status": "to read",
+            "status": "reading",
             "link": "https://www.goodreads.com/book/show/68040872-focus-on-what-matters"
         },
         {
@@ -36,8 +36,8 @@
             "title": "Men Without Women",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483232988i/33652490.jpg",
             "author": "Haruki Murakami",
-            "rating": "",
-            "status": "reading",
+            "rating": "3.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/33652490-men-without-women?ref=nav_sb_ss_1_15"
         },
         {
