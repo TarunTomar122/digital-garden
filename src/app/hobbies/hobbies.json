@@ -2,6 +2,12 @@
     "hobbies": [
         {
             "title": "running",
+            "description": "almost a solo half-marathon",
+            "img": "./assets/hobbies/20k.png",
+            "link": "https://www.instagram.com/p/C2pCQV4JcTu/?img_index=1"
+        },
+        {
+            "title": "running",
             "description": "first 10K of 2024",
             "img": "./assets/hobbies/run.png",
             "link": "https://www.instagram.com/reel/C2XQ4jrr724/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
