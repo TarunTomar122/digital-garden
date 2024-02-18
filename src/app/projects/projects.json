@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "title": "tarat films",
+            "description": "A YouTube channel where I upload short films.",
+            "link": "https://www.youtube.com/@tarat.filmss/videos",
+            "img": "./assets/projects/films.png"
+        },
+        {
             "title": "This Week on Internet",
             "description": "A weekly newsletter with the best links I find on Internet.",
             "link": "https://tarat122.substack.com/",

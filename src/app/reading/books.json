@@ -9,20 +9,20 @@
             "link": "https://www.goodreads.com/en/book/show/58784475"
         },
         {
-            "title": "The Creative Act: A Way of Being",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1663707011i/60965426.jpg",
-            "author": "Rick Rubin",
-            "rating": "",
-            "status": "to read",
-            "link": "https://www.goodreads.com/en/book/show/60965426"
-        },
-        {
             "title": "The Mountain Is You",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1590806892i/53642699.jpg",
             "author": "Brianna Wiest",
             "rating": "",
             "status": "to read",
             "link": "https://www.goodreads.com/book/show/53642699-the-mountain-is-you?from_search=true&from_srp=true&qid=nJUaAW9VFu&rank=1"
+        },
+        {
+            "title": "The Creative Act: A Way of Being",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1663707011i/60965426.jpg",
+            "author": "Rick Rubin",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/en/book/show/60965426"
         },
         {
             "title": "The Hobbit",
@@ -44,8 +44,8 @@
             "title": "The Secret",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659289885i/52529.jpg",
             "author": "Rhonda Byrne",
-            "rating": "",
-            "status": "reading",
+            "rating": "5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/52529.The_Secret?ac=1&from_search=true&qid=ccz8tGV1Z0&rank=2"
         },
         {

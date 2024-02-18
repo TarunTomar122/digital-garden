@@ -1,6 +1,12 @@
 {
     "hobbies": [
         {
+            "title": "photography",
+            "description": "adobe office 8th floor",
+            "img": "./assets/hobbies/office.png",
+            "link": "https://www.instagram.com/p/C3Fr3TNJ_7A/"
+        },
+        {
             "title": "running",
             "description": "almost a solo half-marathon",
             "img": "./assets/hobbies/20k.png",
