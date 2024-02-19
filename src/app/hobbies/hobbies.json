@@ -1,6 +1,12 @@
 {
     "hobbies": [
         {
+            "title": "running",
+            "description": "longest run of my life yet.",
+            "img": "./assets/hobbies/30k-feb.png",
+            "link": "https://www.instagram.com/p/C3fV1iFpYWO/"
+        },
+        {
             "title": "photography",
             "description": "adobe office 8th floor",
             "img": "./assets/hobbies/office.png",
