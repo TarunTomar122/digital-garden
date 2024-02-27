@@ -1,8 +1,14 @@
 {
     "hobbies": [
         {
+            "title": "rock climbing",
+            "description": "failed attempt at spray walls",
+            "img": "./assets/hobbies/rock-climbing-2.jpg",
+            "link": "https://www.instagram.com/reel/C3xAXL9pTFz/"
+        },
+        {
             "title": "running",
-            "description": "longest run of my life yet.",
+            "description": "longest run of my life so far",
             "img": "./assets/hobbies/30k-feb.png",
             "link": "https://www.instagram.com/p/C3fV1iFpYWO/"
         },
