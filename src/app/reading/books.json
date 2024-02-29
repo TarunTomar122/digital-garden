@@ -13,7 +13,7 @@
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1590806892i/53642699.jpg",
             "author": "Brianna Wiest",
             "rating": "",
-            "status": "to read",
+            "status": "reading",
             "link": "https://www.goodreads.com/book/show/53642699-the-mountain-is-you?from_search=true&from_srp=true&qid=nJUaAW9VFu&rank=1"
         },
         {
@@ -28,8 +28,8 @@
             "title": "The Hobbit",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546071216i/5907.jpg",
             "author": "J.R.R. Tolkien",
-            "rating": "",
-            "status": "reading",
+            "rating": "4/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/5907.The_Hobbit?ref=nav_sb_ss_1_10"
         },
         {
