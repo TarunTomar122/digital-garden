@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "title": "blob",
+            "description": "Can you avoid hitting the blobs? Play the game to find out.",
+            "link": "https://taruntomar122.github.io/blob/",
+            "img": "./assets/projects/blob.png"
+        },
+        {
             "title": "tarat films",
             "description": "A YouTube channel where I upload short films.",
             "link": "https://www.youtube.com/@tarat.filmss/videos",
