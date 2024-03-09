@@ -105,15 +105,15 @@ export default async function Home() {
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>I am currently reading:</p>
           </div>
           <div className='flex flex-col gap-4 mt-6 xl:mt-6'>
-            <a href={reading[2].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 flex flex-col justify-between">
+            <a href={reading[1].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 flex flex-col justify-between">
               <div className="mt-4 gap-3 flex items-end">
 
-                <img src={reading[2].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[2].title} />
+                <img src={reading[1].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[1].title} />
 
                 <div className="p-4">
-                  <p className="text-lg font-medium text-gray-900">{reading[2].title.length > 20 ? reading[2].title.slice(0, 20) + "..." : reading[2].title}</p>
-                  <p className="text-gray-600">{reading[2].author}</p>
-                  {reading[2].rating !== "" && <p className="text-gray-600">Rating: {reading[2].rating} </p>}
+                  <p className="text-lg font-medium text-gray-900">{reading[1].title.length > 20 ? reading[1].title.slice(0, 20) + "..." : reading[1].title}</p>
+                  <p className="text-gray-600">{reading[1].author}</p>
+                  {reading[1].rating !== "" && <p className="text-gray-600">Rating: {reading[1].rating} </p>}
                 </div>
               </div>
             </a>

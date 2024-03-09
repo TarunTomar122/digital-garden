@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "title": "tradeoff",
+            "description": "A simple game to test your short term memory.",
+            "link": "https://taruntomar122.github.io/tradeoff/",
+            "img": "./assets/projects/tradeoff.png"
+        },
+        {
             "title": "blob",
             "description": "Can you avoid hitting the blobs? Play the game to find out.",
             "link": "https://taruntomar122.github.io/blob/",
