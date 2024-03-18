@@ -16,14 +16,14 @@ export default function Page() {
             home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             className={`link ${pathname === '/projects' ? 'text-red-500' : ''}`}
             href="/projects"
           >
             projects
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             className={`link ${pathname === '/hobbies' ? 'text-red-500' : ''}`}

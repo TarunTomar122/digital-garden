@@ -1,19 +1,27 @@
 {
     "books":[
         {
-            "title": "Tomorrow, and Tomorrow, and Tomorrow",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1636978687i/58784475.jpg",
-            "author": "Gabrielle Zevin",
+            "title": "Never Finished: Unshackle Your Mind and Win the War Within",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1666611105i/63079845.jpg",
+            "author": "David Goggins",
             "rating": "",
             "status": "to read",
+            "link": "https://www.goodreads.com/en/book/show/58784475"
+        },
+        {
+            "title": "Before Your Memory Fades",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1657903805i/60224365.jpg",
+            "author": "Toshikazu Kawaguchi",
+            "rating": "",
+            "status": "reading",
             "link": "https://www.goodreads.com/en/book/show/58784475"
         },
         {
             "title": "The Creative Act: A Way of Being",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1663707011i/60965426.jpg",
             "author": "Rick Rubin",
-            "rating": "",
-            "status": "reading",
+            "rating": "3.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/en/book/show/60965426"
         },
         {

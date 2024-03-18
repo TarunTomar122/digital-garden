@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "title": "catchit",
+            "description": "Catch the button and move to the next level <3",
+            "link": "https://taruntomar122.github.io/catchit/",
+            "img": "./assets/projects/catchit.png"
+        },
+        {
             "title": "tradeoff",
             "description": "A simple game to test your short term memory.",
             "link": "https://taruntomar122.github.io/tradeoff/",
