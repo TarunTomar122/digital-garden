@@ -1,6 +1,13 @@
 {
     "blogs":[
         {
+            "title": "The One Ring",
+            "description": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
+            "date": "18-03-2024",
+            "category": "blog • thoughts",
+            "link": "https://medium.com/@tarat122/the-one-ring-c32c86454438"
+        },
+        {
             "title": "Perfectionism Kills Creativity",
             "description": "When I am trying hard to be perfect, I stop enjoying the creative process and instead, I become too focused on the outcome and the result.",
             "date": "18-02-2024",
