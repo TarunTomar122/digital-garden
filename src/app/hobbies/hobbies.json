@@ -1,6 +1,12 @@
 {
     "hobbies": [
         {
+            "title": "music",
+            "description": "A melody from my dreams",
+            "img": "./assets/hobbies/melody.png",
+            "link": "https://www.instagram.com/p/C5ETw36sLUA/"
+        },
+        {
             "title": "rock climbing",
             "description": "failed attempt at spray walls",
             "img": "./assets/hobbies/rock-climbing-2.jpg",
@@ -31,14 +37,8 @@
             "link": "https://www.instagram.com/reel/C2XQ4jrr724/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         },
         {
-            "title": "photography",
-            "description": "sunset in the city",
-            "img": "./assets/hobbies/sunset.png",
-            "link": "https://www.instagram.com/p/C2FX6Mfp0sG/"
-        },
-        {
             "title": "art",
-            "description": "marking emotions",
+            "description": "my fav sketch ofo 2023",
             "img": "./assets/hobbies/imfine-draw.png",
             "link": "https://www.instagram.com/p/C1Mb_2WIxPu0aor5X-pWIQ9q96PN7npIxRj4UQ0/"
         },

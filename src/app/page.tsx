@@ -40,6 +40,12 @@ export default async function Home() {
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
             In my free time, I like to read books, write blogs, play piano, run a few Kms, code stupid projects and rant about some new AI model or Javascript framework.
           </p>
+
+          <br />
+          <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
+            Subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get a weekly collection of my favorite links from the internet.
+          </p>
+
         </div>
 
         <div className='col-span-1'>
@@ -58,7 +64,7 @@ export default async function Home() {
           <div className='text-sm flex flex-row justify-between items-center'>
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>This week I'm obsessed with:</p>
           </div>
-          <div className='flex flex-col gap-4 mt-6 xl:mt-6'>
+          <a className='flex flex-col gap-4 mt-6 xl:mt-6' href="https://www.last.fm/user/TaRaT_122" target='_blank'>
             {weeklyTracks.map((track: any, index: any) => (
               <div key={index} className='cursor-alias flex flex-row gap-4'>
                 <img src={track.image[2]['#text']} className="max-h-12 h-full md:max-w-18 rounded-t" alt={track.name} />
@@ -73,7 +79,7 @@ export default async function Home() {
                 </div>
               </div>
             ))}
-          </div>
+          </a>
         </div>
 
         <a className='col-span-1 flex flex-col justify-between' href={writing[0].link} target="_blank">
