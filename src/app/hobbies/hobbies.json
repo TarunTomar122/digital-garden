@@ -2,9 +2,15 @@
     "hobbies": [
         {
             "title": "music",
-            "description": "A melody from my dreams",
+            "description": "a melody from my dreams",
             "img": "./assets/hobbies/melody.png",
             "link": "https://www.instagram.com/p/C5ETw36sLUA/"
+        },
+        {
+            "title": "cover",
+            "description": "break my heart again by finneas",
+            "img": "./assets/hobbies/break-my-heart.png",
+            "link": "https://www.instagram.com/reel/C32-xKiJVEL/"
         },
         {
             "title": "rock climbing",
@@ -20,7 +26,7 @@
         },
         {
             "title": "photography",
-            "description": "adobe office 8th floor",
+            "description": "office view sometimes",
             "img": "./assets/hobbies/office.png",
             "link": "https://www.instagram.com/p/C3Fr3TNJ_7A/"
         },
@@ -38,12 +44,12 @@
         },
         {
             "title": "art",
-            "description": "my fav sketch ofo 2023",
+            "description": "my fav sketch of 2023",
             "img": "./assets/hobbies/imfine-draw.png",
             "link": "https://www.instagram.com/p/C1Mb_2WIxPu0aor5X-pWIQ9q96PN7npIxRj4UQ0/"
         },
         {
-            "title": "music",
+            "title": "cover",
             "description": "mary by big theif",
             "img": "./assets/hobbies/mary-big-theif.png",
             "link": "https://www.instagram.com/reel/C1MbgPHp17JNq2eaYbL-yLi7LMQyE46paj6AjI0/"
