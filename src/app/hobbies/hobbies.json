@@ -1,6 +1,12 @@
 {
     "hobbies": [
         {
+            "title": "running",
+            "description": "fastest 21K of my life so far",
+            "img": "./assets/hobbies/fastest-21k.png",
+            "link": "https://www.instagram.com/p/C6Ad8S-Jr68/"
+        },
+        {
             "title": "music",
             "description": "a melody from my dreams",
             "img": "./assets/hobbies/melody.png",

@@ -22,11 +22,8 @@ export default async function Home() {
       <div className='flex flex-col lg:grid lg:grid-cols-3 gap-6 md:gap-12'>
 
         <div className='col-span-2'>
-          <p className="text-2xl lg:text-5xl leading-relaxed font-extralight">hi stranger, </p>
+          <p className="text-2xl lg:text-5xl leading-relaxed font-extralight">Who am I? </p>
           <br />
-
-          <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            Welcome to my digital garden 🐛. </p>
 
           <br />
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
@@ -43,7 +40,7 @@ export default async function Home() {
 
           <br />
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            Subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get a weekly collection of my favorite links from the internet.
+            You should subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get a weekly updates of my life on the internet.
           </p>
 
         </div>
@@ -64,7 +61,7 @@ export default async function Home() {
           <div className='text-sm flex flex-row justify-between items-center'>
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>This week I'm obsessed with:</p>
           </div>
-          <a className='flex flex-col gap-4 mt-6 xl:mt-6' href="https://www.last.fm/user/TaRaT_122" target='_blank'>
+          <a className='flex flex-col gap-4 mt-6 xl:mt-6 cursor-alias ' href="https://www.last.fm/user/TaRaT_122" target='_blank'>
             {weeklyTracks.map((track: any, index: any) => (
               <div key={index} className='cursor-alias flex flex-row gap-4'>
                 <img src={track.image[2]['#text']} className="max-h-12 h-full md:max-w-18 rounded-t" alt={track.name} />
@@ -82,7 +79,7 @@ export default async function Home() {
           </a>
         </div>
 
-        <a className='col-span-1 flex flex-col justify-between' href={writing[0].link} target="_blank">
+        <a className='col-span-1 flex flex-col justify-between cursor-alias' href={writing[0].link} target="_blank">
           <div className='text-sm flex flex-row justify-between items-center'>
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>I recently wrote:</p>
           </div>
@@ -111,15 +108,15 @@ export default async function Home() {
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>I am currently reading:</p>
           </div>
           <div className='flex flex-col gap-4 mt-6 xl:mt-6'>
-            <a href={reading[1].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 flex flex-col justify-between">
+            <a href={reading[0].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 flex flex-col justify-between">
               <div className="mt-4 gap-3 flex items-end">
 
-                <img src={reading[1].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[1].title} />
+                <img src={reading[0].img} className="max-h-32 h-full md:max-w-52 rounded-t hover:-rotate-2" alt={reading[0].title} />
 
                 <div className="p-4">
-                  <p className="text-lg font-medium text-gray-900">{reading[1].title.length > 20 ? reading[1].title.slice(0, 20) + "..." : reading[1].title}</p>
-                  <p className="text-gray-600">{reading[1].author}</p>
-                  {reading[1].rating !== "" && <p className="text-gray-600">Rating: {reading[1].rating} </p>}
+                  <p className="text-lg font-medium text-gray-900">{reading[0].title.length > 20 ? reading[0].title.slice(0, 20) + "..." : reading[0].title}</p>
+                  <p className="text-gray-600">{reading[0].author}</p>
+                  {reading[0].rating !== "" && <p className="text-gray-600">Rating: {reading[0].rating} </p>}
                 </div>
               </div>
             </a>
