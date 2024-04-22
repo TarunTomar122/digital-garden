@@ -40,7 +40,7 @@ export default async function Home() {
 
           <br />
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            You should subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get a weekly updates of my life on the internet.
+            You should subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get weekly updates of my life on the internet.
           </p>
 
         </div>
