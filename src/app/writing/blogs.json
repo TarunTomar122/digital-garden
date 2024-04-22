@@ -1,13 +1,6 @@
 {
     "blogs":[
         {
-            "title": "A love song",
-            "description": "I wanna talk about the birds and the bees and how there are so many stars in the sky at night...",
-            "date": "22-04-2024",
-            "category": "thoughts",
-            "link": "https://medium.com/@tarat122/a-love-song-48240822ad20"
-        },
-        {
             "title": "The One Ring",
             "description": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
             "date": "18-03-2024",
