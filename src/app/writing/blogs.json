@@ -1,52 +1,59 @@
 {
     "blogs":[
         {
+            "title": "A love song",
+            "description": "I wanna talk about the birds and the bees and how there are so many stars in the sky at night...",
+            "date": "22-04-2024",
+            "category": "thoughts",
+            "link": "https://medium.com/@tarat122/a-love-song-48240822ad20"
+        },
+        {
             "title": "The One Ring",
             "description": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
             "date": "18-03-2024",
-            "category": "blog • thoughts",
+            "category": "thoughts",
             "link": "https://medium.com/@tarat122/the-one-ring-c32c86454438"
         },
         {
             "title": "Perfectionism Kills Creativity",
             "description": "When I am trying hard to be perfect, I stop enjoying the creative process and instead, I become too focused on the outcome and the result.",
             "date": "18-02-2024",
-            "category": "blog • thoughts",
+            "category": "thoughts",
             "link": "https://medium.com/@tarat122/perfectionism-kills-creativity-aeebe8390314"
         },
         {
             "title": "How do I get my shit done?",
             "description": "too many things to do and not enough time? well, maybe u need to rethink your strategies…",
             "date": "23-01-2024",
-            "category": "blog • thoughts",
+            "category": "thoughts",
             "link": "https://medium.com/@tarat122/how-do-i-get-my-shit-done-a04f1f1f87cd"
         },
         {
             "title": "2023 review",
             "description": "This was unarguably the most happening year of my life so far and as it is about to end, I feel like introspecting and reviewing my year in this blog.",
             "date": "31-12-2023",
-            "category": "blog • thoughts",
+            "category": "thoughts",
             "link": "https://medium.com/@tarat122/2023-review-9f0dafbf8706"
         },
         {
             "title": "A still life",
             "description": "Last month, I made a spontaneous decision to spend the remaining weeks of the year at my grandmother’s home in a quaint village in hopes of finding out the secret of a still life.",
             "date": "24-12-2023",
-            "category": "blog • thoughts",
+            "category": "thoughts",
             "link": "https://medium.com/@tarat122/a-still-life-d90597805dd8"
         },
         {
             "title":"Are we closing in on Artificial General Intelligence?",
             "description":"Why are people suddenly talking about AGI and how is this related to the OpenAI’s recent firing of its CEO?",
             "date":"25-11-2023",
-            "category":"blog • tech",
+            "category":"tech",
             "link": "https://medium.com/@tarat122/are-we-closing-in-on-artificial-general-intelligence-952c062dcbab"
         },
         {
             "title":"How to stand out as a software developer in 2023?",
             "description":"Too many languages, too many frameworks, too many libraries, and too many average developers. How do you stand out?",
             "date":"09-11-2023",
-            "category":"blog • tech",
+            "category":"tech",
             "link":"https://medium.com/@tarat122/how-to-stand-out-as-a-software-developer-in-2023-8844d1ef4cc6"
         }
     ]

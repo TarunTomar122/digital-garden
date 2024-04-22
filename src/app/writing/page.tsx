@@ -4,7 +4,7 @@ export default function Page() {
     return (
         <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
             <p className="text-3xl lg:text-6xl font-normal leading-relaxed">writing.</p>
-            <p className="text-neutral-500 text:lg lg:text-xl font-light">I write about tech and everything that is not related to tech.</p>
+            <p className="text-neutral-500 text:lg lg:text-xl font-light">A collection of my most random thoughts and blogs.</p>
 
             {/* Main Container */}
             <div className="pt-8 flex flex-col">
