@@ -26,14 +26,6 @@ export default function Page() {
         </li> */}
         <li>
           <Link
-            className={`link ${pathname === '/hobbies' ? 'text-red-500' : ''}`}
-            href="/hobbies"
-          >
-            hobbies
-          </Link>
-        </li>
-        <li>
-          <Link
             className={`link ${pathname === '/reading' ? 'text-red-500' : ''}`}
             href="/reading"
           >
@@ -48,6 +40,15 @@ export default function Page() {
             writing
           </Link>
         </li>
+        {/* <li>
+          <Link
+            className={`link cursor-alias ${pathname === '/hobbies' ? 'text-red-500' : ''}`}
+            href="https://www.instagram.com/tarat.life/"
+            target='_blank'
+          >
+            hobbies
+          </Link>
+        </li> */}
       </ul>
 
       {/* <div className='hidden sm:block'>

@@ -35,12 +35,19 @@ export default async function Home() {
           </p>
           <br />
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            In my free time, I like to read books, write blogs, play piano, run a few Kms, code stupid projects and rant about some new AI model or Javascript framework.
+            I like to read books, write blogs, play piano, run half marathons, code stupid projects and rant about some new tech.
           </p>
 
           <br />
+
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            You should subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> to get weekly updates of my life on the internet.
+            You should follow my <a href="https://www.instagram.com/tarat.life/" target="_blank" className="text-orange-500 cursor-alias underline font-medium">instagram</a> where I do all of that.
+          </p>
+
+          <br />
+
+          <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
+            Or subscribe to my <a href="https://tarat122.substack.com/" target="_blank" className="text-green-500 cursor-alias underline font-medium">newsletter</a> for weekly life updates.
           </p>
 
         </div>
@@ -61,9 +68,9 @@ export default async function Home() {
           <div className='text-sm flex flex-row justify-between items-center'>
             <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>This week I'm obsessed with:</p>
           </div>
-          <a className='flex flex-col gap-4 mt-6 xl:mt-6 cursor-alias ' href="https://www.last.fm/user/TaRaT_122" target='_blank'>
+          <a className='flex flex-col gap-4 mt-6 xl:mt-6'>
             {weeklyTracks.map((track: any, index: any) => (
-              <div key={index} className='cursor-alias flex flex-row gap-4'>
+              <div key={index} className='flex flex-row gap-4'>
                 <img src={track.image[2]['#text']} className="max-h-12 h-full md:max-w-18 rounded-t" alt={track.name} />
                 <div className='flex flex-col'>
                   <p className='text-lg'>{
