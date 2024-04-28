@@ -22,9 +22,7 @@ export default async function Home() {
       <div className='flex flex-col lg:grid lg:grid-cols-3 gap-6 md:gap-12'>
 
         <div className='col-span-2'>
-          <p className="text-2xl lg:text-5xl leading-relaxed font-extralight">Who am I? </p>
-          <br />
-
+          <p className="text-2xl lg:text-5xl lg:mb-4  leading-relaxed font-extralight">Who am I? </p>
           <br />
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
             I am <a href="https://bento.me/tarat" target="_blank" className="text-blue-500 cursor-alias underline font-medium" >TaraT</a>, a 22 year old Software Developer from India.
