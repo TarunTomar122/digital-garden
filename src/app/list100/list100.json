@@ -1,0 +1,449 @@
+{
+    "list100":[
+        {
+            "id":1,
+            "name":"Get married and start a family",
+            "status":false
+        },
+        {
+            "id":2,
+            "name":"Own a house",
+            "status":false
+        },
+        {
+            "id":3,
+            "name":"Own a car",
+            "status":false
+        },
+        {
+            "id":4,
+            "name":"Learn how to drive a car",
+            "status":false
+        },
+        {
+            "id":5,
+            "name":"Visit Amazon rainforest",
+            "status":false
+        },
+        {
+            "id":6,
+            "name":"Go on a road trip",
+            "status":false
+        },
+        {
+            "id":7,
+            "name":"Camp outside in a forest",
+            "status":false
+        },
+        {
+            "id":8,
+            "name":"Run 100kms in one go",
+            "status":false
+        },
+        {
+            "id":9,
+            "name":"Complete a marathon under 3hrs",
+            "status":false
+        },
+        {
+            "id":10,
+            "name":"Learn swimming",
+            "status":false
+        },
+        {
+            "id":11,
+            "name":"Take my parents on a flight",
+            "status":false
+        },
+        {
+            "id":12,
+            "name":"Produce a song",
+            "status":false
+        },
+        {
+            "id":13,
+            "name":"Own a personal music room with a lot of instruments",
+            "status":false
+        },
+        {
+            "id":14,
+            "name":"Read 1000 books",
+            "status":false
+        },
+        {
+            "id":15,
+            "name":"Hit 25 free-throw baskets in a row",
+            "status":false
+        },
+        {
+            "id":16,
+            "name":"Play a full-team basketball match",
+            "status":false
+        },
+        {
+            "id":17,
+            "name":"Score a goal in a football match",
+            "status":false
+        },
+        {
+            "id":18,
+            "name":"Achieve less than 10% body fat with 75+ Kgs body weight",
+            "status":false
+        },
+        {
+            "id":19,
+            "name":"Teach a class for an entire term",
+            "status":false
+        },
+        {
+            "id":20,
+            "name":"Do a properly choreographed dance on a song",
+            "status":false
+        },
+        {
+            "id":21,
+            "name":"Own a gaming setup",
+            "status":false
+        },
+        {
+            "id":22,
+            "name":"Play Holi",
+            "status":false
+        },
+        {
+            "id":23,
+            "name":"Plan and execute an epic proposal",
+            "status":false
+        },
+        {
+            "id":24,
+            "name":"Travel across north-east India",
+            "status":false
+        },
+        {
+            "id":25,
+            "name":"Attend a house concert",
+            "status":false
+        },
+        {
+            "id":26,
+            "name":"Travel on a bicycle for an entire week",
+            "status":false
+        },
+        {
+            "id":27,
+            "name":"Write a non-fiction book",
+            "status":false
+        },
+        {
+            "id":28,
+            "name":"Write a fiction book",
+            "status":false
+        },
+        {
+            "id":29,
+            "name":"Learn Guitar",
+            "status":false
+        },
+        {
+            "id":30,
+            "name":"Reach Platinum Rank in Valorant",
+            "status":false
+        },
+        {
+            "id":31,
+            "name":"Have a pet Dog",
+            "status":false
+        },
+        {
+            "id":32,
+            "name":"Have a pet Cat",
+            "status":false
+        },
+        {
+            "id":33,
+            "name":"Upload 1000+ Youtube Videos",
+            "status":false
+        },
+        {
+            "id":34,
+            "name":"Learn cinematography",
+            "status":false
+        },
+        {
+            "id":35,
+            "name":"Get a second degree",
+            "status":false
+        },
+        {
+            "id":36,
+            "name":"Sell a tool/app/software",
+            "status":false
+        },
+        {
+            "id":37,
+            "name":"Get a sponsor for one of my Instagram posts",
+            "status":false
+        },
+        {
+            "id":38,
+            "name":"Like 50K songs on Spotify",
+            "status":false
+        },
+        {
+            "id":39,
+            "name":"Make 10 electronics projects",
+            "status":false
+        },
+        {
+            "id":40,
+            "name":"Cook for 50 people at once",
+            "status":false
+        },
+        {
+            "id":41,
+            "name":"Donate 5 Lacs to someone",
+            "status":false
+        },
+        {
+            "id":42,
+            "name":"A trip with my siblings",
+            "status":false
+        },
+        {
+            "id":43,
+            "name":"Learn Origami",
+            "status":false
+        },
+        {
+            "id":44,
+            "name":"Meet my manager in person",
+            "status":false
+        },
+        {
+            "id":45,
+            "name":"Volunteer for a social cause",
+            "status":false
+        },
+        {
+            "id":46,
+            "name":"Visit Poland",
+            "status":false
+        },
+        {
+            "id":47,
+            "name":"Meet my penpal in person",
+            "status":false
+        },
+        {
+            "id":48,
+            "name":"Visit Norway",
+            "status":false
+        },
+        {
+            "id":49,
+            "name":"Sail a cruise",
+            "status":false
+        },
+        {
+            "id":50,
+            "name":"Spend a month in a European Countryside",
+            "status":false
+        },
+        {
+            "id":51,
+            "name":"Become an Ironman",
+            "status":false
+        },
+        {
+            "id":52,
+            "name":"Have an art studio",
+            "status":false
+        },
+        {
+            "id":53,
+            "name":"Visit a chiropractor",
+            "status":false
+        },
+        {
+            "id":54,
+            "name":"Go to a spa",
+            "status":false
+        },
+        {
+            "id":55,
+            "name":"Bungee jumping",
+            "status":false
+        },
+        {
+            "id":56,
+            "name":"Skiing",
+            "status":false
+        },
+        {
+            "id":57,
+            "name":"Skydiving",
+            "status":false
+        },
+        {
+            "id":58,
+            "name":"Get over the fear of blood",
+            "status":false
+        },
+        {
+            "id":59,
+            "name":"Visit Japan",
+            "status":false
+        },
+        {
+            "id":60,
+            "name":"Run through a field full of daisies at sunset",
+            "status":false
+        },
+        {
+            "id":61,
+            "name":"Scuba diving",
+            "status":false
+        },
+        {
+            "id":62,
+            "name":"Spend a week on an uninhabited island",
+            "status":false
+        },
+        {
+            "id":63,
+            "name":"Complete a Triathlon",
+            "status":false
+        },
+        {
+            "id":64,
+            "name":"DJ in a club",
+            "status":false
+        },
+        {
+            "id":65,
+            "name":"Write 1000 blogs",
+            "status":false
+        },
+        {
+            "id":66,
+            "name":"Solo night out in an unknown city",
+            "status":false
+        },
+        {
+            "id":67,
+            "name":"Plant 100 trees",
+            "status":false
+        },
+        {
+            "id":68,
+            "name":"Visit my college again",
+            "status":false
+        },
+        {
+            "id":69,
+            "name":"Start a run club",
+            "status":false
+        },
+        {
+            "id":70,
+            "name":"Get 2 job offers at a time",
+            "status":false
+        },
+        {
+            "id":71,
+            "name":"Play Forza Horizon on a gaming setup",
+            "status":false
+        },
+        {
+            "id":72,
+            "name":"Drive a truck",
+            "status":false
+        },
+        {
+            "id":73,
+            "name":"Reach 1800 in chess",
+            "status":false
+        },
+        {
+            "id":74,
+            "name":"Win a solo hackathon",
+            "status":false
+        },
+        {
+            "id":75,
+            "name":"Make a humanoid robot (PA)",
+            "status":false
+        },
+        {
+            "id":76,
+            "name":"Go on a trip with a stranger",
+            "status":false
+        },
+        {
+            "id":77,
+            "name":"Record 73 Questions with all my loved ones",
+            "status":false
+        },
+        {
+            "id":78,
+            "name":"Get dressed up by a professional stylist",
+            "status":false
+        },
+        {
+            "id":79,
+            "name":"Make a feature film",
+            "status":false
+        },
+        {
+            "id":80,
+            "name":"Become a street musician for an entire day",
+            "status":false
+        },
+        {
+            "id":81,
+            "name":"Watch a professional football game in a stadium",
+            "status":false
+        },
+        {
+            "id":82,
+            "name":"Watch a professional basketball game in a stadium",
+            "status":false
+        },
+        {
+            "id":83,
+            "name":"Do a 24hrs livestream",
+            "status":false
+        },
+        {
+            "id":84,
+            "name":"Visit Egypt and see the pyramids",
+            "status":false
+        },
+        {
+            "id":85,
+            "name":"Pat pat a dolphin",
+            "status":false
+        },
+        {
+            "id":86,
+            "name":"Become a farmer",
+            "status":false
+        },
+        {
+            "id":87,
+            "name":"Experience the Northern Lights",
+            "status":false
+        },
+        {
+            "id":88,
+            "name":"Learn a new language",
+            "status":false
+        },
+        {
+            "id":89,
+            "name":"Speak at Ted",
+            "status":false
+        }
+    ]
+}

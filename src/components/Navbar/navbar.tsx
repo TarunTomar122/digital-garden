@@ -40,6 +40,14 @@ export default function Page() {
             writing
           </Link>
         </li>
+        <li>
+          <Link
+            className={`link ${pathname === '/list100' ? 'text-red-500' : ''}`}
+            href="/list100"
+          >
+            list 100
+          </Link>
+        </li>
         {/* <li>
           <Link
             className={`link cursor-alias ${pathname === '/hobbies' ? 'text-red-500' : ''}`}
