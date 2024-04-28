@@ -39,7 +39,7 @@ export default async function Home() {
           <br />
 
           <p className="text-lg lg:text-2xl leading-relaxed font-extralight">
-            You should follow my <a href="https://www.instagram.com/tarat.life/" target="_blank" className="text-orange-500 cursor-alias underline font-medium">instagram</a> where I do all of that.
+            You should follow my <a href="https://www.instagram.com/tarat.hobbies/" target="_blank" className="text-orange-500 cursor-alias underline font-medium">instagram</a> where I do all of that.
           </p>
 
           <br />
