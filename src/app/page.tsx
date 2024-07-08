@@ -110,7 +110,7 @@ export default async function Home() {
 
         <div className='col-span-1 flex flex-col justify-between'>
           <div className='text-sm flex flex-row justify-between items-center'>
-            <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>I recently read:</p>
+            <p className='text-xl lg:text-2xl leading-relaxed font-extralight'>I am currently reading:</p>
           </div>
           <div className='flex flex-col gap-4 mt-6 xl:mt-6'>
             <a href={reading[0].link} target="_blank" rel="noopener noreferrer" className="cursor-alias  col-span-2 flex flex-col justify-between">
