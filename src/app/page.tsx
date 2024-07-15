@@ -16,6 +16,12 @@ export default async function Home() {
   const weeklyTracks = (await getWeeklyTopSongs('TaRaT_122')).slice(1, 4);
 
   return (
+    <main>
+      <h3>Work in progress</h3>
+    </main>
+  )
+
+  return (
     <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
 
 
