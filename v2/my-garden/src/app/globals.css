@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Light.ttf');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face { 
+  font-family: "Inter"; 
+  src: url('../../public/fonts/Inter/static/Inter-Regular.ttf'); 
+  font-weight: 400; 
+  font-style: normal; 
+} 
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Medium.ttf');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-SemiBold.ttf');
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Bold.ttf');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
