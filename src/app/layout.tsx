@@ -4,8 +4,8 @@ import './globals.css'
 import Navbar from '../components/Navbar/navbar'
 
 export const metadata: Metadata = {
-  title: "TaraT's digital garden",
-  description: 'A digital garden by TaraT',
+  title: "tarat",
+  description: 'Personal website of TaraT',
 }
 
 export default function RootLayout({
@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-vs">
+      <Navbar />
         {children}
       </body>
     </html>
