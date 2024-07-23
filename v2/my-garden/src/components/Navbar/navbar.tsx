@@ -9,10 +9,10 @@ import Link from 'next/link';
 export default function Page() {
     const pathname = usePathname()
     return (
-        <main className="flex flex-col items-center p-8">
-            <h1 className="text-xl m-1">Tarun Tomar</h1>
-            <h3 className='text-slate-400'>Design Engineer @Adobe</h3>
-            <ul className='flex flex-row w-full justify-center gap-6 mt-4'>
+        <main className="flex flex-col p-16 md:px-24 lg:px-48 xl:px-96">
+            <p className="text-2xl">Tarun Tomar</p>
+            <p className='text-slate-400 text-lg'>Design Engineer @Adobe</p>
+            <ul className='flex flex-row w-full gap-6 mt-4'>
                 <li className={`link ${pathname === '/' ? 'border-b-2 border-b-slate-400' : ''}`}>
                     <Link href="/">
                         home

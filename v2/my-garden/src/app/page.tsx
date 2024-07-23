@@ -1,14 +1,72 @@
-export default function Page() {
+import { getWeeklyTopSongs } from '@/utils/musicAPI';
+
+export default async function Page() {
+
+  const weeklyTracks = (await getWeeklyTopSongs('TaRaT_122')).slice(1, 2);
+
   return (
-    <main className="flex min-h-screen flex-col items-center md:px-24 lg:px-48 xl:px-96 px-8 py-6">
-      <h2>Hey there,</h2>
-      <h3 className="mt-2">I'm still working on v2 of this site :)</h3>
-      <h3 className="mt-2">till then you can reach out to me by clicking
-        {" "}
-        <span className="border-slate-400 border-b-2 cursor-pointer">
-          <a href="https://bento.me/tarat" target="_blank">here.</a>
-        </span>
-      </h3>
-    </main>
+    <main className="flex min-h-screen flex-col px-16 md:px-24 lg:px-48 xl:px-96">
+
+      {/* Present */}
+      <section className="py-8">
+        <p className="text-2xl py-4">Present</p>
+        <section className="text-slate-400 leading-10 text-lg">
+          <p>Tarun is currently helping ship
+            {" "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</a>
+            </span>
+          </p>
+          <p>but also, he is</p>
+          <p>writing weekly newsletters on substack as
+            {" "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</a>
+            </span>
+            {","}
+          </p>
+          <p>documenting hobbies on instagram as
+            {" "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</a>
+            </span>
+            {","}
+          </p>
+          <p>
+            {" "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="/writings">writing blogs</a>
+            </span>
+            {", "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="/library">reading books</a>
+            </span>
+            {" and, "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href="/dump">creating half finished projects.</a>
+            </span>
+          </p>
+        </section>
+      </section>
+
+      {/* Recent */}
+      <section className="py-8">
+        <p className="text-2xl py-4">Recent</p>
+        <section className="text-slate-400 leading-10 text-lg">
+          <p>Tarun is obsessed with
+            {" "}
+            <span className="border-b-2 border-b-slate-400 text-slate-200">
+              <a href={weeklyTracks[0].url} target="_blank">{weeklyTracks[0].name} by {weeklyTracks[0].artist['#text']}</a>
+            </span>
+          </p>
+        </section>
+      </section>
+
+      {/* Footer */}
+      <section className="py-8">
+        <p>last updated {new Date().toLocaleDateString()}</p>
+      </section>
+
+    </main >
   );
 }
