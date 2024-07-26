@@ -1,4 +1,4 @@
-import Recent from '@/components/Recent/page';
+import Recent from '../components/Recent/recent';
 
 export default async function Page() {
   return (

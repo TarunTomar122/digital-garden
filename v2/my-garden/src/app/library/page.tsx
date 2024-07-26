@@ -25,10 +25,10 @@ export default function Page() {
                                         <span className="border-b-2 border-b-slate-400 text-slate-200 text-xl">
                                             {book.title}</span>
                                     </a>
-                                    <p>{book.author}</p>
-                                    {book.rating === "" && <p className='text-slate-500 text-sm'
+                                    <p className="text-gray-400">{book.author}</p>
+                                    {book.rating === "" && <p className='text-gray-400 text-sm'
                                     >{book.status}</p>}
-                                    {book.rating !== "" && <p>Rating: {book.rating}</p>}
+                                    {book.rating !== "" && <p className='text-gray-400 text-sm'>Rating: {book.rating}</p>}
                                 </div>
                             );
                         })
