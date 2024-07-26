@@ -1,0 +1,245 @@
+{
+    "books":[
+        {
+            "title": "How To Enjoy Your Life And Your Job",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429681584i/4870.jpg",
+            "author": "Dale Carnegie",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/4870.How_To_Enjoy_Your_Life_And_Your_Job"
+        },
+        {
+            "title": "Things No One Taught Us About Love",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1707541647i/208124623.jpg",
+            "author": "Vex King",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/208124623-things-no-one-taught-us-about-love"
+        },
+        {
+            "title": "Kafka on the Shore",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429638085i/4929.jpg",
+            "author": "Haruki Murakami",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"
+        },
+        {
+            "title": "Feel-Good Productivity: How to Do More of What Matters to You",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689695229i/142402923.jpg",
+            "author": "Ali Abdaal",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/142402923-feel-good-productivity"
+        },
+        {
+            "title": "Never Finished: Unshackle Your Mind and Win the War Within",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1666611105i/63079845.jpg",
+            "author": "David Goggins",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/63079845-never-finished"
+        },
+        {
+            "title": "Before We Say Goodbye",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680346926i/66269953.jpg",
+            "author": "David Goggins",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/66269953-before-we-say-goodbye"
+        },
+        {
+            "title": "Norwegian Wood",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1699682893i/11297.jpg",
+            "author": "Haruki Murakami",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/11297.Norwegian_Wood"
+        },
+        {
+            "title": "Before Your Memory Fades",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1657903805i/60224365.jpg",
+            "author": "Toshikazu Kawaguchi",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/60224365-before-your-memory-fades"
+        },
+        {
+            "title": "The Creative Act: A Way of Being",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1663707011i/60965426.jpg",
+            "author": "Rick Rubin",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/en/book/show/60965426"
+        },
+        {
+            "title": "The Mountain Is You",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1590806892i/53642699.jpg",
+            "author": "Brianna Wiest",
+            "rating": "",
+            "status": "gave up",
+            "link": "https://www.goodreads.com/book/show/53642699-the-mountain-is-you?from_search=true&from_srp=true&qid=nJUaAW9VFu&rank=1"
+        },
+        {
+            "title": "The Hobbit",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546071216i/5907.jpg",
+            "author": "J.R.R. Tolkien",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/5907.The_Hobbit?ref=nav_sb_ss_1_10"
+        },
+        {
+            "title": "Focus on What Matters",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671139683i/68040872.jpg",
+            "author": "Darius Foroux",
+            "rating": "",
+            "status": "gave up",
+            "link": "https://www.goodreads.com/book/show/68040872-focus-on-what-matters"
+        },
+        {
+            "title": "The Secret",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659289885i/52529.jpg",
+            "author": "Rhonda Byrne",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/52529.The_Secret?ac=1&from_search=true&qid=ccz8tGV1Z0&rank=2"
+        },
+        {
+            "title": "Men Without Women",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483232988i/33652490.jpg",
+            "author": "Haruki Murakami",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/33652490-men-without-women?ref=nav_sb_ss_1_15"
+        },
+        {
+            "title": "Before the Coffee Gets Cold",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1704153539i/44421460.jpg",
+            "author": "Toshikazu Kawaguchi",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/44421460-before-the-coffee-gets-cold"
+        },
+        {
+            "title": "Rework",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391275636i/6732019.jpg",
+            "author": "Jason Fried",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/6732019-rework"
+        },
+        {
+            "title": "The courage to be disliked",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545421684i/43306206.jpg",
+            "author": "Ichiro Kishimi",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked"
+        },
+        {
+            "title": "Looking for Alaska",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1652042180i/99561.jpg",
+            "author": "John Green",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/99561.Looking_for_Alaska"
+        },
+        {
+            "title": "Just enough research",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1379351795i/17236175.jpg",
+            "author": "Erica Hall",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/17236175-just-enough-research"
+        },
+        {
+            "title": "Sorrounded by idiots",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1583763517i/39101777.jpg",
+            "author": "Thomas Erikson",
+            "rating": "3/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/39101777-surrounded-by-idiots"
+        },
+        
+        {
+            "title": "A hundred years old man who climbed out of the window and disappeared",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1510447566i/36578942.jpg",
+            "author": "Jonas Jonasson",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/36578942-the-100-year-old-man-who-climbed-out-the-window-and-disappeared"
+        },
+        {
+            "title": "Why has nobody told me this before?",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1670001084i/58536046.jpg",
+            "author": "Julie Smith",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/58536046-why-has-nobody-told-me-this-before"
+        },
+        {
+            "title": "About face",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1407706749i/18737922.jpg",
+            "author": "Allan Cooper",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/18737922-about-face"
+        },
+        {
+            "title": "Steal Like an Artist",
+            "img": "https://th.bing.com/th/id/OIP.dLWGBEhmAWI5ZAXV0k3NewHaJm?rs=1&pid=ImgDetMain",
+            "author": "Austin Kleon",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/13099738-steal-like-an-artist"
+        },
+        {
+            "title": "Mayflies",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598771531i/50162215.jpg",
+            "author": "Andrew O'Hagan",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/50162215-mayflies"
+        },
+        {
+            "title": "It ends with us",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1688011813i/27362503.jpg",
+            "author": "Colleen Hoover",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/27362503-it-ends-with-us"
+        },
+        {
+            "title": "The people we keep",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1625673640i/55711726.jpg",
+            "author": "Allison Larkin",
+            "rating": "4.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/55711726-the-people-we-keep"
+        },
+        {
+            "title": "Earthlings",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580144195i/50269327.jpg",
+            "author": "Sayaka Murata",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/50269327-earthlings?ref=nav_sb_ss_1_10"
+        },
+        {
+            "title": "How to Win Friends and Influence People",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442726934i/4865.jpg",
+            "author": "Dale Carnegie",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_and_Influence_People"
+        },
+        {
+            "title": "A man called Ove",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1405259930i/18774964.jpg",
+            "author": "Fredrik Backman",
+            "rating": "5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/18774964-a-man-called-ove"
+        }
+    ]
+}

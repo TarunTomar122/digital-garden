@@ -1,9 +1,6 @@
-import { getWeeklyTopSongs } from '@/utils/musicAPI';
+import Recent from '@/components/Recent/page';
 
 export default async function Page() {
-
-  const weeklyTracks = (await getWeeklyTopSongs('TaRaT_122')).slice(1, 2);
-
   return (
     <main className="flex min-h-screen flex-col px-16 md:px-24 lg:px-48 xl:px-96">
 
@@ -51,19 +48,11 @@ export default async function Page() {
 
       {/* Recent */}
       <section className="py-8">
-        <p className="text-2xl py-4">Recent</p>
-        <section className="text-slate-400 leading-10 text-lg">
-          <p>Tarun is obsessed with
-            {" "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href={weeklyTracks[0].url} target="_blank">{weeklyTracks[0].name} by {weeklyTracks[0].artist['#text']}</a>
-            </span>
-          </p>
-        </section>
+        <Recent />
       </section>
 
       {/* Footer */}
-      <section className="py-8">
+      <section className="pt-8">
         <p>last updated {new Date().toLocaleDateString()}</p>
       </section>
 
