@@ -1,0 +1,59 @@
+.markdown{
+    font-family: Inter;
+    line-height: 1.6;
+    color: rgb(var(--foreground-rgb));
+}
+
+.markdown h1{
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.markdown h2{
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.markdown p{
+    margin-bottom: 1em;
+}
+
+.markdown img{
+    max-width: 75%;
+    height: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.markdown blockquote{
+    font-style: italic;
+    color: #666;
+}
+
+.markdown quote{
+    font-style: italic;
+    color: #666;
+}
+
+.markdown ul{
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+.markdown ol{
+    list-style-type: decimal;
+    margin-left: 1em;
+}
+
+.markdown li{
+    margin-bottom: 1em;
+}
+
+.markdown hr{
+    border: 0;
+    border-top: 1px solid #666;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

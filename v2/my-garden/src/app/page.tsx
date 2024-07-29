@@ -7,7 +7,7 @@ export default async function Page() {
       {/* Present */}
       <section className="py-8">
         <p className="text-2xl py-4">Present</p>
-        <section className="text-slate-400 leading-10 text-lg">
+        <section className="text-slate-400 md:leading-10 leading-8 text-lg">
           <p>Tarun is currently helping ship
             {" "}
             <span className="border-b-2 border-b-slate-400 text-slate-200">

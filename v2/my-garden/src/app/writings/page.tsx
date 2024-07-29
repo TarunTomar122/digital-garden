@@ -11,7 +11,7 @@ export default function Page() {
             {/* Header */}
             <section className="py-8">
                 <p className="text-2xl py-4">Writings</p>
-                <section className="text-slate-400 leading-10 text-lg">
+                <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                     <p>Shower thoughts and everything else</p>
                 </section>
             </section>
@@ -22,7 +22,7 @@ export default function Page() {
                 {
                     writings.map(({ id, title, description, category, date }) => {
                         return (
-                            <div className="py-6 leading-10">
+                            <div className="py-6 md:leading-10 leading-8">
                                 <Link key={id} href={`/writings/${id}`} rel="noopener noreferrer">
                                     <span className="border-b-2 border-b-slate-400 text-slate-200 text-xl">{title.length > 70 ? title.slice(0, 70) + "..." : title}</span>
                                     <p className='text-gray-400 text-sm'>{date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>

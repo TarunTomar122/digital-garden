@@ -8,7 +8,7 @@ export default function Page() {
             {/* Header */}
             <section className="py-8">
                 <p className="text-2xl py-4">Books</p>
-                <section className="text-slate-400 leading-10 text-lg">
+                <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                     <p>A list of book I'm reading or have read already.</p>
                 </section>
             </section>
@@ -16,7 +16,7 @@ export default function Page() {
             {/* Books */}
             <section className="py-8">
 
-                <div className="text-slate-400 leading-10 text-lg">
+                <div className="text-slate-400 md:leading-10 leading-8 text-lg">
                     {
                         books.map((book, index) => {
                             return (

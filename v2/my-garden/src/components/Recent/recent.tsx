@@ -21,7 +21,7 @@ export default async function Page() {
     return (
         <>
             <p className="text-2xl py-4">Recent</p>
-            <section className="text-slate-400 leading-10 text-lg">
+            <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                 {weeklyTrack ? (
                     <p>Tarun is obsessed with
                         {" "}
