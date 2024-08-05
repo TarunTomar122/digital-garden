@@ -31,7 +31,7 @@ export default async function Page() {
                         </span>
                     </p>
                 ) : (
-                    <p>There ain't nothing to see here.</p>
+                    <p>There ain't nothing to see here...</p>
                 )}
             </section>
         </>
