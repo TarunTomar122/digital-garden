@@ -14,6 +14,7 @@ export default async function Page() {
         if (res && res.length > 1) {
             weeklyTrack = res.slice(1, 4)[0] as WeeklyTrack;
         }
+        console.log('Weekly top songs:', weeklyTrack);
     } catch (error) {
         console.error('Error fetching weekly top songs:', error);
     }
@@ -30,7 +31,7 @@ export default async function Page() {
                         </span>
                     </p>
                 ) : (
-                    <p></p>
+                    <p>There ain't nothing to see here.</p>
                 )}
             </section>
         </>
