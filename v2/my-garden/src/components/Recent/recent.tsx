@@ -14,7 +14,6 @@ export default async function Page() {
         if (res && res.length > 1) {
             weeklyTrack = res.slice(1, 4)[0] as WeeklyTrack;
         }
-        console.log('Weekly top songs:', weeklyTrack);
     } catch (error) {
         console.error('Error fetching weekly top songs:', error);
     }

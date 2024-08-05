@@ -1,4 +1,5 @@
 import Recent from '../components/Recent/recent';
+import { Suspense } from 'react'
 
 export default async function Page() {
   return (
@@ -7,7 +8,7 @@ export default async function Page() {
       {/* Present */}
       <section className="py-8">
         <p className="text-2xl py-4">Present</p>
-        <section className="text-slate-400 md:leading-10 leading-8 text-lg">
+        <section className="text-slate-400 md:leading-10 leading-7 text-lg">
           <p>Tarun is currently helping ship
             {" "}
             <span className="border-b-2 border-b-slate-400 text-slate-200">
@@ -48,7 +49,9 @@ export default async function Page() {
 
       {/* Recent */}
       <section className="py-8">
-        <Recent />
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <Recent />
+        </Suspense>
       </section>
 
       {/* Footer */}
