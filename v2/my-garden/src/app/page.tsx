@@ -1,5 +1,5 @@
+import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
-import { Suspense } from 'react'
 
 export default async function Page() {
   return (

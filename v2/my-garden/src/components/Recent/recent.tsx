@@ -23,7 +23,7 @@ export default async function Page() {
             <p className="text-2xl py-4">Recent</p>
             <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                 {weeklyTrack ? (
-                    <p>Tarun is obsessed with
+                    <p>Tarun is currently obsessed with
                         {" "}
                         <span className="border-b-2 border-b-slate-400 text-slate-200">
                             <a href={weeklyTrack.url} target="_blank">{weeklyTrack.name} by {weeklyTrack.artist['#text']}</a>
