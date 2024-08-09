@@ -23,6 +23,9 @@ function PostContent({ postData }: { postData: Writing }) {
     const customRenderers = {
         code(code) {
             const { className, children } = code;
+            if (className === undefined) {
+                return <code className="inline-code">{children}</code>;
+            }
             const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
             return (
                 <SyntaxHighlighter
@@ -31,7 +34,7 @@ function PostContent({ postData }: { postData: Writing }) {
                     {children}
                 </SyntaxHighlighter>
             );
-        },
+        }
     };
 
     return (

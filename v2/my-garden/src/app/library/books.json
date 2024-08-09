@@ -17,20 +17,20 @@
             "link": "https://www.goodreads.com/book/show/208124623-things-no-one-taught-us-about-love"
         },
         {
-            "title": "Kafka on the Shore",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429638085i/4929.jpg",
-            "author": "Haruki Murakami",
-            "rating": "",
-            "status": "reading",
-            "link": "https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"
-        },
-        {
             "title": "Feel-Good Productivity: How to Do More of What Matters to You",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689695229i/142402923.jpg",
             "author": "Ali Abdaal",
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/142402923-feel-good-productivity"
+        },
+        {
+            "title": "Kafka on the Shore",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429638085i/4929.jpg",
+            "author": "Haruki Murakami",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"
         },
         {
             "title": "Never Finished: Unshackle Your Mind and Win the War Within",

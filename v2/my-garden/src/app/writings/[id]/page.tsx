@@ -23,8 +23,8 @@ export default async function Page({ params }: WritingProps) {
 
             {/* Header */}
             <section className="py-8 md:leading-10 leading-8">
-                <p className="text-2xl py-4">{writing.title}</p>
-                <section className="text-slate-400 text-lg">
+                <p className="text-4xl py-4">{writing.title}</p>
+                <section className="text-slate-200 text-lg">
                     <p>{writing.description}</p>
                 </section>
             </section>
