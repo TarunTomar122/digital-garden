@@ -88,3 +88,10 @@
     border-radius: 3px;
     font-family: monospace;
 }
+
+/* If in mobile set the image to full width */
+@media (max-width: 768px){
+    .markdown img{
+        max-width: 100%;
+    }
+}

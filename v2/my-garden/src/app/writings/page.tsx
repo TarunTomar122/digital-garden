@@ -6,7 +6,7 @@ export default function Page() {
     const writings = getAllWritings();
 
     return (
-        <main className="flex min-h-screen flex-col px-16 md:px-24 lg:px-48 xl:px-96">
+        <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
 
             {/* Header */}
             <section className="py-8">

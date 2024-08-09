@@ -3,12 +3,12 @@ import Recent from '../components/Recent/recent';
 
 export default async function Page() {
   return (
-    <main className="flex min-h-screen flex-col px-16 md:px-24 lg:px-48 xl:px-96">
+    <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
 
       {/* Present */}
       <section className="py-8">
         <p className="text-2xl py-4">Present</p>
-        <section className="text-slate-400 md:leading-10 leading-7 text-lg">
+        <section className="text-slate-400 leading-8 md:leading-10 text-lg">
           <p>Tarun is currently helping ship
             {" "}
             <span className="border-b-2 border-b-slate-400 text-slate-200">
