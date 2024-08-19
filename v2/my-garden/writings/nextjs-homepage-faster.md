@@ -1,6 +1,6 @@
 ---
 title: Falling in love with Next.js
-description: The story of how I made the homepage of tarat.space load faster using Partial Pre Rendering in Next.js.
+description: Partial Pre Rendering in Nextjs can help you make your page load 10x faster.
 category: thoughts
 date: 2024-08-09
 ---

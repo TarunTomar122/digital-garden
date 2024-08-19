@@ -13,7 +13,7 @@
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1707541647i/208124623.jpg",
             "author": "Vex King",
             "rating": "",
-            "status": "to read",
+            "status": "reading",
             "link": "https://www.goodreads.com/book/show/208124623-things-no-one-taught-us-about-love"
         },
         {
@@ -23,6 +23,14 @@
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/142402923-feel-good-productivity"
+        },
+        {
+            "title": "Smart Brevity: The Power of Saying More with Less",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1653286312i/59891634.jpg",
+            "author": "Jim Vandehei",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/59891634-smart-brevity"
         },
         {
             "title": "Kafka on the Shore",
