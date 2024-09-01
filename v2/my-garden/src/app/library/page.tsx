@@ -20,8 +20,8 @@ export default function Page() {
                     {
                         books.map((book, index) => {
                             return (
-                                <a href={book.link} target="_blank" key={index} className='py-4 flex-row flex gap-4 md:gap-8'>
-                                    <img src={book.img} alt={book.title} className="w-24 h-auto object-cover rounded-lg" />
+                                <a href={book.link} target="_blank" key={index} className='py-6 flex-row flex gap-4 md:gap-8'>
+                                    <img src={book.img} alt={book.title} className="w-20 h-auto object-cover" />
                                     <div>
                                         <span className="text-slate-200 text-xl">
                                             {book.title}</span>
