@@ -5,6 +5,11 @@ export default function Page() {
 
     const writings = getAllWritings();
 
+    // order the writings by date
+    writings.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
     return (
         <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
 
