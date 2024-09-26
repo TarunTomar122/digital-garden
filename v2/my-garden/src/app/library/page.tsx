@@ -21,13 +21,12 @@ export default function Page() {
                         books.map((book, index) => {
                             return (
                                 <a href={book.link} target="_blank" key={index} className='py-6 flex-row flex gap-4 md:gap-8'>
-                                    <img src={book.img} alt={book.title} className="w-20 h-auto object-cover" />
+                                    <img src={book.img} alt={book.title} className="w-20 h-auto object-cover rounded-sm" />
                                     <div>
                                         <span className="text-slate-200 text-xl">
-                                            {book.title}</span>
+                                            {book.title.length > 40 ? `${book.title.slice(0, 40)}...` : book.title}</span>
                                         <p className="text-gray-400">{book.author}</p>
-                                        {book.rating === "" && <p className='text-gray-400 text-sm'
-                                        >
+                                        {book.rating === "" && <p className='text-gray-400 text-sm'>
                                             {book.status === 'to read' && <span className='text-orange-300'>To read</span>}
                                             {book.status === 'reading' && <span className='text-green-300'>Reading</span>}
                                             {book.status === 'gave up' && <span className='text-red-200'>Gave up</span>}
