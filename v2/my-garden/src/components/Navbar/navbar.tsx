@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Page() {
     const pathname = usePathname()
     return (
-        <main className="flex flex-col p-16 px-6 md:px-24 lg:px-48 xl:px-96 mb-6 border-b-2">
+        <main className="flex flex-col pt-16 pb-10 px-6 md:px-24 lg:px-48 xl:px-96 border-b-0 border-slate-700">
             <a className="text-2xl cursor-pointer" href='https://bento.me/tarat' target='_blank'>Tarun Tomar</a>
             <p className='text-slate-400 text-lg'>Design Engineer @Adobe</p>
             <ul className='flex flex-row w-full gap-6 mt-4'>

@@ -6,15 +6,17 @@ export default function Page() {
         <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
 
             {/* Header */}
-            <section className="py-8">
-                <p className="text-2xl py-4">Books</p>
-                <section className="text-slate-400 md:leading-10 leading-8 text-lg">
-                    <p>A list of book I'm reading or have read already.</p>
-                </section>
-            </section>
+            {/* <section className="py-8">
+                <p className="text-2xl py-4">Books</p> */}
+              
+            {/* </section> */}
 
             {/* Books */}
             <section className="py-8">
+
+                  <section className="text-slate-400 md:leading-10 leading-8 text-lg pb-8">
+                    <p>A list of book I'm reading or have read already.</p>
+                </section>
 
                 <div className="text-slate-400 md:leading-10 leading-8 text-lg">
                     {

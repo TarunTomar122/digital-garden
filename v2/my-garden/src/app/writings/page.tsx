@@ -14,12 +14,12 @@ export default function Page() {
         <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
 
             {/* Header */}
-            <section className="py-8">
+            {/* <section className="py-8">
                 <p className="text-2xl py-4">Writings</p>
                 <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                     <p>Shower thoughts and everything else</p>
                 </section>
-            </section>
+            </section> */}
 
 
             {/* Writings */}
