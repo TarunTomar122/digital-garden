@@ -29,8 +29,8 @@ export default function Page() {
                     </Link>
                 </li>
                 <li>
-                    <Link className={`link ${pathname === '/dump' ? 'border-b-2 border-b-slate-400' : ''}`} href="/dump">
-                        dump
+                    <Link className={`link ${pathname === '/experience' ? 'border-b-2 border-b-slate-400' : ''}`} href="/experience">
+                        experience
                     </Link>
                 </li>
             </ul>

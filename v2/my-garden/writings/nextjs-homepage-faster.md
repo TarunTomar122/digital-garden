@@ -5,6 +5,7 @@ category: thoughts
 date: 2024-08-09
 ---
 
+## Introduction
 I've spent some unnecessary amount of hours trying to make the homepage of [tarat.space](https://www.tarat.space/), the most optimized homepage possible (*fast and seo friendly*) and in this article I wanna take you through the journey of how I did it.
 
 ## Context

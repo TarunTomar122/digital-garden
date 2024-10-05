@@ -8,7 +8,7 @@
 .markdown h1{
     font-size: 2.5em;
     font-weight: medium;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 0.75em;
     border-bottom: 1px solid rgb(203 213 225);
     display: inline-block;
@@ -17,7 +17,7 @@
 .markdown h2{
     font-size: 1.8em;
     font-weight: medium;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 0.75em;
     border-bottom: 1px solid rgb(203 213 225);
     display: inline-block;
@@ -26,7 +26,7 @@
 .markdown h3{
     font-size: 1.5em;
     font-weight: medium;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 0.75em;
     border-bottom: 1px solid rgb(203 213 225);
     display: inline-block;
@@ -48,7 +48,6 @@
 .markdown img{
     max-width: 80%;
     height: auto;
-    margin: auto;
     border: #666 1px solid;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -102,4 +101,10 @@
     .markdown img{
         max-width: 100%;
     }
+
+    .markdown h1 h2 h3{
+        margin-top: 2em;
+        margin-bottom: 0.75em;
+    }
+
 }
