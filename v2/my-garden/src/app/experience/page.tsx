@@ -11,15 +11,15 @@ export default function Page() {
                 project which is an implementation of Spectrum (Adobe's Design system) on web.
             </p>
             <li className="text-lg text-slate-300 max-w-4xl my-2 leading-relaxed">
-                I spearheaded the migration of SWC library to <a className="text-blue-300" target="_blank" href="https://s2.spectrum.adobe.com/">Spectrum 2.0</a> while ensuring a full support to all the product teams at the older spectrum version.
+                I spearheaded the migration of SWC library to <a className="text-blue-300" target="_blank" href="https://s2.spectrum.adobe.com/">Spectrum 2.0</a> while ensuring full support to all the product teams at the older spectrum version.
             </li>
             <li className="text-lg text-slate-300 max-w-4xl leading-relaxed">
-                Collaborated cross-functionally with interal (CSS, design tokens) as well as external dependencies (browsers, <a className="text-blue-300" target="_blank" href="https://lit.dev/">lit</a> team) to
+                Collaborated cross-functionally with internal (CSS, design tokens) as well as external dependencies (browsers, <a className="text-blue-300" target="_blank" href="https://lit.dev/">lit</a> team) to
                 implement new features and optimize existing patterns.
             </li>
 
             {/** Adobe Design Engineer */}
-            <h1 className="text-2xl mt-16 mb-1">Product Intern @Adobe</h1>
+            <h1 className="text-2xl mt-16 mb-1">Emerging Tech Intern @Adobe</h1>
             <p className="text-lg text-slate-400">May 2022 – Jul 2022</p>
             <li className="text-lg text-slate-300 max-w-4xl leading-relaxed my-4">
                 I designed and prototyped an AI assistant for Adobe Express to aid designers in their creative journey.
