@@ -1,6 +1,22 @@
 {
     "books":[
         {
+            "title": "Before We Forget Kindness",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1709454818i/200998630.jpg",
+            "author": "Toshikazu Kawaguchi",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/200998630-before-we-forget-kindness"
+        },
+        {
+            "title": "Yellowface",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671336608i/62047984.jpg",
+            "author": "R.F. Kuang",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/62047984-yellowface"
+        },
+        {
             "title": "How To Enjoy Your Life And Your Job",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429681584i/4870.jpg",
             "author": "Dale Carnegie",
@@ -51,7 +67,7 @@
         {
             "title": "Before We Say Goodbye",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680346926i/66269953.jpg",
-            "author": "David Goggins",
+            "author": "Toshikazu Kawaguchi",
             "rating": "5/5",
             "status": "read",
             "link": "https://www.goodreads.com/book/show/66269953-before-we-say-goodbye"
