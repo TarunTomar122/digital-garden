@@ -9,20 +9,20 @@
             "link": "https://www.goodreads.com/book/show/200998630-before-we-forget-kindness"
         },
         {
-            "title": "Yellowface",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671336608i/62047984.jpg",
-            "author": "R.F. Kuang",
-            "rating": "",
-            "status": "reading",
-            "link": "https://www.goodreads.com/book/show/62047984-yellowface"
-        },
-        {
             "title": "How To Enjoy Your Life And Your Job",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1429681584i/4870.jpg",
             "author": "Dale Carnegie",
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/4870.How_To_Enjoy_Your_Life_And_Your_Job"
+        },
+        {
+            "title": "Yellowface",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671336608i/62047984.jpg",
+            "author": "R.F. Kuang",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/62047984-yellowface"
         },
         {
             "title": "Things No One Taught Us About Love",
