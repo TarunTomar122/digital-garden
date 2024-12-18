@@ -16,7 +16,7 @@ export default function Page() {
                 <div className="mx-auto flex flex-wrap items-center justify-between min-w-full">
 
                     <a href="/" className="flex">
-                        <img className='cursor-pointer h-8' src="./montarat.svg" alt='TaraT' />
+                        <img className='cursor-pointer h-10' src="./montarat.svg" alt='TaraT' />
                     </a>
 
                     <button data-collapse-toggle="mobile-menu" type="button" className="md:hidden ml-3 text-gray-400 focus:outline-none rounded-lg inline-flex items-center justify-center" aria-controls="mobile-menu-2" aria-expanded="false" onClick={() => {
