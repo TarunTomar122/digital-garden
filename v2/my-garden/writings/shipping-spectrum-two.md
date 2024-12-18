@@ -5,12 +5,12 @@ category: thoughts
 date: 2024-11-08
 ---
 
-![Image](/assets/posts/spectrum-two/s2.jpeg)
-
 ## Introduction
 
 We shipped the much awaited 1.0 version of [Spectrum Web Components](https://opensource.adobe.com/spectrum-web-components/) at Adobe last week and I was one of the core contributors to this release. This was the biggest project I've ever worked on so far and I'm really proud of the work we did. 
 So in this blog I wanna take you through the journey of how we got here and what we did to make this release happen.
+
+![Image](/assets/posts/spectrum-two/s2.jpeg)
 
 ## Backstory
 

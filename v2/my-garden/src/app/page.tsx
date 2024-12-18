@@ -3,61 +3,52 @@ import Recent from '../components/Recent/recent';
 
 export default async function Page() {
   return (
-    <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
+    <main className='flex justify-center xl:px-60'>
+      <div className='min-w-full md:container md:mt-2 px-12  md:px-28 lg:px-60'>
 
-      {/* Present */}
-      <section className="py-8">
-        <p className="text-2xl py-4">Present</p>
-        <section className="text-slate-400 leading-8 md:leading-10 text-lg">
-          <p>Tarun is currently helping ship
-            {" "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</a>
-            </span>
-          </p>
-          <p>but also, he is</p>
-          <p>writing weekly newsletters on substack as
-            {" "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</a>
-            </span>
-            {","}
-          </p>
-          <p>documenting hobbies on instagram as
-            {" "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</a>
-            </span>
-            {","}
-          </p>
-          <p>
-            {" "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="/writings">writing blogs</a>
-            </span>
-            {", "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="/library">reading books</a>
-            </span>
-            {" and, "}
-            <span className="border-b-2 border-b-slate-400 text-slate-200">
-              <a href="/dump">creating half finished projects.</a>
-            </span>
-          </p>
-        </section>
-      </section>
+        {/* Present */}
+        <div>
+          <section>
+            <div className='flex flex-row items-center justify-between'>
+              <p className="text-3xl md:text-4xl font-extralight py-4">Present</p>
+              <img src="./selfie.png" alt='TaraT' className='h-12 md:h-16 rounded-full' />
+            </div>
+            <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
+              <p>Tarat is currently helping ship {" "}
+                <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</a>
+                </span> {" "} but also, he is writing weekly newsletters on substack as {" "}
+                <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</a>
+                </span>, documenting hobbies on instagram as <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</a>
+                </span> {", "} <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="/writings">writing blogs</a>
+                </span>{", "} <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="/library">reading books</a>
+                </span>
+                {" and, "}
+                <span className="border-b-2 border-b-slate-400 text-slate-200">
+                  <a href="/dump">creating half finished projects.</a>
+                </span>
+              </p>
+            </section>
+          </section>
 
-      {/* Recent */}
-      <section className="py-8">
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <Recent />
-        </Suspense>
-      </section>
+          {/* Recent */}
+          <section className="py-8">
+            <Suspense fallback={<p>Loading feed...</p>}>
+              <Recent />
+            </Suspense>
+          </section>
 
-      {/* Footer */}
-      <section className="pt-8">
-        <p>last updated {new Date().toLocaleDateString()}</p>
-      </section>
+          {/* Footer */}
+          <section className="pt-8">
+            <p>Made with 💛 by tarat</p>
+          </section>
+        </div>
+
+      </div>
 
     </main >
   );

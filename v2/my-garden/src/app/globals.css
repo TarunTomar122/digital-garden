@@ -53,7 +53,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #111110;
+  background: #202020;
 }
 
 @layer utilities {

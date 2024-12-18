@@ -19,21 +19,22 @@ export default async function Page({ params }: WritingProps) {
 
     return (
 
-        <main className="flex min-h-screen flex-col px-6 md:px-24 lg:px-48 xl:px-96">
+        <main className='flex justify-center xl:px-60 font-light'>
+            <div className='min-w-full md:container px-12  md:px-28 lg:px-60'>
 
-            {/* Header */}
-            <section className="pt-4 md:leading-10 leading-8">
-                <p className="text-4xl py-4">{writing.title}</p>
-                <section className="text-slate-200 text-lg">
-                    <p>{writing.description}</p>
+                {/* Header */}
+                <section className="pt-4 md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40">
+                    <p className="text-3xl md:text-4xl py-4">{writing.title}</p>
+                    <section className="text-slate-200 text-md pb-4">
+                        <p>{writing.description}</p>
+                    </section>
                 </section>
-            </section>
 
-            {/* Writings */}
-            <section className=" text-slate-400">
-                <Post postData={writing}/>
-            </section>
-
+                {/* Writings */}
+                <section className=" text-slate-400">
+                    <Post postData={writing} />
+                </section>
+            </div>
         </main>
 
     );

@@ -8,35 +8,32 @@
 .markdown h1{
     font-size: 2.5em;
     font-weight: medium;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
-    border-bottom: 1px solid rgb(203 213 225);
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
     display: inline-block;
 }
 
 .markdown h2{
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: medium;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
-    border-bottom: 1px solid rgb(203 213 225);
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
     display: inline-block;
 }
 
 .markdown h3{
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: medium;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
-    border-bottom: 1px solid rgb(203 213 225);
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
     display: inline-block;
 }
 
 .markdown h4{
     font-size: 1.2em;
     font-style: bold;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
 }
 
 .markdown p{
@@ -46,11 +43,11 @@
 }
 
 .markdown img{
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     border: #666 1px solid;
-    margin-bottom: 2em;
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .markdown blockquote{
@@ -107,4 +104,22 @@
         margin-bottom: 0.75em;
     }
 
+}
+
+@media (min-width: 768px){
+    .markdown h1{
+        font-size: 3em;
+    }
+
+    .markdown h2{
+        font-size: 2.4em;
+    }
+
+    .markdown h3{
+        font-size: 2em;
+    }
+
+    .markdown h4{
+        font-size: 1.2em;
+    }
 }

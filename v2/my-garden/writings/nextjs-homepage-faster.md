@@ -25,10 +25,14 @@ I created my homepage and chose to use SSR for the entire website including the 
 
 ![Image](/assets/posts/fast-homepage/lighthouse-1.png)
 
+####
+
 One of the things that I noticed was that the **SEO score** was not 100.    
 And even though the lighthouse gave a perfect 100 score for the performance, I got curious and checked the network tab in the browser's developer tools to see how the website was performing in terms of loading time.
 
 ![Image](/assets/posts/fast-homepage/network-1.png)
+
+####
 
 I noticed that the homepage was taking around **500 ms** to load which isn't too bad but then again we're literally just rendering some text on the homepage... so I thought I could do better.
 

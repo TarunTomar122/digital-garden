@@ -20,10 +20,10 @@ export default async function Page() {
 
     return (
         <>
-            <p className="text-2xl py-4">Recent</p>
+            <p className="text-3xl md:text-4xl font-extralight py-4">Recent</p>
             <section className="text-slate-400 md:leading-10 leading-8 text-lg">
                 {weeklyTrack ? (
-                    <p>Tarun is currently obsessed with
+                    <p>Tarat is currently obsessed with
                         {" "}
                         <span className="border-b-2 border-b-slate-400 text-slate-200">
                             <a href={weeklyTrack.url} target="_blank">{weeklyTrack.name} by {weeklyTrack.artist['#text']}</a>
