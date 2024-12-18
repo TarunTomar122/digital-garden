@@ -11,7 +11,7 @@ export default function Page() {
 
     return (
         <main className='flex justify-center xl:px-60'>
-            <div className='min-w-full md:container flex flex-row justify-center py-12 px-12  md:px-28 lg:px-60'>
+            <div className='min-w-full md:container flex flex-row justify-center py-12 px-8  md:px-28 lg:px-60'>
 
                 <div className="mx-auto flex flex-wrap items-center justify-between min-w-full">
 

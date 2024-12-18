@@ -20,7 +20,7 @@ export default async function Page({ params }: WritingProps) {
     return (
 
         <main className='flex justify-center xl:px-60 font-light'>
-            <div className='min-w-full md:container px-12  md:px-28 lg:px-60'>
+            <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>
 
                 {/* Header */}
                 <section className="pt-4 md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40">

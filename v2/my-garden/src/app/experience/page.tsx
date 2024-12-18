@@ -1,7 +1,7 @@
 export default function Page() {
     return (
         <main className='flex justify-center xl:px-60'>
-            <div className='min-w-full md:container mb-20 px-12  md:px-28 lg:px-60'>
+            <div className='min-w-full md:container mb-20 px-8  md:px-28 lg:px-60'>
 
                 {/** Adobe Design Engineer */}
                 <h1 className="text-2xl md:text-3xl mt-8 mb-1">Design Engineer @Adobe</h1>
