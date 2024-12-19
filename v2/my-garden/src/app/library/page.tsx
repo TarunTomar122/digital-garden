@@ -17,22 +17,23 @@ export default function Page() {
                 {/* Books */}
                 <section className="pb-20">
 
-                    <div className="text-slate-400 md:leading-10 leading-8 text-lg">
+                    <div className="text-slate-400 md:leading-10 leading-8 text-lg md:grid md:grid-cols-2 md:min-h-full md:gap-x-12 xl:gap-x-24">
                         {
                             books.map((book, index) => {
                                 return (
                                     <a href={book.link} target="_blank" key={index} className='py-6 flex-row flex gap-4 md:gap-8'>
-                                        <img src={book.img} alt={book.title} className="w-20 h-auto object-cover rounded-sm" />
+                                        <img src={book.img} alt={book.title} className="h-auto w-20 object-cover rounded-sm" />
                                         <div>
-                                            <span className="text-slate-200 text-xl">
-                                                {book.title.length > 40 ? `${book.title.slice(0, 40)}...` : book.title}</span>
-                                            <p className="text-gray-400">{book.author}</p>
                                             {book.rating === "" && <p className='text-gray-400 text-sm'>
                                                 {book.status === 'to read' && <span className='text-orange-300'>To read</span>}
                                                 {book.status === 'reading' && <span className='text-green-300'>Reading</span>}
                                                 {book.status === 'gave up' && <span className='text-red-200'>Gave up</span>}
                                             </p>}
                                             {book.rating !== "" && <p className='text-blue-200 text-sm'>Rating: {book.rating}</p>}
+                                            <p className="text-slate-200 text-lg">
+                                                {book.title.length > 40 ? `${book.title.slice(0, 40)}...` : book.title}
+                                            </p>
+                                            <p className="text-gray-400 leading-6 text-sm">{book.author}</p>
                                         </div>
                                     </a>
                                 );
