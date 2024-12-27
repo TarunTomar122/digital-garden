@@ -41,7 +41,7 @@ export default function Page() {
                                             </span>
                                         </span>
                                         <p className='text-gray-400 text-xs'>{date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                                        <p className="text-gray-200">{description}</p>
+                                        <p className="text-gray-200 leading-7 mt-2">{description}</p>
                                     </Link>
                                 </div>
                             )

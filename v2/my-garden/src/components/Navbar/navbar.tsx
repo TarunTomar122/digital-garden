@@ -31,7 +31,7 @@ export default function Page() {
                     </button>
 
                     <div className="hidden md:block w-full md:w-auto text-gray-400 pt-4 md:pt-0" id="mobile-menu">
-                        <ul className="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 gap-4 md:gap-0 text-md md:text-lg md:font-light">
+                        <ul className="flex-col md:flex-row flex md:space-x-6 mt-4 md:mt-0 gap-4 md:gap-0 text-md md:text-lg md:font-light">
 
                             <li className={`link ${pathname === '/' ? 'text-white font-regular' : ''}`}>
                                 <Link href="/" onClick={() => {
@@ -39,6 +39,15 @@ export default function Page() {
                                     mobileMenu?.classList.toggle('hidden')
                                 }}>
                                     home
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link className={`link ${pathname.startsWith('/projects') ? 'text-white font-regular' : ''}`} href="/projects" onClick={() => {
+                                    const mobileMenu = document.getElementById('mobile-menu')
+                                    mobileMenu?.classList.toggle('hidden')
+                                }}>
+                                    projects
                                 </Link>
                             </li>
 
@@ -74,47 +83,6 @@ export default function Page() {
                 </div>
 
             </div>
-        </main>
-    )
-
-    return (
-
-        <main className='border-2 border-red-500 flex justify-center'>
-
-            <div className='border-2 border-green-500 container flex flex-row justify-center gap-4 items-center py-8'>
-
-                <Link href='https://bento.me/tarat' target='_blank'>
-                    <img className='cursor-pointer h-4' src="./tarat.svg" alt='TaraT' />
-                </Link>
-
-
-                <div className='text-xs text-gray-400 flex flex-row sm:gap-6 gap-4 mt-4 min-h-full '>
-
-                    <li className={`link ${pathname === '/' ? 'text-white font-regular' : ''}`}>
-                        <Link href="/">
-                            home
-                        </Link>
-                    </li>
-                    <p>
-                        <Link className={`link ${pathname.startsWith('/writings') ? 'text-white font-regular' : ''}`} href="/writings">
-                            writings
-                        </Link>
-                    </p>
-                    <p>
-                        <Link className={`link ${pathname === '/library' ? 'text-white font-regular' : ''}`} href="/library">
-                            library
-                        </Link>
-                    </p>
-                    <p>
-                        <Link className={`link ${pathname === '/experience' ? 'text-white font-regular' : ''}`} href="/experience">
-                            experience
-                        </Link>
-                    </p>
-
-                </div>
-
-            </div>
-
         </main>
     )
 
