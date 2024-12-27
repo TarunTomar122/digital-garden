@@ -19,15 +19,13 @@ export default async function Page({ params }: ProjectsProps) {
         notFound();
     }
 
-    console.log('project: ', project);
-
     return (
 
         <main className='flex justify-center xl:px-60 font-light'>
             <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>
 
                 {/* Header */}
-                <section className="md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40">
+                <section className="md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40 pb-4">
                     <p className="text-3xl md:text-4xl py-4">{project.title}</p>
                     {/** Display tags as rounded buttons with random colors*/}
                     <div className="flex flex-wrap">
@@ -70,10 +68,7 @@ export default async function Page({ params }: ProjectsProps) {
                                                     className='text-slate-200 items-center'>
                                                     website
                                                     <span className="h-5 inline-block ml-1 text-center align-middle">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={
-                                                            // fill a random bright color pastel color 
-                                                            `hsl(${Math.floor(Math.random() * 360)}, 100%, 80%)`
-                                                        }><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
                                                     </span>
                                                 </a>
                                             )}
@@ -83,10 +78,7 @@ export default async function Page({ params }: ProjectsProps) {
                                                     className='text-slate-200'>
                                                     github
                                                     <span className="h-5 inline-block ml-1 text-center align-middle">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={
-                                                            // fill a random bright color pastel color 
-                                                            `hsl(${Math.floor(Math.random() * 360)}, 100%, 80%)`
-                                                        }><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
                                                     </span>
                                                 </a>
                                             )}
@@ -102,7 +94,7 @@ export default async function Page({ params }: ProjectsProps) {
                 </section>
 
                 {/* project */}
-                <section className=" text-slate-400">
+                <section className="text-slate-400">
                     <Project projectData={project} />
                 </section>
             </div>

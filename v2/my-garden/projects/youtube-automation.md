@@ -1,5 +1,5 @@
 ---
-title: Automating youtube shorts creation
+title: Automating youtube shorts
 description: I automated the creation of youtube shorts based on the most viewed parts of popular videos.
 category: project
 date: 2024-12-25

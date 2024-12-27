@@ -34,10 +34,7 @@ export default function Page() {
                                             {title.length > 70 ? title.slice(0, 70) + "..." : title}
                                             {/* <img src="./arrow.svg" alt="arrow" className="h-6 inline-block ml-2" /> */}
                                             <span className="h-6 inline-block ml-2 text-center align-middle">
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill={
-                                                    // fill a random bright color pastel color 
-                                                    `hsl(${Math.floor(Math.random() * 360)}, 100%, 80%)`
-                                                }><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
                                             </span>
                                         </span>
                                         <p className='text-gray-400 text-xs'>{date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
