@@ -1,5 +1,5 @@
 ---
-title: Design Planner
+title: OOUX Mapping Tool
 description: This is one of my ongoing projects and so I'll have more to write about it when it's done lol. 
 category: project
 date: 2024-12-27
