@@ -1,7 +1,12 @@
 import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
+import List from '../components/List/list';
+
+import list from './list100.json';
 
 export default async function Page() {
+  const list100 = list['list100'];
+
   return (
     <main className='flex justify-center xl:px-60'>
       <div className='min-w-full md:container md:mt-2 px-8  md:px-28 lg:px-60'>
@@ -36,14 +41,18 @@ export default async function Page() {
           </section>
 
           {/* Recent */}
-          <section className="py-8">
+          <section className="py-6">
             <Suspense fallback={<p>Loading feed...</p>}>
               <Recent />
             </Suspense>
-          </section>
 
+            {/* <Suspense fallback={<p>Loading list...</p>}>
+              <List list={list100} />
+            </Suspense> */}
+
+          </section>
           {/* Footer */}
-          <section className="pt-8">
+          <section className="py-8">
             <p>Made with 💛 by tarat</p>
           </section>
         </div>
