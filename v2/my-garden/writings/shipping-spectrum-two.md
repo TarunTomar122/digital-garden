@@ -1,7 +1,7 @@
 ---
 title: My biggest work achievement so far
 description: Shipping Spectrum Web Components 1.0
-category: thoughts
+category: tech
 date: 2024-11-08
 ---
 

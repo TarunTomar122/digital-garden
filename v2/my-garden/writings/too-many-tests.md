@@ -1,7 +1,7 @@
 ---
 title: Ship it! Or not?
 description: How much testing is too much testing?
-category: thoughts
+category: tech
 date: 2024-09-06
 ---
 

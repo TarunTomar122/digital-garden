@@ -1,7 +1,7 @@
 ---
 title: Falling in love with Next.js
 description: Partial Pre Rendering in Nextjs can help you make your page load 10x faster.
-category: thoughts
+category: tech
 date: 2024-08-09
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Break some to fix more
 description: How breaking things can help you fix them faster
-category: thoughts
+category: tech
 date: 2024-09-24
 ---
 

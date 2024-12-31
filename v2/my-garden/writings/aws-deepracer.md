@@ -1,7 +1,7 @@
 ---
 title: Our car ranked 5th among 200+ participants
 description: I raced a RC car in the office on a random wednesday
-category: thoughts
+category: tech
 date: 2024-09-25
 ---
 

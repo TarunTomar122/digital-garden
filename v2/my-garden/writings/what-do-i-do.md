@@ -1,7 +1,7 @@
 ---
 title: New job? Higher Studies? India? Europe?
 description: 2024 is about to end and it's posing a lot of questions in front of me. What do I do next?
-category: thoughts
+category: life
 date: 2024-12-17
 ---
 
