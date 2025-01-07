@@ -25,19 +25,19 @@ I was streaming on youtube (Yes, I do that sometimes) and somebody in the chat r
 
 Few days later I hit the breakthrough when I was watching [this video](https://www.youtube.com/watch?v=PK-jh0QCoxc&ab_channel=BalladJukebox) and I was listening to the part where Em beihold starts singing and I noticed that the youtube timeline actually shows the most viewed parts of the video. I was like "Wait a minute, I can use this to automate my youtube shorts".
 
-#### The idea
+### The idea
 
 Now the idea was simple...All I had to do was to
 
 ####
 
-- extract the most replayed part of the video.
-- cut that part out.
-- add subtitles to it.
-- change the aspect ratio to 9:16.
-- upload it to youtube.
+1. extract the most replayed part of the video.
+2. cut that part out.
+3. add subtitles to it.
+4. change the aspect ratio to 9:16.
+5. upload it to youtube.
 
-####
+###
 
 So that's exactly what I did. I wrote a js script using pupeeter to download the html of the webpage and then I used a python script to process the html and extract the data of the bezier curves of the timeline. Then I used the bezier curves to extract the most viewed part of the video and then I used moviepy to cut that part out and add subtitles to it.
 
