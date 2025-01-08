@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
 import List from '../components/List/list';
 
+import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
+
 import list from './list100.json';
 
 export default async function Page() {
@@ -42,7 +44,16 @@ export default async function Page() {
 
           {/* Recent */}
           <section className="py-6">
-            <Suspense fallback={<p>Loading feed...</p>}>
+            <Suspense fallback={
+              <>
+                <p className="text-3xl md:text-4xl font-extralight py-4">Recent</p>
+                <section className="mt-4">
+                  <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I've been recently obsessed with</p>
+                  <SpotifyEmbedSkeleton />
+                </section>
+              </>
+
+            }>
               <Recent />
             </Suspense>
 

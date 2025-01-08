@@ -1,4 +1,6 @@
-import { getWeeklyTopSongs } from '@/utils/musicAPI';
+import { getWeeklyTopSongs } from '@/utils/lastfmAPI';
+
+import { getSpotifyEmbedLink } from '@/actions/spotifyembed';
 
 type WeeklyTrack = {
     name: string;
@@ -8,6 +10,10 @@ type WeeklyTrack = {
 
 export default async function Page() {
     let weeklyTrack: WeeklyTrack | null = null;
+
+    const iframeHtml = await getSpotifyEmbedLink();
+
+    console.log('recent stuff', iframeHtml);
 
     try {
         const res = await getWeeklyTopSongs('TaRaT_122');
@@ -21,17 +27,13 @@ export default async function Page() {
     return (
         <>
             <p className="text-3xl md:text-4xl font-extralight py-4">Recent</p>
-            <section className="text-slate-400 md:leading-10 leading-8 text-lg">
-                {weeklyTrack ? (
-                    <p>Tarat is currently obsessed with
-                        {" "}
-                        <span className="border-b-2 border-b-slate-400 text-slate-200">
-                            <a href={weeklyTrack.url} target="_blank">{weeklyTrack.name} by {weeklyTrack.artist['#text']}</a>
-                        </span>
-                    </p>
-                ) : (
-                    <p>There ain't nothing to see here...</p>
-                )}
+            <section className="mt-4">
+                <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I've been recently obsessed with</p>
+                {
+                    // show iframe if we have it
+                    iframeHtml && <div dangerouslySetInnerHTML={{ __html: iframeHtml }} />
+                }
+                {/* <iframe style={{ borderRadius: '12px' }} src={"https://open.spotify.com/embed/track/" + { recentStuff } + "?utm_source=generator"} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> */}
             </section>
         </>
     );
