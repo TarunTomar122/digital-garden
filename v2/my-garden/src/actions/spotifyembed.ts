@@ -1,10 +1,14 @@
 'use server'
- 
-import { getWeeklyTopSongs } from "@/utils/lastfmAPI"
+
 import SpotifyWebApi from 'spotify-web-api-node'
 
 export async function getSpotifyEmbedLink() {
-    const res = await getWeeklyTopSongs('TaRaT_122');
+
+    const lastFMResponse = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=TaRaT_122&api_key=${process.env.LASTFM_API_KEY}&format=json&limit=5`, { cache: 'no-store' })
+    const data = await lastFMResponse.json()
+    // return the tracks
+    const res =  data.weeklytrackchart.track
+
     var weeklyTrack = null;
 
     if (res && res.length > 1) {
@@ -29,8 +33,6 @@ export async function getSpotifyEmbedLink() {
 
 
     const externalUrl = searchResponse.body.tracks.items[0].external_urls.spotify;
-    const topSongId = searchResponse.body.tracks.items[0].id;
-
     const embedResponse = await fetch(`https://open.spotify.com/oembed?url=${externalUrl}`, {
         method: "GET",
       })
