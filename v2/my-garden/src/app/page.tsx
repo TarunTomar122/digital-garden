@@ -1,13 +1,8 @@
 import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
-import List from '../components/List/list';
-
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
 
-import list from './list100.json';
-
 export default async function Page() {
-  const list100 = list['list100'];
 
   return (
     <main className='flex justify-center xl:px-60'>
