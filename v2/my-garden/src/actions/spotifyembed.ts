@@ -9,7 +9,7 @@ export async function getSpotifyEmbedLink() {
     const res =  data.weeklytrackchart.track
     var weeklyTrack = null;
     if (res && res.length > 1) {
-        weeklyTrack = res.slice(1, 4)[0];
+        weeklyTrack = res[0];
     }
 
     // set a default track if no track is found
@@ -25,9 +25,9 @@ export async function getSpotifyEmbedLink() {
     });
     const response = await spotifyApi.clientCredentialsGrant();
     spotifyApi.setAccessToken(response.body['access_token']);
-    const searchResponse = await spotifyApi.searchTracks(weeklyTrack.name + weeklyTrack.artist['#text']);
+    const searchResponse = await spotifyApi.searchTracks(weeklyTrack.name + " " + weeklyTrack.artist['#text']);
 
-    // console.log('searchResponse', 'track:' + weeklyTrack.name + ' artist:' + weeklyTrack.artist['#text'], weeklyTrack);
+    // console.log('searchResponse', 'track:' + weeklyTrack.name + ' artist:' + weeklyTrack.artist['#text'], searchResponse);
 
     // Get the embed link for the track
     const externalUrl = searchResponse.body.tracks.items[0].external_urls.spotify;
