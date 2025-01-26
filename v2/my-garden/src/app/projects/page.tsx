@@ -1,10 +1,13 @@
-import { getAllProjects } from "@/utils/projectsAPI"
-import { Suspense } from 'react';
+"use cache";
+
+import { getAllProjects } from "@/actions/projects"
 import ProjectList from "@/components/Project/ProjectList"
+import ProjectListSkeleton from "@/components/ProjectList/ProjectListSkeleton";
+import { Project } from '@/actions/projects';
+import { Suspense } from "react";``
 
-export default function Page() {
-
-    const projects = getAllProjects();
+export default async function Page() {
+    const projects = await getAllProjects();
 
     // order the projects by date
     projects.sort((a, b) => {
@@ -23,11 +26,9 @@ export default function Page() {
                         <p>A museum of my half finished art.</p>
                     </section>
                 </section>
-
-
-                {/* Projects */}
-                <Suspense fallback={<p>Loading feed...</p>}>
-                    <ProjectList projects={projects} />
+                
+                <Suspense fallback={<ProjectListSkeleton/>}>
+                    <ProjectList projects={projects as Project[]} />
                 </Suspense>
 
             </div>

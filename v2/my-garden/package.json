@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "15.0.0-canary.72",
+    "next": "15.2.0-canary.27",
     "next-mdx-remote": "^5.0.0",
-    "react": "19.0.0-rc.0",
-    "react-dom": "19.0.0-rc.0",
+    "react": "19",
+    "react-dom": "19",
     "react-markdown": "^9.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "spotify-web-api-node": "^5.0.2"

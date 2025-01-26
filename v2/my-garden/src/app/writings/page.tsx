@@ -1,7 +1,9 @@
-import { getAllWritings } from '@/utils/writingsAPI';
+"use cache";
+
+import { getAllWritings } from '@/actions/writingsActions';
 import Link from 'next/link';
 
-export default function Page({
+export default async function Page({
     searchParams,
 }: {
     searchParams: { [key: string]: string | string[] | undefined }
@@ -9,7 +11,7 @@ export default function Page({
     const currentPage = Number(searchParams.page) || 1;
     const ITEMS_PER_PAGE = 4;
 
-    const writings = getAllWritings();
+    const writings = await getAllWritings();
 
     // order the writings by date
     writings.sort((a, b) => {

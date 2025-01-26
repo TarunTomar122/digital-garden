@@ -7,7 +7,7 @@ import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python'
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
-import { Project } from '@/utils/projectsAPI';
+import { Project } from '@/actions/projects';
 
 import './styles.css';
 
