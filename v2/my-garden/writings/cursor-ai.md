@@ -29,7 +29,6 @@ Within seconds, I saw Cursor AI changing the folder structure of my project and 
 
 At first I was skeptical but then after running the project, I saw that it was working. I was amazed. Amazed being an understatement.
 
-If you wanna see my live reaction, you can [check out the attached video.](https://www.youtube.com/watch?v=BIR4Cn4hQIU&t=3175s&ab_channel=taratcodes).
 
 ### Refactor my stupid code
 
