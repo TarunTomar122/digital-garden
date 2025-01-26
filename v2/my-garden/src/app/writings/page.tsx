@@ -1,5 +1,3 @@
-"use cache";
-
 import { getAllWritings } from '@/actions/writingsActions';
 import Link from 'next/link';
 
@@ -8,7 +6,10 @@ export default async function Page({
 }: {
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
-    const currentPage = Number(searchParams.page) || 1;
+
+    const {page} = await searchParams;
+
+    const currentPage = Number(page) || 1;
     const ITEMS_PER_PAGE = 4;
 
     const writings = await getAllWritings();

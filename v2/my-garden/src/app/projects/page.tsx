@@ -1,5 +1,3 @@
-"use cache";
-
 import { getAllProjects } from "@/actions/projects"
 import ProjectList from "@/components/Project/ProjectList"
 import ProjectListSkeleton from "@/components/ProjectList/ProjectListSkeleton";
