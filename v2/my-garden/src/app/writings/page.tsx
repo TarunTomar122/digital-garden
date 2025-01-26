@@ -1,7 +1,13 @@
 import { getAllWritings } from '@/utils/writingsAPI';
 import Link from 'next/link';
 
-export default function Page() {
+export default function Page({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const currentPage = Number(searchParams.page) || 1;
+    const ITEMS_PER_PAGE = 4;
 
     const writings = getAllWritings();
 
@@ -9,6 +15,12 @@ export default function Page() {
     writings.sort((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
+
+    // Calculate pagination values
+    const totalPages = Math.ceil(writings.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const currentWritings = writings.slice(startIndex, endIndex);
 
     return (
         <main className='flex justify-center xl:px-60'>
@@ -24,9 +36,9 @@ export default function Page() {
 
 
                 {/* Writings */}
-                <section className="pb-20">
+                <section className="pb-8">
                     {
-                        writings.map(({ id, title, description, category, date }) => {
+                        currentWritings.map(({ id, title, description, category, date }) => {
                             return (
                                 <div className="py-6 md:leading-10 leading-8" key={id}>
                                     <Link key={id} href={`/writings/${id}`} rel="noopener noreferrer">
@@ -45,6 +57,31 @@ export default function Page() {
                         })
                     }
                 </section>
+
+                {/* Pagination Controls */}
+                <div className="flex justify-center gap-4 pb-8">
+                    {currentPage > 1 && (
+                        <Link
+                            href={`/writings?page=${currentPage - 1}`}
+                            className="px-4 py-2 rounded-md text-white hover:bg-gray-700"
+                        >
+                            Previous
+                        </Link>
+                    )}
+                    
+                    <span className="text-white px-4 py-2">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    
+                    {currentPage < totalPages && (
+                        <Link
+                            href={`/writings?page=${currentPage + 1}`}
+                            className="px-4 py-2 rounded-md text-white hover:bg-gray-700"
+                        >
+                            Next
+                        </Link>
+                    )}
+                </div>
             </div >
 
         </main >
