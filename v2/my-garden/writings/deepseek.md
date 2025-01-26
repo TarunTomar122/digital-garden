@@ -39,7 +39,7 @@ But there are a few key differences that I noticed right away. The first one is 
 
 ####
 
-> DeepSeek AI is free. It can access internet and it's a resoning first AI. 
+> DeepSeek AI is free. It can access internet and it's a reasoning first AI. 
 
 ####
 
@@ -104,7 +104,7 @@ Unlike ChatGPT’s conversational focus, DeepSeek emphasizes chain-of-thought re
 
 ####
 
-### Here's a roast of OpenAI and ChatGPT by DeepSeek AI
+### Roast of OpenAI and ChatGPT by DeepSeek AI
 
 #### 🔥 OpenAI & ChatGPT: The Roast (Condensed Edition) 🔥
 
