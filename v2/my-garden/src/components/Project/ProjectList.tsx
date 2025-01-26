@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Project } from '@/utils/projectsAPI';
+import LikeButton from '../LikeButton/LikeButton';
 
 import { saturation, lightness, getContrastYIQ } from '@/utils/colorsAPI';
 
@@ -80,14 +81,17 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                     filteredProjects.map(({ id, title, description, category, tags }) => {
                         return (
                             <div className="py-6 md:leading-10 leading-8" key={id}>
-                                <Link key={id} href={`/projects/${id}`} rel="noopener noreferrer">
-                                    <span className="text-slate-200 text-xl">
-                                        {title.length > 70 ? title.slice(0, 70) + "..." : title}
-                                        <span className="h-6 inline-block ml-2 text-center align-middle">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
+                                <div className="flex items-center justify-between">
+                                    <Link key={id} href={`/projects/${id}`} rel="noopener noreferrer">
+                                        <span className="text-slate-200 text-xl">
+                                            {title.length > 70 ? title.slice(0, 70) + "..." : title}
+                                            <span className="h-6 inline-block ml-2 text-center align-middle">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
+                                            </span>
                                         </span>
-                                    </span>
-                                </Link>
+                                    </Link>
+                              
+                                </div>
 
                                 {/** Display tags as rounded buttons with random colors*/}
                                 <div className="flex flex-wrap">

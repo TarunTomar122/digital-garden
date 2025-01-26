@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getProjectById } from '@/utils/projectsAPI';
 
 import Project from '@/components/Project/Project';
+import LikeButton from '@/components/LikeButton/LikeButton';
 
 import { saturation, lightness, getContrastYIQ } from '@/utils/colorsAPI';
 
@@ -90,6 +91,10 @@ export default async function Page({ params }: ProjectsProps) {
                             }
                         </section>
                     )}
+
+                    <div className="flex justify-start py-2">
+                        <LikeButton id={project.id} type="post" />
+                    </div>
 
                 </section>
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^11.2.0",
     "gray-matter": "^4.0.3",
     "next": "15.0.0-canary.72",
     "next-mdx-remote": "^5.0.0",
