@@ -40,8 +40,10 @@ function PostContent({ postData }: { postData: Writing }) {
     };
 
     return (
-        <div className='markdown'>
-            <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+        <div>
+            <div className='markdown'>
+                <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+            </div>
         </div>
     )
 }

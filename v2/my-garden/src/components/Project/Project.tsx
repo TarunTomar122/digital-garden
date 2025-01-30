@@ -40,8 +40,10 @@ function PostContent({ projectData }: { projectData: Project }) {
     };
 
     return (
-        <div className='markdown'>
-            <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+        <div>
+            <div className='markdown'>
+                <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+            </div>
         </div>
     )
 }
