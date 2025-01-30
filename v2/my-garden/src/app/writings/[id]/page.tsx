@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getWritingById } from '@/actions/writingsActions';
 import { Suspense } from 'react';
 import Post from '@/components/Post/Post';
+import LikeButton from '@/components/LikeButton/LikeButton';
 
 interface WritingProps {
     params: {

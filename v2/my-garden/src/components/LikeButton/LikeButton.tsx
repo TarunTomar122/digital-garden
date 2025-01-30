@@ -10,7 +10,7 @@ interface LikeButtonProps {
 export default function LikeButton({ id, type }: LikeButtonProps) {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Fetch initial like count and status from the server
@@ -23,8 +23,10 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
                 // For now, we'll still use localStorage just for tracking if the current user has liked
                 const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');
                 setLiked(!!likedItems[id]);
+                setLoading(false);
             } catch (error) {
                 console.error('Failed to fetch likes:', error);
+                setLoading(false);
             }
         };
         
@@ -71,7 +73,7 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
     return (
         <button
             onClick={handleLike}
-            className={`flex items-center gap-1.5 py-1 px-2 rounded-full transition-all duration-300 ease-in-out self-start bg-slate-800/30 backdrop-blur-sm ${liked ? 'text-rose-200 scale-105' : 'text-slate-400 hover:text-rose-100'} ${loading ? 'opacity-90 cursor-not-allowed relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer' : ''}`}
+            className={`flex items-center gap-1.5 py-1 px-2 rounded-full transition-all duration-300 ease-in-out self-start bg-slate-800/30 backdrop-blur-lg ${liked ? 'text-rose-200 scale-105' : 'text-slate-400 hover:text-rose-100'} ${loading ? 'opacity-90 cursor-not-allowed relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-rose-200/20 before:to-transparent before:animate-shimmer' : ''}`}
             aria-label={liked ? 'Unlike' : 'Like'}
             disabled={loading}
             style={loading ? { '--shimmer-duration': '1.5s' } as React.CSSProperties : undefined}
