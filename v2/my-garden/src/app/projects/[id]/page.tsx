@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getProjectById } from '@/utils/projectsAPI';
+import { getProjectById } from '@/actions/projects';
 
 import Project from '@/components/Project/Project';
 import LikeButton from '@/components/LikeButton/LikeButton';
@@ -14,7 +14,9 @@ interface ProjectsProps {
 
 export default async function Page({ params }: ProjectsProps) {
 
-    const project = getProjectById(params.id);
+    const {id} = await params;
+
+    const project = await getProjectById(id);
 
     if (!project) {
         notFound();

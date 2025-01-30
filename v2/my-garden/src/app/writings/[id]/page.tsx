@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getWritingById } from '@/utils/writingsAPI';
-import LikeButton from '@/components/LikeButton/LikeButton';
-
+import { getWritingById } from '@/actions/writingsActions';
+import { Suspense } from 'react';
 import Post from '@/components/Post/Post';
 
 interface WritingProps {
@@ -12,7 +11,9 @@ interface WritingProps {
 
 export default async function Page({ params }: WritingProps) {
 
-    const writing = getWritingById(params.id);
+    const {id} = await params;
+
+    const writing = await getWritingById(id);
 
     if (!writing) {
         notFound();
@@ -36,7 +37,13 @@ export default async function Page({ params }: WritingProps) {
 
                 {/* Writings */}
                 <section className=" text-slate-400">
-                    <Post postData={writing} />
+                    <Suspense fallback={<div className="animate-pulse space-y-4">
+                        <div className="h-4 bg-gray-700 rounded w-full"></div>
+                        <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+                        <div className="h-4 bg-gray-700 rounded w-4/6"></div>
+                    </div>}>
+                        <Post postData={writing} />
+                    </Suspense>
                 </section>
             </div>
         </main>

@@ -3,8 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Project } from '@/utils/projectsAPI';
-import LikeButton from '../LikeButton/LikeButton';
+import { Project } from '@/actions/projects';
 
 import { saturation, lightness, getContrastYIQ } from '@/utils/colorsAPI';
 

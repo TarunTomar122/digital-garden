@@ -1,3 +1,5 @@
+"use cache";
+
 import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
@@ -57,10 +59,12 @@ export default async function Page() {
             </Suspense> */}
 
           </section>
+
           {/* Footer */}
           <section className="py-8">
             <p>Made with 💛 by tarat</p>
           </section>
+
         </div>
 
       </div>
