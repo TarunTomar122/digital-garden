@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface LikeButtonProps {
     id: string;
@@ -11,72 +11,91 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
     const [loading, setLoading] = useState(true);
+    
+    const timeoutId = useRef<NodeJS.Timeout | null>(null); // Reference to store timeout ID
 
+    // Fetch initial like count and status from the server or localStorage
     useEffect(() => {
-        // Fetch initial like count and status from the server
         const fetchLikes = async () => {
             try {
                 const response = await fetch(`/api/likes?id=${id}&type=${type}`);
                 const data = await response.json();
                 setLikeCount(data.likes || 0);
                 
-                // For now, we'll still use localStorage just for tracking if the current user has liked
+                // Check if user has already liked
                 const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');
                 setLiked(!!likedItems[id]);
-                setLoading(false);
             } catch (error) {
                 console.error('Failed to fetch likes:', error);
+            } finally {
                 setLoading(false);
             }
         };
-        
+
         fetchLikes();
     }, [id, type]);
 
-    const handleLike = async () => {
-        if (loading) return;
-        setLoading(true);
-        const newLiked = !liked;
-        setLiked(newLiked);
+    // Handle like button click
+    const handleLike = () => {
+        if (loading) return; // Prevent click if already loading
 
-        // Update liked items in localStorage (just for tracking user's likes)
+        const newLiked = !liked;
+        
+        // Optimistic UI update: Update immediately
+        setLiked(newLiked);
+        setLikeCount((prev) => prev + (newLiked ? 1 : -1));
+
+        // Update localStorage for immediate feedback
         const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');
         likedItems[id] = newLiked;
         localStorage.setItem(`liked_${type}s`, JSON.stringify(likedItems));
 
-        try {
-            const response = await fetch('/api/likes', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id,
-                    type,
-                    action: newLiked ? 'like' : 'unlike'
-                })
-            });
-            
-            const data = await response.json();
-            setLikeCount(data.likes);
-        } catch (error) {
-            console.error('Failed to update likes:', error);
-            // Revert the like state on error
-            setLiked(!newLiked);
-            likedItems[id] = !newLiked;
-            localStorage.setItem(`liked_${type}s`, JSON.stringify(likedItems));
-        } finally {
-            setLoading(false);
+        // Clear the previous timeout if any
+        if (timeoutId.current) {
+            clearTimeout(timeoutId.current);
         }
+
+        // Set a new timeout for the server update
+        timeoutId.current = setTimeout(async () => {
+            try {
+                setLoading(true); // Set loading state while waiting for the request
+                // Send request to the server to update likes
+                const response = await fetch('/api/likes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id,
+                        type,
+                        action: newLiked ? 'like' : 'unlike',
+                    }),
+                });
+
+                const data = await response.json();
+                setLikeCount(data.likes);
+            } catch (error) {
+                console.error('Failed to update likes:', error);
+                // If error occurs, revert the like state
+                setLiked(!newLiked);
+                setLikeCount((prev) => prev - (newLiked ? 1 : -1)); // Revert like count
+
+                const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');
+                likedItems[id] = !newLiked;
+                localStorage.setItem(`liked_${type}s`, JSON.stringify(likedItems));
+            } finally {
+                setLoading(false);
+            }
+        }, 500); // Delay before server request to debounce rapid clicks
     };
 
     return (
         <button
             onClick={handleLike}
-            className={`flex items-center gap-1.5 py-1 px-2 rounded-full transition-all duration-300 ease-in-out self-start bg-slate-800/30 backdrop-blur-lg ${liked ? 'text-rose-200 scale-105' : 'text-slate-400 hover:text-rose-100'} ${loading ? 'opacity-90 cursor-not-allowed relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-rose-200/20 before:to-transparent before:animate-shimmer' : ''}`}
+            className={`flex items-center gap-1.5 py-1 px-2 rounded-full transition-all duration-300 ease-in-out self-start bg-slate-800/30 backdrop-blur-lg 
+                ${liked ? 'text-rose-200 scale-105' : 'text-slate-400 hover:text-rose-100'} 
+                ${loading ? 'opacity-90' : ''}
+            `}
             aria-label={liked ? 'Unlike' : 'Like'}
             disabled={loading}
-            style={loading ? { '--shimmer-duration': '1.5s' } as React.CSSProperties : undefined}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
