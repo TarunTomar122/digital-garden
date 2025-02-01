@@ -38,9 +38,11 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
     const updateServer = async (newLiked: boolean) => {
         // Did I make an actual change or not?
         const didIChangeSomething = localStorage.getItem('didIChangeSomething') === 'true';
+    
         if(!didIChangeSomething){
             return false;
         }
+        localStorage.setItem('didIChangeSomething', 'false');
 
         // Send request to the server to update likes
         const response = await fetch('/api/likes', {
@@ -61,14 +63,14 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
             likedItems[id] = !newLiked;
             localStorage.setItem(`liked_${type}s`, JSON.stringify(likedItems));
         }
-
-        localStorage.setItem('didIChangeSomething', 'false');
     }
 
     // Handle like button click
     const handleLike = () => {
         const newLiked = !liked;
         
+        setLoading(true);
+
         // Update localStorage for immediate feedback
         const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');
         likedItems[id] = newLiked;
@@ -91,6 +93,7 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
             await updateServer(newLiked);
         }, 500);
 
+        setLoading(false);
     };
 
     return (
