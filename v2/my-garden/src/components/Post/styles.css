@@ -61,16 +61,19 @@
 }
 
 .markdown ul{
+    font-family: Inter;
     list-style-type: disc;
     margin-left: 1em;
 }
 
 .markdown ol{
+    font-family: Inter;
     list-style-type: decimal;
     margin-left: 1em;
 }
 
 .markdown li{
+    font-family: Inter;
     margin-bottom: 0.6em;
 }
 
