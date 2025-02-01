@@ -66,7 +66,7 @@ This is where things get a little complicated. Let me try my best to explain the
 
 ####
 
-So what we're gonna do is we're still gonna make the UI update immediately as we make an update to the localstorage but we're gonna make the update to the database only after a certain amount of time.
+So what we're gonna do is we're still gonna make the UI update immediately as we make an update to the localstorage and then also queue a server request to update the likes in the database. 
 
 #### 
 

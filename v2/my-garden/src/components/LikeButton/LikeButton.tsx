@@ -38,10 +38,11 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
     const updateServer = async (newLiked: boolean) => {
         // Did I make an actual change or not?
         const didIChangeSomething = localStorage.getItem('didIChangeSomething') === 'true';
-    
+
         if(!didIChangeSomething){
             return false;
         }
+
         localStorage.setItem('didIChangeSomething', 'false');
 
         // Send request to the server to update likes
