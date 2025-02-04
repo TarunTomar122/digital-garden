@@ -1,0 +1,128 @@
+.markdown{
+    font-family: Inter;
+    line-height: 1.6;
+    color: white;
+    padding-bottom: 3em;
+}
+
+.markdown h1{
+    font-size: 2.5em;
+    font-weight: medium;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: inline-block;
+}
+
+.markdown h2{
+    font-size: 2em;
+    font-weight: medium;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: inline-block;
+}
+
+.markdown h3{
+    font-size: 1.6em;
+    font-weight: medium;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: inline-block;
+}
+
+.markdown h4{
+    font-size: 1.2em;
+    font-style: bold;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+.markdown p{
+    font-size: 1.1em;
+    margin-bottom: 10.75m;
+    color: rgb(203 213 225);
+}
+
+.markdown img{
+    max-width: 100%;
+    height: auto;
+    border: #666 1px solid;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.markdown blockquote{
+    font-style: italic;
+    color: rgb(203 213 225);
+}
+
+.markdown quote{
+    font-style: italic;
+    color: rgb(203 213 225);
+}
+
+.markdown ul{
+    font-family: Inter;
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+.markdown ol{
+    font-family: Inter;
+    list-style-type: decimal;
+    margin-left: 1em;
+}
+
+.markdown li{
+    font-family: Inter;
+    margin-bottom: 0.6em;
+}
+
+.markdown hr{
+    border: 0;
+    border-top: 1px solid rgb(203 213 225);
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.markdown a{
+    color: rgb(165 180 252);;
+    text-decoration: underline;
+}
+
+.markdown .inline-code{
+    background-color: #464646;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* If in mobile set the image to full width */
+@media (max-width: 768px){
+    .markdown img{
+        max-width: 100%;
+    }
+
+    .markdown h1 h2 h3{
+        margin-top: 2em;
+        margin-bottom: 0.75em;
+    }
+
+}
+
+@media (min-width: 768px){
+    .markdown h1{
+        font-size: 3em;
+    }
+
+    .markdown h2{
+        font-size: 2.4em;
+    }
+
+    .markdown h3{
+        font-size: 2em;
+    }
+
+    .markdown h4{
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your existing global styles */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 17,17,16;
+  --background-end-rgb: 17,17,16;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Light.ttf');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face { 
+  font-family: "Inter"; 
+  src: url('../../public/fonts/Inter/static/Inter-Regular.ttf'); 
+  font-weight: 400; 
+  font-style: normal; 
+} 
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Medium.ttf');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-SemiBold.ttf');
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../public/fonts/Inter/static/Inter-Bold.ttf');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: white;
+  background: #202020;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
