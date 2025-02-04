@@ -1,3 +1,4 @@
+'use client'
 
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown';
@@ -8,32 +9,48 @@ import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python'
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 import { Project } from '@/actions/projects';
+import type { Components } from 'react-markdown';
 
 import './styles.css';
-
-
 
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('python', python)
 SyntaxHighlighter.registerLanguage('html', jsx);
 SyntaxHighlighter.registerLanguage('css', css);
 
-function PostContent({ projectData }: { projectData: Project }) {
-
+function ProjectContent({ projectData }: { projectData: Project }) {
     const { content } = projectData;
 
-    const customRenderers = {
-        code(code) {
-            const { className, children } = code;
+    const customRenderers: Components = {
+        img: (props) => {
+            const { src, alt } = props;
+            return (
+                <div className="my-4">
+                    <Image
+                        src={src || ''}
+                        alt={alt || 'Project image'}
+                        width={800}
+                        height={400}
+                        className="rounded-lg w-full h-auto"
+                        style={{ maxWidth: '100%', height: 'auto' }}
+                        loading="lazy"
+                        quality={85}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                </div>
+            );
+        },
+        code(props) {
+            const { className, children } = props;
             if (className === undefined) {
                 return <code className="inline-code">{children}</code>;
             }
-            const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
+            const language = className.split('-')[1];
             return (
                 <SyntaxHighlighter
                     style={atomDark}
-                    language={language}>
-                    {children}
+                    language={language || 'text'}>
+                    {Array.isArray(children) ? children.join('') : children || ''}
                 </SyntaxHighlighter>
             );
         }
@@ -42,10 +59,10 @@ function PostContent({ projectData }: { projectData: Project }) {
     return (
         <div>
             <div className='markdown'>
-                <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+                {content && <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>}
             </div>
         </div>
     )
 }
 
-export default PostContent
+export default ProjectContent;

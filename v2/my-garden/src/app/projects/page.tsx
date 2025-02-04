@@ -12,7 +12,6 @@ export default async function Page() {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
 
-
     return (
         <main className='flex justify-center xl:px-60'>
             <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>

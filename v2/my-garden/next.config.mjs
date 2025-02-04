@@ -11,7 +11,13 @@ const nextConfig = {
     experimental: {
         ppr: true,
         useCache: true,
+        parallelRoutes: true,
     },
+    // Configure page caching
+    staticPageGenerationTimeout: 120,
+    
+    // Configure revalidation intervals for ISR
+    revalidate: 3600, // 1 hour
 };
 
 export default nextConfig;

@@ -44,3 +44,5 @@ export default function Page() {
         </main>
     );
 }
+
+export const revalidate = false;

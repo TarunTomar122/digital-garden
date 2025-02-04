@@ -17,7 +17,8 @@ export interface Project {
     date: string,
     content?: string,
     tags: string[],
-    links: Link[]
+    links: Link[],
+    thumbnail?: string // Optional thumbnail image path
 }
 
 export async function getAllProjects() {
@@ -37,6 +38,7 @@ export async function getAllProjects() {
             date: data.date || 'No date',
             tags: data.tags || [],
             links: data.links || [],
+            thumbnail: data.thumbnail || undefined,
             content,
         };
     });
@@ -54,8 +56,9 @@ export async function getProjectById(id: string): Promise<Project> {
         description: data.description || 'No description',
         category: data.category || 'No category',
         date: data.date || 'No date',
-        content,
         tags: data.tags || [],
-        links: data.links || []
+        links: data.links || [],
+        thumbnail: data.thumbnail || undefined,
+        content,
     };
 }

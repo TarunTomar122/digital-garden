@@ -1,6 +1,9 @@
+'use cache';
 import { getSpotifyEmbedLink } from '@/actions/spotifyembed';
+import { unstable_cacheLife as cacheLife } from 'next/cache'
 
 export default async function Page() {
+    cacheLife('days')
     const iframeHtml = await getSpotifyEmbedLink();
 
     return (

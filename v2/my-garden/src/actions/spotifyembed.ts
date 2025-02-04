@@ -89,7 +89,7 @@ export const getSpotifyEmbedLink = unstable_cache(
             return DEFAULT_EMBED;
         }
     },
-    ['spotify-embed', Math.floor(Date.now() / (1000 * 86400)).toString()],
+    ['spotify-embed'],
     {
         revalidate: 86400, // 24 hours
         tags: ['spotify-embed']

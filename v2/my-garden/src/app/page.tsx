@@ -1,11 +1,12 @@
-"use cache";
-
+'use cache'
+import { unstable_cacheLife as cacheLife } from 'next/cache'
+import Image from 'next/image'
 import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
 
 export default async function Page() {
-
+  cacheLife('days')
   return (
     <main className='flex justify-center xl:px-60'>
       <div className='min-w-full md:container md:mt-2 px-8  md:px-28 lg:px-60'>
@@ -15,7 +16,14 @@ export default async function Page() {
           <section>
             <div className='flex flex-row items-center justify-between'>
               <p className="text-3xl md:text-4xl font-extralight py-4">Present</p>
-              <img src="./selfie.png" alt='TaraT' className='h-12 md:h-16 rounded-full' />
+              <Image 
+                src="/selfie.png" 
+                alt='TaraT' 
+                width={64} 
+                height={64} 
+                className='h-12 md:h-16 rounded-full w-auto'
+                priority
+              />
             </div>
             <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
               <p>Tarat is currently helping ship {" "}
@@ -53,11 +61,6 @@ export default async function Page() {
             }>
               <Recent />
             </Suspense>
-
-            {/* <Suspense fallback={<p>Loading list...</p>}>
-              <List list={list100} />
-            </Suspense> */}
-
           </section>
 
           {/* Footer */}
