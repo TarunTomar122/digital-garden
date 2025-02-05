@@ -83,7 +83,7 @@ export const getSpotifyEmbedLink = async () => {
             );
 
             // set a timeout of 5 seconds
-            await new Promise(resolve => setTimeout(resolve, 10000));
+            await new Promise(resolve => setTimeout(resolve, 3000));
 
             return embedHtml || DEFAULT_EMBED;
         } catch (error) {
