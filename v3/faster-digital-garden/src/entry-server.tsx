@@ -8,6 +8,8 @@ import type express from 'express'
 import './fetch-polyfill'
 import fs from 'fs'
 import path from 'path'
+import { renderToPipeableStream } from 'react-dom/server'
+
 
 export async function render({
   req,
@@ -19,16 +21,10 @@ export async function render({
   res: express.Response
 }) {
   
-  // Load the pre-built Tailwind styles
-  let styles = ''
-  try {
-    styles = fs.readFileSync(
-      './dist/styles.css',
-      'utf-8'
-    )
-  } catch (error) {
-    console.warn('Could not load styles.css:', error)
-  }
+  // In the render function:
+  const stylesPath = path.join(process.cwd(), 'dist', 'styles.css');
+  const styles = fs.readFileSync(stylesPath, 'utf-8');
+
 
   // Convert the express request to a fetch request
   const url = new URL(req.originalUrl || req.url, 'https://localhost:3000').href
@@ -59,7 +55,8 @@ export async function render({
       })
       return router
     },
-  })
+  });
+
 
   // Let's use the default stream handler to create the response
   const response = await handler(defaultStreamHandler)
@@ -70,7 +67,8 @@ export async function render({
   response.headers.forEach((value, name) => {
     res.setHeader(name, value)
   })
-
+  
   // Stream the response body
   return pipeline(response.body as any, res)
+
 }

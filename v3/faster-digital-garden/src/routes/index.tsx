@@ -9,6 +9,7 @@ export const Route = createFileRoute('/')({
 })
 
 function HomeComponent() {
+  console.log('rendering the home component');
   return (
     <main className='flex justify-center xl:px-60'>
       <div className='min-w-full md:container md:mt-2 px-8  md:px-28 lg:px-60'>

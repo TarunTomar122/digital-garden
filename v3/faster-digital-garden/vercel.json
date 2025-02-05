@@ -2,10 +2,29 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
+        "src": "server.js",
         "use": "@vercel/node",
         "config": {
-          "buildCommand": "npm run build"
+            "buildCommand": "npm run build",
+            "devCommand": "npm run dev",
+            "installCommand": "npm install",
+            "functions": {
+              "api/*.js": {
+                "memory": 1024,
+                "maxDuration": 10
+              }
+            },
+            "headers": [
+              {
+                "source": "/(.*)",
+                "headers": [
+                  {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                  }
+                ]
+              }
+            ]
         }
       }
     ],
@@ -18,6 +37,11 @@
         "src": "/(.*)",
         "dest": "/server.js"
       }
-    ]
+    ],
+    "functions": {
+      "api/**": {
+        "runtime": "edge"
+      }
+    }
   }
   
