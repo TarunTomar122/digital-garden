@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\" \"node server\"",
     "build": "npm run build:css && npm run build:client && npm run build:server",
-    "build:client": "exit 0; vite build src/entry-client.tsx --outDir dist/client",
+    "build:client": "vite build src/entry-client.tsx --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "serve": "NODE_ENV=production node server",
