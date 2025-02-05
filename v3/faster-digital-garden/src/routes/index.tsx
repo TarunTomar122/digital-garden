@@ -48,7 +48,7 @@ function HomeComponent() {
               </p>
             </section>
           </section>
-          
+
           {/* Recent */}
           <section className="py-6">
             <Suspense fallback={
@@ -69,6 +69,8 @@ function HomeComponent() {
           <section className="py-8">
             <p>Made with 💛 by tarat</p>
           </section>
+
+          <SpotifyEmbedSkeleton />
 
         </div>
 
