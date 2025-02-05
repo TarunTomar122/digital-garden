@@ -85,6 +85,18 @@ export async function createServer(
   return { app, vite }
 }
 
+// Export the app for Vercel
+export default async function handler(req, res) {
+  const { app } = await createServer(
+    process.cwd(),
+    process.env.NODE_ENV === 'production'
+  )
+  
+  // Forward the request/response handling to the Express app
+  return app(req, res)
+}
+
+// Keep the development server creation
 if (!isTest) {
   createServer().then(async ({ app }) =>
     app.listen(await getPort({ port: portNumbers(3000, 3100) }), () => {
