@@ -1,4 +1,8 @@
-// 'use server'
+import { json } from '@tanstack/start'
+import { createAPIFileRoute } from '@tanstack/start/api'
+import axios from 'redaxios'
+import type { User } from '../../utils/users'
+
 
 import SpotifyWebApi from 'spotify-web-api-node';
 // import { unstable_cache } from 'next/cache';
@@ -69,7 +73,7 @@ async function getSpotifyTrackEmbed(trackName: string, artistName: string) {
     }
 }
 
-export const getSpotifyEmbedLink = async () => {
+async function getSpotifyEmbedLink() {
         try {
             const weeklyTrack = await fetchLastFMTrack();
             
@@ -91,3 +95,10 @@ export const getSpotifyEmbedLink = async () => {
             return DEFAULT_EMBED;
         }
 }
+
+export const APIRoute = createAPIFileRoute('/api/spotify')({
+  GET: async ({ request }) => {
+    const embedHtml = await getSpotifyEmbedLink();
+    return embedHtml;
+  },
+})

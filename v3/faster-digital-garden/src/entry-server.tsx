@@ -8,6 +8,7 @@ import type express from 'express'
 import './fetch-polyfill'
 import fs from 'fs'
 import path from 'path'
+import { renderToPipeableStream } from 'react-dom/server'
 
 export async function render({
   req,
@@ -18,59 +19,66 @@ export async function render({
   req: express.Request
   res: express.Response
 }) {
+  let stylesContent = ''
   
-  // Load the pre-built Tailwind styles
-  let styles = ''
-  try {
-    styles = fs.readFileSync(
-      './dist/styles.css',
-      'utf-8'
-    )
-  } catch (error) {
-    console.warn('Could not load styles.css:', error)
+  // In production, read the styles file
+  if (process.env.NODE_ENV === 'production') {
+    const stylesPath = path.join(process.cwd(), 'dist', 'styles.css')
+    if (fs.existsSync(stylesPath)) {
+      stylesContent = fs.readFileSync(stylesPath, 'utf-8')
+    }
   }
 
   // Convert the express request to a fetch request
-  const url = new URL(req.originalUrl || req.url, 'https://localhost:3000').href
+  const url = new URL(req.originalUrl || req.url, `http://${req.headers.host || 'localhost'}`).href
   const request = new Request(url, {
     method: req.method,
-    headers: (() => {
-      const headers = new Headers()
-      for (const [key, value] of Object.entries(req.headers)) {
-        headers.set(key, value as any)
-      }
-      return headers
-    })(),
+    headers: new Headers(req.headers as any),
   })
 
-  // Create a request handler
+  // Create a request handler with streaming enabled
   const handler = createRequestHandler({
     request,
     createRouter: () => {
       const router = createRouter()
-
-      // Update each router instance with the head info from vite
       router.update({
         context: {
           ...router.options.context,
-          head: head,
-          styles: styles, // Pass the styles to the router context
+          head,
+          styles: stylesContent,
+          enablePPR: true,
+          enableStreaming: true,
         },
       })
       return router
     },
   })
 
-  // Let's use the default stream handler to create the response
-  const response = await handler(defaultStreamHandler)
+  try {
+    // Get the streaming response
+    const response = await handler(defaultStreamHandler)
+    
+    // Set response headers
+    res.statusMessage = response.statusText
+    res.status(response.status)
+    response.headers.forEach((value: string, name: string) => {
+      res.setHeader(name, value)
+    })
 
-  // Convert the fetch response back to an express response
-  res.statusMessage = response.statusText
-  res.status(response.status)
-  response.headers.forEach((value, name) => {
-    res.setHeader(name, value)
-  })
+    // Ensure proper streaming headers
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    res.setHeader('Transfer-Encoding', 'chunked')
+    res.setHeader('Connection', 'keep-alive')
+    res.setHeader('Cache-Control', 'no-cache, no-transform')
 
-  // Stream the response body
-  return pipeline(response.body as any, res)
+    // Stream the response
+    if (response.body) {
+      await pipeline(response.body as any, res)
+    } else {
+      res.end()
+    }
+  } catch (error) {
+    console.error('Render error:', error instanceof Error ? error.message : String(error))
+    res.status(500).end(error instanceof Error ? error.message : 'Internal Server Error')
+  }
 }

@@ -81,13 +81,14 @@ export const getSpotifyEmbedLink = async () => {
                 weeklyTrack.name,
                 weeklyTrack.artist['#text']
             );
+            console.log('embedHtml', embedHtml);
 
             // set a timeout of 5 seconds
             // await new Promise(resolve => setTimeout(resolve, 3000));
 
-            return embedHtml || DEFAULT_EMBED;
+            return { html: embedHtml || DEFAULT_EMBED };
         } catch (error) {
             console.error('Error in getSpotifyEmbedLink:', error);
-            return DEFAULT_EMBED;
+            return { html: DEFAULT_EMBED };
         }
 }

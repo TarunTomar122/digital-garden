@@ -1,6 +1,6 @@
-import path from 'node:path'
 import express from 'express'
 import getPort, { portNumbers } from 'get-port'
+import compression from 'compression'
 
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD
 
@@ -10,6 +10,9 @@ export async function createServer(
   hmrPort,
 ) {
   const app = express()
+
+  // Enable compression for all responses
+  app.use(compression())
 
   /**
    * @type {import('vite').ViteDevServer}
@@ -41,18 +44,28 @@ export async function createServer(
     app.use((await import('compression')).default())
   }
 
+  // Set headers for PPR and streaming
+  app.use((req, res, next) => {
+    // Enable streaming
+    res.setHeader('Transfer-Encoding', 'chunked')
+    res.setHeader('X-Content-Type-Options', 'nosniff')
+    res.setHeader('Cache-Control', 'no-cache, no-transform')
+    res.setHeader('Connection', 'keep-alive')
+    next()
+  })
+
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl
 
-      if (path.extname(url) !== '') {
+      if (url.includes('.')) {
         console.warn(`${url} is not valid router path`)
         res.status(404)
         res.end(`${url} is not valid router path`)
         return
       }
 
-      // Best effort extraction of the head from vite's index transformation hook
+      // Extract the head from vite's index transformation hook
       let viteHead = !isProd
         ? await vite.transformIndexHtml(
             url,
@@ -69,15 +82,15 @@ export async function createServer(
         if (!isProd) {
           return vite.ssrLoadModule('/src/entry-server.tsx')
         } else {
-          return import(path.join(process.cwd(), 'dist/server/entry-server.js'))
+          return import('./dist/server/entry-server.js')
         }
       })()
 
-      console.info('Rendering: ', url, '...')
-      entry.render({ req, res, head: viteHead })
+      console.info('Rendering in server.js: ', url, '...')
+      await entry.render({ req, res, url, head: viteHead })
     } catch (e) {
       !isProd && vite.ssrFixStacktrace(e)
-      console.info(e.stack)
+      console.error('Render error:', e)
       res.status(500).end(e.stack)
     }
   })
@@ -85,7 +98,7 @@ export async function createServer(
   return { app, vite }
 }
 
-// Export the app for Vercel
+// Export the app for Railway
 export default async function handler(req, res) {
   const { app } = await createServer(
     process.cwd(),
@@ -96,11 +109,10 @@ export default async function handler(req, res) {
   return app(req, res)
 }
 
-// Keep the development server creation
 if (!isTest) {
   createServer().then(async ({ app }) =>
-    app.listen(await getPort({ port: portNumbers(3000, 3100) }), () => {
-      console.info('Client Server: http://localhost:3000')
+    app.listen(process.env.PORT || await getPort({ port: portNumbers(3000, 3100) }), () => {
+      console.info(`Server running on port ${process.env.PORT || 3000}`)
     }),
   )
 }

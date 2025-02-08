@@ -2,7 +2,7 @@ import { getSpotifyEmbedLink } from '../../actions/spotifyembed';
 
 export default async function Page() {
     const iframeHtml = await getSpotifyEmbedLink();
-
+    console.log('rendering the recent component');
     return (
         <>
             <p className="text-3xl md:text-4xl font-extralight py-4">Recent</p>

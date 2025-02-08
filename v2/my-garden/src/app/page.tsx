@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Suspense } from 'react';
 import Recent from '../components/Recent/recent';
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
+import Link from 'next/link';
 
 export default async function Page() {
   cacheLife('days')
@@ -28,20 +29,20 @@ export default async function Page() {
             <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
               <p>Tarat is currently helping ship {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</a>
+                  <Link href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</Link>
                 </span> {" "} but also, he is writing weekly newsletters on substack as {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</a>
+                  <Link href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</Link>
                 </span>, documenting hobbies on instagram as <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</a>
+                  <Link href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</Link>
                 </span> {", "} <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="/writings">writing blogs</a>
+                  <Link href="/writings">writing blogs</Link>
                 </span>{", "} <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="/library">reading books</a>
+                  <Link href="/library">reading books</Link>
                 </span>
                 {" and, "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <a href="/dump">creating half finished projects.</a>
+                  <Link href="/projects">creating half finished projects.</Link>
                 </span>
               </p>
             </section>
