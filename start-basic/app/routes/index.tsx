@@ -1,15 +1,109 @@
 import * as React from 'react'
-import { createFileRoute } from '@tanstack/react-router'
+import { Await, createFileRoute } from '@tanstack/react-router'
 import Recent from '../components/Recent/recent';
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
 import { Suspense } from 'react';
+import { createServerFn } from '@tanstack/start'
+import { DEPLOY_URL } from '~/utils/users'
+
+import SpotifyWebApi from 'spotify-web-api-node';
+// import { unstable_cache } from 'next/cache';
+
+const DEFAULT_EMBED = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0xfjrxk4uQpPYCfAMSkiKA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+
+async function fetchLastFMTrack() {
+    try {
+        const response = await fetch(
+            `https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=TaRaT_122&api_key=${import.meta.env.VITE_LASTFM_API_KEY}&format=json&limit=5`,
+            { cache: 'no-store' }
+        );
+        
+        if (!response.ok) {
+            throw new Error('LastFM API failed');
+        }
+
+        const data = await response.json();
+        const tracks = data.weeklytrackchart?.track;
+        
+        if (!tracks?.length) {
+            throw new Error('No tracks found');
+        }
+
+        return tracks[0];
+    } catch (error) {
+        console.error('Error fetching LastFM track:', error);
+        return null;
+    }
+}
+
+async function getSpotifyTrackEmbed(trackName: string, artistName: string) {
+    try {
+        if (!import.meta.env.VITE_SPOTIFY_CLIENT_ID || !import.meta.env.VITE_SPOTIFY_CLIENT_SECRET) {
+            throw new Error('Spotify credentials are not configured');
+        }
+        
+        const spotifyApi = new SpotifyWebApi({
+            clientId: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
+            clientSecret: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET,
+            redirectUri: 'https://www.tarat.space/'
+        });
+
+        const response = await spotifyApi.clientCredentialsGrant();
+        spotifyApi.setAccessToken(response.body['access_token']);
+
+        const searchResponse = await spotifyApi.searchTracks(`${trackName} ${artistName}`);
+        const track = searchResponse.body.tracks.items[0];
+
+        if (!track) {
+            throw new Error('No track found on Spotify');
+        }
+
+        const embedResponse = await fetch(
+            `https://open.spotify.com/oembed?url=${track.external_urls.spotify}`,
+            { method: "GET" }
+        );
+
+        if (!embedResponse.ok) {
+            throw new Error('Failed to get embed data');
+        }
+
+        const embedData = await embedResponse.json();
+        return embedData.html;
+    } catch (error) {
+        console.error('Error getting Spotify embed:', error);
+        return null;
+    }
+}
+
+
+const getSpotifyEmbedLink = createServerFn({ method: 'GET' }).handler(async () => {
+  try {
+    const weeklyTrack = await fetchLastFMTrack();
+
+    const embedHtml = await getSpotifyTrackEmbed(
+        weeklyTrack.name,
+        weeklyTrack.artist['#text']
+    );
+    console.log('embedHtml', embedHtml);;
+
+    return { html: embedHtml || DEFAULT_EMBED };
+} catch (error) {
+    console.error('Error in getSpotifyEmbedLink:', error);
+    return { html: DEFAULT_EMBED };
+}
+})
 
 export const Route = createFileRoute('/')({
+  loader: async () => {
+    const iframeHtml = await getSpotifyEmbedLink();
+    return { iframeHtml: iframeHtml.html };
+  },
   component: HomeComponent,
 })
 
 function HomeComponent() {
   console.log('rendering the home component');
+  const { iframeHtml } = Route.useLoaderData();
   return (
     <main className='flex justify-center xl:px-60'>
       <div className='min-w-full md:container md:mt-2 px-8  md:px-28 lg:px-60'>
@@ -55,13 +149,12 @@ function HomeComponent() {
               <>
                 <p className="text-3xl md:text-4xl font-extralight py-4">Recent</p>
                 <section className="mt-4">
-                  <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I've been recently obsessed with</p>
+                  <p className="text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2">I&apos;ve been recently obsessed with</p>
                   <SpotifyEmbedSkeleton />
                 </section>
               </>
-
             }>
-              <Recent />
+              <Recent iframeHtml={iframeHtml} />
             </Suspense>
           </section>
 

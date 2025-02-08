@@ -19,14 +19,13 @@ function HomeComponent() {
           <section>
             <div className='flex flex-row items-center justify-between'>
               <p className="text-3xl md:text-4xl font-extralight py-4">Present</p>
-              {/* <Image 
-                src="/selfie.png" 
+              <img 
+                src="./selfie.png" 
                 alt='TaraT' 
                 width={64} 
                 height={64} 
                 className='h-12 md:h-16 rounded-full w-auto'
-                priority
-              /> */}
+              />
             </div>
             <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
               <p>Tarat is currently helping ship {" "}
@@ -71,7 +70,6 @@ function HomeComponent() {
             <p>Made with 💛 by tarat</p>
           </section>
 
-          <SpotifyEmbedSkeleton />
 
         </div>
 
