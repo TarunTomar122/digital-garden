@@ -1,7 +1,7 @@
 'use server'
 
 import SpotifyWebApi from 'spotify-web-api-node';
-import { unstable_cacheLife as cacheLife } from 'next/cache'
+import { unstable_cache } from 'next/cache';
 
 const DEFAULT_EMBED = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0xfjrxk4uQpPYCfAMSkiKA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
 
@@ -69,24 +69,29 @@ async function getSpotifyTrackEmbed(trackName: string, artistName: string) {
     }
 }
 
-export const getSpotifyEmbedLink =  async () => {
-    'use cache';
+export const getSpotifyEmbedLink = unstable_cache(
+    async () => {
+        try {
+            const weeklyTrack = await fetchLastFMTrack();
+            
+            if (!weeklyTrack) {
+                return DEFAULT_EMBED;
+            }
 
-    try {
-        const weeklyTrack = await fetchLastFMTrack();
-        
-        if (!weeklyTrack) {
+            const embedHtml = await getSpotifyTrackEmbed(
+                weeklyTrack.name,
+                weeklyTrack.artist['#text']
+            );
+
+            return embedHtml || DEFAULT_EMBED;
+        } catch (error) {
+            console.error('Error in getSpotifyEmbedLink:', error);
             return DEFAULT_EMBED;
         }
-
-        const embedHtml = await getSpotifyTrackEmbed(
-            weeklyTrack.name,
-            weeklyTrack.artist['#text']
-        );
-
-        return embedHtml || DEFAULT_EMBED;
-    } catch (error) {
-        console.error('Error in getSpotifyEmbedLink:', error);
-        return DEFAULT_EMBED;
+    },
+    ['spotify-embed'],
+    {
+        revalidate: 60*60*24,
+        tags: ['spotify-embed']
     }
-}
+);
