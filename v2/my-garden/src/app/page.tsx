@@ -23,7 +23,7 @@ export default async function Page() {
                 width={64} 
                 height={64} 
                 className='h-12 md:h-16 rounded-full w-auto'
-                priority
+                priority={true}
               />
             </div>
             <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
