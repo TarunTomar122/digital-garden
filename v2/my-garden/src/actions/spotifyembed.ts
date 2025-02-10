@@ -9,7 +9,10 @@ async function fetchLastFMTrack() {
     try {
         const response = await fetch(
             `https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=TaRaT_122&api_key=${process.env.LASTFM_API_KEY}&format=json&limit=5`,
-            { cache: 'no-store' }
+            { 
+                cache: 'no-store',
+                next: { revalidate: 0 }  // Force revalidation
+            }
         );
         
         if (!response.ok) {
@@ -71,12 +74,18 @@ async function getSpotifyTrackEmbed(trackName: string, artistName: string) {
 
 export const getSpotifyEmbedLink = unstable_cache(
     async () => {
+        const now = new Date().toISOString();
+        console.log(`[${now}] Fetching new Spotify embed`);  // Add timestamp logging
+        
         try {
             const weeklyTrack = await fetchLastFMTrack();
             
             if (!weeklyTrack) {
+                console.log('No weekly track found, using default embed');
                 return DEFAULT_EMBED;
             }
+
+            console.log('Found track:', weeklyTrack.name, 'by', weeklyTrack.artist['#text']);
 
             const embedHtml = await getSpotifyTrackEmbed(
                 weeklyTrack.name,
