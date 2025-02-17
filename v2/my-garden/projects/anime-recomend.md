@@ -7,7 +7,7 @@ tags:
     - python
     - reactjs
     - django
-    - machine-learning
+    - ai
 links:
     - type: github
       url: https://github.com/TarunTomar122/AnimeRecommendation/tree/master

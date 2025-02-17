@@ -8,6 +8,7 @@ tags:
     - numpy
     - matplotlib
     - machine-learning
+    - ai
 links:
     - type: github
       url: https://github.com/RoboticsClubIITJ/ML-DL-implementation

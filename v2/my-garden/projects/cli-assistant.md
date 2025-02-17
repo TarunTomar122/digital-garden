@@ -7,7 +7,7 @@ tags:
     - python
     - expressjs
     - mongodb
-    - machine-learning
+    - ai
 links:
     - type: github
       url: https://github.com/TarunTomar122/cli-assistant
