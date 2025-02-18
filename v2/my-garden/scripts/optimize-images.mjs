@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import { readdir, stat } from 'fs/promises';
 import path from 'path';
 
-const MIN_SIZE_KB = 500; // Only optimize images larger than 500KB
+const MIN_SIZE_KB = 200; // Only optimize images larger than 200KB
 const DIRECTORIES = [
     'public',
     'public/assets',
