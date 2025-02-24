@@ -31,7 +31,7 @@ export default async function Page({ params }: ProjectsProps) {
                 <section className="md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40 pb-4">
                     <p className="text-3xl md:text-4xl py-4">{project.title}</p>
                     {/** Display tags as rounded buttons with random colors*/}
-                    <div className="flex flex-wrap">
+                    {/* <div className="flex flex-wrap">
                         {
                             project.tags.map((tag: string) => {
                                 const hue = Math.floor(Math.random() * 360);
@@ -51,7 +51,7 @@ export default async function Page({ params }: ProjectsProps) {
                                 );
                             })
                         }
-                    </div>
+                    </div> */}
 
                     <section className="text-slate-200 text-md my-2 leading-7">
                         <p>{project.description}</p>

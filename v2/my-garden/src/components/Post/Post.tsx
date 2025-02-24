@@ -49,7 +49,7 @@ function PostContent({ postData }: { postData: Writing }) {
                         height={400}
                         className="rounded-lg w-full h-auto"
                         style={{ maxWidth: '100%', height: 'auto' }}
-                        loading="eager" // Let Next.js handle the loading strategy
+                        loading="lazy" // Let Next.js handle the loading strategy
                         quality={85} // Good balance between quality and size
                         sizes="(max-width: 768px) 100vw, 800px"
                     />

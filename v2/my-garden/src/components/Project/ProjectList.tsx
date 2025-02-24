@@ -43,7 +43,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
     return (
         <div>
             {/* Selected Tag */}
-            {selectedTags.length > 0 && (
+            {/* {selectedTags.length > 0 && (
                 <div className="pb-1 flex flex-row">
                     {selectedTags.map((selectedTag) => (
                         <div
@@ -63,7 +63,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                         </div>
                     ))}
                 </div>
-            )}
+            )} */}
 
             {/* Projects */}
             <section className="pb-20">
@@ -95,7 +95,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                         </span>
                                     </span>
 
-                                    {/* Tags */}
+                                    {/* Tags
                                     <div className="flex flex-wrap mt-2">
                                         {tags.map((tag: string) => {
                                             const hue = Math.floor(Math.random() * 360);
@@ -118,7 +118,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                                 </span>
                                             );
                                         })}
-                                    </div>
+                                    </div> */}
 
                                     <p className="text-gray-200 leading-7 mt-2">{description}</p>
                                 </div>
