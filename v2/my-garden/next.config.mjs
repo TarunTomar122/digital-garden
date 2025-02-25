@@ -11,7 +11,6 @@ const nextConfig = {
     experimental: {
         ppr: true,
         useCache: true,
-        parallelRoutes: true,
     },
     // Configure page caching
     staticPageGenerationTimeout: 120,

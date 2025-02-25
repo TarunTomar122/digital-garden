@@ -66,7 +66,7 @@ export default async function Page() {
 
           {/* Footer */}
           <section className="py-8">
-            <p>Made with 💛 by tarat</p>
+            <p className='text-slate-400'>Copyright © 2025 Tarat</p>
           </section>
 
         </div>

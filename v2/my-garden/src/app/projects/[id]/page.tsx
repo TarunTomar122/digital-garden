@@ -24,84 +24,60 @@ export default async function Page({ params }: ProjectsProps) {
 
     return (
 
-        <main className='flex justify-center xl:px-60 font-light'>
-            <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>
-
+        <main className='flex justify-center xl:px-60 min-h-screen'>
+            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8'>
                 {/* Header */}
-                <section className="md:leading-10 leading-8 border-b-2 border-gray-400 border-opacity-40 pb-4">
-                    <p className="text-3xl md:text-4xl py-4">{project.title}</p>
-                    {/** Display tags as rounded buttons with random colors*/}
-                    {/* <div className="flex flex-wrap">
-                        {
-                            project.tags.map((tag: string) => {
-                                const hue = Math.floor(Math.random() * 360);
-                                const backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-                                const fontColor = getContrastYIQ(hue, saturation, lightness);
-                                return (
-                                    <span
-                                        key={tag}
-                                        className="text-xs rounded-full px-2 py-1 m-1"
-                                        style={{
-                                            backgroundColor: backgroundColor,
-                                            color: fontColor
-                                        }}
-                                    >
-                                        {tag}
-                                    </span>
-                                );
-                            })
-                        }
-                    </div> */}
+                <section className="pb-8 border-b border-slate-800">
+                    <p className="text-3xl md:text-4xl text-white mb-6">{project.title}</p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag: string) => (
+                            <span
+                                key={tag}
+                                className="text-xs px-3 py-1 rounded-full border border-slate-800 text-slate-400"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
 
-                    <section className="text-slate-200 text-md my-2 leading-7">
+                    <section className="text-slate-300 text-lg mb-8 leading-relaxed">
                         <p>{project.description}</p>
                     </section>
 
                     {/* project links */}
                     {project.links && project.links.length > 0 && (
-                        <section className="flex flex-row gap-4">
-                            {
-                                project.links.map(({ type, url }) => {
-                                    return (
-                                        <div key={url}>
-
-                                            {type === 'website' && (
-                                                <a href={url} target
-                                                    ="_blank" rel="noopener noreferrer"
-                                                    className='text-slate-200 items-center'>
-                                                    website
-                                                    <span className="h-5 inline-block ml-1 text-center align-middle">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
-                                                    </span>
-                                                </a>
-                                            )}
-
-                                            {type === 'github' && (
-                                                <a href={url} target="_blank" rel="noopener noreferrer"
-                                                    className='text-slate-200'>
-                                                    github
-                                                    <span className="h-5 inline-block ml-1 text-center align-middle">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill={`rgb(226 232 240)`}><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" /></svg>
-                                                    </span>
-                                                </a>
-                                            )}
-
-                                        </div>
-                                    )
-                                }
-                                )
-                            }
+                        <section className="flex flex-wrap gap-4 mb-6">
+                            {project.links.map(({ type, url }) => (
+                                <a
+                                    key={url}
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+                                >
+                                    <span>{type}</span>
+                                    <svg 
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        height="16" 
+                                        width="16" 
+                                        viewBox="0 -960 960 960" 
+                                        fill="currentColor"
+                                    >
+                                        <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+                                    </svg>
+                                </a>
+                            ))}
                         </section>
                     )}
 
-                    <div className="flex justify-start py-2">
+                    <div className="flex justify-start">
                         <LikeButton id={project.id} type="post" />
                     </div>
-
                 </section>
 
-                {/* project */}
-                <section className="text-slate-400">
+                {/* project content */}
+                <section className="pb-8 text-slate-300">
                     <Project projectData={project} />
                 </section>
             </div>

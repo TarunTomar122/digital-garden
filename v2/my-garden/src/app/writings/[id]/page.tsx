@@ -22,28 +22,29 @@ export default async function Page({ params }: WritingProps) {
 
     return (
 
-        <main className='flex justify-center xl:px-60 font-light'>
-            <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>
-
+        <main className='flex justify-center xl:px-60 min-h-screen'>
+            <div className='min-w-full md:container px-8 md:px-28 lg:px-60 py-8'>
                 {/* Header */}
-                <section className="md:leading-10 leading-8 pb-4 border-b-2 border-gray-400 border-opacity-40">
-                    <p className="text-3xl md:text-4xl py-4">{writing.title}</p>
-                    <section className="text-slate-200 text-md">
-                        <p>{writing.description}</p>
-                    </section>
-                    <div className="flex justify-start py-2">
+                <section className="pb-8 border-b border-slate-800">
+                    <p className="text-4xl md:text-5xl font-normal text-white mb-4">{writing.title}</p>
+                    <p className="text-slate-400 md:text-lg">{writing.description}</p>
+                    <div className="mt-6">
                         <LikeButton id={writing.id} type="post" />
                     </div>
                 </section>
 
-                {/* Writings */}
-                <section className=" text-slate-400">
-                    <Suspense fallback={<div className="animate-pulse space-y-4">
-                        <div className="h-4 bg-gray-700 rounded w-full"></div>
-                        <div className="h-4 bg-gray-700 rounded w-5/6"></div>
-                        <div className="h-4 bg-gray-700 rounded w-4/6"></div>
-                    </div>}>
-                        <Post postData={writing} />
+                {/* Content */}
+                <section>
+                    <Suspense fallback={
+                        <div className="space-y-4">
+                            <div className="h-4 bg-slate-800/60 rounded w-full"></div>
+                            <div className="h-4 bg-slate-800/60 rounded w-5/6"></div>
+                            <div className="h-4 bg-slate-800/60 rounded w-4/6"></div>
+                        </div>
+                    }>
+                        <div className="prose prose-invert prose-slate max-w-none">
+                            <Post postData={writing} />
+                        </div>
                     </Suspense>
                 </section>
             </div>

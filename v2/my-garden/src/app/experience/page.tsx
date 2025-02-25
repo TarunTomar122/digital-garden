@@ -1,9 +1,17 @@
 export default function Page() {
     return (
         <main className='flex justify-center xl:px-60'>
-            <div className='min-w-full md:container mb-20 px-8  md:px-28 lg:px-60'>
+            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8 mb-20'>
+                {/* Header */}
+                <section className="mb-12">
+                    <p className="text-4xl md:text-5xl font-normal text-white pb-2">
+                        Experience
+                    </p>
+                    <p className="text-slate-400 md:text-lg mt-4">
+                        Places I've worked at and things I've built
+                    </p>
+                </section>
 
-                {/** Adobe Design Engineer */}
                 <h1 className="text-2xl md:text-3xl mt-8 mb-1">Design Engineer @Adobe</h1>
                 <p className="text-lg text-slate-400">June 2023 - Present</p>
                 <p className="text-lg text-slate-300 my-4 max-w-4xl leading-relaxed">
@@ -40,6 +48,8 @@ export default function Page() {
                     Some of its features included listener-talker matching algorithm, real time end-to-end encrypted chat,
                     google auth etc.
                 </li>
+            
+
             </div>
         </main>
     );

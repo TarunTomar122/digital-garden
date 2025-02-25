@@ -2,7 +2,7 @@ import { getAllProjects } from "@/actions/projects"
 import ProjectList from "@/components/Project/ProjectList"
 import ProjectListSkeleton from "@/components/ProjectList/ProjectListSkeleton";
 import { Project } from '@/actions/projects';
-import { Suspense } from "react";``
+import { Suspense } from "react";
 
 export default async function Page() {
     const projects = await getAllProjects();
@@ -13,21 +13,21 @@ export default async function Page() {
     });
 
     return (
-        <main className='flex justify-center xl:px-60'>
-            <div className='min-w-full md:container px-8  md:px-28 lg:px-60'>
-
+        <main className='flex justify-center xl:px-60 min-h-screen'>
+            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8 mb-20'>
                 {/* Header */}
-                <section>
-                    <p className="text-3xl md:text-4xl py-4">Projects</p>
-                    <section className="text-slate-400 md:leading-10 leading-8 text-lg">
-                        <p>A museum of my half finished art.</p>
-                    </section>
+                <section className="mb-12">
+                    <p className="text-4xl md:text-5xl font-normal text-white pb-2">
+                        Projects
+                    </p>
+                    <p className="text-slate-400 md:text-lg mt-4">
+                        A museum of my half finished art.
+                    </p>
                 </section>
                 
                 <Suspense fallback={<ProjectListSkeleton/>}>
                     <ProjectList projects={projects as Project[]} />
                 </Suspense>
-
             </div>
         </main>
     )
