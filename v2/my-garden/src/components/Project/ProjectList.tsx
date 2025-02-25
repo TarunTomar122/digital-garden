@@ -11,25 +11,11 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
     return (
         <div>
             {/* Projects */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredProjects.map(({ id, title, description, tags, thumbnail }, index) => (
                     <Link href={`/projects/${id}`} key={id} className="group">
-                        <article className="h-full bg-transparent border border-slate-800/60 rounded-lg overflow-hidden hover:border-slate-700/60 transition-all duration-300">
-                            {thumbnail && (
-                                <div className="w-full h-48 relative overflow-hidden">
-                                    <Image
-                                        src={thumbnail}
-                                        alt={`${title} thumbnail`}
-                                        fill
-                                        className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                        priority={index < 2}
-                                        loading={index < 2 ? 'eager' : 'lazy'}
-                                        quality={85}
-                                    />
-                                </div>
-                            )}
-                            <div className="p-6">
+                        <article className="h-full bg-[#202020] border-b md:border rounded-lg overflow-hidden transition-all duration-300 border-slate-800/60 hover:border-slate-700/60">
+                            <div className="md:px-6 py-6">
                                 <div className="flex items-start justify-between gap-4 mb-3">
                                     <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}

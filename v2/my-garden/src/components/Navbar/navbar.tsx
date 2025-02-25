@@ -10,8 +10,8 @@ export default function Page() {
     const pathname = usePathname()
 
     return (
-        <main className='flex justify-center xl:px-60'>
-            <div className='min-w-full md:container flex flex-row justify-center py-12 px-8 md:px-28 lg:px-60'>
+        <main className='flex justify-center xl:px-40 2xl:px-60'>
+            <div className='min-w-full md:container flex flex-row justify-center py-10 md:py-12 px-8 md:px-28 lg:px-60'>
                 <div className="mx-auto flex flex-wrap items-center justify-between min-w-full">
                     <Link href="/" className="flex">
                         <svg className='cursor-pointer h-10' viewBox="0 0 164 139" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -24,17 +24,17 @@ export default async function Page({ params }: ProjectsProps) {
 
     return (
 
-        <main className='flex justify-center xl:px-60 min-h-screen'>
-            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8'>
+        <main className='flex justify-center xl:px-40 2xl:px-60'>
+            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 mb-20 py-2 md:py-8'>
                 {/* Header */}
-                <section className="pb-8 border-b border-slate-800">
-                    <p className="text-3xl md:text-4xl text-white mb-6">{project.title}</p>
+                <section className="pb-8 border-b border-slate-700/40">
+                    <p className="text-3xl md:text-4xl text-white mb-4">{project.title}</p>
                     
                     <div className="flex flex-wrap gap-2 mb-6">
                         {project.tags.map((tag: string) => (
                             <span
                                 key={tag}
-                                className="text-xs px-3 py-1 rounded-full border border-slate-800 text-slate-400"
+                                className="text-xs px-3 py-1 rounded-full border border-slate-700/40 text-slate-400"
                             >
                                 {tag}
                             </span>
@@ -77,7 +77,7 @@ export default async function Page({ params }: ProjectsProps) {
                 </section>
 
                 {/* project content */}
-                <section className="pb-8 text-slate-300">
+                <section className=" text-slate-300">
                     <Project projectData={project} />
                 </section>
             </div>

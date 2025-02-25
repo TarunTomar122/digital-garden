@@ -17,6 +17,22 @@ const nextConfig = {
     
     // Configure revalidation intervals for ISR
     revalidate: 3600, // 1 hour
+
+    // Configure allowed image domains
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images-na.ssl-images-amazon.com',
+                pathname: '/images/S/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'th.bing.com',
+                pathname: '/th/**',
+            }
+        ],
+    },
 };
 
 export default nextConfig;

@@ -22,10 +22,10 @@ export default async function Page({ params }: WritingProps) {
 
     return (
 
-        <main className='flex justify-center xl:px-60 min-h-screen'>
-            <div className='min-w-full md:container px-8 md:px-28 lg:px-60 py-8'>
+        <main className='flex justify-center xl:px-40 2xl:px-60 min-h-screen'>
+            <div className='min-w-full md:container px-8 md:px-28 lg:px-60 py-2 md:py-8'>
                 {/* Header */}
-                <section className="pb-8 border-b border-slate-800">
+                <section className="pb-8 border-b border-slate-700/40">
                     <p className="text-4xl md:text-5xl font-normal text-white mb-4">{writing.title}</p>
                     <p className="text-slate-400 md:text-lg">{writing.description}</p>
                     <div className="mt-6">

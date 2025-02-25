@@ -1,6 +1,6 @@
 export default function Page() {
     return (
-        <main className='flex justify-center xl:px-60'>
+        <main className='flex justify-center xl:px-40 2xl:px-60'>
             <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8 mb-20'>
                 {/* Header */}
                 <section className="mb-12">

@@ -24,8 +24,8 @@ export default async function Page({
     const currentWritings = writings.slice(startIndex, endIndex);
 
     return (
-        <main className='flex justify-center xl:px-60 min-h-screen'>
-            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-8 mb-20'>
+        <main className='flex justify-center xl:px-40 2xl:px-60 min-h-screen'>
+            <div className='min-w-full px-8 md:container md:px-28 lg:px-60 py-2 md:py-8 mb-20'>
                 {/* Header */}
                 <section className="mb-12">
                     <p className="text-4xl md:text-5xl font-normal text-white pb-2">
@@ -40,7 +40,7 @@ export default async function Page({
                 <section className="space-y-8 pb-12">
                     {currentWritings.map(({ id, title, description, date }) => (
                         <Link key={id} href={`/writings/${id}`} className="block group">
-                            <article className="bg-transparent border border-slate-800/60 rounded-lg p-6 hover:border-slate-700/60 transition-all duration-300">
+                            <article className="bg-[#202020] border-b md:border rounded-lg md:px-6 py-6 transition-all duration-300 border-slate-800/60 hover:border-slate-700/60">
                                 <div className="flex items-start justify-between gap-4 mb-2">
                                     <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}
