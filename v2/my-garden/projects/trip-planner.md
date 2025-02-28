@@ -16,11 +16,11 @@ links:
 
 ###
 
-I'm going on my first ever internation trip this coming month (april) and this project basically is to help me do an overly specific thing. 
+I'm going on my first ever international trip in april and this project is to help me do an overly specific thing. 
 
 ####
 
-So basically, I was doing the trip planning with my gf and we were using figjam to put the places and restaurants on a screenshot of the map of the place where we were going.
+So basically, I was doing the trip planning with monisha and we were using figjam to put the places and restaurants on a screenshot of the map of the place where we were going to help us visualize the trip.
 
 ![Image](/assets/projects/map-my-trip/figjam.png)
 
