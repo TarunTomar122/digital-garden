@@ -14,7 +14,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredProjects.map(({ id, title, description, tags, thumbnail }, index) => (
                     <Link href={`/projects/${id}`} key={id} className="group">
-                        <article className="h-full bg-[#202020] border-b md:border rounded-lg overflow-hidden transition-all duration-300 border-slate-800/60 hover:border-slate-700/60">
+                        <article className="h-full bg-[#202020] border-b md:border md:rounded-lg overflow-hidden transition-all duration-300 border-slate-700/60 hover:border-slate-200/60">
                             <div className="md:px-6 py-6">
                                 <div className="flex items-start justify-between gap-4 mb-3">
                                     <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
@@ -31,7 +31,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                     {tags.map((tag: string) => (
                                         <span
                                             key={tag}
-                                            className="text-xs px-2 py-0.5 bg-slate-800/30 text-slate-400"
+                                            className="text-xs border-b border-slate-800/30 py-0.5 mx-1 text-slate-400"
                                         >
                                             {tag}
                                         </span>

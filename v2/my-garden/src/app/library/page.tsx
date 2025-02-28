@@ -24,10 +24,10 @@ export default function Page() {
                             href={book.link} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="group"
+                            className="group mb-4"
                         >
-                            <article className="bg-[#202020] border rounded-lg overflow-hidden transition-all duration-300 border-slate-800/60 hover:border-slate-700/60">
-                                <div className="flex flex-row gap-4">
+                            <article className="bg-[#202020]  overflow-hidden transition-all duration-300 border-slate-700/60 hover:border-slate-200/60 h-full">
+                                <div className="flex flex-row gap-4 h-full">
                                     <div className="w-24 h-36 relative flex-shrink-0">
                                         <Image
                                             src={book.img}
@@ -37,28 +37,28 @@ export default function Page() {
                                             sizes="(max-width: 768px) 96px, 96px"
                                         />
                                     </div>
-                                    <div className="flex flex-col py-6 pr-6">
+                                    <div className="flex flex-col  pr-6 flex-grow">
                                         {book.rating === "" && (
                                             <div className='text-sm mb-2 w-fit'>
                                                 {book.status === 'to read' && 
-                                                    <span className='px-2 py-0.5 bg-orange-500/10 text-orange-300 rounded-full w-fit'>
+                                                    <span className='py-0.5  text-orange-300 rounded-full w-fit'>
                                                         To read
                                                     </span>
                                                 }
                                                 {book.status === 'reading' && 
-                                                    <span className='px-2 py-0.5 bg-green-500/10 text-green-300 rounded-full w-fit'>
+                                                    <span className=' py-0.5 text-green-300 rounded-full w-fit'>
                                                         Reading
                                                     </span>
                                                 }
                                                 {book.status === 'gave up' && 
-                                                    <span className='px-2 py-0.5 bg-red-500/10 text-red-300 rounded-full w-fit'>
+                                                    <span className=' py-0.5  text-red-300 rounded-full w-fit'>
                                                         Gave up
                                                     </span>
                                                 }
                                             </div>
                                         )}
                                         {book.rating !== "" && (
-                                            <div className='text-sm px-2 py-0.5 bg-blue-500/10 text-blue-300 rounded-full mb-2 w-fit'>
+                                            <div className='text-sm py-0.5 text-blue-300 rounded-full mb-2 w-fit'>
                                                 Rating: {book.rating}
                                             </div>
                                         )}

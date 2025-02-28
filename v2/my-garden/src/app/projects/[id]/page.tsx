@@ -34,20 +34,20 @@ export default async function Page({ params }: ProjectsProps) {
                         {project.tags.map((tag: string) => (
                             <span
                                 key={tag}
-                                className="text-xs px-3 py-1 rounded-full border border-slate-700/40 text-slate-400"
+                               className="text-xs border-b border-slate-600 py-0.5 mx-1 text-slate-400"
                             >
                                 {tag}
                             </span>
                         ))}
                     </div>
 
-                    <section className="text-slate-300 text-lg mb-8 leading-relaxed">
+                    <section className="text-slate-300 text-lg mb-6 leading-relaxed">
                         <p>{project.description}</p>
                     </section>
 
                     {/* project links */}
                     {project.links && project.links.length > 0 && (
-                        <section className="flex flex-wrap gap-4 mb-6">
+                        <section className="flex flex-wrap gap-4">
                             {project.links.map(({ type, url }) => (
                                 <a
                                     key={url}
@@ -70,10 +70,6 @@ export default async function Page({ params }: ProjectsProps) {
                             ))}
                         </section>
                     )}
-
-                    <div className="flex justify-start">
-                        <LikeButton id={project.id} type="post" />
-                    </div>
                 </section>
 
                 {/* project content */}
