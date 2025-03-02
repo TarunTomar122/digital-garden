@@ -29,6 +29,16 @@
     display: inline-block;
 }
 
+.markdown li {
+    color: rgb(203 213 225);
+    font-size: 1em;
+    margin-bottom: 0.6em;
+    font-family: Inter;
+    line-height: 1.6;
+    font-weight: 400;
+    list-style-type: disc;
+}
+
 .markdown h4{
     font-size: 1.2em;
     font-style: bold;
