@@ -14,7 +14,7 @@ links:
       url: https://github.com/TarunTomar122/map-my-trip
 ---
 
-###
+### Why?
 
 I'm going on my first ever international trip in april and this project is to help me do an overly specific thing. 
 
@@ -23,6 +23,8 @@ I'm going on my first ever international trip in april and this project is to he
 So basically, I was doing the trip planning with monisha and we were using figjam to put the places and restaurants on a screenshot of the map of the place where we were going to help us visualize the trip.
 
 ![Image](/assets/projects/map-my-trip/figjam.png)
+
+### Flow
 
 As I said, it's overly specific but it was friday afternoon and work was slow so I built this app where you can basically put the place you're going to, number of days and some additional details if you want and it'll give you a map with all the places and restaurants marked on it.
 
