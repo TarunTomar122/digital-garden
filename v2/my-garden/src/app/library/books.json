@@ -1,20 +1,20 @@
 {
     "books":[
         {
-            "title": "Predictably Irrational: The Hidden Forces That Shape Our Decisions",
-            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1255573980i/1713426.jpg",
-            "author": "Dan Ariely",
-            "rating": "",
-            "status": "reading",
-            "link": "https://www.goodreads.com/book/show/1713426.Predictably_Irrational"
-        },
-        {
             "title": "Before We Forget Kindness",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1709454818i/200998630.jpg",
             "author": "Toshikazu Kawaguchi",
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/200998630-before-we-forget-kindness"
+        },
+        {
+            "title": "Predictably Irrational: The Hidden Forces That Shape Our Decisions",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1255573980i/1713426.jpg",
+            "author": "Dan Ariely",
+            "rating": "3.5/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/1713426.Predictably_Irrational"
         },
         {
             "title": "Civilization and Its Discontents",
