@@ -1,11 +1,19 @@
 {
     "books":[
         {
+            "title": "When Breath Becomes Air",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1492677644i/25899336.jpg",
+            "author": "Paul Kalanithi",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/25899336-when-breath-becomes-air"
+        },
+        {
             "title": "Before We Forget Kindness",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1709454818i/200998630.jpg",
             "author": "Toshikazu Kawaguchi",
-            "rating": "",
-            "status": "reading",
+            "rating": "3.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/200998630-before-we-forget-kindness"
         },
         {
