@@ -1,11 +1,19 @@
 {
     "books":[
         {
+            "title": "The Almanack of Naval Ravikant: A Guide to Wealth and Happiness",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
+            "author": "Eric Jorgenson",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
+        },
+        {
             "title": "When Breath Becomes Air",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1492677644i/25899336.jpg",
             "author": "Paul Kalanithi",
-            "rating": "",
-            "status": "reading",
+            "rating": "4.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/25899336-when-breath-becomes-air"
         },
         {
