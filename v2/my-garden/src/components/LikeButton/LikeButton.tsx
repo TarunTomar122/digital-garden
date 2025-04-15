@@ -21,6 +21,8 @@ export default function LikeButton({ id, type }: LikeButtonProps) {
                 const response = await fetch(`/api/likes?id=${id}&type=${type}`);
                 const data = await response.json();
                 setLikeCount(data.likes || 0);
+
+                // console.log('response', response);
                 
                 // Check if user has already liked
                 const likedItems = JSON.parse(localStorage.getItem(`liked_${type}s`) || '{}');

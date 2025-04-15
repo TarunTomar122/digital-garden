@@ -1,27 +1,39 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/utils/firebase';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { adminDb } from '@/utils/firebase-admin';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
     const type = searchParams.get('type');
 
+    // console.log('Request params:', { id, type });
+
     if (!id || !type) {
         return NextResponse.json({ error: 'Missing id or type' }, { status: 400 });
     }
 
     try {
-        const docRef = doc(db, `${type}_likes`, id);
-        const docSnap = await getDoc(docRef);
+        const docRef = adminDb.collection(`${type}_likes`).doc(id);
+        // console.log('Attempting to read document:', `${type}_likes/${id}`);
+        
+        const docSnap = await docRef.get();
+        // console.log('Document exists:', docSnap.exists);
 
-        if (!docSnap.exists()) {
+        if (!docSnap.exists) {
             return NextResponse.json({ likes: 0 });
         }
 
-        return NextResponse.json({ likes: docSnap.data().count });
+        return NextResponse.json({ likes: docSnap.data()?.count });
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to fetch likes' }, { status: 500 });
+        console.error('Detailed error:', {
+            message: error.message,
+            code: error.code,
+            stack: error.stack
+        });
+        return NextResponse.json({ 
+            error: 'Failed to fetch likes',
+            details: error.message 
+        }, { status: 500 });
     }
 }
 
@@ -33,19 +45,19 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        const docRef = doc(db, `${type}_likes`, id);
-        const docSnap = await getDoc(docRef);
+        const docRef = adminDb.collection(`${type}_likes`).doc(id);
+        const docSnap = await docRef.get();
 
-        if (!docSnap.exists()) {
-            await setDoc(docRef, { count: action === 'like' ? 1 : 0 });
+        if (!docSnap.exists) {
+            await docRef.set({ count: action === 'like' ? 1 : 0 });
         } else {
-            const currentCount = docSnap.data().count;
-            await updateDoc(docRef, {
+            const currentCount = docSnap.data()?.count;
+            await docRef.update({
                 count: action === 'like' ? currentCount + 1 : Math.max(0, currentCount - 1)
             });
         }
 
-        const updatedDoc = await getDoc(docRef);
+        const updatedDoc = await docRef.get();
         return NextResponse.json({ likes: updatedDoc.data()?.count || 0 });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to update likes' }, { status: 500 });

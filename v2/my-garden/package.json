@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "firebase": "^11.2.0",
+    "firebase-admin": "^13.2.0",
     "gray-matter": "^4.0.3",
     "next": "15.2.0-canary.27",
     "next-mdx-remote": "^5.0.0",
