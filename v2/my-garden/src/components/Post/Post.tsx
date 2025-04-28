@@ -9,6 +9,7 @@ import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python'
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 import { Writing } from '@/actions/writingsActions';
 import type { Components } from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { useEffect } from 'react';
 
 import './styles.css';
@@ -38,6 +39,24 @@ function PostContent({ postData }: { postData: Writing }) {
     }, [content]);
 
     const customRenderers: Components = {
+        iframe: (props) => {
+            // Sanitize and validate the src URL here if needed
+            const { src, width = "100%", height = "400px", ...rest } = props;
+            return (
+                <div className="iframe-wrapper my-4">
+                    <iframe
+                        src={src}
+                        width="100%"
+                        height={height}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        {...rest}
+                        className="rounded-lg"
+                    />
+                </div>
+            );
+        },
         img: (props) => {
             const { src, alt } = props;
             return (
@@ -75,7 +94,9 @@ function PostContent({ postData }: { postData: Writing }) {
     return (
         <div>
             <div className='markdown'>
-                <ReactMarkdown components={customRenderers}>{content}</ReactMarkdown>
+                <ReactMarkdown
+                    rehypePlugins={[rehypeRaw]}
+                    components={customRenderers}>{content}</ReactMarkdown>
             </div>
         </div>
     )
