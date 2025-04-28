@@ -107,4 +107,3 @@ And thus the way these models learn is very similar to how we humans learn. Whic
 
 Sounds like a simple explanation right? (pun intended)
 
-

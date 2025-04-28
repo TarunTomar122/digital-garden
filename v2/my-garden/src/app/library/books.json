@@ -1,6 +1,14 @@
 {
     "books":[
         {
+            "title": "Dance Dance Dance",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1514582521i/17800.jpg",
+            "author": "Haruki Murakami",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/17800.Dance_Dance_Dance"
+        },
+        {
             "title": "The Almanack of Naval Ravikant: A Guide to Wealth and Happiness",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
             "author": "Eric Jorgenson",
