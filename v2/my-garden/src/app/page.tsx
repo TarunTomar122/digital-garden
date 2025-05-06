@@ -61,7 +61,7 @@ export default async function Page() {
 
           {/* Recent */}
           <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured</p>
-            <section className="my-4">
+            <section className="md:mt-4 mb-8 md:mb-6">
                 {/* <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I recently wrote</p> */}
                 <div className="space-y-6">
                     {latestWritings.map(({ id, title, description, date }) => (
