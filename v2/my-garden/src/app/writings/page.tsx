@@ -8,7 +8,7 @@ export default async function Page({
 }) {
     const {page} = await searchParams;
     const currentPage = Number(page) || 1;
-    const ITEMS_PER_PAGE = 4;
+    const ITEMS_PER_PAGE = 8;
 
     const writings = await getAllWritings();
 

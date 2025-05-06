@@ -55,20 +55,6 @@ export default function Page() {
                             <li>
                                 <Link 
                                     prefetch={true}
-                                    href="/projects"
-                                    className={`hover:text-slate-200 transition-colors ${pathname.startsWith('/projects') ? 'text-white font-medium' : ''}`}
-                                    onClick={() => {
-                                        const mobileMenu = document.getElementById('mobile-menu')
-                                        mobileMenu?.classList.toggle('hidden')
-                                    }}
-                                >
-                                    projects
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link 
-                                    prefetch={true}
                                     href="/writings"
                                     className={`hover:text-slate-200 transition-colors ${pathname.startsWith('/writings') ? 'text-white font-medium' : ''}`}
                                     onClick={() => {
@@ -77,6 +63,20 @@ export default function Page() {
                                     }}
                                 >
                                     writings
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link 
+                                    prefetch={true}
+                                    href="/projects"
+                                    className={`hover:text-slate-200 transition-colors ${pathname.startsWith('/projects') ? 'text-white font-medium' : ''}`}
+                                    onClick={() => {
+                                        const mobileMenu = document.getElementById('mobile-menu')
+                                        mobileMenu?.classList.toggle('hidden')
+                                    }}
+                                >
+                                    projects
                                 </Link>
                             </li>
 
