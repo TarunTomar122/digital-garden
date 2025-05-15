@@ -101,7 +101,7 @@ export default async function Page() {
 
               }>
                 <div className="flex flex-col justify-start w-full mb-8 md:w-1/2 md:pl-12 md:pt-3">
-                  <p className="text-slate-400 -mb-2">I've been recently obsessed with</p>
+                  <p className="text-slate-400 mb-2">I've been recently obsessed with</p>
                   <Recent />
                 </div>
               </Suspense>
