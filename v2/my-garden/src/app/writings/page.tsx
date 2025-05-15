@@ -40,7 +40,7 @@ export default async function Page({
                 <section className="space-y-8 pb-12">
                     {currentWritings.map(({ id, title, description, date }) => (
                         <Link key={id} href={`/writings/${id}`} className="block group">
-                            <article className="bg-[#202020] border-b md:border rounded-lg md:px-6 py-6 transition-all duration-300 border-slate-700/60 hover:border-slate-200/60">
+                            <article className="border-b border-slate-700/60 hover:border-slate-200/60">
                                 <div className="flex items-start justify-between gap-4 mb-2">
                                     <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}

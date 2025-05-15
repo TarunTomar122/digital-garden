@@ -8,8 +8,7 @@ export default async function Page() {
 
     return (
         <>
-            <section className="mt-6">
-                {/* <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I've been recently obsessed with</p> */}
+            <section className="mt-0">
                 {
                     iframeHtml && <div dangerouslySetInnerHTML={{ __html: iframeHtml }} />
                 }

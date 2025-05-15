@@ -61,12 +61,12 @@ export default async function Page() {
 
           {/* Recent */}
           <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured</p>
-            <section className="md:mt-4 mb-8 md:mb-6">
-                {/* <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I recently wrote</p> */}
+          <div className="flex flex-col md:flex-row justify-between items-start">
+          <section className="mt-4 mb-8 md:mb-6">
                 <div className="space-y-6">
                     {latestWritings.map(({ id, title, description, date }) => (
                         <Link key={id} href={`/writings/${id}`} className="block group">
-                            <article className="bg-[#202020] border-b md:border rounded-lg md:px-6 py-6 transition-all duration-300 border-slate-700/60 hover:border-slate-200/60">
+                               <article className="border-b border-slate-700/60 hover:border-slate-200/60">
                                 <div className="flex items-start justify-between gap-4 mb-2">
                                     <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}
@@ -92,29 +92,27 @@ export default async function Page() {
                     ))}
                 </div>
             </section>
-            <Suspense fallback={
-              <>
-                <section className="mt-6">
-                  {/* <p className='text-slate-400 leading-8 text-lg md:leading-10 xl:pr-24 font-light mb-2'>I've been recently obsessed with</p> */}
-                  <SpotifyEmbedSkeleton />
-                </section>
-              </>
+             <Suspense fallback={
+                <>
+                  <section className="mt-6">
+                    <SpotifyEmbedSkeleton />
+                  </section>
+                </>
 
-            }>
-
-              <Recent />
-            </Suspense>
-      
+              }>
+                <div className="flex flex-col justify-start w-full mb-8 md:w-1/2 md:pl-12 md:pt-3">
+                  <p className="text-slate-400 -mb-2">I've been recently obsessed with</p>
+                  <Recent />
+                </div>
+              </Suspense>
+          </div>
 
           {/* Footer */}
           <section className="py-8">
             <p className='text-slate-400'>Copyright © 2025 Tarat</p>
           </section>
-
         </div>
-
       </div>
-
     </main >
   );
 }
