@@ -6,6 +6,7 @@ import Recent from '../components/Recent/recent';
 import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
 import Link from 'next/link';
 import { getAllWritings } from '@/actions/writingsActions';
+import Lumi from '@/components/Lumi/page';
 
 export default async function Page() {
   cacheLife('seconds')
@@ -61,7 +62,9 @@ export default async function Page() {
 
           {/* Recent */}
           <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured</p>
-          <div className="flex flex-col md:flex-row justify-between items-start">
+
+          <Lumi />
+          {/* <div className="flex flex-col md:flex-row justify-between items-start">
           <section className="mt-4 mb-8 md:mb-6">
                 <div className="space-y-6">
                     {latestWritings.map(({ id, title, description, date }) => (
@@ -105,7 +108,7 @@ export default async function Page() {
                   <Recent />
                 </div>
               </Suspense>
-          </div>
+          </div> */}
 
           {/* Footer */}
           <section className="py-8">
