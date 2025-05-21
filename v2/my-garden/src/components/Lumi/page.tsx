@@ -18,8 +18,13 @@ export default function Lumi() {
           'event_label': 'lumi_app_download'
         });
         
-        // Redirect to Google Drive download
-        window.location.href = 'https://drive.google.com/uc?export=download&id=1NbdJklM6wB9SoO8BaEDiTWMGj3t0yHWE';
+        // Create a temporary link element
+        const link = document.createElement('a');
+        link.href = '/assets/lumi.apk';
+        link.download = 'lumi.apk';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       }}
     >
       Download apk
