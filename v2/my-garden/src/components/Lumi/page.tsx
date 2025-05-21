@@ -18,19 +18,13 @@ export default function Lumi() {
           'event_label': 'lumi_app_download'
         });
         
-        // Create a temporary link element
-        const link = document.createElement('a');
-        link.href = '/assets/lumi.apk';
-        link.download = 'lumi.apk';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        window.location.href = 'https://drive.google.com/uc?export=download&id=1NbdJklM6wB9SoO8BaEDiTWMGj3t0yHWE';
       }}
     >
       Download apk
     </button>
       </div>
-      <Image src="/assets/projects/lumi.png" alt="Lumi" width={1000} height={1000} />
+      <Image src="/assets/projects/lumi/lumi.png" alt="Lumi" width={1000} height={1000} />
     </>
   );
 } 
