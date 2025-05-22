@@ -4,8 +4,8 @@ import Image from 'next/image';
 export default function Lumi() {
   return (
     <>
-    <p className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light mb-4">
-    A frictionless todo/note taking app inspired by Whatsapp Groups.
+    <p className="text-slate-400 leading-8 text-lg md:leading-2 mt-4 xl:pr-24 font-light mb-4">
+    A frictionless todo/note taking app inspired by Whatsapp Groups. Currently in beta with limited features and unlimited bugs and will be available on the play store soon.
   </p>
   <div className="flex justify-start mb-8">
     <button 
@@ -21,7 +21,7 @@ export default function Lumi() {
         window.location.href = 'https://drive.google.com/uc?export=download&id=1NbdJklM6wB9SoO8BaEDiTWMGj3t0yHWE';
       }}
     >
-      Download apk
+      Download beta apk
     </button>
       </div>
       <Image src="/assets/projects/lumi/lumi.png" alt="Lumi" width={1000} height={1000} />
