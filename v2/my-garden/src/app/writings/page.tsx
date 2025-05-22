@@ -58,7 +58,7 @@ export default async function Page({
                                         day: 'numeric' 
                                     })}
                                 </time>
-                                <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors">
+                                <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors mb-4">
                                     {description}
                                 </p>
                             </article>
