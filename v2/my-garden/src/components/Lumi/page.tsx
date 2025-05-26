@@ -17,8 +17,8 @@ export default function Lumi() {
           'event_category': 'engagement',
           'event_label': 'lumi_app_download'
         });
-        
-        window.location.href = 'https://drive.google.com/uc?export=download&id=1NbdJklM6wB9SoO8BaEDiTWMGj3t0yHWE';
+
+        window.location.href = 'https://drive.google.com/uc?export=download&id=1jD7lDinQwZKT5Q5jh2oQbsupA71EsyK3';
       }}
     >
       Download beta apk
