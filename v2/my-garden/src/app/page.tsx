@@ -7,7 +7,7 @@ import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbe
 import Link from 'next/link';
 import { getAllWritings } from '@/actions/writingsActions';
 import Lumi from '@/components/Lumi/page';
-
+import Stocksbrew from '@/components/Stocksbrew/page';
 export default async function Page() {
   cacheLife('seconds')
   const writings = await getAllWritings();
@@ -61,9 +61,11 @@ export default async function Page() {
           </section>
 
           {/* Recent */}
-          <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured</p>
+          <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured Projects</p>
 
           <Lumi />
+          <Stocksbrew />
+      
           {/* <div className="flex flex-col md:flex-row justify-between items-start">
           <section className="mt-4 mb-8 md:mb-6">
                 <div className="space-y-6">
