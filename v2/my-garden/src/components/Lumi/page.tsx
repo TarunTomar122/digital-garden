@@ -17,7 +17,7 @@ export default function Lumi() {
             'event_label': 'lumi_app_download'
             });
 
-            window.location.href = 'https://drive.google.com/uc?export=download&id=1jD7lDinQwZKT5Q5jh2oQbsupA71EsyK3';
+            window.location.href = 'https://drive.google.com/uc?export=download&id=1ZVRtt1h642Y1j0fc7b-QdhcUXvcLSjhX';
         }}
         >
         📥 󠀠󠀠󠀠󠀠 󠀠Download beta (Android)

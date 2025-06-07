@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { readdir, stat } from 'fs/promises';
+import { readdir, stat, access } from 'fs/promises';
 import path from 'path';
 
 const MIN_SIZE_KB = 200; // Only optimize images larger than 200KB
@@ -22,7 +22,16 @@ async function findLargePngFiles(dir) {
             const stats = await stat(fullPath);
             const sizeKB = stats.size / 1024;
             if (sizeKB > MIN_SIZE_KB) {
-                pngFiles.push({ path: fullPath, size: sizeKB });
+                // Check if WebP version already exists
+                const webpPath = fullPath.replace('.png', '.webp');
+                try {
+                    await access(webpPath);
+                    // WebP exists, skip this PNG
+                    console.log(`⏭️  Skipping ${path.basename(fullPath)} - WebP already exists`);
+                } catch {
+                    // WebP doesn't exist, add to processing list
+                    pngFiles.push({ path: fullPath, size: sizeKB });
+                }
             }
         }
     }
