@@ -5,7 +5,8 @@ export default function Lumi() {
   return (
     <>
     <h2 className='text-2xl text-slate-200 my-2'>Lumi</h2>
-    <p className='text-slate-400'>A frictionless todo/note taking app inspired by Whatsapp Groups. Currently in beta.</p>
+    <p className='text-slate-400'>A frictionless todo/note taking app inspired by Whatsapp Groups.</p>
+    <p className='text-slate-400 my-2'>NOTE: This app is currently in closed beta. If you want to join the beta, please send me your email on <a href="https://www.instagram.com/tarat.hobbies/" target="_blank" className='text-slate-200'>instagram</a>.</p>
     <div className="flex justify-start my-6">
         <button 
         className="bg-slate-700/80 text-slate-100 px-4 py-2 rounded-md" 
@@ -17,10 +18,10 @@ export default function Lumi() {
             'event_label': 'lumi_app_download'
             });
 
-            window.location.href = 'https://drive.google.com/uc?export=download&id=1ZVRtt1h642Y1j0fc7b-QdhcUXvcLSjhX';
+            window.location.href = 'https://play.google.com/store/apps/details?id=com.lumi.mobile';
         }}
         >
-        📥 󠀠󠀠󠀠󠀠 󠀠Download beta (Android)
+        📥 󠀠󠀠󠀠󠀠 󠀠Download from Play Store
         </button>
       </div>
       <Image src="/assets/projects/lumi/wireframes.png" alt="Lumi" width={1000} height={1000} />

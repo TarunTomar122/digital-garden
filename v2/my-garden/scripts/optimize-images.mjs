@@ -1,8 +1,8 @@
 import sharp from 'sharp';
-import { readdir, stat, access } from 'fs/promises';
+import { readdir, stat } from 'fs/promises';
 import path from 'path';
 
-const MIN_SIZE_KB = 200; // Only optimize images larger than 200KB
+const MIN_SIZE_KB = 100; // Only optimize images larger than 200KB
 const DIRECTORIES = [
     'public',
     'public/assets',
@@ -22,16 +22,7 @@ async function findLargePngFiles(dir) {
             const stats = await stat(fullPath);
             const sizeKB = stats.size / 1024;
             if (sizeKB > MIN_SIZE_KB) {
-                // Check if WebP version already exists
-                const webpPath = fullPath.replace('.png', '.webp');
-                try {
-                    await access(webpPath);
-                    // WebP exists, skip this PNG
-                    console.log(`⏭️  Skipping ${path.basename(fullPath)} - WebP already exists`);
-                } catch {
-                    // WebP doesn't exist, add to processing list
-                    pngFiles.push({ path: fullPath, size: sizeKB });
-                }
+                pngFiles.push({ path: fullPath, size: sizeKB });
             }
         }
     }
@@ -42,7 +33,7 @@ async function findLargePngFiles(dir) {
 async function convertToWebP(pngInfo) {
     const { path: pngPath, size: originalSizeKB } = pngInfo;
     const webpPath = pngPath.replace('.png', '.webp');
-    
+
     try {
         await sharp(pngPath)
             .webp({ 
@@ -50,11 +41,11 @@ async function convertToWebP(pngInfo) {
                 effort: 6 // Higher compression effort
             })
             .toFile(webpPath);
-        
+
         const webpStats = await stat(webpPath);
         const webpSizeKB = webpStats.size / 1024;
         const savings = ((originalSizeKB - webpSizeKB) / originalSizeKB * 100).toFixed(2);
-        
+
         console.log(`✅ ${path.basename(pngPath)}`);
         console.log(`   Original: ${originalSizeKB.toFixed(2)}KB`);
         console.log(`   WebP: ${webpSizeKB.toFixed(2)}KB`);
@@ -66,7 +57,7 @@ async function convertToWebP(pngInfo) {
 
 async function main() {
     console.log('🔍 Finding large PNG files (>500KB)...\n');
-    
+
     let allPngFiles = [];
     for (const dir of DIRECTORIES) {
         try {
@@ -86,7 +77,7 @@ async function main() {
 
     const totalSize = allPngFiles.reduce((acc, file) => acc + file.size, 0);
     console.log(`Found ${allPngFiles.length} large PNG files (Total: ${totalSize.toFixed(2)}KB)\n`);
-    
+
     for (const pngFile of allPngFiles) {
         await convertToWebP(pngFile);
     }
@@ -94,4 +85,4 @@ async function main() {
     console.log('✨ All done! WebP versions have been created alongside the original PNGs.');
 }
 
-main().catch(console.error); 
+main();
