@@ -64,6 +64,7 @@ export default async function Page() {
           <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured Projects</p>
 
           <Lumi />
+          <Image src="/wireframes.png" alt="Lumi" width={1000} height={1000} />
           <Stocksbrew />
       
           {/* <div className="flex flex-col md:flex-row justify-between items-start">

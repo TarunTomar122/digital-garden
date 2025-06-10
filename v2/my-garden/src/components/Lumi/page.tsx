@@ -24,7 +24,6 @@ export default function Lumi() {
         📥 󠀠󠀠󠀠󠀠 󠀠Download from Play Store
         </button>
       </div>
-      <Image src="/assets/projects/lumi/wireframes.webp" alt="Lumi" width={1000} height={1000} />
     </>
   );
 } 
