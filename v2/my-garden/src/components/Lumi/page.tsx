@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 import Image from 'next/image';
 
 export default function Lumi() {
@@ -24,7 +24,7 @@ export default function Lumi() {
         📥 󠀠󠀠󠀠󠀠 󠀠Download from Play Store
         </button>
       </div>
-      <Image src="/assets/projects/lumi/wireframes.png" alt="Lumi" width={1000} height={1000} />
+      <Image src="https://private-user-images.githubusercontent.com/54112921/453030682-226763cf-9eba-42b6-abdc-936739756b7d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk1MjI3NDEsIm5iZiI6MTc0OTUyMjQ0MSwicGF0aCI6Ii81NDExMjkyMS80NTMwMzA2ODItMjI2NzYzY2YtOWViYS00MmI2LWFiZGMtOTM2NzM5NzU2YjdkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEwVDAyMjcyMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTI0N2U4MTRmYzdjMDdhYWY0YjAzM2QxYmQ2OTgyOGRkMjk4OGY1OTZkYjllZmUwNjU0NzBkOGZkNTk1NDI5OGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.XmROd4fF9xEKA2tZeRTqc1dMu4zsA0GDdIy3VCSFYc8" alt="Lumi" width={1000} height={1000} />
     </>
   );
 } 

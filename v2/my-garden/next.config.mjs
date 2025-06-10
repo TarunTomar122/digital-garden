@@ -29,7 +29,12 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'th.bing.com',
                 pathname: '/th/**',
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'private-user-images.githubusercontent.com',
+                pathname: '/**',
+            },
         ],
     },
 };
