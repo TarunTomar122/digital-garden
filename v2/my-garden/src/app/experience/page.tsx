@@ -10,6 +10,18 @@ export default function Page() {
                     <p className="text-slate-400 md:text-lg mt-4">
                         Places I've worked at and things I've built
                     </p>
+                    <a 
+                        href="https://drive.google.com/file/d/1WKs2-Gn7YstPK4XtA3VCLR3hXiNAQ3B7/view?usp=sharing" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 text-sm md:text-base font-medium"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        View Resume/CV
+                    </a>
                 </section>
 
                 <h1 className="text-2xl md:text-3xl mt-8 mb-1">Design Engineer @Adobe</h1>
@@ -23,7 +35,7 @@ export default function Page() {
                     I spearheaded the migration of SWC library to <a className="text-blue-300" target="_blank" href="https://s2.spectrum.adobe.com/">Spectrum 2.0</a> while ensuring full support to all the product teams at the older spectrum version.
                 </li>
                 <li className="text-lg text-slate-300 max-w-4xl leading-relaxed">
-                    Collaborated cross-functionally with internal (CSS, design tokens) as well as external dependencies (browsers, <a className="text-blue-300" target="_blank" href="https://lit.dev/">lit</a> team) to
+                    Collaborated cross-functionally with internal (CSS, design tokens) as well as external dependencies (browsers, <a className="text-blue-300" target="_blank" href="https://lit.dev/">lit.dev</a> team) to
                     implement new features and optimize existing patterns.
                 </li>
 
