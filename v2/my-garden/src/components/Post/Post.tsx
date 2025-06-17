@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import ReactMarkdown from 'react-markdown';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
@@ -61,7 +60,7 @@ function PostContent({ postData }: { postData: Writing }) {
             const { src, alt } = props;
             return (
                 <div className="my-4">
-                    <Image
+                    <img
                         src={src || ''}
                         alt={alt || 'Post image'}
                         width={800}
@@ -69,7 +68,6 @@ function PostContent({ postData }: { postData: Writing }) {
                         className="rounded-lg w-full h-auto"
                         style={{ maxWidth: '100%', height: 'auto' }}
                         loading="lazy" // Let Next.js handle the loading strategy
-                        quality={85} // Good balance between quality and size
                         sizes="(max-width: 768px) 100vw, 800px"
                     />
                 </div>
