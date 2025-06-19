@@ -1,11 +1,19 @@
 {
     "books":[
         {
+            "title": "A Wild Sheep Chase",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630485146i/11298.jpg",
+            "author": "Haruki Murakami",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
+        },
+        {
             "title": "The Almanack of Naval Ravikant: A Guide to Wealth and Happiness",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
             "author": "Eric Jorgenson",
-            "rating": "",
-            "status": "reading",
+            "rating": "3.5/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
         },
         {

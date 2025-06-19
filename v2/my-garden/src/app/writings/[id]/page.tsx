@@ -27,7 +27,7 @@ export default async function Page({ params }: WritingProps) {
                 {/* Header */}
                 <section className="pb-8 border-b border-slate-700/40">
                     <p className="text-4xl md:text-5xl font-normal text-white mb-4">{writing.title}</p>
-                    <p className="text-slate-400 md:text-lg">{writing.description}</p>
+                    <p className="text-slate-400 md:text-xl pl-1">{writing.description}</p>
                     <div className="mt-6">
                         <LikeButton id={writing.id} type="post" />
                     </div>

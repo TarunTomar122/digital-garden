@@ -40,9 +40,9 @@ export default async function Page({
                 <section className="space-y-8 pb-12">
                     {currentWritings.map(({ id, title, description, date }) => (
                         <Link key={id} href={`/writings/${id}`} className="block group">
-                            <article className="border-b border-slate-700/60 hover:border-slate-200/60">
+                            <article className="border-b border-slate-700/60 hover:border-slate-200/60 mb-12">
                                 <div className="flex items-start justify-between gap-4 mb-2">
-                                    <h2 className="text-xl text-slate-200 group-hover:text-white transition-colors">
+                                    <h2 className="text-2xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}
                                     </h2>
                                     <span className="text-slate-500 group-hover:text-slate-400 transition-colors flex-shrink-0">
@@ -51,14 +51,14 @@ export default async function Page({
                                         </svg>
                                     </span>
                                 </div>
-                                <time className="text-sm text-slate-500 mb-3 block">
+                                <time className="text-m text-slate-500 mb-3 block">
                                     {date.toLocaleDateString('en-US', { 
                                         year: 'numeric', 
                                         month: 'long', 
                                         day: 'numeric' 
                                     })}
                                 </time>
-                                <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors mb-4">
+                                <p className="text-slate-400 text-m leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors mb-4">
                                     {description}
                                 </p>
                             </article>

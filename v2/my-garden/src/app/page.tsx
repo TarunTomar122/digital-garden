@@ -32,14 +32,14 @@ export default async function Page() {
               <Image 
                 src="/selfie.png" 
                 alt='TaraT' 
-                width={64} 
-                height={64} 
+                width={62} 
+                height={62} 
                 className='h-12 md:h-16 rounded-full w-auto'
                 priority={true}
               />
             </div>
-            <section className="text-slate-400 leading-8 text-lg md:leading-10 mt-4 xl:pr-24 font-light">
-              <p>Tarat is currently helping ship {" "}
+            <section className="text-slate-400 leading-8 text-xl md:leading-10 mt-4 xl:pr-24 font-light">
+              <p>Tarat is currently shipping {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
                   <Link href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</Link>
                 </span> {" "} but also, he is writing weekly newsletters on substack as {" "}
@@ -61,7 +61,7 @@ export default async function Page() {
           </section>
 
           {/* Recent */}
-          <p className="text-3xl md:text-4xl font-extralight py-4 pt-10">Featured Projects</p>
+          <p className="text-3xl md:text-4xl font-extralight py-6 pt-10">Featured Projects</p>
 
           <Lumi />
           <img src="/wireframes.png" alt="Lumi" width={1000} height={1000} />

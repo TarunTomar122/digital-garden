@@ -1,5 +1,4 @@
 import data from './books.json';
-import Image from 'next/image';
 
 export default function Page() {
     const books = data['books'];
@@ -29,7 +28,7 @@ export default function Page() {
                             <article className="bg-[#202020]  overflow-hidden transition-all duration-300 border-slate-700/60 hover:border-slate-200/60 h-full">
                                 <div className="flex flex-row gap-4 h-full">
                                     <div className="w-24 h-36 relative flex-shrink-0">
-                                        <Image
+                                        <img
                                             src={book.img}
                                             alt={book.title}
                                             fill

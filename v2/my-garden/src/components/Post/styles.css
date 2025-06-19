@@ -31,7 +31,7 @@
 
 .markdown li {
     color: rgb(203 213 225);
-    font-size: 1em;
+    font-size: 1.2em;
     margin-bottom: 0.6em;
     font-family: Inter;
     line-height: 1.6;
@@ -47,7 +47,7 @@
 }
 
 .markdown p{
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 10.75m;
     color: rgb(203 213 225);
 }
