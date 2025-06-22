@@ -23,7 +23,7 @@ export default function Lumi() {
          🚀 󠀠󠀠󠀠󠀠 󠀠Launch my newsletter
         </button>
       </div>
-      <Image src="/assets/projects/stocksbrew/homepage.png" alt="Stocksbrew" width={1000} height={1000}/>
+      {/* <Image src="/assets/projects/stocksbrew/homepage.png" alt="Stocksbrew" width={1000} height={1000}/> */}
     </>
   );
 } 

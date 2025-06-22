@@ -5,7 +5,7 @@ export default function Lumi() {
   return (
     <>
     <h2 className='text-3xl text-slate-200 my-2'>Lumi</h2>
-    <p className='text-slate-400 text-lg'>The simplest way to write todos, notes and more.</p>
+    <p className='text-slate-400 text-lg'>The simplest way to manage todos, notes and track habits.</p>
     <p className='text-slate-400 my-1 text-lg'>NOTE: The app is in closed beta rn so if you wanna join, send me your email on <a href="https://www.instagram.com/tarat.hobbies/" target="_blank" className='text-slate-200'>instagram</a>.</p>
     <div className="flex justify-start my-6">
         <button 
