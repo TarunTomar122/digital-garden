@@ -76,7 +76,7 @@ export default function Page() {
                                         mobileMenu?.classList.toggle('hidden')
                                     }}
                                 >
-                                    projects
+                                    experiments
                                 </Link>
                             </li>
 

@@ -40,8 +40,8 @@ export default async function Page({
                 <section className="space-y-8 pb-12">
                     {currentWritings.map(({ id, title, description, date }) => (
                         <Link key={id} href={`/writings/${id}`} className="block group">
-                            <article className="border-b border-slate-700/60 hover:border-slate-200/60 mb-12">
-                                <div className="flex items-start justify-between gap-4 mb-2">
+                            <article className="hover:border-slate-200/60 mb-12">
+                                <div className="flex items-center gap-4 mb-2">
                                     <h2 className="text-2xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}
                                     </h2>
@@ -67,7 +67,7 @@ export default async function Page({
                 </section>
 
                 {/* Pagination Controls */}
-                <div className="flex justify-center gap-3">
+                <div className="flex justify-start gap-3">
                     {currentPage > 1 && (
                         <Link
                             href={`/writings?page=${currentPage - 1}`}
@@ -84,7 +84,7 @@ export default async function Page({
                     {currentPage < totalPages && (
                         <Link
                             href={`/writings?page=${currentPage + 1}`}
-                            className="px-4 py-1.5 rounded-full text-sm border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition-colors"
+                            className="px-4 py-1.5 text-sm border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition-colors"
                         >
                             Next
                         </Link>

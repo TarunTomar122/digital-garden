@@ -61,10 +61,9 @@ export default async function Page() {
           </section>
 
           {/* Recent */}
-          <p className="text-3xl md:text-4xl font-extralight py-6 pt-10">Featured Projects</p>
+          <p className="text-3xl md:text-4xl font-extralight py-6 pt-10">Featured Experiments</p>
 
           <Lumi />
-          <img src="/assets/projects/lumi/cover.png" alt="Lumi" width={1000} height={1000} />
           <Stocksbrew />
       
           {/* <div className="flex flex-col md:flex-row justify-between items-start">
@@ -114,8 +113,9 @@ export default async function Page() {
           </div> */}
 
           {/* Footer */}
-          <section className="py-8">
+          <section className="py-8 flex flex-col gap-4 md:flex-row justify-between items-center">
             <p className='text-slate-400'>Copyright © 2025 Tarat</p>
+            <a href="https://www.buymeacoffee.com/taratdev" target="_blank" className='text-slate-400'>Buy me a coffee ☕️</a>
           </section>
         </div>
       </div>

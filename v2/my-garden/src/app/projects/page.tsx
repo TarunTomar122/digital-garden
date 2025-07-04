@@ -18,7 +18,7 @@ export default async function Page() {
                 {/* Header */}
                 <section className="mb-12">
                     <p className="text-4xl md:text-5xl font-normal text-white pb-2">
-                        Projects
+                        Experiments
                     </p>
                     <p className="text-slate-400 md:text-lg mt-4">
                         A museum of my half finished art.

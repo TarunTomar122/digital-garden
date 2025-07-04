@@ -11,12 +11,12 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
     return (
         <div>
             {/* Projects */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section className="">
                 {filteredProjects.map(({ id, title, description, tags, thumbnail }, index) => (
                     <Link href={`/projects/${id}`} key={id} className="group">
-                        <article className="h-full bg-[#202020] border-b md:border md:rounded-lg overflow-hidden transition-all duration-300 border-slate-700/60 hover:border-slate-200/60">
-                            <div className="md:px-6 py-6">
-                                <div className="flex items-start justify-between gap-4 mb-3">
+                        <article className="h-full bg-[#202020] md:rounded-lg overflow-hidden transition-all duration-300 border-slate-700/60 hover:border-slate-200/60">
+                            <div className="py-6">
+                                <div className="flex items-center gap-4 mb-3">
                                     <h2 className="text-2xl text-slate-200 group-hover:text-white transition-colors">
                                         {title.length > 70 ? title.slice(0, 70) + "..." : title}
                                     </h2>
@@ -25,17 +25,6 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                             <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
                                         </svg>
                                     </span>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {tags.map((tag: string) => (
-                                        <span
-                                            key={tag}
-                                            className="text-s border-b border-slate-800/30 py-0.5 mx-1 text-slate-400"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
                                 </div>
 
                                 <p className="text-slate-400 text-m leading-relaxed line-clamp-2 group-hover:text-slate-300 transition-colors">

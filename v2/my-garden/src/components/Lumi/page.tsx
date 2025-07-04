@@ -5,8 +5,11 @@ export default function Lumi() {
   return (
     <>
     <h2 className='text-3xl text-slate-200 my-2'>Lumi</h2>
-    <p className='text-slate-400 text-lg'>The simplest way to manage todos, notes and track habits.</p>
-    <p className='text-slate-200 text-lg border-l-2 border-slate-500 pl-2 my-4'>After multiple rounds of beta testing and community feedback, Lumi is now live for everyone! Thanks to all beta testers who helped shape Lumi into what it is today. This is just the beginning 🚀</p>
+    <p className='text-slate-400 text-lg'>
+      Lumi is a minimal, chat-based productivity app that lets you manage tasks, jot down notes, reflect daily, and track habits. 
+      Just send a message, and Lumi figures out the rest. 
+      The idea came from a habit I had — texting myself on WhatsApp to track things.
+    </p>
     <div className="flex justify-start my-6">
         <button 
         className="bg-slate-700/80 text-slate-100 px-4 py-2 rounded-md" 
@@ -21,7 +24,7 @@ export default function Lumi() {
             window.location.href = 'https://play.google.com/store/apps/details?id=com.lumi.mobile&pcampaignid=web_share';
         }}
         >
-        📥 󠀠󠀠󠀠󠀠 󠀠Download from Play Store
+        📥 󠀠󠀠󠀠󠀠 󠀠󠀠󠀠󠀠Try on Play Store
         </button>
       </div>
     </>
