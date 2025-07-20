@@ -6,9 +6,7 @@ export default function Lumi() {
     <>
     <h2 className='text-3xl text-slate-200 my-2'>Lumi</h2>
     <p className='text-slate-400 text-lg'>
-      Lumi is a minimal, chat-based productivity app that lets you manage tasks, jot down notes, reflect daily, and track habits. 
-      Just send a message, and Lumi figures out the rest. 
-      The idea came from a habit I had — texting myself on WhatsApp to track things.
+      A minimal, chat-based productivity app that lets you manage tasks, jot down notes, reflect daily, and track habits. 
     </p>
     <div className="flex justify-start my-6">
         <button 
