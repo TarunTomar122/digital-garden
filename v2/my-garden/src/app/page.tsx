@@ -20,6 +20,31 @@ export default async function Page() {
   // Get only the latest 2 writings
   const latestWritings = writings.slice(0, 2);
 
+  const featured = [
+    {
+      title: 'Vibecoding AI Agents',
+      description:
+        'Two agents learn to collaborate in a tiny grid world — what broke, what worked, and the gifs.',
+      href: '/writings/collaborative-rl-agents',
+      external: false,
+    },
+    {
+      title: 'Stocksbrew',
+      description:
+        'AI-powered newsletter that tracks your stocks and ships updates automatically.',
+      href: 'https://stocksbrew.vercel.app/',
+      external: true,
+    },
+    {
+      title: 'Lumi',
+      description:
+        'A minimal, chat-based productivity app for tasks, notes, reflections, and habits.',
+      href:
+        'https://play.google.com/store/apps/details?id=com.lumi.mobile&pcampaignid=web_share',
+      external: true,
+    },
+  ];
+
   return (
     <main className='flex justify-center xl:px-40 2xl:px-60'>
       <div className='min-w-full md:container md:mt-2 px-8  md:px-28 lg:px-60 xl:px-120'>
@@ -29,16 +54,16 @@ export default async function Page() {
           <section>
             <div className='flex flex-row items-center justify-between'>
               <p className="text-3xl md:text-4xl font-extralight py-4">Present</p>
-              <Image 
+              {/* <Image 
                 src="/selfie.png" 
                 alt='TaraT' 
                 width={62} 
                 height={62} 
                 className='h-12 md:h-16 rounded-full w-auto'
                 priority={true}
-              />
+              /> */}
             </div>
-            <section className="text-slate-400 leading-8 text-xl md:leading-10 mt-4 xl:pr-24 font-light">
+            <section className="text-slate-400 leading-8 text-xl md:leading-10 mt-4 font-light">
               <p>Tarat is currently shipping {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
                   <Link href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</Link>
@@ -63,8 +88,52 @@ export default async function Page() {
           {/* Recent */}
           <p className="text-3xl md:text-4xl font-extralight py-6 pt-10">Featured Experiments</p>
 
-          <Lumi />
-          <Stocksbrew />
+          <section className="mt-2 mb-6 space-y-1 xl:pr-24">
+            {featured.map((item) => (
+              item.external ? (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                  aria-label={`${item.title} — open link`}
+                >
+                  <article className="py-4 border-b border-slate-700/60 hover:border-slate-200/60 transition-colors">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl text-slate-200 group-hover:text-white transition-colors">{item.title}</h3>
+                        <p className="text-slate-400 text-sm md:text-base mt-1 group-hover:text-slate-300 transition-colors">{item.description}</p>
+                      </div>
+                      <span className="text-slate-500 group-hover:text-slate-300 transition-all transform group-hover:translate-x-1 flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                          <path d="M5 12h14" />
+                          <path d="M12 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </article>
+                </a>
+              ) : (
+                <Link key={item.title} href={item.href} className="block group" aria-label={`${item.title} — open link`}>
+                  <article className="py-4 border-b border-slate-700/60 hover:border-slate-200/60 transition-colors">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl text-slate-200 group-hover:text-white transition-colors">{item.title}</h3>
+                        <p className="text-slate-400 text-sm md:text-base mt-1 group-hover:text-slate-300 transition-colors">{item.description}</p>
+                      </div>
+                      <span className="text-slate-500 group-hover:text-slate-300 transition-all transform group-hover:translate-x-1 flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                          <path d="M5 12h14" />
+                          <path d="M12 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              )
+            ))}
+          </section>
       
           {/* <div className="flex flex-col md:flex-row justify-between items-start">
           <section className="mt-4 mb-8 md:mb-6">
@@ -113,7 +182,7 @@ export default async function Page() {
           </div> */}
 
           {/* Footer */}
-          <section className="py-8 flex flex-col gap-4 md:flex-row justify-between items-center">
+          <section className="py-8 flex flex-col gap-4 items-start">
             <p className='text-slate-400'>Copyright © 2025 Tarat</p>
             <a href="https://www.buymeacoffee.com/taratdev" target="_blank" className='text-slate-400'>Buy me a coffee ☕️</a>
           </section>

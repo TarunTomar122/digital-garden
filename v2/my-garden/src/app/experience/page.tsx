@@ -32,11 +32,7 @@ export default function Page() {
                     project which is an implementation of Spectrum (Adobe's Design system) on web.
                 </p>
                 <li className="text-lg text-slate-300 max-w-4xl my-2 leading-relaxed">
-                    I spearheaded the migration of SWC library to <a className="text-blue-300" target="_blank" href="https://s2.spectrum.adobe.com/">Spectrum 2.0</a> while ensuring full support to all the product teams at the older spectrum version.
-                </li>
-                <li className="text-lg text-slate-300 max-w-4xl leading-relaxed">
-                    Collaborated cross-functionally with internal (CSS, design tokens) as well as external dependencies (browsers, <a className="text-blue-300" target="_blank" href="https://lit.dev/">lit.dev</a> team) to
-                    implement new features and optimize existing patterns.
+                   Most of my work here has been around the migration of the SWC library to Spectrum 2.0 while shipping new components and features for our consumers.
                 </li>
 
                 {/** Adobe Design Engineer */}

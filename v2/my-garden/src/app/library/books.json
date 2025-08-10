@@ -1,11 +1,19 @@
 {
     "books":[
         {
+            "title": "Never split the difference",
+            "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680014152i/123857637.jpg",
+            "author": "Chris Voss",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/29360231-never-split-the-difference"
+        },
+        {
             "title": "A Wild Sheep Chase",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630485146i/11298.jpg",
             "author": "Haruki Murakami",
-            "rating": "",
-            "status": "to read",
+            "rating": "3/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
         },
         {
