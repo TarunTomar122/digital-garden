@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">Consensus module shared by both agents</title>
+  <desc id="desc">Both agents keep their own DQNs, but receive a shared consensus embedding (single brain cell) that feeds into each policy.</desc>
+
+  <defs>
+    <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b7280" />
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.2; rx: 12; ry: 12; }
+      .shared { fill: #eef2ff; stroke: #6366f1; rx: 12; ry: 12; }
+      .label { font: 15px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #111827; }
+      .small { font-size: 12.5px; fill: #6b7280; }
+      .arrow { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arrowGray); }
+    </style>
+  </defs>
+
+  <!-- Shared consensus (single brain cell) -->
+  <rect class="shared" x="260" y="36" width="200" height="60" />
+  <text class="label" x="360" y="66" text-anchor="middle">Shared consensus</text>
+  <text class="small" x="360" y="82" text-anchor="middle">global context / embedding</text>
+
+  <!-- Agent 1 DQN (compact) -->
+  <rect class="box" x="90" y="180" width="240" height="90" />
+  <text class="label" x="210" y="208" text-anchor="middle">Agent 1 DQN</text>
+  <text class="small" x="210" y="228" text-anchor="middle">inputs: obs₁ + shared embed</text>
+  <text class="small" x="210" y="246" text-anchor="middle">output: action₁</text>
+
+  <!-- Agent 2 DQN (compact) -->
+  <rect class="box" x="390" y="180" width="240" height="90" />
+  <text class="label" x="510" y="208" text-anchor="middle">Agent 2 DQN</text>
+  <text class="small" x="510" y="228" text-anchor="middle">inputs: obs₂ + shared embed</text>
+  <text class="small" x="510" y="246" text-anchor="middle">output: action₂</text>
+
+  <!-- Removed obs/action arrows and concat visuals to declutter -->
+
+  
+
+  <!-- Minimal arrows: shared → each DQN -->
+  <path class="arrow" d="M360 96 C360 140, 210 140, 210 180" />
+  <path class="arrow" d="M360 96 C360 140, 510 140, 510 180" />
+
+  
+
+  <!-- Caption -->
+  <text class="small" x="360" y="328" text-anchor="middle">One shared "brain cell" provides an embedding used by both DQNs</text>
+</svg>
