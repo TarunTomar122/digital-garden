@@ -1,33 +1,12 @@
 'use cache'
 import { unstable_cacheLife as cacheLife } from 'next/cache'
-import Image from 'next/image'
-import { Suspense } from 'react';
-import Recent from '../components/Recent/recent';
-import SpotifyEmbedSkeleton from '../components/SpotifyEmbedSkeleton/spotifyEmbedSkeleton';
 import Link from 'next/link';
 import { getAllWritings } from '@/actions/writingsActions';
-import Lumi from '@/components/Lumi/page';
-import Stocksbrew from '@/components/Stocksbrew/page';
+
 export default async function Page() {
   cacheLife('seconds')
-  const writings = await getAllWritings();
-
-  // order the writings by date
-  writings.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-
-  // Get only the latest 2 writings
-  const latestWritings = writings.slice(0, 2);
 
   const featured = [
-    {
-      title: 'Vibecoding AI Agents',
-      description:
-        'Two agents learn to collaborate in a tiny grid world — what broke, what worked, and the gifs.',
-      href: '/writings/collaborative-rl-agents',
-      external: false,
-    },
     {
       title: 'Stocksbrew',
       description:
@@ -67,9 +46,9 @@ export default async function Page() {
               <p>Tarat is currently shipping {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
                   <Link href="https://s2.spectrum.adobe.com/index.html" target="_blank">Spectrum 2 @Adobe</Link>
-                </span> {" "} but also, he is writing weekly newsletters on substack as {" "}
+                </span> {" "} but also, he is daily shitposting on X @ {" "}
                 <span className="border-b-2 border-b-slate-400 text-slate-200">
-                  <Link href="https://tarat122.substack.com/" target="_blank">tarat's week on internet</Link>
+                  <Link href="https://x.com/tarat_211" target="_blank">tarat_211</Link>
                 </span>, documenting hobbies on instagram as <span className="border-b-2 border-b-slate-400 text-slate-200">
                   <Link href="https://www.instagram.com/tarat.hobbies/" target="_blank">tarat.hobbies</Link>
                 </span> {", "} <span className="border-b-2 border-b-slate-400 text-slate-200">
@@ -183,7 +162,6 @@ export default async function Page() {
 
           {/* Footer */}
           <section className="py-8 flex flex-col gap-4 items-start">
-            <p className='text-slate-400'>Copyright © 2025 Tarat</p>
             <a href="https://www.buymeacoffee.com/taratdev" target="_blank" className='text-slate-400'>Buy me a coffee ☕️</a>
           </section>
         </div>
