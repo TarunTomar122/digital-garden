@@ -8,6 +8,13 @@ export default async function Page() {
 
   const featured = [
     {
+      title: 'Instafy',
+      description:
+        'Turn Your Ordinary Photographs Into Instagram Photoshoots',
+      href: 'https://instafy-six.vercel.app/',
+      external: true,
+    },
+    {
       title: 'Stocksbrew',
       description:
         'AI-powered newsletter that tracks your stocks and ships updates automatically.',
