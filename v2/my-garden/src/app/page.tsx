@@ -10,8 +10,8 @@ export default async function Page() {
     {
       title: 'Instafy',
       description:
-        'Turn Your Ordinary Photographs Into Instagram Photoshoots',
-      href: 'https://instafy-six.vercel.app/',
+        'Copy any aesthetic from the internet to your photos in one click.',
+      href: 'https://instafy.in/',
       external: true,
     },
     {
