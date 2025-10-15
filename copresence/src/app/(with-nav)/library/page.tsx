@@ -1,4 +1,4 @@
-import data from "@/app/library/books.json";
+import data from "@/app/(with-nav)/library/books.json";
 
 type Book = {
   title: string;
@@ -16,7 +16,6 @@ export default function LibraryPage() {
         <h1 className="font-display text-4xl md:text-5xl tracking-tight">Library</h1>
         <p className="text-muted">Books I’m reading and have read lately.</p>
         <p className="text-muted">Total read: {books.filter((b) => b.status === "read").length}</p>
-        <p className="text-muted">Currently reading: {books.filter((b) => b.status === "reading").length}</p>
       </header>
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

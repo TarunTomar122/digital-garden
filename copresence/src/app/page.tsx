@@ -1,6 +1,7 @@
 
 import { getTopTrack } from "@/actions/spotifyembed";
 import { Suspense } from "react";
+import Link from "next/link";
 
 async function TopTrack() {
   const top = await getTopTrack();
@@ -26,7 +27,7 @@ export default function Home() {
 
       <section className="space-y-4">
         <p className="font-sans text-lg leading-relaxed">
-        As a Design Systems Engineer at Adobe, I architect scalable, efficient, and user-focused solutions for creative workflows. My independent research explores topics in adaptive AI, including experimentation with Small Language Models and reinforcement learning, and the development of user-centric AI technologies with practical creative impact.
+        As a Design System Engineer at Adobe, I architect scalable, efficient, and user-focused solutions for creative workflows. My independent research explores topics in adaptive AI, including experimentation with Small Language Models and reinforcement learning, and the development of user-centric AI technologies with practical creative impact.
         </p>
 
         <p className="font-display italic text-2xl leading-snug">
@@ -48,21 +49,11 @@ export default function Home() {
       </Suspense>
 
       <section className="space-y-4">
-        <p className="font-sans text-lg leading-relaxed">
-          Shower thoughts and notes - <a href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</a>
-        </p>
-        <p className="font-sans text-lg leading-relaxed">
-          Projects and build logs - <a href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</a>
-        </p>
-        <p className="font-sans text-lg leading-relaxed">
-          Books I've read or am reading - <a href="/library" className="underline underline-offset-4 hover:opacity-80">/library</a>
-        </p>
-        <p className="font-sans text-lg leading-relaxed">
-          Places I've worked at - <a href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</a>
-        </p>
-        <p className="font-sans text-lg leading-relaxed">
-          100 things I wanna do before I turn 100 - <a href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</a>
-        </p>
+        <p className="font-sans text-lg leading-relaxed">Shower thoughts and notes - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Projects and build logs - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Books I've read or am reading - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Places I've worked at - <Link prefetch href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</Link></p>
+        <p className="font-sans text-lg leading-relaxed">100 things I wanna do before I turn 100 - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
       </section>
 
       <footer className="pt-10">

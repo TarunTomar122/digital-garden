@@ -20,7 +20,7 @@ export default function ProjectPage({ params }: PageProps) {
         prose-p:text-foreground/90 prose-li:text-foreground/90 prose-a:text-foreground
         prose-li:marker:text-foreground/60 prose-blockquote:text-foreground/80 prose-blockquote:border-muted/60 prose-hr:border-muted/50
         prose-pre:bg-foreground/10 prose-pre:text-foreground prose-pre:rounded-lg prose-pre:p-4 prose-pre:ring-1 prose-pre:ring-muted/50 prose-pre:overflow-x-auto prose-pre:font-mono">
-        <h1 className="font-display">{doc.meta.title}</h1>
+        <p className="font-display text-4xl">{doc.meta.title}</p>
         {doc.meta.description ? (
           <p className="text-muted">{doc.meta.description}</p>
         ) : null}

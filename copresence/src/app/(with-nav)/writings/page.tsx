@@ -22,7 +22,7 @@ export default function WritingsIndex({ searchParams }: { searchParams?: { page?
         {pageItems.map((w) => (
           <li key={w.slug}>
             <div className="space-y-1">
-              <Link href={`/writings/${w.slug}`} className="underline underline-offset-4 hover:opacity-80">
+              <Link prefetch href={`/writings/${w.slug}`} className="underline underline-offset-4 hover:opacity-80">
                 {w.title}
               </Link>
               {w.description ? (
@@ -36,11 +36,11 @@ export default function WritingsIndex({ searchParams }: { searchParams?: { page?
       {totalPages > 1 && (
         <div className="flex items-center justify-between pt-6 border-t border-muted/40">
           {page > 1 ? (
-            <Link href={`/writings?page=${page - 1}`} className="underline underline-offset-4 hover:opacity-80">← Newer</Link>
+            <Link prefetch href={`/writings?page=${page - 1}`} className="underline underline-offset-4 hover:opacity-80">← Newer</Link>
           ) : <span />}
           <span className="text-sm text-muted">Page {page} of {totalPages}</span>
           {page < totalPages ? (
-            <Link href={`/writings?page=${page + 1}`} className="underline underline-offset-4 hover:opacity-80">Older →</Link>
+            <Link prefetch href={`/writings?page=${page + 1}`} className="underline underline-offset-4 hover:opacity-80">Older →</Link>
           ) : <span />}
         </div>
       )}
