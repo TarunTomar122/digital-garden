@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="title desc">
+  <title id="title">Phase 1 — Independent DQNs (styled like env)</title>
+  <desc id="desc">Grid world styled to match the env screenshot: grey tiles, LOS overlays, square agents/player, and a HUD. Agents converge toward the same corridor (race behavior).</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#374151" />
+    </marker>
+    <style>
+      .grid { stroke: #9ca3af; stroke-width: 1; }
+      .hud { font: 14px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #111827; font-weight: 600; }
+      .path { stroke: #374151; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 6 6; opacity: 0.8; }
+    </style>
+  </defs>
+
+  <!-- Grid background (8 cols x 6 rows, 60px tiles → 480x360) -->
+  <rect x="40" y="40" width="480" height="360" rx="0" ry="0" fill="#e5e7eb" stroke="#d1d5db" />
+
+  <!-- LOS overlays aligned to grid cells (top band, left purple; right green) -->
+  <rect x="40" y="40" width="240" height="120" fill="#6366f1" opacity="0.25" />
+  <rect x="280" y="40" width="240" height="120" fill="#10b981" opacity="0.25" />
+
+  <!-- Grid lines (8 columns x 6 rows across the shown area) -->
+  <g>
+    <!-- vertical lines -->
+    <path class="grid" d="M40 40 V400" />
+    <path class="grid" d="M100 40 V400" />
+    <path class="grid" d="M160 40 V400" />
+    <path class="grid" d="M220 40 V400" />
+    <path class="grid" d="M280 40 V400" />
+    <path class="grid" d="M340 40 V400" />
+    <path class="grid" d="M400 40 V400" />
+    <path class="grid" d="M460 40 V400" />
+    <path class="grid" d="M520 40 V400" />
+
+    <!-- horizontal lines -->
+    <path class="grid" d="M40 40 H520" />
+    <path class="grid" d="M40 100 H520" />
+    <path class="grid" d="M40 160 H520" />
+    <path class="grid" d="M40 220 H520" />
+    <path class="grid" d="M40 280 H520" />
+    <path class="grid" d="M40 340 H520" />
+    <path class="grid" d="M40 400 H520" />
+  </g>
+
+  <!-- Entities as squares to match env -->
+  <!-- Entities centered inside cells (cell 60px; inner 28px → offset 16px) -->
+  <!-- Player (red) at col 7, row 0 -->
+  <rect x="476" y="56" width="28" height="28" fill="#ef4444" />
+  <!-- Agent A (salmon) at col 2, row 1 -->
+  <rect x="176" y="116" width="28" height="28" fill="#f87171" />
+  <!-- Agent B (black) at col 4, row 3 -->
+  <rect x="296" y="236" width="28" height="28" fill="#111827" />
+
+  <!-- Arrows from red agents (190,130) and (490,70) to black player (310,250) -->
+  <path class="path dash" d="M190 130 L310 250" />
+  <path class="path dash" d="M490 70 L310 250" />
+
+  <!-- HUD bar -->
+  <rect x="40" y="400" width="480" height="32" fill="#ffffff" stroke="#e5e7eb" />
+  <text class="hud" x="60" y="421">Step 2/100 | StepR 0.76 | EpR 1.50</text>
+</svg>
