@@ -37,30 +37,24 @@ const seededRandom = (seed: number, index: number): number => {
   return x - Math.floor(x);
 };
 
-// Draw an organic blob shape using noisy circle
-const drawOrganicBlob = (ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number, seed: number, opacity: number) => {
-  const points = 24;
-  const noiseScale = 0.3;
-  const maxOffset = radius * noiseScale;
-
-  ctx.beginPath();
-  for (let i = 0; i <= points; i++) {
-    const angle = (i / points) * Math.PI * 2;
-    const noise = seededRandom(seed, i) * maxOffset;
-    const r = radius + noise;
-    const x = cx + Math.cos(angle) * r;
-    const y = cy + Math.sin(angle) * r;
-    if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.closePath();
-
-  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.2);
-  grad.addColorStop(0, `rgba(255, 180, 80, ${opacity * 0.5})`);
-  grad.addColorStop(0.5, `rgba(255, 140, 40, ${opacity * 0.25})`);
+// Draw a soft gaussian heat point (no visible boundary)
+const drawHeatPoint = (ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number, opacity: number) => {
+  // Create a smooth radial gradient with extreme softness
+  const maxRadius = radius * 6;
+  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxRadius);
+  
+  // Brighter core with sharper falloff
+  grad.addColorStop(0, `rgba(255, 180, 80, ${opacity * 0.4})`);
+  grad.addColorStop(0.05, `rgba(255, 180, 80, ${opacity * 0.35})`);
+  grad.addColorStop(0.15, `rgba(255, 170, 70, ${opacity * 0.25})`);
+  grad.addColorStop(0.3, `rgba(255, 150, 60, ${opacity * 0.12})`);
+  grad.addColorStop(0.5, `rgba(255, 130, 40, ${opacity * 0.05})`);
+  grad.addColorStop(0.7, `rgba(255, 110, 20, ${opacity * 0.015})`);
   grad.addColorStop(1, `rgba(255, 100, 0, 0)`);
 
   ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(cx, cy, maxRadius, 0, Math.PI * 2);
   ctx.fill();
 };
 
@@ -94,6 +88,18 @@ export default function Copresence() {
       send({ t: "cursor", id: myId, x, y });
     };
 
+    const onTouch = (e: TouchEvent) => {
+      const now = performance.now();
+      if (now - lastSend < 80) return;
+      lastSend = now;
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const x = touch.clientX / window.innerWidth;
+        const y = touch.clientY / window.innerHeight;
+        send({ t: "cursor", id: myId, x, y });
+      }
+    };
+
     const onMessage = (ev: MessageEvent) => {
       try {
         const m = JSON.parse(ev.data as string);
@@ -113,6 +119,7 @@ export default function Copresence() {
 
     ws.addEventListener("message", onMessage as any);
     window.addEventListener("pointermove", onPointer, { passive: true });
+    window.addEventListener("touchmove", onTouch, { passive: true });
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -127,6 +134,9 @@ export default function Copresence() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    // Apply filter blur to the canvas
+    canvas.style.filter = "blur(15px)";
+
     let raf = 0;
     const tick = () => {
       // Even slower easing: 0.02 instead of 0.05
@@ -136,12 +146,13 @@ export default function Copresence() {
       }
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = "screen";
 
       const heatRadius = 280;
       for (const p of peers.values()) {
         const px = p.x * canvas.width;
         const py = p.y * canvas.height;
-        drawOrganicBlob(ctx, px, py, heatRadius, p.seed, 0.2); // reduced opacity from 0.4 to 0.15
+        drawHeatPoint(ctx, px, py, heatRadius, 0.3);
       }
 
       raf = requestAnimationFrame(tick);
@@ -151,6 +162,7 @@ export default function Copresence() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onPointer);
+      window.removeEventListener("touchmove", onTouch);
       window.removeEventListener("resize", resizeCanvas);
       ws.removeEventListener("message", onMessage);
       try { ws.close(); } catch {}
