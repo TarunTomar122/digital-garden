@@ -20,6 +20,17 @@ async function TopTrack() {
 export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
+      <style>{`
+        @keyframes wiggle {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-2deg); }
+          75% { transform: rotate(2deg); }
+        }
+        .wild-link:hover {
+          animation: wiggle 0.8s ease-in-out infinite;
+        }
+      `}</style>
+
       <header className="space-y-2">
           <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden</h1>
         <p className="font-sans text-muted text-xl md:text-2xl">A digital garden for notes, thoughts, and experiments.</p>
@@ -31,7 +42,7 @@ export default function Home() {
         </p>
 
         <p className="font-display italic text-2xl leading-snug">
-          “Cultivate ideas slowly. Let some stay wild.”
+          "Cultivate ideas slowly. Let some stay <Link href="/easter-eggs" className="wild-link underline underline-offset-2 cursor-pointer hover:opacity-80 inline-block origin-center">wild</Link>."
         </p>
       </section>
 

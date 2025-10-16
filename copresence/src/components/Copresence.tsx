@@ -148,11 +148,11 @@ export default function Copresence() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalCompositeOperation = "screen";
 
-      const heatRadius = 280;
+      const heatRadius = 240;
       for (const p of peers.values()) {
         const px = p.x * canvas.width;
         const py = p.y * canvas.height;
-        drawHeatPoint(ctx, px, py, heatRadius, 0.3);
+        drawHeatPoint(ctx, px, py, heatRadius, 0.5);
       }
 
       raf = requestAnimationFrame(tick);
