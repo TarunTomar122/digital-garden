@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+.partykit
+party-kit-server/node_modules
+
 # testing
 /coverage
 

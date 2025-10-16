@@ -1,0 +1,17 @@
+{
+  "name": "party-kit-server",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npx --yes partykit@latest dev",
+    "deploy": "npx --yes partykit@latest deploy"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "partykit": "^0.0.115"
+  }
+}

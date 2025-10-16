@@ -14,7 +14,7 @@ export default function ProjectsIndex() {
         {projects.map((p) => (
           <li key={p.slug}>
             <div className="space-y-1">
-              <Link href={`/projects/${p.slug}`} className="underline underline-offset-4 hover:opacity-80">
+              <Link prefetch href={`/projects/${p.slug}`} className="underline underline-offset-4 hover:opacity-80">
                 {p.title}
               </Link>
               {p.description ? (

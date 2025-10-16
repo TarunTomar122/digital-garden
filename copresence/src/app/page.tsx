@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
       <header className="space-y-2">
-        <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden</h1>
+          <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden</h1>
         <p className="font-sans text-muted text-xl md:text-2xl">A digital garden for notes, thoughts, and experiments.</p>
       </header>
 
