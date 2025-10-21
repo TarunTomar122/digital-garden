@@ -120,5 +120,5 @@ export const getTopTrack = unstable_cache(
         }
     },
     ['spotify-top-track'],
-    { revalidate: 60 * 60 * 24 }
+    { revalidate: 60 }
 );

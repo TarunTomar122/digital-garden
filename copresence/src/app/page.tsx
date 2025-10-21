@@ -33,7 +33,6 @@ export default function Home() {
 
       <header className="space-y-2">
           <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden</h1>
-        <p className="font-sans text-muted text-xl md:text-2xl">A digital garden for notes, thoughts, and experiments.</p>
       </header>
 
       <section className="space-y-4">
@@ -65,6 +64,7 @@ export default function Home() {
         <p className="font-sans text-lg leading-relaxed">Books I've read or am reading - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
         <p className="font-sans text-lg leading-relaxed">Places I've worked at - <Link prefetch href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</Link></p>
         <p className="font-sans text-lg leading-relaxed">100 things I wanna do before I turn 100 - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Talk to an AI pretending to be me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p>
       </section>
 
       <footer className="pt-10">

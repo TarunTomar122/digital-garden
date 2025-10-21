@@ -13,6 +13,8 @@
 .partykit
 party-kit-server/node_modules
 
+!./taratai/.venv
+
 # testing
 /coverage
 
