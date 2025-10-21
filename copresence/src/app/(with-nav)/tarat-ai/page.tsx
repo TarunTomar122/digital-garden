@@ -202,7 +202,6 @@ export default function TaratAIPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 pb-24 space-y-8">
-
         {messages.length == 0 && (
             <main>
               <article className="prose max-w-none w-full prose-neutral dark:prose-invert
@@ -230,6 +229,20 @@ export default function TaratAIPage() {
                   </div>
                 </article>
             </main>
+        )}
+        {modelLoading && (
+          <div className="left-1/2 top-16 z-50">
+            <div className="rounded-md border border-muted/30 bg-background/90 backdrop-blur px-3 py-2 shadow">
+              <div className="flex items-center space-x-2 text-muted-foreground">
+                <div className="flex space-x-1">
+                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                </div>
+                <span>Loading the embedding model…</span>
+              </div>
+            </div>
+          </div>
         )}
         {messages.map((m, i) => {
           if (m.role === "user") {
