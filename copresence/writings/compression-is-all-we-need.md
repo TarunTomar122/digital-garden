@@ -5,7 +5,7 @@ category: tech
 date: 2025-04-28
 ---
 
-<iframe width="1905" height="758" src="https://www.youtube.com/embed/6nJZopACRuQ" title="Pre-Training GPT-4.5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="600" height="300" src="https://www.youtube.com/embed/6nJZopACRuQ" title="Pre-Training GPT-4.5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ###
 

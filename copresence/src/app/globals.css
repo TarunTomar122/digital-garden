@@ -68,3 +68,12 @@ pre code {
   color: inherit; /* let shiki set token colors */
   padding: 0;
 }
+
+/* Responsive iframe container for embedded videos */
+iframe {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  margin: 1.5rem 0;
+}
