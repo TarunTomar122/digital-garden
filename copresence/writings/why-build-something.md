@@ -1,6 +1,6 @@
 ---
 title: Why build something?
-description: Flooding the internet with your extremely specific and niche apps.
+description: Flooding the internet with your extremely specific and niche apps
 category: tech
 date: 2025-07-06
 ---

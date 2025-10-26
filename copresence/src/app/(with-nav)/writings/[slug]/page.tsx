@@ -4,15 +4,17 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
+import InstagramEmbed from "@/components/InstagramEmbed";
 
-type PageProps = { params: { slug: string } };
+type PageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAllWritings().map((w) => ({ slug: w.slug }));
 }
 
-export default function WritingPage({ params }: PageProps) {
-  const doc = getWritingBySlug(params.slug);
+export default async function WritingPage({ params }: PageProps) {
+  const { slug } = await params;
+  const doc = getWritingBySlug(slug);
   if (!doc) return notFound();
 
   return (
@@ -36,6 +38,9 @@ export default function WritingPage({ params }: PageProps) {
               remarkPlugins: [remarkGfm],
               rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
             },
+          }}
+          components={{
+            InstagramEmbed,
           }}
         />
       </article>

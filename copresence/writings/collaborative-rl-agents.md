@@ -1,6 +1,6 @@
 ---
 title: Vibecoding AI Agents
-description: A detailed walkthrough of my journey to get two ai agents to collaborate in a simple grid world.
+description: A detailed walkthrough of my journey to get two ai agents to collaborate in a simple grid world
 category: tech
 date: 2025-08-10
 ---
