@@ -37,7 +37,7 @@ I went downtown and visited the 9/11 memorial, the museum, wall street and then 
 
 ### Day 2
 
-Just like my Almaty trip, I planned to run a half marathon on second day. Funny thing is that in Almaty the it was me and Monisha running 21kms around the city to celebrate her bday and here it was me running 21kms around the city to celebrate my bday (with her being on call). 
+Just like my Almaty trip, I planned to run a half marathon on second day. Funny thing is that in Almaty, it was me and Monisha running 21kms around the city to celebrate her bday and here it was me running 21kms around the city to celebrate my bday (with her being on call). 
 
 I started my run at around 5:30AM and followed a straight line to central park where I did a couple of loops before heading to the hudson river side and completed the half marathon. 
 
@@ -57,7 +57,7 @@ After that the afternoon was mostly work stuff again. We had a lot of team meeti
 
 ![Image](/assets/posts/nyc/ferry.png)
 
-At this point you might be wondering when am I going to visit the Time's Square. Well I did. For a whole 5 mins. That's it. It's just Time's Square isn't among the things about the NYC that attracted me as much so I didn't stayed there for a long time. I was in and out in 5 mins lol. But here's a video as proof that I did visit it.
+At this point you might be wondering when am I going to visit the Time's Square. Well I did. For a whole 5 mins. That's it. It's just Time's Square isn't among the things about the NYC that attracted me as much so I didn't stay there for a long time. I was in and out in 5 mins lol. But here's a video as proof that I did visit it.
 
 ![Image](/assets/posts/nyc/ts.gif)
 

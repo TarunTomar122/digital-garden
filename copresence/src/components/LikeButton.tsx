@@ -18,7 +18,7 @@ export default function LikeButton({ id, type = "writings" }: LikeButtonProps) {
   useEffect(() => {
     const fetchLikes = async () => {
       try {
-        const res = await fetch(`/api/likes?id=${encodeURIComponent(id)}&type=${encodeURIComponent('post')}`);
+        const res = await fetch(`/api/likes?id=${encodeURIComponent(id)}&type=${encodeURIComponent('writings')}`);
         const data = await res.json();
         console.log("Fetched likes:", data);
         setLikeCount(typeof data.likes === "number" ? data.likes : 0);

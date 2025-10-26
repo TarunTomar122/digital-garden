@@ -217,6 +217,7 @@ export default function TaratAIPage() {
                       "Why should we hire you?",
                       "What kind of books do you like?",
                       "What's your best sideproject?",
+                      "How was your NYC trip?",
                     ].map((q) => (
                       <button
                         key={q}

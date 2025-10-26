@@ -110,6 +110,7 @@ export const getTopTrack = unstable_cache(
         try {
             const weeklyTrack = await fetchLastFMTrack();
             if (!weeklyTrack) return null;
+  
             return {
                 name: weeklyTrack.name as string,
                 artist: weeklyTrack.artist['#text'] as string,
