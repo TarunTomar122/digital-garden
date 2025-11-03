@@ -121,5 +121,20 @@ export const getTopTrack = unstable_cache(
         }
     },
     ['spotify-top-track'],
-    { revalidate: 60 }
+    { revalidate: 60*60*24 }
 );
+
+// Uncached variant for always-fresh data
+export async function getTopTrackLive() {
+    try {
+        const weeklyTrack = await fetchLastFMTrack();
+        if (!weeklyTrack) return null;
+        return {
+            name: weeklyTrack.name as string,
+            artist: weeklyTrack.artist['#text'] as string,
+        };
+    } catch (error) {
+        console.error('Error in getTopTrackLive:', error);
+        return null;
+    }
+}

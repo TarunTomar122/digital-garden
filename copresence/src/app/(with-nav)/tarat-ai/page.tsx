@@ -308,7 +308,7 @@ export default function TaratAIPage() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
                 placeholder="Why should we hire you?"
-                className="w-full border pr-20 p-3 min-h-12 max-h-40 overflow-y-auto active:outline-background/150 focus:outline-background/150"
+                className="w-full border pr-20 p-3 min-h-12 max-h-40 overflow-y-auto active:outline-gray-700 focus:outline-gray-700"
               />
               <button
                 onClick={() => { void onSubmit(); }}

@@ -1,19 +1,27 @@
 {
     "books":[
         {
+            "title": "Can't Hurt Me: Master Your Mind and Defy the Odds",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1536184191i/41721428.jpg",
+            "author": "David Goggins",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/41721428-can-t-hurt-me"
+        },
+        {
             "title": "Don't sweat the small stuff",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1172378911i/170548.jpg",
             "author": "Richard Carlson",
-            "rating": "",
-            "status": "reading",
+            "rating": "3/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/170548.Don_t_Sweat_the_Small_Stuff"
         },
         {
             "title": "A Thousand Splendid Suns",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655336738i/128029.jpg",
             "author": "Khaled Hosseini",
-            "rating": "",
-            "status": "reading",
+            "rating": "4/5",
+            "status": "chose not to finish",
             "link": "https://www.goodreads.com/book/show/128029.A_Thousand_Splendid_Suns"
         },
         {

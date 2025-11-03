@@ -8,7 +8,7 @@ export default function EasterEggs() {
 
       <section className="space-y-8">
         <div className="border-l-2 border-muted/30 pl-4 py-2">
-          <h2 className="font-display text-2xl mb-2">The Fastest Website Ever</h2>
+          <h2 className="font-display text-2xl mb-2">Crazy Fast Website</h2>
           <p className="font-sans text-lg leading-relaxed">
             We&apos;re prefetching all the links on this site. If you&apos;re on desktop, you&apos;ll notice that clicking through feels instant—like pages are already loaded. This is because it&apos;s quietly loading every link in the background as you browse. It&apos;s a small trick that makes the whole experience feel snappier.
           </p>

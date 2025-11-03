@@ -6,6 +6,7 @@ type Book = {
   author: string;
   rating?: string;
   status: string;
+  link: string;
 };
 
 export default function LibraryPage() {
@@ -21,13 +22,21 @@ export default function LibraryPage() {
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {books.map((b, idx) => (
           <li key={`${b.title}-${idx}`} className="flex gap-4">
-            <img
-              src={b.img}
-              alt={b.title}
-              loading="lazy"
-              decoding="async"
-              className="h-28 w-20 flex-none object-cover rounded ring-1 ring-muted/50 bg-foreground/5"
-            />
+            <a
+              href={b.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${b.title} on Goodreads`}
+              className="flex-none block"
+            >
+              <img
+                src={b.img}
+                alt={b.title}
+                loading="lazy"
+                decoding="async"
+                className="h-28 w-20 flex-none object-cover rounded ring-1 ring-muted/50 bg-foreground/5 transform-gpu transition-transform duration-200 ease-out hover:scale-105"
+              />
+            </a>
             <div className="space-y-1">
               <h3 className="font-medium leading-snug">{b.title}</h3>
               <p className="text-muted text-sm">{b.author}</p>
