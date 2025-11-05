@@ -7,6 +7,7 @@
     { "text": "Visit the Amazon rainforest", "status": "todo" },
     { "text": "Go on a road trip", "status": "done" },
     { "text": "Camp outside in a forest", "status": "todo" },
+    { "text": "Run the NYC Marathon", "status": "todo" },
     { "text": "Run 100 km in one go", "status": "todo" },
     { "text": "Complete a marathon in under 3 hours", "status": "todo" },
     { "text": "Learn to swim", "status": "done" },

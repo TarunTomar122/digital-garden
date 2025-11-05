@@ -1,6 +1,6 @@
 ---
 title: Instafy — Copy any aesthetic in One Click
-description: A simple tool that lets you copy the aesthetic of any photo or creator and apply it to your own images.
+description: A simple tool that lets you copy the aesthetic of any photo and apply it to your own images
 category: project
 date: 2025-10-14
 tags:

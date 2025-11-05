@@ -1,6 +1,6 @@
 ---
 title: Spotify Reels
-description: Spotify didn't have reels, so I made my own.
+description: Spotify didn't have reels, so I made my own
 category: project
 date: 2025-03-08
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: Project Nimbus
-description: An app that helps you iterate on your UX flows for your website.
+description: An app that helps you iterate on your UX flows for your website
 category: project
 date: 2025-02-17
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: ML Algorithms Implementation
-description: Me and rohan started coding a python library with basic ML algorithms which took off and we had over 30 contributors from all over the world.
+description: Me and rohan started coding a python library with basic ML algorithms which took off and we had over 30 contributors from all over the world
 category: project
 date: 2024-12-24
 tags: 

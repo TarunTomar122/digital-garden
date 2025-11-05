@@ -1,6 +1,6 @@
 ---
 title: My Digital Garden
-description: This website where I document my thoughts, ideas, and projects.
+description: This website where I document my thoughts, ideas, and projects
 category: project
 date: 2024-12-26
 tags: 

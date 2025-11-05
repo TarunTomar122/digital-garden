@@ -1,6 +1,6 @@
 ---
 title: Anime Recommendation System
-description: I scraped data of over 100K users from MyAnimeList and built a recommendation system using collaborative filtering.
+description: I scraped data of over 100K users from MyAnimeList and built a recommendation system using collaborative filtering
 category: project
 date: 2024-12-25
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: CLI based AI Assistant
-description: I built a CLI based AI assistant that can perform various tasks like sending emails, searching the web, and playing music.
+description: I built a CLI based AI assistant that can perform various tasks like sending emails, searching the web, and playing music
 category: project
 date: 2024-09-06
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: Lumi – Your Personal Productivity AI
-description: A personal AI assistant that helps manage tasks, notes, and reminders — all through natural conversations.
+description: A personal AI assistant that helps manage tasks, notes, and reminders — all through natural conversations
 category: project
 date: 2025-06-10
 tags:

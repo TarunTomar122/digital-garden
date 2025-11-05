@@ -1,6 +1,6 @@
 ---
 title: Map My Trip
-description: It literally just marks the places and restaurants for your trip on a map.
+description: An app to mark the places and restaurants for your trip on a map and get details about them
 category: project
 date: 2025-02-28
 tags: 
