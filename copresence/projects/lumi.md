@@ -1,11 +1,11 @@
 ---
-title: Lumi – Your Personal Productivity AI
+title: Lumi
 description: A personal AI assistant that helps manage tasks, notes, and reminders — all through natural conversations
 category: project
 date: 2025-06-10
 tags:
     - react-native
-    - ai
+    - machine-learning
 links:   
     - type: link
     - url: https://play.google.com/store/apps/details?id=com.lumi.mobile

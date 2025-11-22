@@ -4,9 +4,7 @@ description: An app to mark the places and restaurants for your trip on a map an
 category: project
 date: 2025-02-28
 tags: 
-    - javascript
-    - html, css
-    - ai
+    - nextjs
 links:
     - type: website
       url: https://quick-trip-planner-production.up.railway.app/

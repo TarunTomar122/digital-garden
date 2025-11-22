@@ -1,11 +1,10 @@
 ---
-title: StocksBrew — Morning Market Briefs
+title: StocksBrew
 description: A lightweight AI-powered newsletter that delivers the latest news about your favorite stocks — before the market opens
 category: project
 date: 2025-05-15
 tags:
     - python
-    - webscraping
     - nextjs
 links:   
     - type: link

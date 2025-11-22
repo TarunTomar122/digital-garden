@@ -5,9 +5,7 @@ category: project
 date: 2024-09-06
 tags: 
     - python
-    - expressjs
-    - mongodb
-    - ai
+    - machine-learning
 links:
     - type: github
       url: https://github.com/TarunTomar122/cli-assistant

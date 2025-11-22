@@ -5,10 +5,7 @@ category: project
 date: 2024-12-24
 tags: 
     - python
-    - numpy
-    - matplotlib
     - machine-learning
-    - ai
 links:
     - type: github
       url: https://github.com/RoboticsClubIITJ/ML-DL-implementation

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function EasterEggs() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 space-y-8">
@@ -8,7 +10,7 @@ export default function EasterEggs() {
 
       <section className="space-y-8">
         <div className="border-l-2 border-muted/30 pl-4 py-2">
-          <h2 className="font-display text-2xl mb-2">Crazy Fast Website</h2>
+          <h2 className="font-display text-2xl mb-2">Obsession with Speed</h2>
           <p className="font-sans text-lg leading-relaxed">
             We&apos;re prefetching all the links on this site. If you&apos;re on desktop, you&apos;ll notice that clicking through feels instant—like pages are already loaded. This is because it&apos;s quietly loading every link in the background as you browse. It&apos;s a small trick that makes the whole experience feel snappier.
           </p>
@@ -21,6 +23,17 @@ export default function EasterEggs() {
           </p>
           <p className="font-sans text-lg leading-relaxed text-muted mt-3">
             The warmth you see isn't intrusive or distracting—it's just a gentle reminder that this space is alive and shared. Multiple people create zones of accumulated heat, like collective attention painting the page.
+          </p>
+        </div>
+
+
+        <div className="border-l-2 border-muted/30 pl-4 py-2">
+          <h2 className="font-display text-2xl mb-2">Tarat's AI</h2>
+          <p className="font-sans text-lg leading-relaxed">
+           I use a custom embedding model + RAG to answer questions about all the content on this site. You can ask it about my projects, books, writings, etc.
+          </p>
+          <p className="font-sans text-lg leading-relaxed">
+            Go chat with it here: <Link href="/tarat-ai" className="wild-link underline underline-offset-2 cursor-pointer hover:opacity-80 inline-block origin-center">Tarat's AI</Link>
           </p>
         </div>
       </section>

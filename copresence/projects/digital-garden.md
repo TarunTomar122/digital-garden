@@ -5,7 +5,6 @@ category: project
 date: 2024-12-26
 tags: 
     - nextjs
-    - tailwindcss
 links:
     - type: website
       url: https://www.tarat.space/

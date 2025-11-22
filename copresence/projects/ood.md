@@ -5,8 +5,6 @@ category: project
 date: 2025-02-17
 tags: 
     - nextjs
-    - tailwindcss
-    - ai
 links:
     - type: website
       url: https://project-nimbus.netlify.app/

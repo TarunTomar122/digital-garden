@@ -1,11 +1,10 @@
 ---
-title: Deepseeking Nanochat - Part 1
+title: Deepseeking Nanochat
 description: Extending the context limit of a LLM by using a vision encoder
 category: project
 date: 2025-11-05
 tags: 
     - python
-    - pytorch
     - machine-learning
 ---
 

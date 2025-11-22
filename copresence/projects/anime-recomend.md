@@ -5,9 +5,7 @@ category: project
 date: 2024-12-25
 tags: 
     - python
-    - reactjs
-    - django
-    - ai
+    - machine-learning
 links:
     - type: github
       url: https://github.com/TarunTomar122/AnimeRecommendation/tree/master

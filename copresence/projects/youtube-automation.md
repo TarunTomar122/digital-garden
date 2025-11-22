@@ -4,7 +4,6 @@ description: I automated the creation of youtube shorts based on the most viewed
 category: project
 date: 2024-12-25
 tags: 
-    - javascript
     - python
 links:
     - type: github

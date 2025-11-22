@@ -1,11 +1,10 @@
 ---
-title: Instafy — Copy any aesthetic in One Click
+title: Instafy
 description: A simple tool that lets you copy the aesthetic of any photo and apply it to your own images
 category: project
 date: 2025-10-14
 tags:
     - nextjs
-    - gemini api
 links:   
     - type: link
     - url: https://instafy.in/
