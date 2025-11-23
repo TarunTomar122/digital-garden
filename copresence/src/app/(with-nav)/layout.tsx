@@ -12,5 +12,3 @@ export default function WithNavLayout({ children }: { children: React.ReactNode 
     </div>
   );
 }
-
-

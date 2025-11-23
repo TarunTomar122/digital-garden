@@ -1,0 +1,310 @@
+{
+  "nodes": [
+    {
+      "id": "node-0",
+      "x": 14.480386734008789,
+      "y": 80.70056915283203,
+      "domain": "projects",
+      "label": "instafy",
+      "path": "/projects/instafy",
+      "snippet": "--- title: Instafy \u2014 Copy any aesthetic in One Click description: A simple tool that lets you copy the aesthetic of any photo or creator and apply it ..."
+    },
+    {
+      "id": "node-1",
+      "x": 76.65835571289062,
+      "y": 17.56455421447754,
+      "domain": "projects",
+      "label": "stocksbrew",
+      "path": "/projects/stocksbrew",
+      "snippet": "--- title: StocksBrew \u2014 Morning Market Briefs description: A lightweight AI-powered newsletter that delivers the latest news about your favorite stock..."
+    },
+    {
+      "id": "node-2",
+      "x": 37.67561340332031,
+      "y": 25.37180519104004,
+      "domain": "projects",
+      "label": "cli-assistant",
+      "path": "/projects/cli-assistant",
+      "snippet": "--- title: CLI based AI Assistant description: I built a CLI based AI assistant that can perform various tasks like sending emails, searching the web,..."
+    },
+    {
+      "id": "node-3",
+      "x": 79.30134582519531,
+      "y": 35.26423645019531,
+      "domain": "projects",
+      "label": "spotify-reels",
+      "path": "/projects/spotify-reels",
+      "snippet": "--- title: Spotify Reels description: Spotify didn't have reels, so I made my own. category: project date: 2025-03-08 tags: - nextjs links: - type: we..."
+    },
+    {
+      "id": "node-4",
+      "x": 69.2938232421875,
+      "y": 76.41065216064453,
+      "domain": "projects",
+      "label": "ml-implementation",
+      "path": "/projects/ml-implementation",
+      "snippet": "--- title: ML Algorithms Implementation description: Me and rohan started coding a python library with basic ML algorithms which took off and we had o..."
+    },
+    {
+      "id": "node-5",
+      "x": 73.2678451538086,
+      "y": 49.38838577270508,
+      "domain": "projects",
+      "label": "anime-recomend",
+      "path": "/projects/anime-recomend",
+      "snippet": "--- title: Anime Recommendation System description: I scraped data of over 100K users from MyAnimeList and built a recommendation system using collabo..."
+    },
+    {
+      "id": "node-6",
+      "x": 59.9759407043457,
+      "y": 47.78865051269531,
+      "domain": "projects",
+      "label": "ood",
+      "path": "/projects/ood",
+      "snippet": "--- title: Project Nimbus description: An app that helps you iterate on your UX flows for your website. category: project date: 2025-02-17 tags: - nex..."
+    },
+    {
+      "id": "node-7",
+      "x": 47.68733215332031,
+      "y": 51.688804626464844,
+      "domain": "projects",
+      "label": "digital-garden",
+      "path": "/projects/digital-garden",
+      "snippet": "--- title: My Digital Garden description: This website where I document my thoughts, ideas, and projects. category: project date: 2024-12-26 tags: - n..."
+    },
+    {
+      "id": "node-8",
+      "x": 64.03134155273438,
+      "y": 33.31028747558594,
+      "domain": "projects",
+      "label": "trip-planner",
+      "path": "/projects/trip-planner",
+      "snippet": "--- title: Map My Trip description: It literally just marks the places and restaurants for your trip on a map. category: project date: 2025-02-28 tags..."
+    },
+    {
+      "id": "node-9",
+      "x": 26.482994079589844,
+      "y": 49.58551025390625,
+      "domain": "projects",
+      "label": "lumi",
+      "path": "/projects/lumi",
+      "snippet": "--- title: Lumi \u2013 Your Personal Productivity AI description: A personal AI assistant that helps manage tasks, notes, and reminders \u2014 all through natur..."
+    },
+    {
+      "id": "node-10",
+      "x": 88.33769226074219,
+      "y": 50.69493865966797,
+      "domain": "projects",
+      "label": "youtube-automation",
+      "path": "/projects/youtube-automation",
+      "snippet": "--- title: Automating youtube shorts description: I automated the creation of youtube shorts based on the most viewed parts of popular videos. categor..."
+    },
+    {
+      "id": "node-11",
+      "x": 79.63640594482422,
+      "y": 86.508056640625,
+      "domain": "writings",
+      "label": "deepseek",
+      "path": "/writings/deepseek",
+      "snippet": "--- title: An Overthinking version of ChatGPT description: DeepSeek ai is basically ChatGPT but with a lot of overthinking. category: tech date: 2025-..."
+    },
+    {
+      "id": "node-12",
+      "x": 27.32648468017578,
+      "y": 12.211400985717773,
+      "domain": "writings",
+      "label": "a-perfect-like-button",
+      "path": "/writings/a-perfect-like-button",
+      "snippet": "--- title: An Almost Perfect Like Button description: How hard can it be to code a like button? Well more than you think. category: tech date: 2025-02..."
+    },
+    {
+      "id": "node-13",
+      "x": 44.6512451171875,
+      "y": 89.60584259033203,
+      "domain": "writings",
+      "label": "what-do-i-do",
+      "path": "/writings/what-do-i-do",
+      "snippet": "--- title: New job? Higher Studies? India? Europe? description: 2024 is about to end and it's posing a lot of questions in front of me. What do I do n..."
+    },
+    {
+      "id": "node-14",
+      "x": 54.29009246826172,
+      "y": 63.4249382019043,
+      "domain": "writings",
+      "label": "overengineering-lumi",
+      "path": "/writings/overengineering-lumi",
+      "snippet": "--- title: The simplest (over engineered) todo app description: How hard can it be to build a simple todo app? Well more than you think category: tech..."
+    },
+    {
+      "id": "node-15",
+      "x": 24.23932456970215,
+      "y": 33.311038970947266,
+      "domain": "writings",
+      "label": "2024-review",
+      "path": "/writings/2024-review",
+      "snippet": "--- title: 2024 Review description: Best year of my life so far... category: life date: 2024-12-31 --- ### Last year I wrote a \\1 and today when I loo..."
+    },
+    {
+      "id": "node-16",
+      "x": 62.4893913269043,
+      "y": 95.0,
+      "domain": "writings",
+      "label": "compression-is-all-we-need",
+      "path": "/writings/compression-is-all-we-need",
+      "snippet": "--- title: Compression is all we need description: Drawing parallels between compression and intelligence category: tech date: 2025-04-28 --- <iframe ..."
+    },
+    {
+      "id": "node-17",
+      "x": 66.27490234375,
+      "y": 62.6148681640625,
+      "domain": "writings",
+      "label": "a-tiny-model",
+      "path": "/writings/a-tiny-model",
+      "snippet": "--- title: Tiny models might be the future description: Finetuning a Gemma 270M to act like a personal coach category: tech date: 2025-08-17 --- The b..."
+    },
+    {
+      "id": "node-18",
+      "x": 5.0,
+      "y": 59.60533905029297,
+      "domain": "writings",
+      "label": "too-many-tests",
+      "path": "/writings/too-many-tests",
+      "snippet": "--- title: Ship it! Or not? description: How much testing is too much testing? category: tech date: 2024-09-06 --- Flashback I joined Adobe as my firs..."
+    },
+    {
+      "id": "node-19",
+      "x": 60.7344970703125,
+      "y": 11.773496627807617,
+      "domain": "writings",
+      "label": "nyc-trip",
+      "path": "/writings/nyc-trip",
+      "snippet": "--- title: The New York City Experience description: All about my trip to New York City category: travel date: 2025-10-24 --- On my 24th bday, I got t..."
+    },
+    {
+      "id": "node-20",
+      "x": 52.07609558105469,
+      "y": 21.436452865600586,
+      "domain": "writings",
+      "label": "the-kazak-experience",
+      "path": "/writings/the-kazak-experience",
+      "snippet": "--- title: The Kazak experience description: All about my first ever international trip category: travel date: 2025-05-18 --- #### There are two reaso..."
+    },
+    {
+      "id": "node-21",
+      "x": 44.499603271484375,
+      "y": 5.0,
+      "domain": "writings",
+      "label": "on-perfectionism",
+      "path": "/writings/on-perfectionism",
+      "snippet": "--- title: Perfectionism Kills Creativity description: Making art is supposed to be fun. category: thoughts date: 2024-02-18 --- ### For the longest t..."
+    },
+    {
+      "id": "node-22",
+      "x": 56.48346710205078,
+      "y": 78.54657745361328,
+      "domain": "writings",
+      "label": "local-llm",
+      "path": "/writings/local-llm",
+      "snippet": "--- title: Chinese AI got me excited about LLMs again description: Alibaba and DeepSeek to the rescue! category: tech date: 2025-02-18 --- Chapter 1: ..."
+    },
+    {
+      "id": "node-23",
+      "x": 29.846511840820312,
+      "y": 91.2578353881836,
+      "domain": "writings",
+      "label": "cursor-ai",
+      "path": "/writings/cursor-ai",
+      "snippet": "--- title: Meet my new intern - Cursor AI description: Got my hands on Cursor AI and I'm in love. category: tech date: 2025-01-15 --- ### I got my han..."
+    },
+    {
+      "id": "node-24",
+      "x": 37.971134185791016,
+      "y": 41.64140701293945,
+      "domain": "writings",
+      "label": "why-build-something",
+      "path": "/writings/why-build-something",
+      "snippet": "--- title: Why build something? description: Flooding the internet with your extremely specific and niche apps category: tech date: 2025-07-06 --- Hav..."
+    },
+    {
+      "id": "node-25",
+      "x": 9.57956600189209,
+      "y": 21.56254768371582,
+      "domain": "writings",
+      "label": "break-some-fix-more",
+      "path": "/writings/break-some-fix-more",
+      "snippet": "--- title: Break some to fix more description: How breaking things can help you fix them faster category: tech date: 2024-09-24 --- Context I have bee..."
+    },
+    {
+      "id": "node-26",
+      "x": 21.300275802612305,
+      "y": 63.51029586791992,
+      "domain": "writings",
+      "label": "collaborative-rl-agents",
+      "path": "/writings/collaborative-rl-agents",
+      "snippet": "--- title: Vibecoding AI Agents description: A detailed walkthrough of my journey to get two ai agents to collaborate in a simple grid world category:..."
+    },
+    {
+      "id": "node-27",
+      "x": 49.232208251953125,
+      "y": 36.58789825439453,
+      "domain": "writings",
+      "label": "ai-stuff-fun",
+      "path": "/writings/ai-stuff-fun",
+      "snippet": "--- title: I got into a toxic relationship (again) description: But this time I won't play the victim because it's me, I am the problem it's me. categ..."
+    },
+    {
+      "id": "node-28",
+      "x": 31.657026290893555,
+      "y": 74.75529479980469,
+      "domain": "writings",
+      "label": "shipping-spectrum-two",
+      "path": "/writings/shipping-spectrum-two",
+      "snippet": "--- title: My biggest work achievement so far description: Shipping Spectrum Web Components 1.0 category: tech date: 2024-11-08 --- Introduction We sh..."
+    },
+    {
+      "id": "node-29",
+      "x": 37.38673400878906,
+      "y": 59.132110595703125,
+      "domain": "writings",
+      "label": "nextjs-homepage-faster",
+      "path": "/writings/nextjs-homepage-faster",
+      "snippet": "--- title: Falling in love with Next.js description: Partial Pre Rendering in Nextjs can help you make your page load 10x faster. category: tech date:..."
+    },
+    {
+      "id": "node-30",
+      "x": 81.4279556274414,
+      "y": 67.19852447509766,
+      "domain": "writings",
+      "label": "aws-deepracer",
+      "path": "/writings/aws-deepracer",
+      "snippet": "--- title: Our car ranked 5th among 200+ participants description: I raced a RC car in the office on a random wednesday category: tech date: 2024-09-2..."
+    },
+    {
+      "id": "node-31",
+      "x": 43.92805099487305,
+      "y": 71.63970184326172,
+      "domain": "experience",
+      "label": "Experience",
+      "path": "/experience",
+      "snippet": "Experience Summary - Current: Design System Engineer at Adobe (June 2023 \u2013 Present). - Focus: Scalable web components (Spectrum 2.0), design systems a..."
+    },
+    {
+      "id": "node-32",
+      "x": 95.0,
+      "y": 28.023494720458984,
+      "domain": "list100",
+      "label": "List 100",
+      "path": "/list100",
+      "snippet": "# List 100\n- Get married (status: todo)\n- Own a house (status: todo)\n- Own a car (status: todo)\n- Learn how to drive a car (status: todo)\n- Visit the ..."
+    },
+    {
+      "id": "node-33",
+      "x": 8.831785202026367,
+      "y": 40.67655944824219,
+      "domain": "books",
+      "label": "Library",
+      "path": "/library",
+      "snippet": "# Books Summary\n- Don't sweat the small stuff \u2014 Richard Carlson (status: reading, rating: n/a)\n- A Thousand Splendid Suns \u2014 Khaled Hosseini (status: r..."
+    }
+  ]
+}

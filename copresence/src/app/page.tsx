@@ -59,6 +59,7 @@ export default function Home() {
       </Suspense>
 
       <section className="space-y-4">
+      <p className="font-sans text-lg leading-relaxed">Mental network of all my thoughts - <Link prefetch href="/network" className="underline underline-offset-4 hover:opacity-80">/network</Link></p>
         <p className="font-sans text-lg leading-relaxed">Shower thoughts and notes - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
         <p className="font-sans text-lg leading-relaxed">Projects and build logs - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
         <p className="font-sans text-lg leading-relaxed">Books I've read or am reading - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>

@@ -89,13 +89,15 @@ def chunk_text(
 
 def strip_markdown_simple(text: str) -> str:
     """Lightweight removal of common markdown artifacts to reduce noise."""
+    import re
+    # Remove YAML frontmatter first (--- ... ---)
+    t = re.sub(r'^---[\s\S]*?---\s*', '', text)
     # Remove code fences/backticks
-    t = text.replace("```", " ").replace("`", " ")
+    t = t.replace("```", " ").replace("`", " ")
     # Remove headings markers
     for h in ("###### ", "##### ", "#### ", "### ", "## ", "# "):
         t = t.replace(h, "")
     # Replace links [text](url) -> text
-    import re
     t = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\\1", t)
     # Collapse multiple spaces/newlines
     t = re.sub(r"\s+", " ", t).strip()
@@ -135,9 +137,11 @@ def prepare_projects() -> Tuple[List[str], List[List[str]], List[Dict[str, Any]]
     metadata: List[Dict[str, Any]] = []
     projects = load_markdown_files(PROJECTS_DIR)
     for filename, content in projects.items():
+        # Keep original content for frontend (with frontmatter)
+        texts_display.append(content)
+        # Strip for embeddings
         raw = strip_markdown_simple(content)
         chunks = chunk_text(raw)
-        texts_display.append(raw)
         chunks_per_doc.append(
             [
                 f"PROJECT: {filename}. Content: {c}"
@@ -163,9 +167,11 @@ def prepare_writings() -> Tuple[List[str], List[List[str]], List[Dict[str, Any]]
     metadata: List[Dict[str, Any]] = []
     writings = load_markdown_files(WRITINGS_DIR)
     for filename, content in writings.items():
+        # Keep original content for frontend (with frontmatter)
+        texts_display.append(content)
+        # Strip for embeddings
         raw = strip_markdown_simple(content)
         chunks = chunk_text(raw)
-        texts_display.append(raw)
         chunks_per_doc.append(
             [
                 f"WRITING: {filename}. Paragraph: {c}"
