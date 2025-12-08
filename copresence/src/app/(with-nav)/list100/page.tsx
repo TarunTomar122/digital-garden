@@ -10,8 +10,8 @@ export default function List100Page() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-6">
       <h1 className="font-display text-4xl">List 100</h1>
-      <p className="text-muted">100 things to do before I turn 100.</p>
       <p className="text-muted">Created on: April 30, 2024</p>
+      <p className="text-muted">Note: I have intentionally decided to never add/remove any items from this list. It is here to capture a moment in time when I was 22 years old and thought I wanted all of the following things to happen before I turn 100. </p>
       <div className="flex items-center gap-3 text-sm">
         <span className="font-medium">Completed {done} of {total} ({pct}%)</span>
         <div className="h-2 w-40 rounded bg-foreground/10">

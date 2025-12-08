@@ -11,8 +11,8 @@ export default function ExperiencePage() {
           </div>
           <h3 className="font-medium mt-1">Design Engineer</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
-            <li>Led migration of Adobe's Web Component library to Spectrum 2.0, used across thousands of engineers.</li>
-            <li>Built App Frame component for Spectrum 2.0 ensuring scalability and consistency across flagship apps.</li>
+            <li>Core contributor to the migration of Adobe&apos;s Web Component library to Spectrum 2.0.</li>
+            <li>Built an App Frame component for Spectrum 2.0 to ensure scalability and consistency across flagship apps like Adobe Express, Firefly, Illustrator Web, etc.</li>
           </ul>
         </div>
 
@@ -33,7 +33,7 @@ export default function ExperiencePage() {
             <h2 className="font-display text-2xl">Astu</h2>
             <span className="text-sm text-muted">OCTOBER 2021 – MARCH 2022</span>
           </div>
-          <h3 className="font-medium mt-1">Full stack developer</h3>
+          <h3 className="font-medium mt-1">Full stack intern</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
             <li>Designed and implemented the backend and frontend architecture for a mental health mobile app.</li>
             <li>Shipped features including listener–talker matching, real‑time end‑to‑end encrypted chat, and Google Auth.</li>

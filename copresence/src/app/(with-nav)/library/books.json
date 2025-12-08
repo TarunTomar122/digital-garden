@@ -1,20 +1,20 @@
 {
     "books":[
         {
-            "title": "The Alchemist",
-            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
-            "author": "Paulo Coelho",
-            "rating": "",
-            "status": "reading",
-            "link": "https://www.goodreads.com/book/show/18144590-the-alchemist"
-        },
-        {
             "title": "Can't Hurt Me: Master Your Mind and Defy the Odds",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1536184191i/41721428.jpg",
             "author": "David Goggins",
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/41721428-can-t-hurt-me"
+        },
+        {
+            "title": "The Alchemist",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
+            "author": "Paulo Coelho",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/18144590-the-alchemist"
         },
         {
             "title": "Don't sweat the small stuff",

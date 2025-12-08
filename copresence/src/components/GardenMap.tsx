@@ -500,6 +500,10 @@ export default function GardenMap() {
       .on("end", dragended);
   }
 
+  const handleBack = () => {
+    window.location.href = "/";
+  };
+
   const handleRecenter = () => {
     if (!svgRef.current || !zoomBehaviorRef.current) return;
     const svg = d3.select(svgRef.current);
@@ -522,6 +526,15 @@ export default function GardenMap() {
         <svg ref={svgRef} className="w-full h-full" />
         
         {/* Controls */}
+        <div className="absolute top-4 left-4 flex flex-col gap-2 cursor-pointer">
+          <button
+            onClick={handleBack}
+            className="px-3 py-2 bg-background/90 backdrop-blur border border-black/10 rounded-lg shadow-sm text-sm hover:bg-black/5 transition-colors cursor-pointer"
+            title="Back to Home"
+          >
+             Back
+          </button>
+        </div>
         <div className="absolute top-4 right-4 flex flex-col gap-2 cursor-pointer">
           <button
             onClick={handleRecenter}

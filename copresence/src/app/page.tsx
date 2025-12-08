@@ -37,12 +37,12 @@ export default function Home() {
 
       <section className="space-y-4">
         <p className="font-sans text-lg leading-relaxed">
-        As a Design System Engineer at Adobe, I architect scalable, efficient, and user-focused solutions for creative workflows. My independent research explores topics in adaptive AI, including experimentation with Small Language Models and reinforcement learning, and the development of user-centric AI technologies with practical creative impact.
-        </p>
+         I spend half of my day as a Design Engineer at Adobe, building and maintaining their design system, Spectrum, which powers all the Adobe products. And the other half I am an indie dev building side projects and exploring the intersection of AI, design, and productivity. Nights are for sleeping and weekends are for cooking, running, and binge watching Bryan Johnson talk about longevity.
+        </p>  
 
-        <p className="font-display italic text-2xl leading-snug">
+        {/* <p className="font-display italic text-2xl leading-snug">
           "Cultivate ideas slowly. Let some stay <Link href="/easter-eggs" className="wild-link underline underline-offset-2 cursor-pointer hover:opacity-80 inline-block origin-center">wild</Link>."
-        </p>
+        </p> */}
       </section>
 
       <Suspense fallback={
@@ -59,13 +59,13 @@ export default function Home() {
       </Suspense>
 
       <section className="space-y-4">
-      <p className="font-sans text-lg leading-relaxed">Mental network of all my thoughts - <Link prefetch href="/network" className="underline underline-offset-4 hover:opacity-80">/network</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Shower thoughts and notes - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Projects and build logs - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Books I've read or am reading - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Places I've worked at - <Link prefetch href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</Link></p>
-        <p className="font-sans text-lg leading-relaxed">100 things I wanna do before I turn 100 - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Talk to an AI pretending to be me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p>
+      <p className="font-sans text-lg leading-relaxed">My brain - <Link prefetch href="/network" className="underline underline-offset-4 hover:opacity-80">/network</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Things I wrote - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Things I built - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Books I read - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Places I worked at - <Link prefetch href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</Link></p>
+        <p className="font-sans text-lg leading-relaxed">Bucket list - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
+        <p className="font-sans text-lg leading-relaxed">AI me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p>
       </section>
 
       <footer className="pt-10">
