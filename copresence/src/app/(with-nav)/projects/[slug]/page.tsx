@@ -8,10 +8,11 @@ export function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
 }
 
-type PageProps = { params: { slug: string } };
+type PageProps = { params: Promise<{ slug: string }> };
 
-export default function ProjectPage({ params }: PageProps) {
-  const doc = getProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+  const doc = getProjectBySlug(slug);
   if (!doc) return notFound();
   return (
     <main className="mx-auto max-w-3xl px-4 py-16">
