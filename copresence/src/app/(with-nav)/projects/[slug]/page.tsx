@@ -16,7 +16,7 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!doc) return notFound();
   return (
     <main className="mx-auto max-w-3xl px-4 py-16">
-      <article className="prose prose-neutral dark:prose-invert
+      <article className="prose prose-neutral dark:prose-invert max-w-3xl
         prose-headings:text-foreground prose-strong:text-foreground prose-em:text-foreground
         prose-p:text-foreground/90 prose-li:text-foreground/90 prose-a:text-foreground
         prose-li:marker:text-foreground/60 prose-blockquote:text-foreground/80 prose-blockquote:border-muted/60 prose-hr:border-muted/50
