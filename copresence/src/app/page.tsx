@@ -37,7 +37,8 @@ export default function Home() {
 
       <section className="space-y-4">
         <p className="font-sans text-lg leading-relaxed">
-         I spend half of my day as a Design Engineer at Adobe, building and maintaining their design system, Spectrum, which powers all the Adobe products. And the other half I am an indie dev building side projects and exploring the intersection of AI, design, and productivity. Nights are for sleeping and weekends are for cooking, running, and binge watching Bryan Johnson talk about longevity.
+         I spend half of my day as a <b>Design Engineer</b> at Adobe, building and maintaining their design system (Spectrum) and the other half as an indie dev shipping side projects and exploring the intersection of AI, design, and productivity. 
+         Nights are for sleeping and weekends are for cooking, running, and binge watching Bryan Johnson talk about longevity.
         </p>  
 
         {/* <p className="font-display italic text-2xl leading-snug">
@@ -63,9 +64,9 @@ export default function Home() {
         <p className="font-sans text-lg leading-relaxed">Things I wrote - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
         <p className="font-sans text-lg leading-relaxed">Things I built - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
         <p className="font-sans text-lg leading-relaxed">Books I read - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Places I worked at - <Link prefetch href="/experience" className="underline underline-offset-4 hover:opacity-80">/experience</Link></p>
+        <p className="font-sans text-lg leading-relaxed">My resume - <Link prefetch href="/resume" className="underline underline-offset-4 hover:opacity-80">/resume</Link></p>
         <p className="font-sans text-lg leading-relaxed">Bucket list - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
-        <p className="font-sans text-lg leading-relaxed">AI me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p>
+        {/* <p className="font-sans text-lg leading-relaxed">AI me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p> */}
       </section>
 
       <footer className="pt-10">

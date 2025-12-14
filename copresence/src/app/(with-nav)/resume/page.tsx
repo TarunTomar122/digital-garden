@@ -1,4 +1,4 @@
-export default function ExperiencePage() {
+export default function ResumePage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
       <h1 className="font-display text-4xl">Experience</h1>
@@ -7,7 +7,7 @@ export default function ExperiencePage() {
         <div>
           <div className="flex items-baseline justify-between">
             <h2 className="font-display text-2xl">Adobe</h2>
-            <span className="text-sm text-muted">JUNE 2023 – PRESENT</span>
+            <span className="text-sm text-muted">JUN 2023 – PRESENT</span>
           </div>
           <h3 className="font-medium mt-1">Design Engineer</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
@@ -16,10 +16,10 @@ export default function ExperiencePage() {
           </ul>
         </div>
 
-        <div className="pt-4 border-t border-muted/50">
+        <div className="pt-4 border-muted/50">
           <div className="flex items-baseline justify-between">
             <h2 className="font-display text-2xl">Adobe</h2>
-            <span className="text-sm text-muted">MAY 2022 – JULY 2022</span>
+            <span className="text-sm text-muted">MAY 2022 – JUL 2022</span>
           </div>
           <h3 className="font-medium mt-1">Core Tech Intern</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
@@ -28,10 +28,10 @@ export default function ExperiencePage() {
           </ul>
         </div>
 
-        <div className="pt-4 border-t border-muted/50">
+        <div className="pt-4 border-muted/50">
           <div className="flex items-baseline justify-between">
             <h2 className="font-display text-2xl">Astu</h2>
-            <span className="text-sm text-muted">OCTOBER 2021 – MARCH 2022</span>
+            <span className="text-sm text-muted">OCT 2021 – MAR 2022</span>
           </div>
           <h3 className="font-medium mt-1">Full stack intern</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
@@ -41,7 +41,35 @@ export default function ExperiencePage() {
           </ul>
         </div>
  
-        </section>
+      </section>
+
+      <h1 className="font-display text-4xl">Education</h1>
+      <section className="space-y-6">
+        <div>
+          <div className="flex items-baseline justify-between">
+            <h2 className="font-display text-2xl">Indian Institute of Technology, Jodhpur</h2>
+            <span className="text-sm text-muted">AUG 2019 – JUN 2023</span>
+          </div>
+          <h3 className="font-medium mt-1">B.Tech in Computer Science and Engineering</h3>
+          <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
+            <li>Pattern Recognition and Machine Learning, Data Structures and Algorithms, Operating Systems, Computer Networks, Database Management Systems, Computer Architecture, Software Engineering, etc.</li>
+            <li>CGPA: 8.0</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <h1 className="font-display text-4xl">Achievements</h1>
+      <section className="space-y-6">
+        <div>
+          <ul className="list-disc pl-5 mt-2 space-y-1 text-foreground/90">
+             <li><b>5<sup>th</sup> Place</b> - Amazon DeepRacer Challenge (2025)</li>
+             <li><b>1<sup>st</sup> Place</b> - Razorpay FTX Hackathon (2021)</li>
+             <li><b>2<sup>nd</sup> Place</b> - Software Hackathon, IIT Jodhpur (2020)</li>
+             <li><b>1<sup>st</sup> Place</b> - Hardware Hackathon, IIT Jodhpur (2020)</li>
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }
