@@ -32,13 +32,12 @@ export default function Home() {
       `}</style>
 
       <header className="space-y-2">
-          <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden</h1>
+          <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden 🌱</h1>
       </header>
 
       <section className="space-y-4">
         <p className="font-sans text-lg leading-relaxed">
-         I spend half of my day as a <b>Design Engineer</b> at Adobe, building and maintaining their design system (Spectrum) and the other half as an indie dev shipping side projects and exploring the intersection of AI, design, and productivity. 
-         Nights are for sleeping and weekends are for cooking, running, and binge watching Bryan Johnson talk about longevity.
+          A place for notes, projects, and loose thoughts from my work as a design engineer at Adobe and things I build on my own. Mostly about <span className="font-semibold">AI, design, and productivity</span>. Occasionally about <span className="font-semibold">running, cooking, and longevity</span>.
         </p>  
 
         {/* <p className="font-display italic text-2xl leading-snug">
@@ -59,18 +58,50 @@ export default function Home() {
         <TopTrack />
       </Suspense>
 
-      <section className="space-y-4">
-      <p className="font-sans text-lg leading-relaxed">My brain - <Link prefetch href="/network" className="underline underline-offset-4 hover:opacity-80">/network</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Things I wrote - <Link prefetch href="/writings" className="underline underline-offset-4 hover:opacity-80">/writings</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Things I built - <Link prefetch href="/projects" className="underline underline-offset-4 hover:opacity-80">/projects</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Books I read - <Link prefetch href="/library" className="underline underline-offset-4 hover:opacity-80">/library</Link></p>
-        <p className="font-sans text-lg leading-relaxed">My resume - <Link prefetch href="/resume" className="underline underline-offset-4 hover:opacity-80">/resume</Link></p>
-        <p className="font-sans text-lg leading-relaxed">Bucket list - <Link prefetch href="/list100" className="underline underline-offset-4 hover:opacity-80">/list100</Link></p>
+      <section className="space-y-6">
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">projects, experiments — </span>
+          <Link prefetch href="/projects" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /projects
+          </Link>
+        </p>
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">blogs, shower thoughts, rants — </span>
+          <Link prefetch href="/writings" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /writings
+          </Link>{" "}
+          <span className="text-sm font-light text-muted">(start here if you&apos;re confused)</span>
+        </p>
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">readings — </span>
+          <Link prefetch href="/library" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /library
+          </Link>
+        </p>
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">goals, wishes — </span>
+          <Link prefetch href="/list100" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /list100
+          </Link>
+        </p>
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">threads, paths — </span>
+          <Link prefetch href="/network" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /network
+          </Link>
+        </p>
+        <p className="py-1 font-sans text-lg leading-relaxed">
+          <span className="text-muted">experience, achievements — </span>
+          <Link prefetch href="/resume" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /resume
+          </Link>
+        </p>
         {/* <p className="font-sans text-lg leading-relaxed">AI me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p> */}
       </section>
 
-      <footer className="pt-10">
-        <div className="flex items-center gap-6 text-foreground">
+      <footer className="">
+        <div className="flex items-center gap-6 text-foreground text-center">
+          <p className="font-sans text-lg leading-relaxed text-muted">elsewhere:</p>
           <a href="https://x.com/tarat_211" target="_blank" rel="noreferrer" aria-label="X / Twitter" className="opacity-80 hover:opacity-100">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
             <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
@@ -98,6 +129,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
+        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 19th December 2025</p>
       </footer>
 
     </main>

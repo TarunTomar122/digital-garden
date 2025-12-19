@@ -85,7 +85,7 @@ export default function LikeButton({ id, type = "writings" }: LikeButtonProps) {
   return (
     <button
       onClick={handleLike}
-      className={`flex items-center gap-1.5 py-1 px-2 rounded-full transition-all duration-300 ease-in-out self-start border
+      className={`flex items-center gap-1.5 py-1 px-2 cursor-pointer rounded-full transition-all duration-300 ease-in-out self-start border
         ${liked ? "bg-foreground text-background" : "bg-transparent text-foreground border-foreground/30"}
         ${loading ? "opacity-50" : ""}`}
       aria-label={liked ? "Unlike" : "Like"}

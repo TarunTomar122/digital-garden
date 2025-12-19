@@ -1,7 +1,15 @@
 {
     "books":[
         {
-            "title": "Can't Hurt Me: Master Your Mind and Defy the Odds",
+            "title": "The Four Agreements",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630664059i/6596.jpg",
+            "author": "Miguel Ruiz",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/6596.The_Four_Agreements"
+        },
+        {
+            "title": "Can't Hurt Me",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1536184191i/41721428.jpg",
             "author": "David Goggins",
             "rating": "",
@@ -57,7 +65,7 @@
             "link": "https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant"
         },
         {
-            "title": "The Almanack of Naval Ravikant: A Guide to Wealth and Happiness",
+            "title": "The Almanack of Naval Ravikant",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598011736i/54898389.jpg",
             "author": "Eric Jorgenson",
             "rating": "3.5/5",
@@ -89,7 +97,7 @@
             "link": "https://www.goodreads.com/book/show/200998630-before-we-forget-kindness"
         },
         {
-            "title": "Predictably Irrational: The Hidden Forces That Shape Our Decisions",
+            "title": "Predictably Irrational",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1255573980i/1713426.jpg",
             "author": "Dan Ariely",
             "rating": "3.5/5",
@@ -105,7 +113,7 @@
             "link": "https://www.goodreads.com/book/show/357636.Civilization_and_Its_Discontents"
         },
         {
-            "title": "The Communication Book: 44 Ideas for Better Conversations Every Day",
+            "title": "The Communication Book",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580510465i/45894164.jpg",
             "author": "Mikael Krogerus, Roman Tschäppeler",
             "rating": "3.5/5",
@@ -137,7 +145,7 @@
             "link": "https://www.goodreads.com/book/show/208124623-things-no-one-taught-us-about-love"
         },
         {
-            "title": "Feel-Good Productivity: How to Do More of What Matters to You",
+            "title": "Feel-Good Productivity",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689695229i/142402923.jpg",
             "author": "Ali Abdaal",
             "rating": "4.5/5",
@@ -145,7 +153,7 @@
             "link": "https://www.goodreads.com/book/show/142402923-feel-good-productivity"
         },
         {
-            "title": "Smart Brevity: The Power of Saying More with Less",
+            "title": "Smart Brevity",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1653286312i/59891634.jpg",
             "author": "Jim Vandehei",
             "rating": "4/5",
@@ -161,7 +169,7 @@
             "link": "https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"
         },
         {
-            "title": "Never Finished: Unshackle Your Mind and Win the War Within",
+            "title": "Never Finished",
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1666611105i/63079845.jpg",
             "author": "David Goggins",
             "rating": "4/5",

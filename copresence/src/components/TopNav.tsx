@@ -15,14 +15,14 @@ export default function TopNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
+    <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between text-center">
       <Link prefetch href="/" className="font-display text-xl">Tarats Garden</Link>
       <button
-        className="md:hidden border rounded px-2 py-1"
+        className="md:hidden px-2 py-1 text-2xl cursor-pointer text-center"
         aria-label="Toggle menu"
         onClick={() => setOpen((o) => !o)}
       >
-        ☰
+        <span className="text-2xl">☰</span>
       </button>
       <div className="hidden md:flex items-center gap-6 text-sm">
         {links.map((l) => (
