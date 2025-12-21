@@ -35,7 +35,7 @@ export default function Home() {
           <h1 className="font-display text-5xl md:text-6xl tracking-tight">Tarats Garden 🌱</h1>
       </header>
 
-      <section className="space-y-4">
+      <section className="space-y-4 mb-12">
         <p className="font-sans text-lg leading-relaxed">
           A place for notes, projects, and loose thoughts from my work as a design engineer at Adobe and things I build on my own. Mostly about <span className="font-semibold">AI, design, and productivity</span>. Occasionally about <span className="font-semibold">running, cooking, and longevity</span>.
         </p>  
@@ -58,39 +58,39 @@ export default function Home() {
         <TopTrack />
       </Suspense>
 
-      <section className="space-y-6">
-        <p className="py-1 font-sans text-lg leading-relaxed">
+      <section className="space-y-8 mt-12">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">projects, experiments — </span>
           <Link prefetch href="/projects" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /projects
           </Link>
         </p>
-        <p className="py-1 font-sans text-lg leading-relaxed">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">blogs, shower thoughts, rants — </span>
           <Link prefetch href="/writings" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /writings
           </Link>{" "}
           <span className="text-sm font-light text-muted">(start here if you&apos;re confused)</span>
         </p>
-        <p className="py-1 font-sans text-lg leading-relaxed">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">readings — </span>
           <Link prefetch href="/library" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /library
           </Link>
         </p>
-        <p className="py-1 font-sans text-lg leading-relaxed">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">goals, wishes — </span>
           <Link prefetch href="/list100" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /list100
           </Link>
         </p>
-        <p className="py-1 font-sans text-lg leading-relaxed">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">threads, paths — </span>
           <Link prefetch href="/network" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /network
           </Link>
         </p>
-        <p className="py-1 font-sans text-lg leading-relaxed">
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">experience, achievements — </span>
           <Link prefetch href="/resume" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /resume
