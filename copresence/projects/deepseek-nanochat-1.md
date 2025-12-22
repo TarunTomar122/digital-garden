@@ -7,6 +7,9 @@ tags:
     - python
     - machine-learning
     - pytorch
+links:   
+    - type: github
+      url: https://github.com/TarunTomar122/vision-encoded-nanochat
 ---
 
 ### Introduction
