@@ -8,6 +8,7 @@ export const metadata = {
 
 export default function ProjectsIndex() {
   const projects = getAllProjects();
+
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
       <header className="space-y-2">

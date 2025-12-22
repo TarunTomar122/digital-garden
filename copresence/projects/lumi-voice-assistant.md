@@ -1,8 +1,17 @@
 ---
 title: The simplest (over engineered) todo app
-description: How hard can it be to build a simple todo app? Well more than you think
-category: tech
+description: Finetuning a 350M parameter model to run on my phone
+category: project
 date: 2025-10-07
+tags:
+    - react-native
+    - machine-learning
+    - fine-tuning
+links:
+    - type: link
+      url: https://colab.research.google.com/drive/1EOMzitHtcx7j-MU0xczpG9FX0xmS2_AG?usp=sharing
+    - type: github
+      url: https://huggingface.co/Taru/lumi-mobile
 ---
 
 ### Backstory
@@ -106,4 +115,5 @@ It only took like 15 minutes (4 hours) to do this whole thing and the result is.
 ####
 
 SHUT UP! I have a 9-5 job you know! So I'll do it when I do it. For now let me just admire how fast this thing is on a relatively old phone :)
+
 

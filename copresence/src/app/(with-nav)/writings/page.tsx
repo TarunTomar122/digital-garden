@@ -95,12 +95,30 @@ export default async function WritingsIndex({
       {totalPages > 1 && (
         <div className="flex items-center justify-between pt-6 border-t border-muted/40">
           {page > 1 ? (
-            <Link prefetch href={`/writings?page=${page - 1}`} className="underline underline-offset-4 hover:opacity-80">← Previous</Link>
-          ) : null}
+            <Link 
+              prefetch 
+              href={`/writings?page=${page - 1}`} 
+              className="underline underline-offset-4 hover:opacity-80"
+            >
+              ← Previous
+            </Link>
+          ) : (
+            <div></div>
+          )}
+          <span className="text-sm text-muted">
+            Page {page} of {totalPages}
+          </span>
           {page < totalPages ? (
-            <Link prefetch href={`/writings?page=${page + 1}`} className="underline underline-offset-4 hover:opacity-80">Next →</Link>
-          ) : null}
-          <span className="text-sm text-muted">Page {page} of {totalPages}</span>
+            <Link 
+              prefetch 
+              href={`/writings?page=${page + 1}`} 
+              className="underline underline-offset-4 hover:opacity-80"
+            >
+              Next →
+            </Link>
+          ) : (
+            <div></div>
+          )}
         </div>
       )}
     </main>

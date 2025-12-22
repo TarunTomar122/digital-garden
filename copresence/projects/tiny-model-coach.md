@@ -1,8 +1,15 @@
 ---
 title: Tiny models might be the future
 description: Finetuning a Gemma 270M to act like a personal coach
-category: tech
+category: project
 date: 2025-08-17
+tags:
+    - python
+    - machine-learning
+    - fine-tuning
+links:
+    - type: link
+      url: https://colab.research.google.com/drive/1pwAkDF5Q5J9EVt01GUMrqS0DhI_dqn0V?usp=sharing
 ---
 
 ### The beginning
@@ -146,3 +153,4 @@ I am sorry Google. I was not familiar with your game. I hope this article makes 
 ####
 
 PS: Here's the google colab [link](https://colab.research.google.com/drive/1pwAkDF5Q5J9EVt01GUMrqS0DhI_dqn0V?usp=sharing) if you want to try it out yourself.
+

@@ -5,7 +5,6 @@ category: project
 date: 2025-06-10
 tags:
     - react-native
-    - machine-learning
 links:   
     - type: link
     - url: https://play.google.com/store/apps/details?id=com.lumi.mobile

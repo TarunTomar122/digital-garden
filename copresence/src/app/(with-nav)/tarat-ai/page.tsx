@@ -67,16 +67,39 @@ export default function TaratAIPage() {
     return async () => {
       if (extractorRef.current) return extractorRef.current;
       setModelLoading(true);
-      const { pipeline } = await import("@xenova/transformers");
-      const extractor = (await pipeline("feature-extraction", "Xenova/all-mpnet-base-v2", { quantized: true })) as unknown as FeatureExtractor;
-      extractorRef.current = extractor;
-      setModelLoading(false);
-      setModelReady(true);
-      return extractor;
+      try {
+        const { pipeline, env } = await import("@xenova/transformers");
+        
+        // Configure the environment for browser usage
+        env.allowLocalModels = false;
+        env.useBrowserCache = true;
+        
+        const extractor = (await pipeline("feature-extraction", "Xenova/all-mpnet-base-v2", { 
+          quantized: true,
+          progress_callback: (progress: { status: string }) => {
+            console.log("Progress:", progress.status);
+          }
+        })) as unknown as FeatureExtractor;
+        
+        extractorRef.current = extractor;
+        setModelLoading(false);
+        setModelReady(true);
+        return extractor;
+      } catch (err) {
+        console.error("Error in loadModel:", err);
+        setModelLoading(false);
+        throw err;
+      }
     };
   }, []);
 
-  useEffect(() => { loadModel().catch(() => {}); }, [loadModel]);
+  useEffect(() => { 
+    loadModel().catch((err) => {
+      console.error("Model loading failed:", err);
+      setError("Failed to load the embedding model. Please refresh the page.");
+      setModelLoading(false);
+    }); 
+  }, [loadModel]);
 
   // Auto-scroll to latest question (user messages only)
   const scrollToLatestQuestion = useCallback(() => {
@@ -215,8 +238,8 @@ export default function TaratAIPage() {
                   <div className="not-prose mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-black">
                     {[
                       "Why should we hire you?",
+                      "What are your best ML related projects?",
                       "What kind of books do you like?",
-                      "What's your best sideproject?",
                       "How was your NYC trip?",
                     ].map((q) => (
                       <button
@@ -328,14 +351,52 @@ export default function TaratAIPage() {
 
 function simpleMarkdownToHtml(text: string): string {
   let html = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  
+  // Headers
+  html = html.replace(/^####\s?(.*)$/gm, '<h4>$1</h4>');
   html = html.replace(/^###\s?(.*)$/gm, '<h3>$1</h3>');
   html = html.replace(/^##\s?(.*)$/gm, '<h2>$1</h2>');
   html = html.replace(/^#\s?(.*)$/gm, '<h1>$1</h1>');
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  html = html.replace(/^\s*[-\u2022]\s+(.*)$/gm, '<li>$1</li>');
-  html = html.replace(/(<li>[^<]*<\/li>)(\n<li>[^<]*<\/li>)*?/g, (m) => `<ul>${m}</ul>`);
-  html = html.replace(/^(?!<h\d|<ul|<li|<\/li|<\/ul)(.+)$/gm, '<p>$1</p>');
+  
+  // Code blocks (triple backticks)
+  html = html.replace(/```[\s\S]*?```/g, (match) => {
+    const code = match.replace(/```\w*\n?/g, '').trim();
+    return `<pre><code>${code}</code></pre>`;
+  });
+  
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  
+  // Bold and italic
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  
+  // Lists
+  html = html.replace(/^\s*[-\u2022*]\s+(.*)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, (m) => `<ul>${m}</ul>`);
+  
+  // Numbered lists
+  html = html.replace(/^\s*\d+\.\s+(.*)$/gm, '<li>$1</li>');
+  
+  // Blockquotes
+  html = html.replace(/^&gt;\s?(.*)$/gm, '<blockquote>$1</blockquote>');
+  
+  // Horizontal rules
+  html = html.replace(/^---$/gm, '<hr>');
+  
+  // Line breaks (double space at end of line or double newline)
+  html = html.replace(/\n\n/g, '</p><p>');
+  
+  // Wrap remaining text in paragraphs
+  html = html.replace(/^(?!<h\d|<ul|<ol|<li|<\/li|<\/ul|<\/ol|<pre|<\/pre|<blockquote|<hr)(.+)$/gm, '<p>$1</p>');
+  
+  // Clean up multiple consecutive paragraph tags
+  html = html.replace(/<\/p>\s*<p>/g, '</p><p>');
+  
   return html;
 }
 

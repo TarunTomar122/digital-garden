@@ -1,8 +1,12 @@
 ---
-title: you can just do things.
-description: I coded a small transformer model to act like my GF
-category: tech
+title: Coding my own transformer model
+description: I coded a small transformer model to act like my girlfriend
+category: project
 date: 2025-12-11
+tags:
+    - python
+    - machine-learning
+    - pytorch
 ---
 
 If you've read my past blogs then you know how I was playing around with nanochat and trying add vision to that tiny model (which worked out fine!!) and while I was doing all that I realised how little I know about transformers. 
