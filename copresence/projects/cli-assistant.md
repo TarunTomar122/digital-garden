@@ -1,6 +1,6 @@
 ---
-title: CLI based AI Assistant
-description: I built a CLI based AI assistant that can perform various tasks like sending emails, searching the web, and playing music
+title: Command-Line AI Assistant with RASA
+description: Terminal-based AI assistant using RASA NLP to handle emails, web searches, and music playback
 category: project
 date: 2024-09-06
 tags: 

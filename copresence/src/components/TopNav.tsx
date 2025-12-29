@@ -1,48 +1,147 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 const links = [
-  { href: "/projects", label: "Projects" },
-  { href: "/writings", label: "Writings" },
-  { href: "/library", label: "Library" },
-  { href: "/resume", label: "Resume" },
-  { href: "/list100", label: "List 100" },
+  { href: "/projects", label: "projects" },
+  { href: "/writings", label: "writings" },
+  { href: "/timeline", label: "timeline" },
+  { href: "/library", label: "library" },
+  { href: "/list100", label: "list 100" },
 ];
 
 export default function TopNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
-  return (
-    <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between text-center">
-      <Link prefetch href="/" className="font-display text-xl">Tarats Garden</Link>
+  // For portal rendering
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const isActive = (href: string) => pathname.startsWith(href);
+
+  const mobileMenu = open && mounted ? createPortal(
+    <div 
+      className="md:hidden fixed top-0 left-0 w-screen h-screen z-[9999] flex flex-col items-center justify-center"
+      style={{ backgroundColor: "var(--background, #fdf5e2)" }}
+    >
+      {/* Close button at top right */}
       <button
-        className="md:hidden px-2 py-1 text-2xl cursor-pointer text-center"
-        aria-label="Toggle menu"
-        onClick={() => setOpen((o) => !o)}
+        className="absolute top-4 right-4 p-2 text-2xl cursor-pointer hover:opacity-80 transition-opacity"
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
       >
-        <span className="text-2xl">☰</span>
+        ✕
       </button>
-      <div className="hidden md:flex items-center gap-6 text-sm">
+      
+      {/* Logo at top left */}
+      <Link 
+        prefetch 
+        href="/" 
+        onClick={() => setOpen(false)}
+        className="absolute top-4 left-4 font-display text-xl"
+      >
+        Tarats Garden 🌱
+      </Link>
+
+      <nav className="flex flex-col items-center gap-8">
         {links.map((l) => (
-          <Link prefetch key={l.href} href={l.href} className="underline underline-offset-4 hover:opacity-80">
+          <Link 
+            prefetch 
+            key={l.href} 
+            href={l.href} 
+            onClick={() => setOpen(false)} 
+            className={[
+              "font-display text-3xl transition-colors cursor-pointer",
+              isActive(l.href)
+                ? "text-foreground underline underline-offset-8"
+                : "text-muted hover:text-foreground",
+            ].join(" ")}
+          >
             {l.label}
           </Link>
         ))}
-      </div>
-      {open && (
-        <div className="absolute left-0 right-0 top-14 z-50 md:hidden bg-background/100 border border-muted/40">
-          <div className="mx-auto max-w-5xl px-4 py-3 flex flex-col gap-3">
+      </nav>
+      
+      {/* Home link at bottom */}
+      <Link 
+        prefetch 
+        href="/" 
+        onClick={() => setOpen(false)}
+        className="absolute bottom-12 text-muted hover:text-foreground transition-colors text-sm cursor-pointer"
+      >
+        ← back to home
+      </Link>
+    </div>,
+    document.body
+  ) : null;
+
+  return (
+    <>
+      <nav className="mx-auto max-w-3xl px-4 py-4 relative z-50">
+        {/* Desktop: Logo left, links right */}
+        <div className="hidden md:flex flex-row items-center justify-between">
+          <Link prefetch href="/" className="font-display text-2xl hover:opacity-80 transition-opacity">
+            Tarats Garden 🌱
+          </Link>
+          <div className="flex items-center gap-8 text-sm">
             {links.map((l) => (
-              <Link prefetch key={l.href} href={l.href} onClick={() => setOpen(false)} className="underline underline-offset-4">
+              <Link 
+                prefetch 
+                key={l.href} 
+                href={l.href} 
+                className={[
+                  "transition-colors",
+                  isActive(l.href)
+                    ? "text-foreground underline underline-offset-4"
+                    : "text-muted hover:text-foreground",
+                ].join(" ")}
+              >
                 {l.label}
               </Link>
             ))}
           </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile: Logo left, hamburger right */}
+        <div className="md:hidden flex items-center justify-between">
+          <Link prefetch href="/" className="font-display text-xl">
+            Tarats Garden 🌱
+          </Link>
+          <button
+            className="p-2 text-2xl cursor-pointer hover:opacity-80 transition-opacity"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+
+      {mobileMenu}
+    </>
   );
 }
 

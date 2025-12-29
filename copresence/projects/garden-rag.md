@@ -1,6 +1,6 @@
 ---
-title: Tarat AI
-description: A RAG based AI assistant for my digital garden
+title: RAG-Powered AI Assistant for My Digital Garden
+description: Client-side RAG system that answers questions about my projects, writings, and experiences using semantic search
 category: project
 date: 2025-10-20
 tags:

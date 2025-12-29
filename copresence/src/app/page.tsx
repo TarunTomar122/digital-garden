@@ -73,9 +73,15 @@ export default function Home() {
           <span className="text-sm font-light text-muted">(start here if you&apos;re confused)</span>
         </p>
         <p className="pb-0.5 font-sans text-lg leading-relaxed">
-          <span className="text-muted">readings — </span>
+          <span className="text-muted">books, reads — </span>
           <Link prefetch href="/library" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /library
+          </Link>
+        </p>
+        <p className="pb-0.5 font-sans text-lg leading-relaxed">
+          <span className="text-muted">progress, achievements — </span>
+          <Link prefetch href="/timeline" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            /timeline
           </Link>
         </p>
         <p className="pb-0.5 font-sans text-lg leading-relaxed">
@@ -84,18 +90,12 @@ export default function Home() {
             /list100
           </Link>
         </p>
-        <p className="pb-0.5 font-sans text-lg leading-relaxed">
+        {/* <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">threads, paths — </span>
           <Link prefetch href="/network" className="text-foreground underline underline-offset-4 hover:opacity-80">
             /network
           </Link>
-        </p>
-        <p className="pb-0.5 font-sans text-lg leading-relaxed">
-          <span className="text-muted">experience, achievements — </span>
-          <Link prefetch href="/resume" className="text-foreground underline underline-offset-4 hover:opacity-80">
-            /resume
-          </Link>
-        </p>
+        </p> */}
         {/* <p className="font-sans text-lg leading-relaxed">AI me - <Link prefetch href="/tarat-ai" className="underline underline-offset-4 hover:opacity-80">/tarat-ai</Link></p> */}
       </section>
 

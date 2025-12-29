@@ -1,6 +1,6 @@
 ---
-title: Vibecoding AI Agents
-description: A detailed walkthrough of my journey to get two ai agents to collaborate in a simple grid world
+title: Teaching Two AI Agents to Collaborate
+description: Training collaborative AI agents to trap a player using reinforcement learning in a grid-world environment
 category: project
 date: 2025-08-10
 tags:

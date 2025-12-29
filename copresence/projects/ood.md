@@ -1,6 +1,6 @@
 ---
-title: Project Nimbus
-description: An app that helps you iterate on your UX flows for your website
+title: AI-Powered UX Flow Design Canvas
+description: Collaborative canvas tool for generating and iterating on website wireframes using AI-assisted design
 category: project
 date: 2025-02-17
 tags: 

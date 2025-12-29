@@ -12,7 +12,7 @@ type Book = {
 export default function LibraryPage() {
   const books = (data.books as Book[]) || [];
   return (
-    <main className="mx-auto max-w-5xl px-4 py-16 space-y-8">
+    <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
       <header className="space-y-2">
         <h1 className="font-display text-4xl md:text-5xl tracking-tight">Library</h1>
         <p className="text-muted">Books I’m reading and have read lately.</p>

@@ -1,6 +1,6 @@
 ---
-title: The simplest (over engineered) todo app
-description: Finetuning a 350M parameter model to run on my phone
+title: Voice-Powered Todo App with On-Device AI
+description: Finetuned a 350M parameter LLM to understand natural language tasks and run locally on mobile
 category: project
 date: 2025-10-07
 tags:

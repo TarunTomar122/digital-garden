@@ -1,6 +1,6 @@
 ---
-title: Deepseeking Nanochat
-description: Extending the context limit of a LLM by using a vision encoder
+title: Vision-Enhanced NanoChat with Extended Context
+description: Extending a tiny LLM's context limit by compressing text into visual tokens using a vision encoder
 category: project
 date: 2025-11-05
 tags: 

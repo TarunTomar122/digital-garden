@@ -1,6 +1,6 @@
 ---
-title: Tiny models might be the future
-description: Finetuning a Gemma 270M to act like a personal coach
+title: Finetuning Tiny Models for Personal Use
+description: Finetuned a 270M parameter model on my Strava data to create a personalized running coach
 category: project
 date: 2025-08-17
 tags:

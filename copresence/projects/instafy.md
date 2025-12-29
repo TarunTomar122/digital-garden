@@ -1,6 +1,6 @@
 ---
-title: Instafy
-description: A simple tool that lets you copy the aesthetic of any photo and apply it to your own images
+title: One-Click Photo Aesthetic Transfer Tool
+description: Upload any reference photo and instantly copy its color grading and visual style to your own images
 category: project
 date: 2025-10-14
 tags:

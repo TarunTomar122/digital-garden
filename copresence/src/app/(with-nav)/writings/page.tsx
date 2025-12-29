@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllWritings, type WritingMeta } from "@/lib/writings";
 
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 7;
 
 export const dynamic = "force-dynamic";
 
@@ -62,27 +62,26 @@ export default async function WritingsIndex({
         {monthKeys.map((monthKey) => (
           <li key={monthKey}>
             <div className="relative">
-              {/* Month label and vertical line - positioned absolutely on desktop */}
-              <div className="absolute top-0 bottom-0 right-full mr-6 hidden md:flex items-start gap-3">
-                <div className="text-muted text-sm font-medium text-right pt-1" style={{ minWidth: "64px" }}>
+              {/* Month label - positioned absolutely on desktop */}
+              <div className="absolute top-0 bottom-0 right-full mr-8 hidden md:flex items-start">
+                <div className="text-muted/70 text-sm text-right pt-1" style={{ minWidth: "64px" }}>
                   {monthKey === "no-date" ? "Undated" : formatMonth(monthKey)}
                 </div>
-                <div className="w-px bg-muted/40 self-stretch"></div>
               </div>
 
               {/* Articles */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {groupedByMonth[monthKey].map((w) => (
                   <div key={w.slug} className="space-y-1">
                     <Link
                       prefetch
                       href={`/writings/${w.slug}`}
-                      className="underline underline-offset-4 hover:opacity-80"
+                      className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
                     >
                       {w.title}
                     </Link>
                     {w.description ? (
-                      <p className="text-muted text-sm">{w.description}</p>
+                      <p className="text-muted">{w.description}</p>
                     ) : null}
                   </div>
                 ))}

@@ -1,6 +1,6 @@
 ---
-title: Map My Trip
-description: An app to mark the places and restaurants for your trip on a map and get details about them
+title: Interactive Trip Planning with AI Details
+description: Map-based trip planner that marks locations and provides AI-generated details for places and restaurants
 category: project
 date: 2025-02-28
 tags: 

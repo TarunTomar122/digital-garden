@@ -1,6 +1,6 @@
 ---
-title: ML Algorithms Implementation
-description: Me and rohan started coding a python library with basic ML algorithms which took off and we had over 30 contributors from all over the world
+title: Open Source ML Library from Scratch
+description: Built a Python ML library implementing algorithms from scratch, growing to 30+ contributors worldwide
 category: project
 date: 2024-12-24
 tags: 

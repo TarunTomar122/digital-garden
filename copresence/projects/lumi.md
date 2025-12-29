@@ -1,6 +1,6 @@
 ---
-title: Lumi
-description: A personal AI assistant that helps manage tasks, notes, and reminders — all through natural conversations
+title: Frictionless Task Manager with Natural Language Input
+description: Offline-first mobile app for managing tasks, habits, and notes using natural language parsing
 category: project
 date: 2025-06-10
 tags:
