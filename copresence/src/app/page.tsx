@@ -129,7 +129,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 19th December 2025</p>
+        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 30th December 2025</p>
       </footer>
 
     </main>
