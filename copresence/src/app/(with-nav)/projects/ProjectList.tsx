@@ -107,7 +107,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
             <li key={p.slug}>
               <div className="space-y-1">
                 <Link
-                  prefetch
                   href={`/projects/${p.slug}`}
                   className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
                 >
@@ -161,7 +160,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
             <li key={p.slug}>
               <div className="space-y-1">
                 <Link
-                  prefetch
                   href={`/projects/${p.slug}`}
                   className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
                 >

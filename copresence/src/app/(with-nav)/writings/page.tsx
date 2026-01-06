@@ -74,7 +74,6 @@ export default async function WritingsIndex({
                 {groupedByMonth[monthKey].map((w) => (
                   <div key={w.slug} className="space-y-1">
                     <Link
-                      prefetch
                       href={`/writings/${w.slug}`}
                       className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
                     >
@@ -95,7 +94,6 @@ export default async function WritingsIndex({
         <div className="flex items-center justify-between pt-6 border-t border-muted/40">
           {page > 1 ? (
             <Link 
-              prefetch 
               href={`/writings?page=${page - 1}`} 
               className="underline underline-offset-4 hover:opacity-80"
             >
@@ -109,7 +107,6 @@ export default async function WritingsIndex({
           </span>
           {page < totalPages ? (
             <Link 
-              prefetch 
               href={`/writings?page=${page + 1}`} 
               className="underline underline-offset-4 hover:opacity-80"
             >

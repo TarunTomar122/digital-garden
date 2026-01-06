@@ -12,7 +12,7 @@ export default function EasterEggs() {
         <div className="border-l-2 border-muted/30 pl-4 py-2">
           <h2 className="font-display text-2xl mb-2">Obsession with Speed</h2>
           <p className="font-sans text-lg leading-relaxed">
-            We&apos;re prefetching all the links on this site. If you&apos;re on desktop, you&apos;ll notice that clicking through feels instant—like pages are already loaded. This is because it&apos;s quietly loading every link in the background as you browse. It&apos;s a small trick that makes the whole experience feel snappier.
+            Navigation links are prefetched instantly, while content pages are smartly loaded when you hover or scroll to them. Combined with server-side caching, clicking through feels snappy—pages load almost instantly after the first visit. It&apos;s a balance between speed and not overwhelming the server.
           </p>
         </div>
 

@@ -6,6 +6,9 @@ import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
 import InstagramEmbed from "@/components/InstagramEmbed";
 
+// Fully static - only regenerates on deploy (blogs don't change dynamically)
+export const revalidate = false;
+
 type PageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {

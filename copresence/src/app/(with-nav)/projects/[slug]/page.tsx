@@ -4,6 +4,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 
+// Fully static - only regenerates on deploy (projects don't change dynamically)
+export const revalidate = false;
+
 export function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
 }
