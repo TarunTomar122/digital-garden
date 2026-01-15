@@ -45,18 +45,57 @@ export default function Home() {
         </p> */}
       </section>
 
-      <Suspense fallback={
-        <section className="flex items-center gap-3" aria-busy="true">
-          <img src="/vinyl.gif" alt="Vinyl animation" className="rounded-full ring-1 ring-muted/50 h-[64px] w-[64px]" />
-          <div className="space-y-1">
-            <p className="text-sm text-muted">Fav song this week</p>
-            <div className="h-5 w-48 rounded bg-foreground/10" />
+      <section className="relative overflow-hidden rounded-lg border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/[0.02] p-6 transition-all hover:border-foreground/20 hover:shadow-md">
+        <div className="flex items-center gap-2 mb-6">
+          <span className="text-xs font-medium uppercase tracking-wider text-muted">Currently</span>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
+          </span>
+        </div>
+
+        <div className="space-y-6">
+          {/* Working On */}
+          <div className="space-y-3">
+            <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Working On</p>
+            <div>
+              <h3 className="font-display text-2xl tracking-tight mb-2">trace</h3>
+              <p className="font-sans text-muted leading-relaxed">a quiet adaptive feed that shows you boring but useful stuff</p>
+            </div>
+            <a 
+              href="https://yourtrace.online" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              yourtrace.online
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                <path d="M2.5 1.5H10.5V9.5M10.5 1.5L1.5 10.5M10.5 1.5L10.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
-        </section>
-      }>
-        {/* Partial prerender: stream this once available */}
-        <TopTrack />
-      </Suspense>
+
+          {/* Divider */}
+          <div className="border-t border-foreground/10"></div>
+
+          {/* Listening To */}
+          <div className="space-y-3">
+            <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Listening To</p>
+            <Suspense fallback={
+              <div className="flex items-center gap-3" aria-busy="true">
+                <img src="/vinyl.gif" alt="Vinyl animation" className="rounded-full ring-1 ring-muted/50 h-[64px] w-[64px]" />
+                <div className="space-y-1">
+                  <p className="text-sm text-muted">Fav song this week</p>
+                  <div className="h-5 w-48 rounded bg-foreground/10" />
+                </div>
+              </div>
+            }>
+              {/* Partial prerender: stream this once available */}
+              <TopTrack />
+            </Suspense>
+          </div>
+        </div>
+      </section>
 
       <section className="space-y-8 mt-12">
         <p className="pb-0.5 font-sans text-lg leading-relaxed">
@@ -129,7 +168,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 30th December 2025</p>
+        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 12th January 2026</p>
       </footer>
 
     </main>
