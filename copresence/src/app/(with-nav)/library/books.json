@@ -1,12 +1,20 @@
 {
     "books":[
         {
-            "title": "The Four Agreements",
-            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630664059i/6596.jpg",
-            "author": "Miguel Ruiz",
+            "title": "Read people like a book",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1607355306i/56199402.jpg",
+            "author": "Clive Thompson",
+            "rating": "",
+            "status": "to read",
+            "link": "https://www.goodreads.com/book/show/18722411-read-people-like-a-book"
+        },
+        {
+            "title": "A little life",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1446469353i/22822858.jpg",
+            "author": "Hanya Yanagihara",
             "rating": "",
             "status": "reading",
-            "link": "https://www.goodreads.com/book/show/6596.The_Four_Agreements"
+            "link": "https://www.goodreads.com/book/show/18722411-a-little-life"
         },
         {
             "title": "Can't Hurt Me",
@@ -15,6 +23,14 @@
             "rating": "",
             "status": "reading",
             "link": "https://www.goodreads.com/book/show/41721428-can-t-hurt-me"
+        },
+        {
+            "title": "The Four Agreements",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630664059i/6596.jpg",
+            "author": "Miguel Ruiz",
+            "rating": "3/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/6596.The_Four_Agreements"
         },
         {
             "title": "The Alchemist",
@@ -37,7 +53,7 @@
             "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655336738i/128029.jpg",
             "author": "Khaled Hosseini",
             "rating": "4/5",
-            "status": "chose not to finish",
+            "status": "didn't finish",
             "link": "https://www.goodreads.com/book/show/128029.A_Thousand_Splendid_Suns"
         },
         {

@@ -36,6 +36,9 @@ const ITEMS: TimelineItem[] = [
     title: "2,000 YouTube subscribers",
   },
   { date: "2025-12", title: "Finished an Ultramarathon", detail: "51Kms in 6:47 hrs.", link: "https://www.strava.com/activities/16860926559" },
+
+  { date: "2026-01", title: "Launched trace", link: "https://yourtrace.online", detail: "Product hunt #7 and $50 MRR in 1 week" },
+
 ];
 
 function parseYearMonth(ym: string) {
@@ -63,7 +66,7 @@ export default function TimeLinePage() {
   const years = Object.keys(itemsByYear).sort((a, b) => Number(b) - Number(a));
 
   // Default to 2025
-  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedYear, setSelectedYear] = useState("2026");
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
