@@ -7,6 +7,11 @@ const DEFAULT_EMBED = `<iframe style="border-radius:12px" src="https://open.spot
 
 async function fetchLastFMTrack() {
     try {
+        if (!process.env.LASTFM_API_KEY) {
+            console.warn('LastFM API key not configured');
+            return null;
+        }
+
         const response = await fetch(
             `https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=TaRaT_122&api_key=${process.env.LASTFM_API_KEY}&format=json&limit=5`,
             { 
@@ -16,6 +21,7 @@ async function fetchLastFMTrack() {
         );
         
         if (!response.ok) {
+            console.error(`LastFM API failed with status: ${response.status}`);
             throw new Error('LastFM API failed');
         }
 
@@ -23,9 +29,11 @@ async function fetchLastFMTrack() {
         const tracks = data.weeklytrackchart?.track;
         
         if (!tracks?.length) {
+            console.warn('No tracks found in LastFM response');
             throw new Error('No tracks found');
         }
 
+        console.log('Successfully fetched track:', tracks[0].name);
         return tracks[0];
     } catch (error) {
         console.error('Error fetching LastFM track:', error);
@@ -109,8 +117,12 @@ export const getTopTrack = unstable_cache(
     async () => {
         try {
             const weeklyTrack = await fetchLastFMTrack();
-            if (!weeklyTrack) return null;
+            if (!weeklyTrack) {
+                console.log('No weekly track returned from LastFM');
+                return null;
+            }
   
+            console.log('Returning track data:', weeklyTrack.name);
             return {
                 name: weeklyTrack.name as string,
                 artist: weeklyTrack.artist['#text'] as string,
@@ -121,7 +133,10 @@ export const getTopTrack = unstable_cache(
         }
     },
     ['spotify-top-track'],
-    { revalidate: 60*60*24 }
+    { 
+        revalidate: 3600, // 1 hour
+        tags: ['spotify-top-track']
+    }
 );
 
 // Uncached variant for always-fresh data

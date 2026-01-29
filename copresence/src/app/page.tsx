@@ -3,18 +3,29 @@ import { getTopTrack } from "@/actions/spotifyembed";
 import { Suspense } from "react";
 import Link from "next/link";
 
+// Use ISR with 1 hour revalidation
+export const revalidate = 3600;
+
 async function TopTrack() {
-  const top = await getTopTrack();
-  if (!top) return null;
-  return (
-    <section className="flex items-center gap-3">
-      <img src="/vinyl.gif" alt="Vinyl animation" className="rounded-full ring-1 ring-muted/50 h-[64px] w-[64px]" />
-      <div className="space-y-1">
-        <p className="text-sm text-muted">Fav song this week</p>
-        <p className="font-sans">{top.name} — <span className="text-muted">{top.artist}</span></p>
-      </div>
-    </section>
-  );
+  try {
+    const top = await getTopTrack();
+    if (!top) {
+      console.log('TopTrack: No track data available');
+      return null;
+    }
+    return (
+      <section className="flex items-center gap-3">
+        <img src="/vinyl.gif" alt="Vinyl animation" className="rounded-full ring-1 ring-muted/50 h-[64px] w-[64px]" />
+        <div className="space-y-1">
+          <p className="text-sm text-muted">Fav song this week</p>
+          <p className="font-sans">{top.name} — <span className="text-muted">{top.artist}</span></p>
+        </div>
+      </section>
+    );
+  } catch (error) {
+    console.error('TopTrack component error:', error);
+    return null;
+  }
 }
 
 export default function Home() {
