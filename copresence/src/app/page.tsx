@@ -56,37 +56,8 @@ export default function Home() {
         </p> */}
       </section>
 
-      <section className="relative overflow-hidden rounded-lg border border-foreground/10 bg-gradient-to-br from-foreground/5 to-foreground/[0.02] p-6 transition-all hover:border-foreground/20 hover:shadow-md">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="text-xs font-medium uppercase tracking-wider text-muted">Currently</span>
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
-          </span>
-        </div>
-
-        <div className="space-y-6">
-          {/* Working On */}
-          <div className="space-y-3">
-            <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Working On</p>
-            <div>
-              <h3 className="font-display text-2xl tracking-tight mb-2">trace</h3>
-              <p className="font-sans text-muted leading-relaxed">Fu*k the Algorithms. Build Your Own Feed @  <a
-                href="https://yourtrace.online"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-              >
-                yourtrace.online
-              </a></p>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-foreground/10"></div>
-
-          {/* Listening To */}
-          <div className="space-y-3">
+       {/* Listening To */}
+       <div className="space-y-3">
             <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Addicted To</p>
             <Suspense fallback={
               <div className="flex items-center gap-3" aria-busy="true">
@@ -101,10 +72,30 @@ export default function Home() {
               <TopTrack />
             </Suspense>
           </div>
-        </div>
-      </section>
 
       <section className="space-y-8 mt-12">
+
+
+        {/* Working On */}
+        <div className="space-y-3">
+          <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Building</p>
+          <div>
+            <p className="font-sans text-muted leading-relaxed">An Anti Brain Rot Feed @  <a
+              href="https://yourtrace.online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              yourtrace.online
+            </a></p>
+          </div>
+        </div>
+
+
+        {/* Divider */}
+        <div className="border-t border-foreground/10"></div>
+
+        {/* Projects */}
         <p className="pb-0.5 font-sans text-lg leading-relaxed">
           <span className="text-muted">projects, experiments — </span>
           <Link prefetch href="/projects" className="text-foreground underline underline-offset-4 hover:opacity-80">
