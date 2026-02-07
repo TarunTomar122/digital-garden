@@ -80,7 +80,7 @@ export default function Home() {
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Building</p>
           <div>
-            <p className="font-sans text-muted leading-relaxed">An Anti Brain Rot Feed @  <a
+            <p className="font-sans text-muted leading-relaxed">an RSS feed for the modern web @  <a
               href="https://yourtrace.online"
               target="_blank"
               rel="noopener noreferrer"
