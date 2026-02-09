@@ -80,11 +80,11 @@ export default function Home() {
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Building</p>
           <div>
-            <p className="font-sans text-muted leading-relaxed">an RSS feed for the modern web @  <a
+            <p className="font-sans text-muted leading-relaxed">A platform to build your own feed around what you actually care about: <a
               href="https://yourtrace.online"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+              className="inline-flex items-center gap-2 text-m font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
             >
               yourtrace.online
             </a></p>
@@ -166,7 +166,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 12th January 2026</p>
+        <p className="mt-6 text-xs font-regular text-muted opacity-60">last rearranged 9th February 2026</p>
       </footer>
 
     </main>
