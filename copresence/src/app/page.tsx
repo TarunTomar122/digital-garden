@@ -80,7 +80,7 @@ export default function Home() {
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-wider text-muted/60">Building</p>
           <div>
-            <p className="font-sans text-muted leading-relaxed">A platform to build your own feed around what you actually care about: <a
+            <p className="font-sans text-muted leading-relaxed">Your personalised daily briefing: <a
               href="https://yourtrace.online"
               target="_blank"
               rel="noopener noreferrer"
