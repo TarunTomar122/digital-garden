@@ -39,6 +39,12 @@ const ITEMS: TimelineItem[] = [
 
   { date: "2026-01", title: "Launched trace", link: "https://yourtrace.online", detail: "Product hunt #7 and $50 MRR in 1 week" },
 
+
+  { date: "2026-02", title: "First Official Full Marathon", link: "https://www.strava.com/athletes/129371446", detail: "New PB: 4:23:00 hrs." },
+
+
+  { date: "2026-02", title: "Got myself a Whoop", detail: "Another step towards longevity" },
+
 ];
 
 function parseYearMonth(ym: string) {
