@@ -5,6 +5,12 @@ import { unstable_cache } from 'next/cache';
 
 const DEFAULT_EMBED = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0xfjrxk4uQpPYCfAMSkiKA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
 
+type TopTrackData = {
+    name: string;
+    artist: string;
+    coverUrl: string | null;
+};
+
 async function fetchLastFMTrack() {
     try {
         if (!process.env.LASTFM_API_KEY) {
@@ -80,6 +86,30 @@ async function getSpotifyTrackEmbed(trackName: string, artistName: string) {
     }
 }
 
+async function getSpotifyAlbumCover(trackName: string, artistName: string) {
+    try {
+        if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
+            return null;
+        }
+
+        const spotifyApi = new SpotifyWebApi({
+            clientId: process.env.SPOTIFY_CLIENT_ID,
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+            redirectUri: 'https://www.tarat.space/'
+        });
+
+        const response = await spotifyApi.clientCredentialsGrant();
+        spotifyApi.setAccessToken(response.body['access_token']);
+
+        const searchResponse = await spotifyApi.searchTracks(`${trackName} ${artistName}`, { limit: 1 });
+        const track = searchResponse.body.tracks?.items?.[0];
+        return track?.album?.images?.[0]?.url ?? null;
+    } catch (error) {
+        console.error('Error fetching Spotify album cover:', error);
+        return null;
+    }
+}
+
 export const getSpotifyEmbedLink = unstable_cache(
     async () => {
         const now = new Date().toISOString();
@@ -121,12 +151,16 @@ export const getTopTrack = unstable_cache(
                 console.log('No weekly track returned from LastFM');
                 return null;
             }
-  
+            const name = weeklyTrack.name as string;
+            const artist = weeklyTrack.artist['#text'] as string;
+            const coverUrl = await getSpotifyAlbumCover(name, artist);
+
             console.log('Returning track data:', weeklyTrack.name);
             return {
-                name: weeklyTrack.name as string,
-                artist: weeklyTrack.artist['#text'] as string,
-            };
+                name,
+                artist,
+                coverUrl,
+            } satisfies TopTrackData;
         } catch (error) {
             console.error('Error in getTopTrack:', error);
             return null;
@@ -144,10 +178,14 @@ export async function getTopTrackLive() {
     try {
         const weeklyTrack = await fetchLastFMTrack();
         if (!weeklyTrack) return null;
+        const name = weeklyTrack.name as string;
+        const artist = weeklyTrack.artist['#text'] as string;
+        const coverUrl = await getSpotifyAlbumCover(name, artist);
         return {
-            name: weeklyTrack.name as string,
-            artist: weeklyTrack.artist['#text'] as string,
-        };
+            name,
+            artist,
+            coverUrl,
+        } satisfies TopTrackData;
     } catch (error) {
         console.error('Error in getTopTrackLive:', error);
         return null;

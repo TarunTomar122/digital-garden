@@ -1,11 +1,12 @@
 import TopNav from "@/components/TopNav";
+import ScrollHeader from "@/components/ScrollHeader";
 
 export default function WithNavLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <div id="top-nav" className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-muted/20">
+      <ScrollHeader>
         <TopNav />
-      </div>
+      </ScrollHeader>
       <div className="flex-1">
         {children}
       </div>

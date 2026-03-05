@@ -108,11 +108,26 @@ SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
 SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
 
+# WHOOP API
+WHOOP_CLIENT_ID=your_whoop_client_id
+WHOOP_CLIENT_SECRET=your_whoop_client_secret
+WHOOP_REDIRECT_URI=http://localhost:3000/api/whoop/callback
+# Optional in production if you want env-only token storage
+# WHOOP_REFRESH_TOKEN=your_whoop_refresh_token
+# WHOOP_SCOPES=read:sleep read:recovery read:cycles offline
+
 # Firebase (for like button)
 FIREBASE_PROJECT_ID=your_project_id
 FIREBASE_PRIVATE_KEY=your_private_key
 FIREBASE_CLIENT_EMAIL=your_client_email
 ```
+
+### WHOOP one-time connect
+
+1. Start the app with `npm run dev`
+2. Open [http://localhost:3000/api/whoop/connect](http://localhost:3000/api/whoop/connect)
+3. Finish WHOOP auth, then you will be redirected back to homepage
+4. Local tokens are saved in `.whoop-tokens.json` (gitignored)
 
 ### Development
 
