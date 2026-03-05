@@ -74,7 +74,7 @@ function extractNumber(obj: Record<string, unknown> | undefined, paths: string[]
 }
 
 function defaultScopes() {
-  return "read:sleep read:recovery read:workout";
+  return "offline read:sleep read:recovery read:workout";
 }
 
 export function buildWhoopAuthUrl(state: string) {
@@ -151,6 +151,13 @@ export async function exchangeCodeForTokens(code: string) {
   }
 
   const tokens = (await response.json()) as TokenPayload;
+  console.log("[WHOOP] Token exchange response:", {
+    hasAccessToken: !!tokens.access_token,
+    hasRefreshToken: !!tokens.refresh_token,
+    expiresIn: tokens.expires_in,
+    scope: tokens.scope,
+  });
+
   const expiresAt = tokens.expires_in ? Date.now() + tokens.expires_in * 1000 : undefined;
 
   const storedTokens: StoredWhoopTokens = {
@@ -160,6 +167,7 @@ export async function exchangeCodeForTokens(code: string) {
   };
 
   await writeLocalTokens(storedTokens);
+  console.log("[WHOOP] Tokens saved, hasRefreshToken:", !!storedTokens.refreshToken);
   return storedTokens;
 }
 
