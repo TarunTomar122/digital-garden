@@ -133,14 +133,18 @@ export async function exchangeCodeForTokens(code: string) {
   const body = new URLSearchParams({
     grant_type: "authorization_code",
     code,
-    client_id: clientId,
-    client_secret: clientSecret,
     redirect_uri: redirectUri,
   });
 
+  // Use Basic auth for client credentials (OAuth 2.0 standard)
+  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
+
   const response = await fetch(`${WHOOP_AUTH_BASE}/token`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Basic ${basicAuth}`,
+    },
     body: body.toString(),
     cache: "no-store",
   });
@@ -181,8 +185,6 @@ async function refreshAccessToken(refreshToken: string) {
   const body = new URLSearchParams({
     grant_type: "refresh_token",
     refresh_token: refreshToken,
-    client_id: clientId,
-    client_secret: clientSecret,
   });
 
   // Add redirect_uri if available (WHOOP may require it)
@@ -190,15 +192,21 @@ async function refreshAccessToken(refreshToken: string) {
     body.set("redirect_uri", redirectUri);
   }
 
-  console.log("[WHOOP] Refreshing with:", {
+  // Use Basic auth for client credentials (OAuth 2.0 standard)
+  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
+
+  console.log("[WHOOP] Refreshing with Basic auth:", {
     hasRefreshToken: !!refreshToken,
     refreshTokenLength: refreshToken?.length,
-    clientIdPrefix: clientId?.substring(0, 8) + "..."
+    hasRedirectUri: !!redirectUri,
   });
 
   const response = await fetch(`${WHOOP_AUTH_BASE}/token`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Basic ${basicAuth}`,
+    },
     body: body.toString(),
     cache: "no-store",
   });
