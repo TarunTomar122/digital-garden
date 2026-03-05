@@ -1,9 +1,22 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { Redis } from "@upstash/redis";
 
 const WHOOP_AUTH_BASE = "https://api.prod.whoop.com/oauth/oauth2";
 const WHOOP_API_BASE = process.env.WHOOP_API_BASE ?? "https://api.prod.whoop.com/developer";
 const TOKEN_FILE = path.join(process.cwd(), ".whoop-tokens.json");
+const REDIS_TOKEN_KEY = "whoop:tokens";
+
+// Initialize Redis client if env vars are available
+function getRedisClient(): Redis | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+
+  if (url && token) {
+    return new Redis({ url, token });
+  }
+  return null;
+}
 
 type TokenPayload = {
   access_token: string;
@@ -74,6 +87,7 @@ function extractNumber(obj: Record<string, unknown> | undefined, paths: string[]
 }
 
 function defaultScopes() {
+  // "offline" scope is required to get a refresh token
   return "offline read:sleep read:recovery read:workout";
 }
 
@@ -108,20 +122,67 @@ async function readLocalTokens(): Promise<StoredWhoopTokens | null> {
   }
 }
 
-async function getStoredTokens(): Promise<StoredWhoopTokens | null> {
-  const envRefreshToken = process.env.WHOOP_REFRESH_TOKEN;
-  const envAccessToken = process.env.WHOOP_ACCESS_TOKEN;
-  const envExpiresAt = process.env.WHOOP_ACCESS_TOKEN_EXPIRES_AT;
+async function writeRedisTokens(tokens: StoredWhoopTokens): Promise<boolean> {
+  const redis = getRedisClient();
+  if (!redis) return false;
 
-  if (envRefreshToken || envAccessToken) {
-    return {
-      refreshToken: envRefreshToken,
-      accessToken: envAccessToken,
-      expiresAt: envExpiresAt ? Number(envExpiresAt) : undefined,
-    };
+  try {
+    await redis.set(REDIS_TOKEN_KEY, JSON.stringify(tokens));
+    console.log("[WHOOP] Tokens saved to Redis");
+    return true;
+  } catch (error) {
+    console.error("[WHOOP] Failed to write tokens to Redis:", error);
+    return false;
+  }
+}
+
+async function readRedisTokens(): Promise<StoredWhoopTokens | null> {
+  const redis = getRedisClient();
+  if (!redis) return null;
+
+  try {
+    const data = await redis.get<string>(REDIS_TOKEN_KEY);
+    if (!data) return null;
+    return typeof data === "string" ? JSON.parse(data) : data as StoredWhoopTokens;
+  } catch (error) {
+    console.error("[WHOOP] Failed to read tokens from Redis:", error);
+    return null;
+  }
+}
+
+async function saveTokens(tokens: StoredWhoopTokens) {
+  // Try Redis first (for Vercel), then fall back to local file
+  const savedToRedis = await writeRedisTokens(tokens);
+  if (!savedToRedis) {
+    await writeLocalTokens(tokens);
+    console.log("[WHOOP] Tokens saved to local file");
+  }
+}
+
+async function getStoredTokens(): Promise<StoredWhoopTokens | null> {
+  // Try Redis first (for Vercel deployment)
+  const redisTokens = await readRedisTokens();
+  if (redisTokens) {
+    console.log("[WHOOP] Using tokens from Redis");
+    return redisTokens;
   }
 
-  return readLocalTokens();
+  // Fall back to local file (for local development)
+  const localTokens = await readLocalTokens();
+  if (localTokens) {
+    console.log("[WHOOP] Using tokens from local file");
+
+    // Migrate to Redis if available
+    const redis = getRedisClient();
+    if (redis) {
+      console.log("[WHOOP] Migrating local tokens to Redis...");
+      await writeRedisTokens(localTokens);
+    }
+
+    return localTokens;
+  }
+
+  return null;
 }
 
 export async function exchangeCodeForTokens(code: string) {
@@ -168,7 +229,7 @@ export async function exchangeCodeForTokens(code: string) {
     expiresAt,
   };
 
-  await writeLocalTokens(storedTokens);
+  await saveTokens(storedTokens);
   console.log("[WHOOP] Tokens saved, hasRefreshToken:", !!storedTokens.refreshToken);
   return storedTokens;
 }
@@ -181,17 +242,16 @@ async function refreshAccessToken(refreshToken: string) {
   }
 
   // WHOOP requires client_secret_post method (credentials in body, not Basic auth)
+  // Must include scope: "offline" to get a new refresh token
   const body = new URLSearchParams({
     grant_type: "refresh_token",
     refresh_token: refreshToken,
     client_id: clientId,
     client_secret: clientSecret,
+    scope: "offline",
   });
 
-  console.log("[WHOOP] Refreshing token with client_secret_post:", {
-    hasRefreshToken: !!refreshToken,
-    refreshTokenLength: refreshToken?.length,
-  });
+  console.log("[WHOOP] Refreshing token...");
 
   const response = await fetch(`${WHOOP_AUTH_BASE}/token`, {
     method: "POST",
@@ -216,9 +276,8 @@ async function refreshAccessToken(refreshToken: string) {
     expiresAt,
   };
 
-  if (!process.env.WHOOP_REFRESH_TOKEN) {
-    await writeLocalTokens(nextState);
-  }
+  // Save refreshed tokens (to Redis or local file)
+  await saveTokens(nextState);
 
   return nextState;
 }
@@ -227,27 +286,33 @@ async function getAccessToken(forceRefresh = false) {
   const stored = await getStoredTokens();
   if (!stored) return null;
 
+  // Check if access token is still valid
   const isStillValid = Boolean(
     !forceRefresh &&
     stored.accessToken &&
     stored.expiresAt &&
     stored.expiresAt > Date.now() + 30_000
   );
-  if (isStillValid && stored.accessToken) return stored.accessToken;
 
-  if (!stored.refreshToken) {
-    return stored.accessToken ?? null;
+  if (isStillValid && stored.accessToken) {
+    return stored.accessToken;
   }
 
-  try {
-    console.log("[WHOOP] Refreshing access token...");
-    const refreshed = await refreshAccessToken(stored.refreshToken);
-    console.log("[WHOOP] Token refreshed successfully");
-    return refreshed.accessToken ?? null;
-  } catch (error) {
-    console.error("[WHOOP] Token refresh failed:", error);
-    return null;
+  // Try to refresh if we have a refresh token
+  if (stored.refreshToken) {
+    try {
+      console.log("[WHOOP] Refreshing access token...");
+      const refreshed = await refreshAccessToken(stored.refreshToken);
+      console.log("[WHOOP] Token refreshed successfully");
+      return refreshed.accessToken ?? null;
+    } catch (error) {
+      console.error("[WHOOP] Token refresh failed:", error);
+      // Fall through to return existing token
+    }
   }
+
+  // Return existing access token if available (might still work)
+  return stored.accessToken ?? null;
 }
 
 async function fetchLatest(endpointCandidates: string[], accessToken: string) {
