@@ -172,7 +172,7 @@ export async function exchangeCodeForTokens(code: string) {
 }
 
 async function refreshAccessToken(refreshToken: string) {
-  const { clientId, clientSecret } = getClientConfig();
+  const { clientId, clientSecret, redirectUri } = getClientConfig();
   if (!clientId || !clientSecret) {
     console.error("[WHOOP] Missing client credentials:", { hasClientId: !!clientId, hasClientSecret: !!clientSecret });
     throw new Error("WHOOP client credentials are missing.");
@@ -183,8 +183,12 @@ async function refreshAccessToken(refreshToken: string) {
     refresh_token: refreshToken,
     client_id: clientId,
     client_secret: clientSecret,
-    scope: defaultScopes(),
   });
+
+  // Add redirect_uri if available (WHOOP may require it)
+  if (redirectUri) {
+    body.set("redirect_uri", redirectUri);
+  }
 
   console.log("[WHOOP] Refreshing with:", {
     hasRefreshToken: !!refreshToken,
