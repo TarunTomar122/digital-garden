@@ -133,17 +133,15 @@ export async function exchangeCodeForTokens(code: string) {
   const body = new URLSearchParams({
     grant_type: "authorization_code",
     code,
+    client_id: clientId,
+    client_secret: clientSecret,
     redirect_uri: redirectUri,
   });
-
-  // Use Basic auth for client credentials (OAuth 2.0 standard)
-  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
 
   const response = await fetch(`${WHOOP_AUTH_BASE}/token`, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": `Basic ${basicAuth}`,
     },
     body: body.toString(),
     cache: "no-store",
@@ -176,36 +174,29 @@ export async function exchangeCodeForTokens(code: string) {
 }
 
 async function refreshAccessToken(refreshToken: string) {
-  const { clientId, clientSecret, redirectUri } = getClientConfig();
+  const { clientId, clientSecret } = getClientConfig();
   if (!clientId || !clientSecret) {
     console.error("[WHOOP] Missing client credentials:", { hasClientId: !!clientId, hasClientSecret: !!clientSecret });
     throw new Error("WHOOP client credentials are missing.");
   }
 
+  // WHOOP requires client_secret_post method (credentials in body, not Basic auth)
   const body = new URLSearchParams({
     grant_type: "refresh_token",
     refresh_token: refreshToken,
+    client_id: clientId,
+    client_secret: clientSecret,
   });
 
-  // Add redirect_uri if available (WHOOP may require it)
-  if (redirectUri) {
-    body.set("redirect_uri", redirectUri);
-  }
-
-  // Use Basic auth for client credentials (OAuth 2.0 standard)
-  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
-
-  console.log("[WHOOP] Refreshing with Basic auth:", {
+  console.log("[WHOOP] Refreshing token with client_secret_post:", {
     hasRefreshToken: !!refreshToken,
     refreshTokenLength: refreshToken?.length,
-    hasRedirectUri: !!redirectUri,
   });
 
   const response = await fetch(`${WHOOP_AUTH_BASE}/token`, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": `Basic ${basicAuth}`,
     },
     body: body.toString(),
     cache: "no-store",
