@@ -4,8 +4,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { getWhoopWidgetData } from "@/lib/whoop";
 
-// Use ISR with 1 hour revalidation
-export const revalidate = 3600;
+// Force dynamic rendering (WHOOP data needs runtime fetch)
+export const dynamic = 'force-dynamic';
 
 // Tooltip wrapper for interactive hints
 function Hint({ children, tip }: { children: React.ReactNode; tip: string }) {
