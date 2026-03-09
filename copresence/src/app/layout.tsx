@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Copresence from "@/components/Copresence";
@@ -43,9 +44,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-1000`}
         style={{
+          "--background": ambient.background,
           backgroundColor: ambient.background,
           filter: `saturate(${ambient.pageSaturation})`,
-        }}
+        } as CSSProperties}
       >
         <Copresence />
         {children}
