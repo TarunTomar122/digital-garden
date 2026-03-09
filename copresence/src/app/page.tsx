@@ -67,47 +67,6 @@ async function NowSentence({ sleepHours }: { sleepHours: number | null }) {
   );
 }
 
-// Calculate ambient mood from sleep hours (0-12 scale)
-function getAmbientMood(sleepHours: number | null) {
-  // 7 hours = neutral, 8+ = energized, <6 = tired
-  const hours = sleepHours ?? 7; // default to neutral
-
-  // Map sleep hours to a -1 to 1 scale
-  // 5h or less = -1, 7h = 0, 9h+ = 1
-  const mood = Math.max(-1, Math.min(1, (hours - 7) / 2));
-
-  // Convert to 0-100 scale for display
-  const score = Math.round((mood + 1) * 50);
-
-  // Background: shift from cool blue-grey (#e8eef5) through neutral (#fdf5e2) to warm gold (#fff8e0)
-  // Using HSL for smooth transitions
-  // Neutral: hsl(43, 78%, 94%) - the current cream
-  // Warm: hsl(48, 100%, 95%) - golden
-  // Cool: hsl(215, 40%, 93%) - soft blue-grey
-
-  const hue = mood > 0 ? 43 + (mood * 5) : 43 + (mood * 172); // shift toward blue when tired
-  const saturation = mood > 0 ? 78 + (mood * 22) : 78 + (mood * 38); // less saturated when tired
-  const lightness = 94;
-
-  // Link accent: warmer green when rested, cooler muted when tired
-  const linkHue = mood > 0 ? 140 - (mood * 20) : 140 + (mood * 40); // green to teal
-  const linkSaturation = mood > 0 ? 30 + (mood * 20) : 30 + (mood * 20);
-
-  // Overall page saturation filter
-  const pageSaturation = mood > 0 ? 100 + (mood * 10) : 100 + (mood * 15);
-
-  return {
-    mood,
-    score,
-    sleepHours: hours,
-    background: `hsl(${hue}, ${Math.max(0, saturation)}%, ${lightness}%)`,
-    linkAccent: `hsl(${linkHue}, ${Math.max(0, linkSaturation)}%, 35%)`,
-    pageSaturation: `${pageSaturation}%`,
-    // Descriptive label for debugging/tooltip
-    label: hours >= 8 ? 'well-rested' : hours >= 6 ? 'steady' : 'tired',
-  };
-}
-
 export default async function Home() {
   const whoop = await getWhoopWidgetData();
 
@@ -119,20 +78,9 @@ export default async function Home() {
   }
 
   const sleepHours = whoop.status === "connected" ? whoop.sleepHours : null;
-  const ambient = getAmbientMood(sleepHours);
 
   return (
-    <>
-      {/* Ambient mood styles - applied to entire page */}
-      <style>{`
-        body {
-          background-color: ${ambient.background} !important;
-          filter: saturate(${ambient.pageSaturation});
-          transition: background-color 1s ease, filter 1s ease;
-        }
-      `}</style>
-
-      <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
+    <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
 
       {/* Hero */}
       <header className="mb-8">
@@ -199,6 +147,5 @@ export default async function Home() {
       </footer>
 
       </main>
-    </>
   );
 }

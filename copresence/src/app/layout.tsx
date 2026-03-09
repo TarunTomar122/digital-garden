@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Copresence from "@/components/Copresence";
+import { getWhoopWidgetData } from "@/lib/whoop";
+import { getAmbientMood } from "@/lib/ambient";
 
 import { Analytics } from "@vercel/analytics/next"
 
@@ -25,14 +27,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const whoop = await getWhoopWidgetData();
+  const sleepHours = whoop.status === "connected" ? whoop.sleepHours : null;
+  const ambient = getAmbientMood(sleepHours);
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-1000`}
+        style={{
+          backgroundColor: ambient.background,
+          filter: `saturate(${ambient.pageSaturation})`,
+        }}
+      >
         <Copresence />
         {children}
         <Analytics />
