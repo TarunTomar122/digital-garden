@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getWritingBySlug, getAllWritings } from "@/lib/writings";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -5,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
 import InstagramEmbed from "@/components/InstagramEmbed";
+import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 
 // Fully static - only regenerates on deploy (blogs don't change dynamically)
 export const revalidate = false;
@@ -13,6 +15,46 @@ type PageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAllWritings().map((w) => ({ slug: w.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const doc = getWritingBySlug(slug);
+  if (!doc) return {};
+
+  const title = doc.meta.title;
+  const description =
+    doc.meta.description ?? "Writing from Tarats Garden.";
+  const canonicalPath = `/writings/${slug}`;
+  const publishedTime = doc.meta.date
+    ? (() => {
+        const parsed = new Date(doc.meta.date);
+        return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+      })()
+    : undefined;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url: canonicalPath,
+      siteName: SITE_NAME,
+      images: [{ url: DEFAULT_OG_IMAGE_PATH }],
+      publishedTime,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE_PATH],
+    },
+  };
 }
 
 export default async function WritingPage({ params }: PageProps) {

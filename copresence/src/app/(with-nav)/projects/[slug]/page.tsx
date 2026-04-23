@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getAllProjects } from "@/lib/projects";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
+import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 
 // Fully static - only regenerates on deploy (projects don't change dynamically)
 export const revalidate = false;
@@ -12,6 +14,38 @@ export function generateStaticParams() {
 }
 
 type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const doc = getProjectBySlug(slug);
+  if (!doc) return {};
+
+  const title = doc.meta.title;
+  const description = doc.meta.description ?? "Project from Tarats Garden.";
+  const canonicalPath = `/projects/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url: canonicalPath,
+      siteName: SITE_NAME,
+      images: [{ url: DEFAULT_OG_IMAGE_PATH }],
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE_PATH],
+    },
+  };
+}
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;

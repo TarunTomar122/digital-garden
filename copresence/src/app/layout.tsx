@@ -5,6 +5,13 @@ import "./globals.css";
 import Copresence from "@/components/Copresence";
 import { getWhoopWidgetData } from "@/lib/whoop";
 import { getAmbientMood } from "@/lib/ambient";
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TWITTER_HANDLE,
+  SITE_URL,
+} from "@/lib/site";
 
 import { Analytics } from "@vercel/analytics/next"
 
@@ -19,8 +26,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tarats Garden",
-  description: "Tarats digital garden — writings, projects, and notes",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE_PATH,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    creator: SITE_TWITTER_HANDLE,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE_PATH],
+  },
   icons: {
     icon: "/tarat.svg",
     shortcut: "/tarat.svg",

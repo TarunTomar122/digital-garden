@@ -1,9 +1,29 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllWritings, type WritingMeta } from "@/lib/writings";
 
 const PAGE_SIZE = 7;
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Writings",
+  description: "Collected essays, notes, and experiments.",
+  alternates: {
+    canonical: "/writings",
+  },
+  openGraph: {
+    type: "website",
+    url: "/writings",
+    title: "Writings | Tarats Garden",
+    description: "Collected essays, notes, and experiments.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Writings | Tarats Garden",
+    description: "Collected essays, notes, and experiments.",
+  },
+};
 
 function formatMonth(dateString: string): string {
   // dateString is YYYY-MM, so append -01 to make it a valid date

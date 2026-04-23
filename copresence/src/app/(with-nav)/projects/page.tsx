@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/projects";
 import ProjectList from "./ProjectList";
 
-export const metadata = {
-  title: "Projects | Tarats Garden",
+export const metadata: Metadata = {
+  title: "Projects",
   description: "Notes and build logs from ongoing/finished projects.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    type: "website",
+    url: "/projects",
+    title: "Projects | Tarats Garden",
+    description: "Notes and build logs from ongoing/finished projects.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Projects | Tarats Garden",
+    description: "Notes and build logs from ongoing/finished projects.",
+  },
 };
 
 export default function ProjectsIndex() {
