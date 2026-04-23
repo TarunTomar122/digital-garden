@@ -94,7 +94,6 @@ export default async function WritingsIndex({
                 {groupedByMonth[monthKey].map((w) => (
                   <div key={w.slug} className="space-y-1">
                     <Link
-                      prefetch={false}
                       href={`/writings/${w.slug}`}
                       className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
                     >
