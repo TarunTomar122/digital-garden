@@ -44,9 +44,9 @@ const ITEMS: TimelineItem[] = [
 
 
   { date: "2026-02", title: "Got myself a Whoop", detail: "Another step towards longevity" },
-  { date: "2026-04", title: "Finalized uni for my masters", detail: "University of Edinburgh, Masters in AI" },
-  { date: "2026-04", title: "Reached 3,000 YouTube subscribers" },
   { date: "2026-04", title: "Got my YouTube video sponsored" },
+  { date: "2026-04", title: "Reached 3,000 YouTube subscribers" },
+  { date: "2026-04", title: "Finalized uni for my masters", detail: "University of Edinburgh, Masters in AI" },
 
 ];
 
