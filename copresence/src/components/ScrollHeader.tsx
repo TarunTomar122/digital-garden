@@ -35,7 +35,7 @@ export default function ScrollHeader({ children }: { children: React.ReactNode }
 
   return (
     <div
-      className={`sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-muted/20 transition-transform duration-300 ${
+      className={`sticky top-0 z-50 bg-background border-b border-muted/20 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
