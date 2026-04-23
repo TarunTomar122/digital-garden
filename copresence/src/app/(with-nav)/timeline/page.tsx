@@ -44,6 +44,7 @@ const ITEMS: TimelineItem[] = [
 
 
   { date: "2026-02", title: "Got myself a Whoop", detail: "Another step towards longevity" },
+  { date: "2026-04", title: "Finalized uni for my masters", detail: "University of Edinburgh, Masters in AI" },
 
 ];
 

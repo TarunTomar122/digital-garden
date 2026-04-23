@@ -1,14 +1,6 @@
 {
     "books":[
         {
-            "title": "Read people like a book",
-            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1607355306i/56199402.jpg",
-            "author": "Clive Thompson",
-            "rating": "",
-            "status": "to read",
-            "link": "https://www.goodreads.com/book/show/18722411-read-people-like-a-book"
-        },
-        {
             "title": "A little life",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1446469353i/22822858.jpg",
             "author": "Hanya Yanagihara",
@@ -17,11 +9,19 @@
             "link": "https://www.goodreads.com/book/show/18722411-a-little-life"
         },
         {
+            "title": "Read people like a book",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1607355306i/56199402.jpg",
+            "author": "Clive Thompson",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/18722411-read-people-like-a-book"
+        },
+        {
             "title": "Can't Hurt Me",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1536184191i/41721428.jpg",
             "author": "David Goggins",
-            "rating": "",
-            "status": "reading",
+            "rating": "3/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/41721428-can-t-hurt-me"
         },
         {
