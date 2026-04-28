@@ -1,84 +1,25 @@
 
-import { getTopTrack } from "@/actions/spotifyembed";
-import { Suspense } from "react";
 import Link from "next/link";
-import { getWhoopWidgetData } from "@/lib/whoop";
+import AppStatusBar from "@/components/AppStatusBar";
+import { getTopTrack } from "@/actions/spotifyembed";
 
-// Force dynamic rendering (WHOOP data needs runtime fetch)
-export const dynamic = 'force-dynamic';
-
-// Tooltip wrapper for interactive hints
-function Hint({ children, tip }: { children: React.ReactNode; tip: string }) {
-  return (
-    <span className="relative group cursor-help">
-      <span className="underline decoration-dotted underline-offset-4 decoration-muted/40">
-        {children}
-      </span>
-      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground/90 px-2 py-1 text-xs text-background opacity-0 group-hover:opacity-100 transition-opacity z-10">
-        {tip}
-      </span>
-    </span>
-  );
-}
-
-async function NowSentence({ sleepHours }: { sleepHours: number | null }) {
+async function NowPlaying() {
   const top = await getTopTrack().catch(() => null);
 
-  // Build natural sentence parts with interactive hints
-  const sleepPart = sleepHours !== null ? (
-    <>
-      I had <Hint tip="Pulled from my WHOOP band">{sleepHours} hours of sleep</Hint> last night
-    </>
-  ) : null;
-
-  const musicPart = top ? (
-    <>
-      been listening to <Hint tip="My most played song this week via Spotify">{top.name} by {top.artist}</Hint> lately
-    </>
-  ) : null;
-
-  const buildPart = (
-    <>
-      working on{" "}
-      <a
-        href="https://yourtrace.online"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline underline-offset-4 hover:text-foreground transition-colors"
-      >
-        yourtrace.online
-      </a>
-    </>
-  );
-
-  // Combine into natural sentence
-  const content = sleepPart && musicPart
-    ? <>{sleepPart}, {musicPart}, and {buildPart}.</>
-    : sleepPart
-    ? <>{sleepPart}. Currently {buildPart}.</>
-    : musicPart
-    ? <>I&apos;ve {musicPart} and {buildPart}.</>
-    : <>Currently {buildPart}.</>;
+  if (!top) return null;
 
   return (
     <p className="text-muted leading-relaxed">
-      {content}
+      I&apos;ve been listening to{" "}
+      <span className="underline decoration-dotted underline-offset-4 decoration-muted/40">
+        {top.name} by {top.artist}
+      </span>{" "}
+      lately.
     </p>
   );
 }
 
 export default async function Home() {
-  const whoop = await getWhoopWidgetData();
-
-  // Debug: log whoop status on server
-  if (whoop.status !== "connected") {
-    console.log("[WHOOP] Not connected:", whoop);
-  } else {
-    console.log("[WHOOP] Connected, sleep:", whoop.sleepHours);
-  }
-
-  const sleepHours = whoop.status === "connected" ? whoop.sleepHours : null;
-
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
 
@@ -92,10 +33,12 @@ export default async function Home() {
         <p className="text-lg leading-relaxed">
           A place for notes, projects, and loose thoughts from my work as a design engineer at Adobe and things I build on my own. Mostly about <span className="font-medium">AI, design, and productivity</span>. Occasionally about <span className="font-medium">running, cooking, and longevity</span>.
         </p>
-        {/* Status line */}
-        <Suspense fallback={<p className="text-muted italic">...</p>}>
-          <NowSentence sleepHours={sleepHours} />
-        </Suspense>
+        <NowPlaying />
+      </section>
+
+      {/* Apps */}
+      <section className="mb-10">
+        <AppStatusBar />
       </section>
 
       {/* Navigation */}

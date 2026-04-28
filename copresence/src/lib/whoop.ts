@@ -264,7 +264,7 @@ async function refreshAccessToken(refreshToken: string) {
 
   if (!response.ok) {
     const text = await response.text();
-    console.error("[WHOOP] Refresh failed:", response.status, text);
+    // console.error("[WHOOP] Refresh failed:", response.status, text);
     throw new Error(`WHOOP refresh failed (${response.status}): ${text}`);
   }
 
@@ -461,7 +461,7 @@ export async function getWhoopWidgetData(): Promise<WhoopWidgetData> {
       }
     }
 
-    console.error("Failed to fetch WHOOP widget data:", error);
+    // console.error("Failed to fetch WHOOP widget data:", error);
     return {
       status: "disconnected",
       reason: "fetch_failed",
