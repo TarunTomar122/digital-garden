@@ -3,6 +3,7 @@ title: THE PROPOSAL
 description: The story of a trek that never happened and a proposal that happened anyway.
 category: life
 date: 2026-04-19
+hidden: true
 ---
 
 ## Introduction

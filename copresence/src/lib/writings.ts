@@ -7,6 +7,7 @@ export type WritingMeta = {
   title: string;
   description?: string;
   date?: string;
+  hidden?: boolean;
 };
 
 const writingsDir = path.join(process.cwd(), "writings");
@@ -26,11 +27,12 @@ export function getAllWritings(): WritingMeta[] {
     const title = (data.title as string) || derivedTitle || filename.replace(/\.(md|mdx)$/i, "");
     const description = (data.description as string) || undefined;
     const date = (data.date as string) || undefined;
+    const hidden = (data.hidden as boolean) || undefined;
     const slug = filename.replace(/\.(md|mdx)$/i, "");
-    return { slug, title, description, date } satisfies WritingMeta;
+    return { slug, title, description, date, hidden } satisfies WritingMeta;
   });
 
-  return items.sort((a, b) => {
+  return items.filter((item) => !item.hidden).sort((a, b) => {
     if (a.date && b.date) return a.date < b.date ? 1 : -1;
     if (a.date) return -1;
     if (b.date) return 1;
