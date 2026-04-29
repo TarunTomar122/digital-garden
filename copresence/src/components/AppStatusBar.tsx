@@ -8,9 +8,14 @@ type App = {
 
 const APPS: App[] = [
   {
-    name: "trace",
+    name: "trace (web)",
     href: "https://yourtrace.online",
     stat: "$28 MRR",
+  },
+  {
+    name: "trace (android)",
+    href: "https://play.google.com/store/apps/details?id=online.yourtrace.app",
+    stat: "50+ dls",
   },
   {
     name: "lumi",
