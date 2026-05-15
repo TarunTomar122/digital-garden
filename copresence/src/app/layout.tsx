@@ -3,7 +3,6 @@ import type { CSSProperties } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Copresence from "@/components/Copresence";
-import { getWhoopWidgetData } from "@/lib/whoop";
 import { getAmbientMood } from "@/lib/ambient";
 import {
   DEFAULT_OG_IMAGE_PATH,
@@ -68,9 +67,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const whoop = await getWhoopWidgetData();
-  const sleepHours = whoop.status === "connected" ? whoop.sleepHours : null;
-  const ambient = getAmbientMood(sleepHours);
+  const ambient = getAmbientMood(null);
 
   return (
     <html lang="en">
@@ -82,7 +79,9 @@ export default async function RootLayout({
           filter: `saturate(${ambient.pageSaturation})`,
         } as CSSProperties}
       >
-        <Copresence />
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
+          <Copresence />
+        </div>
         {children}
         <Analytics />
       </body>

@@ -43,8 +43,8 @@ const ITEMS: TimelineItem[] = [
   { date: "2026-02", title: "First Official Full Marathon", link: "https://www.strava.com/athletes/129371446", detail: "New PB: 4:23:00 hrs." },
 
 
-  { date: "2026-02", title: "Got myself a Whoop", detail: "Another step towards longevity" },
-  { date: "2026-04", title: "Got my YouTube video sponsored" },
+  { date: "2026-05", title: "Got engaged to Monisha", link: "https://www.instagram.com/reel/DYU2n42tgH-/" },
+  { date: "2026-04", title: "First sponsored YouTube video" },
   { date: "2026-04", title: "Reached 3,000 YouTube subscribers" },
   { date: "2026-04", title: "Finalized uni for my masters", detail: "University of Edinburgh, Masters in AI" },
 

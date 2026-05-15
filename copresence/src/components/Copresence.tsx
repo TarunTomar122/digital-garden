@@ -170,7 +170,7 @@ export default function Copresence() {
   }, [enabled]);
 
   if (!ROOM_HOST) return null;
-  return <canvas ref={canvasRef} aria-hidden className="fixed inset-0 pointer-events-none z-50" />;
+  return <canvas ref={canvasRef} aria-hidden className="absolute inset-0 w-full h-full" />;
 }
 
 

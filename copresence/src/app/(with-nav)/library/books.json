@@ -1,12 +1,20 @@
 {
     "books":[
         {
-            "title": "A little life",
-            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1446469353i/22822858.jpg",
-            "author": "Hanya Yanagihara",
+            "title": "Sell like crazy",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1548823837i/43787527.jpg",
+            "author": "Sabri Suby",
             "rating": "",
             "status": "reading",
-            "link": "https://www.goodreads.com/book/show/18722411-a-little-life"
+            "link": "https://www.goodreads.com/en/book/show/43787527-sell-like-crazy"
+        },
+        {
+            "title": "The stationery shop",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1630944026i/42201995.jpg",
+            "author": "Marjan Kamali",
+            "rating": "4/5",
+            "status": "read",
+            "link": "https://www.goodreads.com/book/show/42201995-the-stationery-shop"
         },
         {
             "title": "Read people like a book",
@@ -15,6 +23,14 @@
             "rating": "4/5",
             "status": "read",
             "link": "https://www.goodreads.com/book/show/18722411-read-people-like-a-book"
+        },
+        {
+            "title": "A little life",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1446469353i/22822858.jpg",
+            "author": "Hanya Yanagihara",
+            "rating": "",
+            "status": "gave up",
+            "link": "https://www.goodreads.com/book/show/18722411-a-little-life"
         },
         {
             "title": "Can't Hurt Me",
