@@ -20,6 +20,7 @@
     "groq-sdk": "^0.33.0",
     "next": "16.0.7",
     "partysocket": "^1.1.6",
+    "posthog-js": "^1.373.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "spotify-web-api-node": "^5.0.2"

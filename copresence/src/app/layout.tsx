@@ -13,6 +13,7 @@ import {
 } from "@/lib/site";
 
 import { Analytics } from "@vercel/analytics/next"
+import PostHogProvider from "@/lib/posthog-client"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,7 +83,7 @@ export default async function RootLayout({
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
           <Copresence />
         </div>
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
         <Analytics />
       </body>
     </html>
