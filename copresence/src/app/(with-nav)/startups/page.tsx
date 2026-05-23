@@ -1,11 +1,13 @@
 import StartupCard from "@/components/StartupCard";
-import { getUniquePageviews, getAppInstalls, dumpRecentEvents } from "@/lib/posthogAPI";
+import { getUniquePageviews, getAppInstalls } from "@/lib/posthogAPI";
+
+export const revalidate = 21600 // 6 hours
 
 const startups = [
   {
-    name: "tikrr.online",
-    tagline: "Stock Market in 5 minutes.",
-    link: "https://tikrr.online",
+    name: "stocksbrew.online",
+    tagline: "Know what to do with your stocks.",
+    link: "https://stocksbrew.online",
     color: "#f87171",
     metricLabel: "Unique visitors (30d)" as const,
     metricLabelShort: "Daily avg" as const,
@@ -29,10 +31,8 @@ const startups = [
 ];
 
 export default async function StartupsPage() {
-  await dumpRecentEvents()
-
-  const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
-    getUniquePageviews("tikrr.online"),
+const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
+    getUniquePageviews(["tikrr.online", "stocksbrew.online"]),
     getUniquePageviews("yourtrace.online"),
     getAppInstalls(),
   ]);

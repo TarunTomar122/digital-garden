@@ -8,20 +8,20 @@ type App = {
 
 const APPS: App[] = [
   {
-    name: "tikrr.online",
-    description: "Stocks in 5 mins",
-    href: "https://www.tikrr.online/",
-    users: "beta live",
+    name: "stocksbrew.online",
+    description: "Know what to do with your stocks.",
+    href: "https://www.stocksbrew.online/",
+    users: "recently launched",
   },
   {
     name: "yourtrace.online",
-    description: "Daily tech updates",
+    description: "Personalized news feed.",
     href: "https://yourtrace.online",
     mrr: "$28 MRR",
   },
   {
     name: "tarat.youtube",
-    description: "indie dev journey",
+    description: "Indie dev journey.",
     href: "https://www.youtube.com/@tarat.youtube",
     users: "4,000+ subscribers",
   },

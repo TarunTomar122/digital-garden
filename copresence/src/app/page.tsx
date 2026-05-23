@@ -2,7 +2,9 @@
 import Link from "next/link";
 import AppStatusBar from "@/components/AppStatusBar";
 import StartupCard from "@/components/StartupCard";
-import { getUniquePageviews, getAppInstalls, dumpRecentEvents } from "@/lib/posthogAPI";
+import { getUniquePageviews, getAppInstalls } from "@/lib/posthogAPI";
+
+export const revalidate = 21600 // 6 hours
 import { getTopTrack } from "@/actions/spotifyembed";
 
 async function NowPlaying() {
@@ -22,10 +24,8 @@ async function NowPlaying() {
 }
 
 export default async function Home() {
-  await dumpRecentEvents()
-
-  const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
-    getUniquePageviews("tikrr.online"),
+const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
+    getUniquePageviews(["tikrr.online", "stocksbrew.online"]),
     getUniquePageviews("yourtrace.online"),
     getAppInstalls(),
   ]);
