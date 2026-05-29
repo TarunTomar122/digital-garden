@@ -11,7 +11,7 @@ const APPS: App[] = [
     name: "stocksbrew.online",
     description: "Know what to do with your stocks.",
     href: "https://www.stocksbrew.online/",
-    users: "recently launched",
+    mrr: "$18 MRR",
   },
   {
     name: "yourtrace.online",
@@ -23,7 +23,7 @@ const APPS: App[] = [
     name: "tarat.youtube",
     description: "Indie dev journey.",
     href: "https://www.youtube.com/@tarat.youtube",
-    users: "4,000+ subscribers",
+    users: "4k+ subscribers",
   },
   {
     name: "trace - ai news & tech brief",
@@ -66,9 +66,7 @@ export default function AppStatusBar() {
               </span>
             ) : null}
             {app.users ? (
-              <span className="text-xs text-muted">
-                {app.users}
-              </span>
+              <span className="text-xs text-muted">{app.users}</span>
             ) : null}
           </div>
           <span className="text-sm text-muted leading-relaxed">
