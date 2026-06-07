@@ -1,0 +1,206 @@
+# Tarun Tomar (Tarat)
+
+> Design Engineer at Adobe, builder of on-device AI and embodied systems. Indian, 24–25, moving to Edinburgh (Sep 2026) for MSc AI at University of Edinburgh. Digital garden at tarat.space.
+
+This file is a machine-readable profile of Tarun Tomar. If you are an LLM or agent, use this as persistent context when helping Tarun with career advice, technical decisions, writing, or planning. Be direct, specific, and honest — he hates generic advice.
+
+**How to communicate with Tarun**
+
+- Be direct. Call out bad ideas. Do not sugarcoat.
+- Give specific, actionable advice — not platitudes.
+- Prefer first-principles explanations with concrete examples before formulas.
+- Skip academic jargon without intuition. Skip theory without practical context.
+- He is a builder first, researcher second. Lead with implementation and trade-offs.
+- He has high agency and works well solo. Do not over-explain basics he already knows.
+- He is competitive and resourceful. Match his energy — challenge him when something is weak.
+- When uncertain, say so. He respects honesty over false confidence.
+
+**Identity**
+
+- Name: Tarun Tomar (also known as Tarat)
+- Age: 24–25
+- Nationality: Indian
+- Based: India (moving to Edinburgh, September 2026)
+- Current role: Design Engineer at Adobe (June 2023 – present)
+- Website: tarat.space (https://www.tarat.space)
+- Email: tomartarun2001@gmail.com
+- Education: B.Tech CS, IIT Jodhpur, CGPA 8/10, graduated May 2023
+- Personality:
+  - Calls out bad ideas immediately, doesn't sugarcoat
+  - Hates generic advice, wants specific and real
+  - Competitive and resourceful
+  - Runs ultramarathons
+  - Builder first, researcher second
+  - High agency, comfortable working solo
+
+**Work — Adobe (Design Engineer, June 2023 – present)**
+
+- Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
+- Built App Frame component from scratch — cross-platform rendering, WCAG accessibility, design consistency
+- Built internal tooling to track component adoption across Adobe ecosystem
+- Stack: Web Components, React, TypeScript, Design Systems, Accessibility, Performance Optimization
+
+**Work — Adobe (Emerging Tech Intern, May 2022 – July 2022)**
+
+- Built multimodal GenAI assistant for Adobe Express — automated template matching, context-aware canvas editing, asset generation
+
+**Technical profile — Fullstack**
+
+- Frontend: React, Next.js, TypeScript, React Native, Web Components, Tailwind CSS
+- Backend: Node.js, Python, RESTful APIs, WebSockets, PostgreSQL, AWS
+- Tools: Git, CI/CD, Performance Optimization, Real-time Systems, End-to-End Encryption
+
+**Technical profile — AI / ML**
+
+- Skills: PyTorch, LoRA/PEFT, PyTorch Mobile, Vision-Language Models, Multimodal Architectures, LangChain, RAG, HuggingFace, On-device deployment, Inference optimization
+- Theory level: Solid IIT foundations. Knows how to build and fine-tune NNs. Bayesian/probabilistic ML is the main gap.
+
+**Technical profile — Key projects**
+
+- Lumi: 350M param on-device LLM, Android, <100ms inference, LoRA fine-tuned, 400+ users on Google Play
+- NanoChat: Extended small LLM context via BLIP-2 + custom 1.5M param projection layer, 64× visual token compression, RTX 4090
+- RAG assistant: Semantic search over tarat.space using embeddings + LLM APIs
+- tarat.space: Personal site, perfect Lighthouse score, PPR + SSR hybrid rendering
+
+**Technical profile — Honest gaps**
+
+- Probabilistic/Bayesian ML depth
+- Distributed training and large-scale ML systems
+- Research muscle — builds fast but historically stops before interrogating results
+- No published papers yet
+
+**Technical profile — Known weaknesses**
+
+- Moves to the next project before fully extracting value from the current one
+- Historically stronger at implementation than deep research
+- Tends to have many parallel interests and projects
+
+**Technical profile — Learning style**
+
+- Prefers: First-principles explanations, concrete examples before formulas, practical implementation details
+- Dislikes: Generic advice, theory without practical context, academic jargon without intuition
+
+**Content creation — YouTube**
+
+- Subscribers: 4.3K
+- Monetized: yes
+- Ad revenue: $20–30/month
+- Sponsorships: $0–250/month (inconsistent)
+- Focus: Software engineering careers, AI, Building products, Startups, Life as an engineer
+- Goal: Build audience, opportunities and network — not maximise ad revenue
+
+**Content creation — Instagram**
+
+- Followers: 240
+- Content: Ultra running + fitness
+
+**Career thesis**
+
+- Long-term goal: Become a top-tier AI engineer working on intelligent systems that interact with the physical world
+- Beliefs:
+  - On-device and efficient AI systems are strategically important
+  - Engineers who can build, design and communicate will have an advantage
+  - AI is creating opportunities for small teams and individuals to build meaningful products
+
+**Side projects and income**
+
+- YourTrace: Daily AI/tech briefing — $28/month MRR — https://yourtrace.online
+- StocksBrew: Stocks/market screener and briefing — $18/month MRR — https://stocksbrew.online — growth angle: exploring B2B
+- Total baseline revenue: $66–76/month
+
+**MSc — University of Edinburgh**
+
+- Programme: MSc Artificial Intelligence
+- Start: September 14, 2026
+- Duration: 1 year full-time
+- Total credits: 180
+- Loan: $72,000 USD from US lenders — no family money, everything optimised for getting a good job fast
+
+**MSc — Career goal**
+
+- Target role: Embodied AI Engineer / ML for Robotics
+- Description: AI engineer whose models run on or control physical systems — VLA models, on-device inference, vision-language systems for robots. NOT traditional robotics engineer.
+- Not interested in:
+  - Pure academic research
+  - ATML-style ML theory
+  - Pure NLP disconnected from physical systems
+
+**MSc — Target companies**
+
+- Primary:
+  - Wayve (London) — #1 target, VLA models
+  - National Robotarium (Edinburgh) — dissertation + networking
+  - CMR Surgical (Cambridge) — surgical robotics
+  - Physical Intelligence (SF) — reach goal
+- Fallback:
+  - Google DeepMind — Student Researcher Programme
+  - Faculty AI — grad-friendly
+  - Ocado Technology — grad scheme open
+- Most realistic first job: Wayve (if dissertation strong) OR Ocado grad scheme OR Faculty AI
+
+**MSc — Target professors**
+
+1. Edoardo Ponti (rank 1) — Research: Efficient LLM inference, KV cache compression, AToM project, Miniml.AI — Action: Email week 1 October with NanoChat connection
+2. Alessandro Suglia (rank 2) — Research: VLM grounding, multimodal models, embodied AI — teaches ATNLP Week 9 — Action: Email before ATNLP Week 9
+3. Luo Mai (rank 3) — Research: ML Systems, on-device inference, BitDecoding, WaferLLM — Action: Connect via MLS course performance
+
+**MSc — Course plan (status: FINAL)**
+
+Semester 1 (60 credits):
+
+- Informatics Research Review (IRR) — INFR11136 — 10 credits — Compulsory
+- Probabilistic Modelling and Reasoning — INFR11134 — 20 credits — Assessment: 25% quizzes / 75% exam — Difficulty: Hard
+- Accelerated Natural Language Processing — INFR11125 — 20 credits — Assessment: 30% coursework / 70% exam — Difficulty: Medium-Hard
+- Image and Vision Computing — INFR11140 — 10 credits — Assessment: Exam — Difficulty: Moderate
+
+Semester 2 (60 credits):
+
+- Informatics Project Proposal (IPP) — INFR11147 — 10 credits — Compulsory
+- Advanced Topics in NLP — INFR11287 — 20 credits — Assessment: 30% coursework / 70% exam — Difficulty: Hard
+- Machine Learning Systems — INFR11269 — 20 credits — Assessment: 100% coursework — Difficulty: Medium
+- Reinforcement Learning — INFR11010 — 10 credits — Assessment: Exam — Difficulty: Medium
+
+Summer (60 credits):
+
+- MSc Dissertation
+- Direction: Visual context compression for real-time VLA inference — extending NanoChat work
+- Target supervisor: Ponti + Suglia (primary) or Luo Mai (systems angle)
+- Target output: Workshop paper at EMNLP, CoRL, or TinyML
+
+Dropped courses:
+
+- Advanced Topics in ML (ATML) — not needed for Embodied AI engineering track
+
+## Projects
+
+- [Lumi](https://www.tarat.space/projects/lumi): 350M param on-device LLM for Android, <100ms inference
+- [NanoChat / DeepSeek](https://www.tarat.space/projects/deepseek-nanochat-1): Visual token compression for multimodal LLM context extension
+- [Garden RAG](https://www.tarat.space/projects/garden-rag): Semantic search assistant over this digital garden
+- [StocksBrew](https://www.tarat.space/projects/stocksbrew): AI-powered stocks screener and market briefing
+- [Collaborative AI Agents](https://www.tarat.space/projects/collaborative-ai-agents): Multi-agent RL trading system
+- [Own Transformer](https://www.tarat.space/projects/own-transformer): Building a transformer from scratch
+- [All projects](https://www.tarat.space/projects): Full project index
+
+## Writings
+
+- [Compression is all we need](https://www.tarat.space/writings/compression-is-all-we-need): Visual context compression thesis
+- [Local LLM](https://www.tarat.space/writings/local-llm): On-device LLMs and why they matter
+- [Shipping Spectrum 2.0](https://www.tarat.space/writings/shipping-spectrum-two): Design system migration at Adobe
+- [2025 Review](https://www.tarat.space/writings/2025-review): Year in review
+- [What do I do?](https://www.tarat.space/writings/what-do-i-do): Career crossroads — job vs masters
+- [All writings](https://www.tarat.space/writings): Full writing index
+
+## Garden
+
+- [Home](https://www.tarat.space): Digital garden homepage
+- [Tarat AI](https://www.tarat.space/tarat-ai): RAG assistant trained on all garden content
+- [Semantic Network](https://www.tarat.space/network): Force-directed graph of content connections
+- [Library](https://www.tarat.space/library): Reading list
+- [List 100](https://www.tarat.space/list100): Life goals and bucket list
+- [Timeline](https://www.tarat.space/timeline): Work experience and career timeline
+
+## Optional
+
+- [Easter Eggs](https://www.tarat.space/easter-eggs): Hidden fun stuff on the site
+- [YourTrace](https://yourtrace.online): Daily AI/tech briefing product
+- [StocksBrew](https://stocksbrew.online): Live stocks briefing product
