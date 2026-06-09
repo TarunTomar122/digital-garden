@@ -1,10 +1,5 @@
 
 import Link from "next/link";
-import AppStatusBar from "@/components/AppStatusBar";
-import StartupCard from "@/components/StartupCard";
-import { getUniquePageviews, getAppInstalls } from "@/lib/posthogAPI";
-
-export const revalidate = 21600 // 6 hours
 import { getTopTrack } from "@/actions/spotifyembed";
 
 async function NowPlaying() {
@@ -24,12 +19,6 @@ async function NowPlaying() {
 }
 
 export default async function Home() {
-const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
-    getUniquePageviews(["tikrr.online", "stocksbrew.online"]),
-    getUniquePageviews("yourtrace.online"),
-    getAppInstalls(),
-  ]);
-
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
 
@@ -46,18 +35,12 @@ const [tikrrData, yourtraceData, appInstallData] = await Promise.all([
         <NowPlaying />
       </section>
 
-      {/* Apps */}
-      <section className="mb-10">
-      <div className="mb-4">
-        <Link prefetch href="/startups" className="block space-y-1 group">
-          <h2 className="font-display underline underline-offset-4 group-hover:opacity-80 text-xl tracking-tight">/startups</h2>
-          </Link>
-        </div>
-        <AppStatusBar />
-      </section>
-
       {/* Navigation */}
       <nav className="space-y-6 mb-12">
+        <Link prefetch href="/startups" className="block space-y-1 group">
+          <span className="text-lg font-medium underline underline-offset-4 group-hover:opacity-80">/startups</span>
+          <p className="text-muted">building stuff, one stupid idea at a time</p>
+        </Link>
         <Link prefetch href="/writings" className="block space-y-1 group">
           <span className="text-lg font-medium underline underline-offset-4 group-hover:opacity-80">/writings</span>
           <p className="text-muted">blogs, shower thoughts, rants</p>

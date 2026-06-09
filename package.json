@@ -11,6 +11,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next": "14.0.4",
+    "posthog-js": "^1.373.5",
     "react": "^18",
     "react-dom": "^18",
     "remark": "^15.0.1",

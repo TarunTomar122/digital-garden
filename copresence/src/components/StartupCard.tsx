@@ -9,8 +9,11 @@ interface StartupCardProps {
   link: string
   color: string
   data: PostHogTrend | null
+  logo?: string
   metricLabel?: string
   metricLabelShort?: string
+  highlight?: string
+  highlightType?: 'mrr' | 'stat'
 }
 
 export default function StartupCard({
@@ -19,8 +22,11 @@ export default function StartupCard({
   link,
   color,
   data,
+  logo,
   metricLabel = 'Visits (30d)',
   metricLabelShort = 'Daily avg',
+  highlight,
+  highlightType = 'stat',
 }: StartupCardProps) {
   const total = data?.total ?? 0
   const avg = data ? Math.round(data.total / data.data.length) : 0
@@ -33,10 +39,30 @@ export default function StartupCard({
       rel="noopener noreferrer"
       className="block border border-foreground/10 rounded-lg p-5 space-y-3 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-foreground/30"
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="font-medium">{name}</p>
-          <p className="text-sm text-muted">{tagline}</p>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3 min-w-0">
+          {logo ? (
+            <img
+              src={logo}
+              alt=""
+              className="w-10 h-10 rounded-lg object-cover shrink-0 border border-foreground/10"
+            />
+          ) : null}
+          <div className="min-w-0">
+            <p className="font-medium">{name}</p>
+            <p className="text-sm text-muted">{tagline}</p>
+            {highlight ? (
+              <p
+                className={`text-xs font-medium mt-1 ${
+                  highlightType === 'mrr'
+                    ? 'text-emerald-600 dark:text-emerald-400'
+                    : 'text-muted'
+                }`}
+              >
+                {highlight}
+              </p>
+            ) : null}
+          </div>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

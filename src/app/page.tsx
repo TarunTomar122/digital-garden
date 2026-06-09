@@ -7,6 +7,8 @@ import './hobbies/hobbies.css';
 import './projects/projects.css';
 
 import { getWeeklyTopSongs } from '@/utils/musicAPI';
+import { getStartupMetrics } from '@/utils/posthogAPI';
+import StartupCard from './startups/StartupCard';
 
 export default async function Home() {
 
@@ -14,6 +16,11 @@ export default async function Home() {
   const writing = writingdata['blogs'];
 
   const weeklyTracks = (await getWeeklyTopSongs('TaRaT_122')).slice(1, 4);
+
+  const [tikrrData, yourtraceData] = await Promise.all([
+    getStartupMetrics('tikrr.online'),
+    getStartupMetrics('yourtrace.online'),
+  ]);
 
   return (
     <main className="flex min-h-screen flex-col py-8 px-10 md:px-48">
@@ -54,6 +61,34 @@ export default async function Home() {
           <img src="./assets/profile.png" className="h-full md:max-w-96 rounded-t" alt="hero" />
         </div>
 
+      </div>
+
+      <br />
+      <hr />
+      <br />
+
+      <div className='mb-8'>
+        <p className='text-xl lg:text-2xl leading-relaxed font-extralight mb-4'>my startups.</p>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+          <div className='col-span-1 lg:col-span-2'>
+            <StartupCard
+              name='tikrr.online'
+              tagline='Event discovery, simplified.'
+              link='https://tikrr.online'
+              color='#f87171'
+              data={tikrrData}
+            />
+          </div>
+          <div className='col-span-1'>
+            <StartupCard
+              name='yourtrace.online'
+              tagline='Track what matters.'
+              link='https://yourtrace.online'
+              color='#38bdf8'
+              data={yourtraceData}
+            />
+          </div>
+        </div>
       </div>
 
       <br />
