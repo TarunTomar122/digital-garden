@@ -33,8 +33,9 @@ This file is a machine-readable profile of Tarun Tomar. If you are an LLM or age
   - Builder first, researcher second
   - High agency, comfortable working solo
 
-**Work — Adobe (Design Engineer, June 2023 – present)**
+**Work — Adobe (Design Engineer / SDE II, June 2023 – present)**
 
+- Promoted to SDE II (Design Engineer) — January 2025
 - Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
 - Built App Frame component from scratch — cross-platform rendering, WCAG accessibility, design consistency
 - Built internal tooling to track component adoption across Adobe ecosystem
@@ -57,10 +58,13 @@ This file is a machine-readable profile of Tarun Tomar. If you are an LLM or age
 
 **Technical profile — Key projects**
 
-- Lumi: 350M param on-device LLM, Android, <100ms inference, LoRA fine-tuned, 400+ users on Google Play
-- NanoChat: Extended small LLM context via BLIP-2 + custom 1.5M param projection layer, 64× visual token compression, RTX 4090
-- RAG assistant: Semantic search over tarat.space using embeddings + LLM APIs
-- tarat.space: Personal site, perfect Lighthouse score, PPR + SSR hybrid rendering
+- Lumi: 350M param on-device LLM, Android, <100ms inference, LoRA fine-tuned, 400+ users on Google Play, first paid user Sep 2025
+- NanoChat: Extended small LLM context via BLIP-2 + custom 1.5M param projection layer, 64× visual token compression, RTX 4090 — reposted by Google AI Devs Aug 2025
+- Garden RAG / Tarat AI: Client-side semantic search over entire digital garden, embeddings + Groq LLM, live at tarat.space/tarat-ai
+- StocksBrew: AI-curated daily stock briefings, $18/month MRR, sentiment prediction experiments
+- YourTrace: Personalized AI/tech news briefing, $28/month MRR, Product Hunt #7, $50 MRR in first week (Jan 2026)
+- tarat.space: Personal digital garden, perfect Lighthouse score, PPR + SSR hybrid, copresence real-time layer
+- ML-DL Implementation: Open-source Python ML library from scratch, 30+ contributors worldwide (IIT Jodhpur Robotics Club)
 
 **Technical profile — Honest gaps**
 
@@ -104,9 +108,40 @@ This file is a machine-readable profile of Tarun Tomar. If you are an LLM or age
 
 **Side projects and income**
 
-- YourTrace: Daily AI/tech briefing — $28/month MRR — https://yourtrace.online
+- YourTrace: Daily AI/tech briefing — $28/month MRR — https://yourtrace.online — mobile app 200+ downloads
 - StocksBrew: Stocks/market screener and briefing — $18/month MRR — https://stocksbrew.online — growth angle: exploring B2B
+- Lumi: 400+ Play Store users, paid conversions — https://play.google.com/store/apps/details?id=com.lumi.mobile
+- Instafy: One-click photo aesthetic transfer — https://instafy.in/ — first paid user Sep 2025
 - Total baseline revenue: $66–76/month
+
+**Achievements & milestones**
+
+Work:
+- Promoted to SDE II at Adobe (Jan 2025)
+- Led Spectrum 2.0 migration used across major Adobe products (Firefly, Illustrator Web, Adobe.com)
+
+Building & products:
+- Launched Lumi on Google Play (Jun 2025) — first Play Store app, 400+ users
+- Google AI Devs reposted NanoChat vision-context experiment (Aug 2025)
+- Launched YourTrace — Product Hunt #7, $50 MRR in first week (Jan 2026)
+- Launched StocksBrew (May 2026), $18 MRR
+- First paid user on Instafy (Sep 2025)
+- Open-source ML library with 30+ global contributors (college project, still maintained)
+
+Content:
+- YouTube monetized (May 2026), 4.3K subscribers
+- First sponsored YouTube video (Apr 2026)
+- Reached 3,000 subscribers (Apr 2026)
+
+Fitness (personal context, shows discipline):
+- First marathon Nov 2024 (5:30 hrs)
+- Ultramarathon 51km in 6:47 hrs (Dec 2025)
+- Official marathon PB 4:23:00 (Feb 2026)
+- Ran NYC marathon route while visiting NYC (Sep 2025)
+
+Education:
+- Accepted MSc AI, University of Edinburgh (starts Sep 2026)
+- B.Tech CS, IIT Jodhpur, graduated May 2023, CGPA 8/10
 
 **MSc — University of Edinburgh**
 
@@ -173,13 +208,35 @@ Dropped courses:
 
 ## Projects
 
-- [Lumi](https://www.tarat.space/projects/lumi): 350M param on-device LLM for Android, <100ms inference
-- [NanoChat / DeepSeek](https://www.tarat.space/projects/deepseek-nanochat-1): Visual token compression for multimodal LLM context extension
-- [Garden RAG](https://www.tarat.space/projects/garden-rag): Semantic search assistant over this digital garden
-- [StocksBrew](https://www.tarat.space/projects/stocksbrew): AI-powered stocks screener and market briefing
-- [Collaborative AI Agents](https://www.tarat.space/projects/collaborative-ai-agents): Multi-agent RL trading system
-- [Own Transformer](https://www.tarat.space/projects/own-transformer): Building a transformer from scratch
-- [All projects](https://www.tarat.space/projects): Full project index
+Full index: https://www.tarat.space/projects
+
+### AI / ML — flagship
+
+- [Lumi](https://www.tarat.space/projects/lumi) (Jun 2025): Offline-first Android task manager with natural language input. 350M param on-device LLM, LoRA fine-tuned, <100ms inference. 400+ Play Store users, paid conversions. [Play Store](https://play.google.com/store/apps/details?id=com.lumi.mobile) · [GitHub](https://github.com/TarunTomar122/lumi)
+- [NanoChat / Vision-Enhanced Context](https://www.tarat.space/projects/deepseek-nanochat-1) (Nov 2025): Extended tiny LLM context by compressing text into visual tokens — BLIP-2 + custom 1.5M param projection, 64× compression. Google AI Devs reposted Aug 2025. [GitHub](https://github.com/TarunTomar122/vision-encoded-nanochat)
+- [Garden RAG / Tarat AI](https://www.tarat.space/projects/garden-rag) (Oct 2025): Client-side RAG over all garden content — writings, projects, experience. @xenova/transformers embeddings + Groq LLM. Live at [tarat.space/tarat-ai](https://www.tarat.space/tarat-ai)
+- [Own Transformer](https://www.tarat.space/projects/own-transformer) (Dec 2025): Built transformer block from scratch in PyTorch without AI assistance — learned attention maths properly after NanoChat work
+- [Collaborative AI Agents](https://www.tarat.space/projects/collaborative-ai-agents) (Aug 2025): Two RL agents learning to trap a player in grid-world — emergent flanking/trapping behaviors
+- [Tiny Model Coach](https://www.tarat.space/projects/tiny-model-coach) (Aug 2025): Fine-tuned 270M Gemma on Strava data for a personalized running coach
+- [Lumi Voice Assistant](https://www.tarat.space/projects/lumi-voice-assistant) (Oct 2025): 350M on-device voice-powered todo app, fine-tuned for natural language task parsing. [HuggingFace](https://huggingface.co/Taru/lumi-mobile)
+- [Stock Agents](https://www.tarat.space/projects/stock-agents) (Dec 2025): Stateful AI system using daily news sentiment to predict next-day stock movement — extension of StocksBrew
+- [ML-DL Implementation](https://www.tarat.space/projects/ml-implementation) (Dec 2024): Open-source Python ML library from scratch — 30+ contributors worldwide. [GitHub](https://github.com/RoboticsClubIITJ/ML-DL-implementation)
+- [Anime Recommendation](https://www.tarat.space/projects/anime-recomend) (Dec 2024): Collaborative filtering on 100K+ MyAnimeList users. [GitHub](https://github.com/TarunTomar122/AnimeRecommendation)
+- [CLI Assistant](https://www.tarat.space/projects/cli-assistant) (Sep 2024): Terminal AI assistant with RASA — emails, web search, music playback
+
+### Products & startups
+
+- [StocksBrew](https://www.tarat.space/projects/stocksbrew) (May 2025): AI-curated daily stock news email before market open. $18/month MRR. [stocksbrew.online](https://stocksbrew.online) · [GitHub](https://github.com/TarunTomar122/stocksbrew)
+- YourTrace (Jan 2026): Personalized AI/tech briefing. $28/month MRR, Product Hunt #7, $50 MRR week one. [yourtrace.online](https://yourtrace.online) — mobile app 200+ downloads
+- [Instafy](https://www.tarat.space/projects/instafy) (Oct 2025): One-click photo aesthetic transfer — copy color grading from any reference photo. [instafy.in](https://instafy.in/) · [GitHub](https://github.com/TarunTomar122/instafy)
+
+### Web / design / tools
+
+- [Digital Garden](https://www.tarat.space/projects/digital-garden) (Dec 2024): This website — writings, projects, notes. Perfect Lighthouse score, PPR + SSR hybrid, copresence layer. [tarat.space](https://www.tarat.space) · [GitHub](https://github.com/TarunTomar122/digital-garden)
+- [OOD / Project Nimbus](https://www.tarat.space/projects/ood) (Feb 2025): AI-powered collaborative UX flow design canvas — wireframe generation and iteration
+- [Trip Planner](https://www.tarat.space/projects/trip-planner) (Feb 2025): Map-based trip planner with AI-generated place/restaurant details
+- [Spotify Reels](https://www.tarat.space/projects/spotify-reels) (Mar 2025): Spotify reels-style experience for music discovery
+- [YouTube Shorts Automation](https://www.tarat.space/projects/youtube-automation) (Dec 2024): Automated YouTube shorts from most-viewed segments of popular videos (no AI). [GitHub](https://github.com/TarunTomar122/Automating-a-Youtube-Channel-without-using-AI)
 
 ## Writings
 
@@ -201,6 +258,8 @@ Dropped courses:
 
 ## Optional
 
+- [Resume](https://www.tarat.space/resume): Resume — work, projects, skills
+- [Startups](https://www.tarat.space/startups): Live startup metrics — StocksBrew, YourTrace, Trace mobile
 - [Easter Eggs](https://www.tarat.space/easter-eggs): Hidden fun stuff on the site
 - [YourTrace](https://yourtrace.online): Daily AI/tech briefing product
 - [StocksBrew](https://stocksbrew.online): Live stocks briefing product

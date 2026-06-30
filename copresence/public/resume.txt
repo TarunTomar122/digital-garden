@@ -1,0 +1,141 @@
+# Tarun Tomar — Resume Source Data
+
+> Source data for tarat.space/resume. Do not fabricate facts beyond what is listed here.
+
+## Contact
+
+- Name: Tarun Tomar (Tarat)
+- Location: India (relocating to Edinburgh, UK — September 2026)
+- Email: tomartarun2001@gmail.com
+- Website: https://www.tarat.space
+- YouTube: 4.3K subscribers, monetized
+- Twitter/X: @tarat_211
+- GitHub: https://github.com/TarunTomar122
+- Instagram: 240 followers (ultra running + fitness)
+
+## Summary
+
+Design Engineer at Adobe building design systems used by thousands of engineers across Firefly, Illustrator Web, and Adobe.com. Builder of on-device AI systems, embodied-AI experiments, and indie products with real users and revenue. B.Tech CS from IIT Jodhpur. Starting MSc Artificial Intelligence at University of Edinburgh (Sep 2026). Targeting embodied AI / VLA engineering roles.
+
+Personality for tone: direct, builder-first, competitive, high-agency. Hates generic fluff. Ultramarathon runner.
+
+## Education
+
+- MSc Artificial Intelligence — University of Edinburgh — Sep 2026 – Sep 2027 (incoming)
+- B.Tech Computer Science — IIT Jodhpur — Graduated May 2023 — CGPA 8.0/10
+
+## Experience
+
+### Adobe — Design Engineer (SDE II)
+June 2023 – Present | Remote / India
+
+- Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
+- Built App Frame component from scratch — cross-platform rendering, WCAG accessibility, design consistency
+- Built internal tooling to track component adoption across Adobe ecosystem
+- Promoted to SDE II (Design Engineer) — Jan 2025
+- Stack: Web Components, React, TypeScript, Design Systems, Accessibility, Performance Optimization
+
+### Adobe — Emerging Tech Intern
+May 2022 – July 2022
+
+- Built multimodal GenAI assistant for Adobe Express — automated template matching, context-aware canvas editing, asset generation
+
+## Technical Skills
+
+### Fullstack
+React, Next.js, TypeScript, React Native, Web Components, Tailwind CSS, Node.js, Python, REST APIs, WebSockets, PostgreSQL, AWS, Git, CI/CD, real-time systems
+
+### AI / ML
+PyTorch, LoRA/PEFT, PyTorch Mobile, Vision-Language Models, multimodal architectures, LangChain, RAG, HuggingFace, on-device deployment, inference optimization, reinforcement learning
+
+### Honest gaps (do not oversell)
+Probabilistic/Bayesian ML depth, distributed training at scale, published research papers
+
+## Featured Projects
+
+### Lumi — On-Device LLM Todo App
+https://www.tarat.space/projects/lumi
+- 350M param on-device LLM for Android, <100ms inference, LoRA fine-tuned
+- 400+ users on Google Play
+- Offline-first task manager with natural language input
+- Launched Jun 2025; first paid user Sep 2025
+
+### NanoChat / Vision-Enhanced Context Extension
+https://www.tarat.space/projects/deepseek-nanochat-1
+- Extended small LLM context via BLIP-2 + custom 1.5M param projection layer
+- 64× visual token compression for multimodal context
+- Google AI Devs reposted the experiment (Aug 2025)
+- GitHub: https://github.com/TarunTomar122/vision-encoded-nanochat
+
+### Garden RAG — AI Assistant for Digital Garden
+https://www.tarat.space/projects/garden-rag
+- Client-side RAG with semantic search over writings, projects, experience
+- Live at https://www.tarat.space/tarat-ai
+
+### StocksBrew — AI Stock News Newsletter
+https://www.tarat.space/projects/stocksbrew
+- Daily AI-curated stock briefings before market open
+- $18/month MRR — https://stocksbrew.online
+- Stock sentiment prediction side project
+
+### YourTrace — Daily AI/Tech Briefing
+https://yourtrace.online
+- $28/month MRR
+- Product Hunt #7 launch, $50 MRR in first week (Jan 2026)
+- Mobile app: 200+ downloads
+
+### Instafy — One-Click Photo Aesthetic Transfer
+https://www.tarat.space/projects/instafy
+- Upload reference photo, copy color grading to your images
+- https://instafy.in/
+
+### Collaborative AI Agents — Multi-Agent RL
+https://www.tarat.space/projects/collaborative-ai-agents
+- Two RL agents learning to trap a player in grid-world
+
+### Own Transformer — Built from Scratch
+https://www.tarat.space/projects/own-transformer
+- Coded transformer block from scratch in PyTorch without AI assistance
+
+### ML-DL Implementation Library — Open Source
+https://www.tarat.space/projects/ml-implementation
+- Python ML library from scratch, 30+ contributors worldwide
+- GitHub: https://github.com/RoboticsClubIITJ/ML-DL-implementation
+
+### Other Projects
+- Tiny Model Coach — 270M Gemma fine-tuned on Strava data for running coach
+- Lumi Voice Assistant — 350M on-device voice todo app
+- OOD / Project Nimbus — AI-powered UX flow design canvas
+- Trip Planner — Map-based AI trip planner
+- Spotify Reels — Spotify reels experience
+- Anime Recommendation — Collaborative filtering on 100K MyAnimeList users
+- CLI Assistant — Terminal AI assistant with RASA
+- YouTube Shorts Automation — Automated shorts from popular video segments
+- Digital Garden — This website, perfect Lighthouse score, PPR + SSR hybrid
+
+## Products & Revenue
+
+- YourTrace: $28/month MRR
+- StocksBrew: $18/month MRR
+- Total baseline: ~$66–76/month
+- Lumi: 400+ Play Store users, paid conversions
+
+## Content & Community
+
+- YouTube: 4.3K subscribers, monetized (May 2026), software engineering / AI / startups focus
+- First sponsored YouTube video (Apr 2026)
+- Instagram: ultra running, fitness — finished ultramarathon 51km in 6:47 (Dec 2025), marathon PB 4:23 (Feb 2026)
+
+## Career Direction (context only — optional on resume)
+
+- Target: Embodied AI Engineer / ML for Robotics (VLA models, on-device inference)
+- Target companies: Wayve, National Robotarium, CMR Surgical, Physical Intelligence
+- MSc dissertation direction: Visual context compression for real-time VLA inference
+
+## Links
+
+- Portfolio: https://www.tarat.space
+- Projects: https://www.tarat.space/projects
+- Writings: https://www.tarat.space/writings
+- Timeline: https://www.tarat.space/timeline
+- Startups: https://www.tarat.space/startups

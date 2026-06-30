@@ -77,10 +77,17 @@ pre code {
 }
 
 /* Responsive iframe container for embedded videos */
-iframe {
+iframe:not(.resume-iframe) {
   max-width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   display: block;
   margin: 1.5rem 0;
+}
+
+iframe.resume-iframe {
+  display: block;
+  margin: 0;
+  aspect-ratio: auto;
+  overflow: hidden;
 }

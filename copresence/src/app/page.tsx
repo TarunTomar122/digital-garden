@@ -90,7 +90,13 @@ export default async function Home() {
           >
             this
           </a>{" "}
-          and ask about me :)
+          and ask about me or read my resume{" "}
+          <Link
+            href="/resume"
+            className="underline underline-offset-4 decoration-muted hover:text-foreground transition-colors"
+          >
+            here
+          </Link>
         </p>
       </footer>
 
