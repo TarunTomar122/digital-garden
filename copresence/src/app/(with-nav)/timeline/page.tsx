@@ -107,6 +107,11 @@ const ITEMS: TimelineItem[] = [
     title: "Got engaged to Monisha",
     link: "https://www.instagram.com/reel/DYU2n42tgH-/",
   },
+  {
+    date: "2026-07",
+    title: "3rd place at Hermes hackathon",
+    link: "https://www.linkedin.com/posts/taratt_last-sunday-was-one-of-the-craziest-weekends-ugcPost-7482291742487171072-egyk/",
+  },
   { date: "2026-04", title: "First sponsored YouTube video" },
   { date: "2026-04", title: "Reached 3,000 YouTube subscribers" },
   {
@@ -129,6 +134,54 @@ function formatYearMonth(ym: string) {
     month: "short",
     year: "numeric",
   }).format(date);
+}
+
+function TimelineEntry({ item }: { item: TimelineItem }) {
+  const content = (
+    <>
+      <time className="text-xs uppercase tracking-wide text-muted/80 font-medium">
+        {formatYearMonth(item.date).toUpperCase()}
+      </time>
+      <div className="text-foreground text-lg inline-flex items-start gap-3">
+        <span>
+          <span className="font-medium">{item.title}</span>
+          {item.detail ? (
+            <span className="text-foreground/70"> — {item.detail}</span>
+          ) : null}
+        </span>
+        {item.link ? (
+          <span className="text-muted group-hover:text-foreground transition-colors flex-shrink-0">
+            <span className="text-xl">→</span>
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+
+  if (item.link) {
+    return (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex-1 flex flex-col gap-1.5"
+        aria-label={`${item.title}${item.detail ? ` — ${item.detail}` : ""}`}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="flex-1 flex flex-col gap-1.5">{content}</div>;
+}
+
+function TimelineListItem({ item }: { item: TimelineItem }) {
+  return (
+    <li className="relative flex gap-6 items-start">
+      <div className="absolute -left-6 top-2 h-3 w-3 rounded-full border-2 border-foreground/70 bg-background z-10" />
+      <TimelineEntry item={item} />
+    </li>
+  );
 }
 
 export default function TimeLinePage() {
@@ -174,44 +227,7 @@ export default function TimeLinePage() {
               <div className="absolute left-[5px] top-2 bottom-2 w-[2px] bg-muted/20" />
 
               {itemsByYear[year]?.map((item) => (
-                <li
-                  key={`${item.date}-${item.title}`}
-                  className="relative flex gap-6 items-start"
-                >
-                  {/* Circle centered on the line */}
-                  <div className="absolute -left-6 top-2 h-3 w-3 rounded-full border-2 border-foreground/70 bg-background z-10" />
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col gap-1.5">
-                    <time className="text-xs uppercase tracking-wide text-muted/80 font-medium">
-                      {formatYearMonth(item.date).toUpperCase()}
-                    </time>
-                    <div className="text-foreground text-lg inline-flex items-start gap-3">
-                      <span>
-                        <span className="font-medium">{item.title}</span>
-                        {item.detail ? (
-                          <span className="text-foreground/70">
-                            {" "}
-                            — {item.detail}
-                          </span>
-                        ) : null}
-                      </span>
-                      {item.link ? (
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted hover:text-foreground transition-colors flex-shrink-0"
-                          aria-label="Read more"
-                        >
-                          <span className="text-xl inline-block -rotate-45">
-                            →
-                          </span>
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
-                </li>
+                <TimelineListItem key={`${item.date}-${item.title}`} item={item} />
               ))}
             </ol>
           </section>
@@ -249,42 +265,7 @@ export default function TimeLinePage() {
           <div className="absolute left-[5px] top-2 bottom-2 w-[2px] bg-muted/20" />
 
           {itemsByYear[selectedYear]?.map((item) => (
-            <li
-              key={`${item.date}-${item.title}`}
-              className="relative flex gap-6 items-start"
-            >
-              {/* Circle centered on the line */}
-              <div className="absolute -left-6 top-2 h-3 w-3 rounded-full border-2 border-foreground/70 bg-background z-10" />
-
-              {/* Content */}
-              <div className="flex-1 flex flex-col gap-1.5">
-                <time className="text-xs uppercase tracking-wide text-muted/80 font-medium">
-                  {formatYearMonth(item.date).toUpperCase()}
-                </time>
-                <div className="text-foreground text-lg inline-flex items-start gap-3">
-                  <span>
-                    <span className="font-medium">{item.title}</span>
-                    {item.detail ? (
-                      <span className="text-foreground/70">
-                        {" "}
-                        — {item.detail}
-                      </span>
-                    ) : null}
-                  </span>
-                  {item.link ? (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted hover:text-foreground transition-colors flex-shrink-0"
-                      aria-label="Read more"
-                    >
-                      <span className="text-xl inline-block -rotate-45">→</span>
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </li>
+            <TimelineListItem key={`${item.date}-${item.title}`} item={item} />
           ))}
         </ol>
       </div>

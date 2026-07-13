@@ -11,13 +11,13 @@ const APPS: App[] = [
     name: "stocksbrew.online",
     description: "Know what to do with your stocks.",
     href: "https://www.stocksbrew.online/",
-    mrr: "$18 MRR",
+    mrr: "$30 MRR",
   },
   {
     name: "yourtrace.online",
     description: "Personalized news feed.",
     href: "https://yourtrace.online",
-    mrr: "$28 MRR",
+    mrr: "$29 MRR",
   },
   {
     name: "tarat.youtube",
@@ -29,7 +29,7 @@ const APPS: App[] = [
     name: "trace - ai news & tech brief",
     description: "TikTok for news",
     href: "https://play.google.com/store/apps/details?id=online.yourtrace.app",
-    users: "100+ downloads",
+    users: "350+ downloads",
   },
   {
     name: "lumi - planner & habit tracker",

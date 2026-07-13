@@ -12,7 +12,7 @@ const startups = [
     color: "#f87171",
     metricLabel: "Unique visitors (30d)" as const,
     metricLabelShort: "Daily avg" as const,
-    highlight: "$18 MRR",
+    highlight: "$30 MRR",
     highlightType: "mrr" as const,
   },
   {
@@ -23,7 +23,7 @@ const startups = [
     color: "#38bdf8",
     metricLabel: "Unique visitors (30d)" as const,
     metricLabelShort: "Daily avg" as const,
-    highlight: "$28 MRR",
+    highlight: "$29 MRR",
     highlightType: "mrr" as const,
   },
   {
@@ -34,7 +34,7 @@ const startups = [
     color: "#a78bfa",
     metricLabel: "Downloads (30d)" as const,
     metricLabelShort: "Daily avg" as const,
-    highlight: "200+ total downloads",
+    highlight: "350+ total downloads",
     highlightType: "stat" as const,
   },
 ];
