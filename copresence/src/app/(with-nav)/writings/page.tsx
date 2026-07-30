@@ -95,12 +95,12 @@ export default async function WritingsIndex({
                   <div key={w.slug} className="space-y-1">
                     <Link
                       href={`/writings/${w.slug}`}
-                      className="text-lg font-medium underline underline-offset-4 hover:opacity-80"
+                      className="text-base font-medium leading-snug underline underline-offset-4 hover:opacity-80"
                     >
                       {w.title}
                     </Link>
                     {w.description ? (
-                      <p className="text-muted">{w.description}</p>
+                      <p className="text-sm leading-relaxed text-muted">{w.description}</p>
                     ) : null}
                   </div>
                 ))}
@@ -142,5 +142,4 @@ export default async function WritingsIndex({
     </main>
   );
 }
-
 
