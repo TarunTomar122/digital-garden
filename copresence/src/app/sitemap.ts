@@ -7,9 +7,11 @@ const STATIC_ROUTES = [
   "",
   "/writings",
   "/projects",
+  "/startups",
   "/library",
   "/timeline",
   "/list100",
+  "/resume",
   "/easter-eggs",
   "/tarat-ai",
   "/network",
@@ -22,11 +24,8 @@ function toValidDate(value?: string): Date {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
     url: `${SITE_URL}${route}`,
-    lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,
   }));
