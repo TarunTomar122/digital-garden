@@ -109,6 +109,12 @@ const ITEMS: TimelineItem[] = [
   },
   {
     date: "2026-07",
+    title: "Published my first research paper",
+    detail: "July 19 · Searching for Task-Specific Vision Paths",
+    link: "https://arxiv.org/pdf/2607.17052",
+  },
+  {
+    date: "2026-07",
     title: "3rd place at Hermes hackathon",
     link: "https://www.linkedin.com/posts/taratt_last-sunday-was-one-of-the-craziest-weekends-ugcPost-7482291742487171072-egyk/",
   },

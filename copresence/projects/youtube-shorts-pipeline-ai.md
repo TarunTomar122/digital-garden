@@ -1,8 +1,15 @@
 ---
-title: How I Automated My Entire YouTube Shorts Pipeline with AI (Hermes + Runway + Buffer)
+title: How I automated my YouTube Shorts pipeline
 description: Zero-touch YouTube Shorts from story to post.
-category: tech
+category: project
 date: 2026-06-09
+tags:
+  - automation
+  - ai
+  - video
+links:
+  - type: youtube
+    url: https://www.youtube.com/@stocksbrew.online
 ---
 
 ### The setup

@@ -1,8 +1,15 @@
 ---
-title: i trained four tiny LLMs on Shakespeare because i wanted to see what was actually going on
+title: i trained tiny LLMs on Shakespeare
 description: smollms is my tiny architecture lab for understanding dense attention, recurrence, sparse selection, compressed memory, and MoE without pretending I have a GPU cluster.
-category: tech
+category: project
 date: 2026-07-30
+tags:
+  - python
+  - machine-learning
+  - pytorch
+links:
+  - type: github
+    url: https://github.com/TarunTomar122/smollms
 ---
 
 ![William Shakespeare teaching four tiny robot students labelled Qwen, Kimi, GLM, and DeepSeek V4.](/assets/posts/smollms/shakespeare-teaches-tiny-llms.png)
