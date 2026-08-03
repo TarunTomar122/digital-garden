@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/writings",
-    title: "Writings | Tarats Garden",
+    title: "Writings | Tarat's Garden",
     description: "Collected essays, notes, and experiments.",
   },
   twitter: {
     card: "summary",
-    title: "Writings | Tarats Garden",
+    title: "Writings | Tarat's Garden",
     description: "Collected essays, notes, and experiments.",
   },
 };
@@ -72,73 +72,43 @@ export default async function WritingsIndex({
   const monthKeys = Object.keys(groupedByMonth).sort().reverse(); // Most recent first
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
-      <header className="space-y-2">
-        <h1 className="font-display text-4xl md:text-5xl tracking-tight">Writings</h1>
-        <p className="text-muted">Collected essays, notes, and experiments.</p>
-      </header>
+    <main className="raw-doc">
+      <div className="raw-doc-inner">
+        <header>
+          <h1>Writings</h1>
+          <p className="note">Collected essays, notes, and experiments.</p>
+        </header>
 
-      <ul className="space-y-8">
         {monthKeys.map((monthKey) => (
-          <li key={monthKey}>
-            <div className="relative">
-              {/* Month label - positioned absolutely on desktop */}
-              <div className="absolute top-0 bottom-0 right-full mr-8 hidden md:flex items-start">
-                <div className="text-muted/70 text-sm text-right pt-1" style={{ minWidth: "64px" }}>
-                  {monthKey === "no-date" ? "Undated" : formatMonth(monthKey)}
-                </div>
-              </div>
-
-              {/* Articles */}
-              <div className="space-y-6">
-                {groupedByMonth[monthKey].map((w) => (
-                  <div key={w.slug} className="space-y-1">
-                    <Link
-                      href={`/writings/${w.slug}`}
-                      className="text-base font-medium leading-snug underline underline-offset-4 hover:opacity-80"
-                    >
-                      {w.title}
-                    </Link>
-                    {w.description ? (
-                      <p className="text-sm leading-relaxed text-muted">{w.description}</p>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </li>
+          <section key={monthKey}>
+            <h2>{monthKey === "no-date" ? "Undated" : formatMonth(monthKey)}</h2>
+            <ul className="list-plain">
+              {groupedByMonth[monthKey].map((w) => (
+                <li key={w.slug}>
+                  <Link href={`/writings/${w.slug}`}>{w.title}</Link>
+                  {w.description ? <p className="desc">{w.description}</p> : null}
+                </li>
+              ))}
+            </ul>
+          </section>
         ))}
-      </ul>
 
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between pt-6 border-t border-muted/40">
-          {page > 1 ? (
-            <Link 
-              prefetch={false}
-              href={`/writings?page=${page - 1}`} 
-              className="underline underline-offset-4 hover:opacity-80"
-            >
-              ← Previous
-            </Link>
-          ) : (
-            <div></div>
-          )}
-          <span className="text-sm text-muted">
-            Page {page} of {totalPages}
-          </span>
-          {page < totalPages ? (
-            <Link 
-              prefetch={false}
-              href={`/writings?page=${page + 1}`} 
-              className="underline underline-offset-4 hover:opacity-80"
-            >
-              Next →
-            </Link>
-          ) : (
-            <div></div>
-          )}
-        </div>
-      )}
+        {totalPages > 1 && (
+          <footer style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            {page > 1 ? (
+              <Link prefetch={false} href={`/writings?page=${page - 1}`}>← Previous</Link>
+            ) : (
+              <span />
+            )}
+            <span className="desc">Page {page} of {totalPages}</span>
+            {page < totalPages ? (
+              <Link prefetch={false} href={`/writings?page=${page + 1}`}>Next →</Link>
+            ) : (
+              <span />
+            )}
+          </footer>
+        )}
+      </div>
     </main>
   );
 }

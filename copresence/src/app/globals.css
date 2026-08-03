@@ -91,3 +91,93 @@ iframe.resume-iframe {
   aspect-ratio: auto;
   overflow: hidden;
 }
+
+/* Raw-doc theme: shared across the "raw HTML" pages (homepage, writings, header, ...) */
+.raw-doc { background: #fff; width: 100%; min-height: 100vh; }
+.raw-doc-inner { font-family: -apple-system, Helvetica, Arial, sans-serif; max-width: 640px; margin: 0 auto; padding: 56px 24px 64px; line-height: 1.6; color: #222; }
+.raw-doc-inner.no-nav { padding-top: 88px; }
+.raw-doc-inner h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 14px; }
+/* Section labels ("AROUND HERE", month headers, ...) — scoped to top-level header/section only, never leaks into article/prose content headings */
+.raw-doc-inner > header > h2,
+.raw-doc-inner > section > h2 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #5f5f5f; margin: 0 0 14px; }
+.raw-doc-inner header { margin-bottom: 48px; }
+.raw-doc-inner section + section { margin-top: 28px; }
+.raw-doc-inner .note { color: #555; font-size: 15.5px; margin: 0; }
+.raw-doc-inner a { color: #1a5fb4; text-decoration: none; }
+.raw-doc-inner a:hover { text-decoration: underline; }
+.raw-doc-inner .desc { color: #5f5f5f; font-size: 14px; }
+
+/* Plain nav/index lists (homepage nav, writings/projects index) — never applies inside article/prose content */
+.raw-doc-inner .list-plain { padding-left: 0; list-style: none; margin: 0; }
+.raw-doc-inner .list-plain li { margin-bottom: 22px; font-size: 16px; }
+.raw-doc-inner .list-plain li p.desc { margin-top: 4px; }
+.raw-doc-inner .icon-links { list-style: none; padding-left: 0; display: flex; gap: 18px; margin: 0; flex-wrap: wrap; }
+.raw-doc-inner .icon-links li { margin-bottom: 0; }
+.raw-doc-inner .icon-links a { color: #333; display: inline-flex; opacity: 0.7; transition: opacity 0.15s; }
+.raw-doc-inner .icon-links a:hover { opacity: 1; text-decoration: none; }
+.raw-doc-inner footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
+.raw-doc-inner .prev-next { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 15px; }
+.raw-doc-inner .prev-next + .all-link { display: block; margin-top: 16px; text-align: center; font-size: 14px; color: #5f5f5f; }
+
+@media (max-width: 640px) {
+  .raw-doc-inner { padding: 48px 20px 48px; }
+  .raw-doc-inner h1 { font-size: 24px; }
+  .raw-doc-inner header { margin-bottom: 36px; }
+  .raw-doc-inner section + section { margin-top: 22px; }
+}
+
+/* Timeline: thin connecting line + dot per entry */
+.raw-doc-inner .timeline-list { position: relative; padding-left: 22px; }
+.raw-doc-inner .timeline-list::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: #e2e2e2; }
+.raw-doc-inner .timeline-list li { position: relative; }
+.raw-doc-inner .timeline-list li::before { content: ""; position: absolute; left: -22px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #fff; border: 2px solid #999; }
+
+.egg-link { position: fixed; bottom: 20px; right: 20px; font-size: 22px; text-decoration: none; opacity: 0.55; transition: opacity 0.15s, transform 0.15s; }
+.egg-link:hover { opacity: 1; transform: scale(1.15) rotate(-8deg); }
+
+/* Startups: thin raw sparkline bars, with a custom hover tooltip (native title is too slow/small) */
+.sparkline { display: flex; align-items: flex-end; gap: 2px; height: 72px; margin: 12px 0; }
+.sparkline .bar { position: relative; flex: 1; background: #cbd5e1; border-radius: 1px; min-height: 2px; cursor: default; transition: background 0.1s; }
+.sparkline .bar:hover { background: #64748b; }
+.sparkline .bar::after {
+  content: attr(data-value);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s;
+  z-index: 1;
+}
+.sparkline .bar:hover::after { opacity: 1; }
+
+/* Raw-doc header: sticky top nav, plain text links, no rounded/colorful chrome */
+.raw-nav { background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+.raw-nav-inner { max-width: 640px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; font-family: -apple-system, Helvetica, Arial, sans-serif; }
+.raw-nav-logo { font-size: 16px; font-weight: 700; color: #222; text-decoration: none; }
+.raw-nav-links { display: flex; align-items: center; gap: 20px; }
+.raw-nav-links a { font-size: 14px; color: #555; text-decoration: none; }
+.raw-nav-links a:hover { color: #222; text-decoration: underline; }
+.raw-nav-links a.active { color: #222; text-decoration: underline; text-underline-offset: 4px; }
+.raw-nav-toggle { background: none; border: none; font-size: 14px; color: #222; cursor: pointer; padding: 4px; font-family: inherit; }
+.raw-nav-mobile { position: fixed; inset: 0; background: #fff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; font-family: -apple-system, Helvetica, Arial, sans-serif; }
+.raw-nav-mobile a { font-size: 24px; color: #222; text-decoration: none; }
+.raw-nav-mobile a.active { text-decoration: underline; text-underline-offset: 6px; }
+.raw-nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 22px; cursor: pointer; }
+
+@media (min-width: 641px) {
+  .raw-nav-desktop-only { display: flex; }
+  .raw-nav-mobile-only { display: none; }
+}
+@media (max-width: 640px) {
+  .raw-nav-desktop-only { display: none; }
+  .raw-nav-mobile-only { display: flex; }
+}

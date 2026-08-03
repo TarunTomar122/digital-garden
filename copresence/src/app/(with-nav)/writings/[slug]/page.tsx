@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = doc.meta.title;
   const description =
-    doc.meta.description ?? "Writing from Tarats Garden.";
+    doc.meta.description ?? "Writing from Tarat's Garden.";
   const canonicalPath = `/writings/${slug}`;
   const publishedTime = doc.meta.date
     ? (() => {
@@ -78,38 +78,42 @@ export default async function WritingPage({ params }: PageProps) {
   }).replace(/</g, "\\u003c");
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16">
-      <article className="prose prose-neutral dark:prose-invert max-w-3xl
-        prose-headings:text-foreground prose-strong:text-foreground prose-em:text-foreground
-        prose-p:text-foreground/90 prose-li:text-foreground/90 prose-a:text-foreground prose-th:text-foreground prose-td:text-foreground/90
-        prose-blockquote:text-foreground/80 prose-blockquote:border-muted/60 prose-hr:border-muted/50
-        prose-pre:bg-foreground/10 prose-pre:text-foreground prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-muted/50 prose-pre:overflow-x-auto prose-pre:font-mono">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-        <h1 className="font-display text-4xl">{doc.meta.title}</h1>
-        {doc.meta.description ? (
-          <p className="text-muted">{doc.meta.description}</p>
-        ) : null}
-        <div className="mt-2">
-          <LikeButton id={doc.meta.slug} type="writings" />
-        </div>
-        <MDXRemote
-          source={doc.content}
-          options={{
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
-            },
-          }}
-          components={{
-            InstagramEmbed,
-          }}
-        />
-        <nav aria-label="More writings" className="not-prose mt-12 grid gap-4 border-t border-muted/40 pt-6 text-sm sm:grid-cols-2">
-          {previous ? <Link href={`/writings/${previous.slug}`} className="underline underline-offset-4">← {previous.title}</Link> : <span />}
-          {next ? <Link href={`/writings/${next.slug}`} className="text-right underline underline-offset-4">{next.title} →</Link> : <span />}
-          <Link href="/writings" className="sm:col-span-2 text-center underline underline-offset-4">All writings</Link>
-        </nav>
-      </article>
+    <main className="raw-doc">
+      <div className="raw-doc-inner">
+        <article className="prose prose-neutral max-w-none
+          prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
+          prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4] prose-th:text-[#222] prose-td:text-[#333]
+          prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
+          prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+          <h1>{doc.meta.title}</h1>
+          {doc.meta.description ? (
+            <p className="note">{doc.meta.description}</p>
+          ) : null}
+          <div className="not-prose mt-2">
+            <LikeButton id={doc.meta.slug} type="writings" />
+          </div>
+          <MDXRemote
+            source={doc.content}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
+              },
+            }}
+            components={{
+              InstagramEmbed,
+            }}
+          />
+        </article>
+        <footer aria-label="More writings">
+          <div className="prev-next">
+            {previous ? <Link href={`/writings/${previous.slug}`}>← {previous.title}</Link> : <span />}
+            {next ? <Link href={`/writings/${next.slug}`}>{next.title} →</Link> : <span />}
+          </div>
+          <Link href="/writings" className="all-link">All writings</Link>
+        </footer>
+      </div>
     </main>
   );
 }

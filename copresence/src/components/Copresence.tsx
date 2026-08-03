@@ -37,20 +37,20 @@ const seededRandom = (seed: number, index: number): number => {
   return x - Math.floor(x);
 };
 
-// Draw a soft gaussian heat point (no visible boundary)
-const drawHeatPoint = (ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number, opacity: number) => {
+// Draw a soft gaussian heat point (no visible boundary), tinted per-peer via hue
+const drawHeatPoint = (ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number, opacity: number, hue: number) => {
   // Create a smooth radial gradient with extreme softness
   const maxRadius = radius * 6;
   const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxRadius);
-  
-  // Brighter core with sharper falloff
-  grad.addColorStop(0, `rgba(255, 180, 80, ${opacity * 0.4})`);
-  grad.addColorStop(0.05, `rgba(255, 180, 80, ${opacity * 0.35})`);
-  grad.addColorStop(0.15, `rgba(255, 170, 70, ${opacity * 0.25})`);
-  grad.addColorStop(0.3, `rgba(255, 150, 60, ${opacity * 0.12})`);
-  grad.addColorStop(0.5, `rgba(255, 130, 40, ${opacity * 0.05})`);
-  grad.addColorStop(0.7, `rgba(255, 110, 20, ${opacity * 0.015})`);
-  grad.addColorStop(1, `rgba(255, 100, 0, 0)`);
+  const c = (l: number, a: number) => `hsla(${hue}, 85%, ${l}%, ${opacity * a})`;
+
+  grad.addColorStop(0, c(70, 0.28));
+  grad.addColorStop(0.05, c(65, 0.24));
+  grad.addColorStop(0.15, c(60, 0.17));
+  grad.addColorStop(0.3, c(55, 0.08));
+  grad.addColorStop(0.5, c(50, 0.035));
+  grad.addColorStop(0.7, c(45, 0.01));
+  grad.addColorStop(1, c(45, 0));
 
   ctx.fillStyle = grad;
   ctx.beginPath();
@@ -152,7 +152,8 @@ export default function Copresence() {
       for (const p of peers.values()) {
         const px = p.x * canvas.width;
         const py = p.y * canvas.height;
-        drawHeatPoint(ctx, px, py, heatRadius, 0.5);
+        const hue = p.seed % 360;
+        drawHeatPoint(ctx, px, py, heatRadius, 0.32, hue);
       }
 
       raf = requestAnimationFrame(tick);

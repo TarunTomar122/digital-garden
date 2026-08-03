@@ -2,7 +2,7 @@
 // round-trip and a multi-KB prompt on every generation.
 
 const GARDEN_DESIGN = `
-## Tarats Garden (tarat.space)
+## Tarat's Garden (tarat.space)
 
 Native page feel — not a separate template.
 

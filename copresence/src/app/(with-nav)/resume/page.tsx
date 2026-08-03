@@ -7,8 +7,10 @@ export const metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16">
-      <ResumePageClient />
+    <main className="raw-doc">
+      <div className="raw-doc-inner" style={{ maxWidth: "760px" }}>
+        <ResumePageClient />
+      </div>
     </main>
   );
 }

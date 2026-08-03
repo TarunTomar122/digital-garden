@@ -12,46 +12,35 @@ type Book = {
 export default function LibraryPage() {
   const books = (data.books as Book[]) || [];
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16 space-y-8">
-      <header className="space-y-2">
-        <h1 className="font-display text-4xl md:text-5xl tracking-tight">Library</h1>
-        <p className="text-muted">Books I’m reading and have read lately.</p>
-        <p className="text-muted">Total read: {books.filter((b) => b.status === "read").length}</p>
-      </header>
+    <main className="raw-doc">
+      <div className="raw-doc-inner">
+        <header>
+          <h1>Library</h1>
+          <p className="note">Books I&rsquo;m reading and have read lately.</p>
+          <p className="note">Total read: {books.filter((b) => b.status === "read").length}</p>
+        </header>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {books.map((b, idx) => (
-          <li key={`${b.title}-${idx}`} className="flex gap-4">
-            <a
-              href={b.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${b.title} on Goodreads`}
-              className="flex-none block"
-            >
-              <img
-                src={b.img}
-                alt={b.title}
-                loading="lazy"
-                decoding="async"
-                className="h-28 w-20 flex-none object-cover rounded ring-1 ring-muted/50 bg-foreground/5 transform-gpu transition-transform duration-200 ease-out hover:scale-105"
-              />
-            </a>
-            <div className="space-y-1">
-              <h3 className="font-medium leading-snug">{b.title}</h3>
-              <p className="text-muted text-sm">{b.author}</p>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="rounded-full border border-foreground/30 px-2 py-0.5 text-foreground/80">
-                  {b.status}
-                </span>
-                {b.rating && b.rating.trim().length > 0 ? (
-                  <span className="text-foreground/70">{b.rating}</span>
-                ) : null}
+        <ul className="list-plain" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "20px" }}>
+          {books.map((b, idx) => (
+            <li key={`${b.title}-${idx}`} style={{ display: "flex", gap: "14px", marginBottom: 0 }}>
+              <a href={b.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${b.title} on Goodreads`}>
+                <img
+                  src={b.img}
+                  alt={b.title}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ height: "112px", width: "80px", flexShrink: 0, objectFit: "cover", borderRadius: "4px", border: "1px solid #eee" }}
+                />
+              </a>
+              <div>
+                <p style={{ fontWeight: 600, lineHeight: 1.3 }}>{b.title}</p>
+                <p className="desc">{b.author}</p>
+                <p className="desc">{b.status}{b.rating && b.rating.trim().length > 0 ? ` · ${b.rating}` : ""}</p>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import GardenMap from "@/components/GardenMap";
 
 export const metadata = {
-  title: "Garden Galaxy | Tarats Garden",
+  title: "Garden Galaxy | Tarat's Garden",
   description: "A semantic map of my digital garden.",
 };
 
