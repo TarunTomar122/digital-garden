@@ -134,6 +134,9 @@ iframe.resume-iframe {
 
 .egg-link { position: fixed; bottom: 20px; right: 20px; font-size: 22px; text-decoration: none; opacity: 0.55; transition: opacity 0.15s, transform 0.15s; }
 .egg-link:hover { opacity: 1; transform: scale(1.15) rotate(-8deg); }
+@media (max-width: 640px) {
+  .egg-link { display: none; }
+}
 
 /* Startups: thin raw sparkline bars, with a custom hover tooltip (native title is too slow/small) */
 .sparkline { display: flex; align-items: flex-end; gap: 2px; height: 72px; margin: 12px 0; }
