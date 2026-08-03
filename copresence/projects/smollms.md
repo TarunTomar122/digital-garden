@@ -1,5 +1,5 @@
 ---
-title: i trained tiny LLMs on Shakespeare
+title: I trained tiny LLMs on Shakespeare
 description: smollms is my tiny architecture lab for understanding dense attention, recurrence, sparse selection, compressed memory, and MoE without pretending I have a GPU cluster.
 category: project
 date: 2026-07-30
