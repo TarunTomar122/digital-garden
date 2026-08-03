@@ -1,6 +1,6 @@
 ---
 title: Making a small language model slower on purpose
-description: A Triton performance experiment on a Tesla T4
+description: A quest to understand how GPUs work
 category: tech
 date: 2026-08-03
 ---
