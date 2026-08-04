@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import LinkLoadingIndicator from "@/components/LinkLoadingIndicator";
 import { ProjectMeta } from "@/lib/projects";
 
 const PAGE_SIZE = 7;
@@ -55,7 +56,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
       <ul className="list-plain">
         {paginatedProjects.map((p) => (
           <li key={p.slug}>
-            <Link prefetch={false} href={`/projects/${p.slug}`}>{p.title}</Link>
+            <Link href={`/projects/${p.slug}`}>
+              {p.title}
+              <LinkLoadingIndicator />
+            </Link>
             {p.description ? <p className="desc">{p.description}</p> : null}
           </li>
         ))}

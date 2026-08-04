@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LinkLoadingIndicator from "@/components/LinkLoadingIndicator";
 import { getAllWritings, type WritingMeta } from "@/lib/writings";
 
 const PAGE_SIZE = 7;
@@ -85,7 +86,10 @@ export default async function WritingsIndex({
             <ul className="list-plain">
               {groupedByMonth[monthKey].map((w) => (
                 <li key={w.slug}>
-                  <Link href={`/writings/${w.slug}`}>{w.title}</Link>
+                  <Link href={`/writings/${w.slug}`}>
+                    {w.title}
+                    <LinkLoadingIndicator />
+                  </Link>
                   {w.description ? <p className="desc">{w.description}</p> : null}
                 </li>
               ))}
@@ -112,4 +116,3 @@ export default async function WritingsIndex({
     </main>
   );
 }
-
