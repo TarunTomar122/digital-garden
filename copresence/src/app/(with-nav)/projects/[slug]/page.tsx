@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 import Link from "next/link";
+import MarkdownImage from "@/components/MarkdownImage";
 
 // Fully static - only regenerates on deploy (projects don't change dynamically)
 export const revalidate = false;
@@ -97,6 +98,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
               },
             }}
+            components={{ img: MarkdownImage }}
           />
         </article>
         <footer aria-label="More projects">

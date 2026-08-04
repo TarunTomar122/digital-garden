@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
 import InstagramEmbed from "@/components/InstagramEmbed";
+import MarkdownImage from "@/components/MarkdownImage";
 import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 import Link from "next/link";
 
@@ -102,6 +103,7 @@ export default async function WritingPage({ params }: PageProps) {
               },
             }}
             components={{
+              img: MarkdownImage,
               InstagramEmbed,
             }}
           />
