@@ -109,6 +109,12 @@ const ITEMS: TimelineItem[] = [
   },
   {
     date: "2026-07",
+    title: "Won my first Backyard Ultra",
+    detail: "10 hours, 60+ km",
+    link: "https://www.instagram.com/p/DbQk05imOVN/?img_index=1",
+  },
+  {
+    date: "2026-07",
     title: "Published my first research paper",
     link: "https://arxiv.org/pdf/2607.17052",
   },
@@ -116,12 +122,6 @@ const ITEMS: TimelineItem[] = [
     date: "2026-07",
     title: "3rd place at Hermes hackathon",
     link: "https://www.linkedin.com/posts/taratt_last-sunday-was-one-of-the-craziest-weekends-ugcPost-7482291742487171072-egyk/",
-  },
-  {
-    date: "2026-07",
-    title: "Won my first Backyard Ultra",
-    detail: "10 hours, 60+ km",
-    link: "https://www.instagram.com/p/DbQk05imOVN/?img_index=1",
   },
   { date: "2026-04", title: "First sponsored YouTube video" },
   { date: "2026-04", title: "Reached 3,000 YouTube subscribers" },
