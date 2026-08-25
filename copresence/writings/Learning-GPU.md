@@ -3,6 +3,7 @@ title: Making a small language model slower on purpose
 description: A quest to understand how GPUs work
 category: tech
 date: 2026-08-03
+hidden: true
 ---
 
 ### Chapter 1: The question
