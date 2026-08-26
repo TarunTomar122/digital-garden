@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(ls -la \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence/assets/projects/\" 2>/dev/null; echo \"---POSTS---\"; ls \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence/assets/posts/\" 2>/dev/null | head)",
+      "Shell(cd \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence\" && ls -la assets/ 2>/dev/null; echo \"---projects assets---\"; ls -la assets/projects/ 2>/dev/null; echo \"---recent images---\"; find . -path ./node_modules -prune -o -newermt '2026-08-25' -type f \\( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \\) -print 2>/dev/null | head -40)",
+      "Shell(ls -la \"$COMMANDCODE_SCRATCHPAD\" 2>/dev/null; echo \"---tmp attachments---\"; ls -lat /tmp/*.png /tmp/*.jpg /tmp/*.jpeg 2>/dev/null | head -20; echo \"---find image with overview/settings---\"; mdfind -name 'better-voice' 2>/dev/null | head)",
+      "Shell(cd \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence\" && ls -d assets public 2>/dev/null; echo \"---public---\"; ls -la public/ 2>/dev/null | head -30; echo \"---find assets dir---\"; find . -path ./node_modules -prune -o -type d -name 'assets' -print 2>/dev/null)",
+      "Shell(cd \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence\" && ls -la public/assets/; echo \"---projects---\"; ls public/assets/projects/ 2>/dev/null; echo \"---existing posts with project-named folder---\"; ls public/assets/projects/ | head -40)",
+      "Shell(cd \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence\" && grep -rl \"InstagramEmbed\" projects/ writings/ 2>/dev/null; echo \"---\"; grep -rn \"<InstagramEmbed\" projects/ writings/ 2>/dev/null)",
+      "Shell(mkdir:*)",
+      "Shell(cp:*)",
+      "Shell(npx next build 2 >& 1)",
+      "Shell(cd \"/Users/ttomar/Documents/personal/digital garden/tarats-garden/copresence\" && sips -g pixelWidth -g pixelHeight public/assets/projects/better-voice/overview.jpg 2>/dev/null; echo \"---img/iframe css---\"; grep -n \"img\\|iframe\\|aspect-ratio\\|max-height\" src/app/globals.css)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

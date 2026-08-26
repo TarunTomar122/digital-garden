@@ -92,6 +92,12 @@ iframe.resume-iframe {
   overflow: hidden;
 }
 
+/* Embedded post video: taller than the default 16:9 so it's easier to watch */
+iframe.post-video {
+  aspect-ratio: 4 / 3;
+  min-height: 480px;
+}
+
 /* Raw-doc theme: shared across the "raw HTML" pages (homepage, writings, header, ...) */
 .raw-doc { background: #fff; width: 100%; min-height: 100vh; }
 .raw-doc-inner { font-family: -apple-system, Helvetica, Arial, sans-serif; max-width: 640px; margin: 0 auto; padding: 56px 24px 64px; line-height: 1.6; color: #222; }
