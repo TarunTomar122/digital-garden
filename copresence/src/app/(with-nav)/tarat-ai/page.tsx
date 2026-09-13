@@ -193,7 +193,7 @@ export default function TaratAIPage() {
 
   const classifyDomain = (q: string): Domain => {
     const s = q.toLowerCase();
-    if (/(experience|resume|cv|work history|career|job|role|employer|company|current|working|work at|where.*work|adobe|astu|design engineer|core tech)/.test(s)) return "experience";
+    if (/(experience|resume|cv|work history|career|job|role|employer|company|current|working|work at|where.*work|adobe|astu|design engineer|core tech|these days|doing now|what are you doing|nowadays|studying|student|uni|university)/.test(s)) return "experience";
     if (/(book|read|author|novel|fiction|nonfiction|rating|library)/.test(s)) return "books";
     if (/(project|build|code|github|repo|implementation|tool|app)/.test(s)) return "projects";
     if (/(goal|list|bucket|life|plan|achieve|learn|travel)/.test(s)) return "list100";

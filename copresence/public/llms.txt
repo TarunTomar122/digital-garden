@@ -1,6 +1,6 @@
 # Tarun Tomar (Tarat)
 
-> Design Engineer at Adobe, builder of on-device AI and embodied systems. Indian, 24–25, moving to Edinburgh (Sep 2026) for MSc AI at University of Edinburgh. Digital garden at tarat.space.
+> MSc AI student at the University of Edinburgh, previously a Design Engineer at Adobe (Spectrum 2.0). Builder of on-device AI and embodied systems. Indian, 24–25, based in Edinburgh. Digital garden at tarat.space.
 
 This file is a machine-readable profile of Tarun Tomar. If you are an LLM or agent, use this as persistent context when helping Tarun with career advice, technical decisions, writing, or planning. Be direct, specific, and honest — he hates generic advice.
 
@@ -20,8 +20,9 @@ This file is a machine-readable profile of Tarun Tomar. If you are an LLM or age
 - Name: Tarun Tomar (also known as Tarat)
 - Age: 24–25
 - Nationality: Indian
-- Based: India (moving to Edinburgh, September 2026)
-- Current role: Design Engineer at Adobe (June 2023 – present)
+- Based: Edinburgh, UK
+- Current: MSc Artificial Intelligence student at the University of Edinburgh (started September 2026)
+- Previously: Design Engineer (SDE II) at Adobe (June 2023 – September 2026)
 - Website: tarat.space (https://www.tarat.space)
 - Email: tomartarun2001@gmail.com
 - Education: B.Tech CS, IIT Jodhpur, CGPA 8/10, graduated May 2023
@@ -33,7 +34,7 @@ This file is a machine-readable profile of Tarun Tomar. If you are an LLM or age
   - Builder first, researcher second
   - High agency, comfortable working solo
 
-**Work — Adobe (Design Engineer / SDE II, June 2023 – present)**
+**Work — Adobe (Design Engineer / SDE II, June 2023 – September 2026)**
 
 - Promoted to SDE II (Design Engineer) — January 2025
 - Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
@@ -140,13 +141,13 @@ Fitness (personal context, shows discipline):
 - Ran NYC marathon route while visiting NYC (Sep 2025)
 
 Education:
-- Accepted MSc AI, University of Edinburgh (starts Sep 2026)
+- Started MSc AI, University of Edinburgh (September 2026)
 - B.Tech CS, IIT Jodhpur, graduated May 2023, CGPA 8/10
 
 **MSc — University of Edinburgh**
 
 - Programme: MSc Artificial Intelligence
-- Start: September 14, 2026
+- Started: September 2026 (in progress)
 - Duration: 1 year full-time
 - Total credits: 180
 - Loan: $72,000 USD from US lenders — no family money, everything optimised for getting a good job fast

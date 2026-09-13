@@ -154,96 +154,111 @@ async function prepareDocuments(extractor, docs, prefix) {
 }
 
 async function main() {
+  const only = process.argv.slice(2).filter((a) => !a.startsWith("-"));
+  const wants = (domain) => only.length === 0 || only.includes(domain);
+
   log(`Loading model ${MODEL} (downloads on first run)...`);
   const extractor = await pipeline("feature-extraction", MODEL, {
     quantized: true,
   });
 
   // projects
-  log("Projects...");
-  const projects = loadMarkdownFiles(PROJECTS_DIR);
-  writeDomain("projects", await prepareDocuments(extractor, projects, "PROJECT"));
+  if (wants("projects")) {
+    log("Projects...");
+    const projects = loadMarkdownFiles(PROJECTS_DIR);
+    writeDomain("projects", await prepareDocuments(extractor, projects, "PROJECT"));
+  }
 
   // writings (skip hidden)
-  log("Writings...");
-  const writings = loadMarkdownFiles(WRITINGS_DIR);
-  const visibleWritings = Object.fromEntries(
-    Object.entries(writings).filter(([, content]) => !isHidden(content))
-  );
-  const skipped = Object.keys(writings).length - Object.keys(visibleWritings).length;
-  if (skipped) log(`  skipped ${skipped} hidden writing(s)`);
-  writeDomain(
-    "writings",
-    await prepareDocuments(extractor, visibleWritings, "WRITING")
-  );
+  if (wants("writings")) {
+    log("Writings...");
+    const writings = loadMarkdownFiles(WRITINGS_DIR);
+    const visibleWritings = Object.fromEntries(
+      Object.entries(writings).filter(([, content]) => !isHidden(content))
+    );
+    const skipped = Object.keys(writings).length - Object.keys(visibleWritings).length;
+    if (skipped) log(`  skipped ${skipped} hidden writing(s)`);
+    writeDomain(
+      "writings",
+      await prepareDocuments(extractor, visibleWritings, "WRITING")
+    );
+  }
 
   // experience (from the resume source)
-  log("Experience...");
-  if (fs.existsSync(EXPERIENCE_FILE)) {
-    const content = fs.readFileSync(EXPERIENCE_FILE, "utf8");
-    const chunks = chunkText(stripMarkdown(content)).map((c) => `EXPERIENCE: ${c}`);
-    const vectors = await encodeAll(extractor, chunks);
-    writeDomain("experience", {
-      embeddings: [meanVector(vectors)],
-      texts: [content],
-      embedTexts: chunks,
-      metadata: [{ type: "experience", name: "experience", path: "resume.txt" }],
-    });
-  } else {
-    log("  no resume.txt found, skipping");
+  if (wants("experience")) {
+    log("Experience...");
+    if (fs.existsSync(EXPERIENCE_FILE)) {
+      const content = fs.readFileSync(EXPERIENCE_FILE, "utf8");
+      const chunks = chunkText(stripMarkdown(content)).map((c) => `EXPERIENCE: ${c}`);
+      const vectors = await encodeAll(extractor, chunks);
+      writeDomain("experience", {
+        embeddings: [meanVector(vectors)],
+        texts: [content],
+        embedTexts: chunks,
+        metadata: [{ type: "experience", name: "experience", path: "resume.txt" }],
+      });
+    } else {
+      log("  no resume.txt found, skipping");
+    }
   }
 
   // site (llms.txt chunks — always retrieved alongside the classified domain)
-  log("Site summary (llms.txt)...");
-  if (fs.existsSync(SITE_FILE)) {
-    const content = fs.readFileSync(SITE_FILE, "utf8");
-    const chunks = chunkText(content, 1400, 200);
-    const vectors = await encodeAll(extractor, chunks);
-    writeDomain("site", {
-      embeddings: vectors,
-      texts: chunks,
-      embedTexts: chunks,
-      metadata: chunks.map((_, i) => ({
-        type: "site",
-        name: "llms.txt",
-        part: i + 1,
-        path: "llms.txt",
-      })),
-    });
-  } else {
-    log("  no llms.txt found, skipping");
+  if (wants("site")) {
+    log("Site summary (llms.txt)...");
+    if (fs.existsSync(SITE_FILE)) {
+      const content = fs.readFileSync(SITE_FILE, "utf8");
+      const chunks = chunkText(content, 1400, 200);
+      const vectors = await encodeAll(extractor, chunks);
+      writeDomain("site", {
+        embeddings: vectors,
+        texts: chunks,
+        embedTexts: chunks,
+        metadata: chunks.map((_, i) => ({
+          type: "site",
+          name: "llms.txt",
+          part: i + 1,
+          path: "llms.txt",
+        })),
+      });
+    } else {
+      log("  no llms.txt found, skipping");
+    }
   }
 
   // list100 (single aggregated doc)
-  log("List 100...");
-  const list100 = JSON.parse(fs.readFileSync(LIST100_FILE, "utf8")).list100 ?? [];
-  const listLines = list100
-    .map((i) => `${i.text} [status: ${i.status || "unknown"}]`)
-    .join("; ");
-  const listDisplay = ["# List 100", ...list100.map((i) => `- ${i.text} (status: ${i.status || "unknown"})`)].join("\n");
-  writeDomain("list100", {
-    embeddings: await encodeAll(extractor, [`LIST100 SUMMARY: ${listLines}`]),
-    texts: [listDisplay],
-    embedTexts: [`LIST100 SUMMARY: ${listLines}`],
-    metadata: [{ type: "list100_summary", count: list100.length, path: "list100.json" }],
-  });
+  if (wants("list100")) {
+    log("List 100...");
+    const list100 = JSON.parse(fs.readFileSync(LIST100_FILE, "utf8")).list100 ?? [];
+    const listLines = list100
+      .map((i) => `${i.text} [status: ${i.status || "unknown"}]`)
+      .join("; ");
+    const listDisplay = ["# List 100", ...list100.map((i) => `- ${i.text} (status: ${i.status || "unknown"})`)].join("\n");
+    writeDomain("list100", {
+      embeddings: await encodeAll(extractor, [`LIST100 SUMMARY: ${listLines}`]),
+      texts: [listDisplay],
+      embedTexts: [`LIST100 SUMMARY: ${listLines}`],
+      metadata: [{ type: "list100_summary", count: list100.length, path: "list100.json" }],
+    });
+  }
 
   // books (single aggregated doc)
-  log("Books...");
-  const books = JSON.parse(fs.readFileSync(BOOKS_FILE, "utf8")).books ?? [];
-  const bookLines = books
-    .map(
-      (b) =>
-        `${b.title} by ${b.author} [status: ${b.status || "unknown"}, rating: ${b.rating || "n/a"}]`
-    )
-    .join("; ");
-  const bookDisplay = ["# Books Summary", ...books.map((b) => `- ${b.title} — ${b.author} (status: ${b.status || "unknown"})`)].join("\n");
-  writeDomain("books", {
-    embeddings: await encodeAll(extractor, [`BOOKS SUMMARY: ${bookLines}`]),
-    texts: [bookDisplay],
-    embedTexts: [`BOOKS SUMMARY: ${bookLines}`],
-    metadata: [{ type: "books_summary", count: books.length, path: "library/books.json" }],
-  });
+  if (wants("books")) {
+    log("Books...");
+    const books = JSON.parse(fs.readFileSync(BOOKS_FILE, "utf8")).books ?? [];
+    const bookLines = books
+      .map(
+        (b) =>
+          `${b.title} by ${b.author} [status: ${b.status || "unknown"}, rating: ${b.rating || "n/a"}]`
+      )
+      .join("; ");
+    const bookDisplay = ["# Books Summary", ...books.map((b) => `- ${b.title} — ${b.author} (status: ${b.status || "unknown"})`)].join("\n");
+    writeDomain("books", {
+      embeddings: await encodeAll(extractor, [`BOOKS SUMMARY: ${bookLines}`]),
+      texts: [bookDisplay],
+      embedTexts: [`BOOKS SUMMARY: ${bookLines}`],
+      metadata: [{ type: "books_summary", count: books.length, path: "library/books.json" }],
+    });
+  }
 
   log("Done.");
 }
