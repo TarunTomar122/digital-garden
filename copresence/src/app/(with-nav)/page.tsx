@@ -88,7 +88,7 @@ export default async function Home() {
             <p className="hero-tagline">
               I like robots and AI.
               <br />
-              Masters in AI at{" "}
+              Currently a student at{" "}
               <a href="https://www.ed.ac.uk" target="_blank" rel="noreferrer">
                 University of Edinburgh
               </a>
