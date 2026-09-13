@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Domine, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Copresence from "@/components/Copresence";
-import { getAmbientMood } from "@/lib/ambient";
 import {
   DEFAULT_OG_IMAGE_PATH,
   SITE_DESCRIPTION,
@@ -13,10 +11,9 @@ import {
 } from "@/lib/site";
 
 import { Analytics } from "@vercel/analytics/next"
-import PostHogProvider from "@/lib/posthog-client"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const domine = Domine({
+  variable: "--font-domine",
   subsets: ["latin"],
 });
 
@@ -66,22 +63,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const ambient = getAmbientMood(null);
-
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-1000`}
-        style={{
-          "--background": ambient.background,
-          backgroundColor: ambient.background,
-          filter: `saturate(${ambient.pageSaturation})`,
-        } as CSSProperties}
+        className={`${domine.variable} ${geistMono.variable} antialiased`}
       >
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
           <Copresence />
         </div>
-        <PostHogProvider>{children}</PostHogProvider>
+        {children}
         <Analytics />
       </body>
     </html>

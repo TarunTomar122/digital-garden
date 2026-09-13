@@ -1,12 +1,16 @@
 export default function WritingLoading() {
   return (
-    <main aria-busy="true" className="mx-auto max-w-3xl px-4 py-16">
-      <p role="status" className="mb-6 animate-pulse text-sm text-[#777]">Loading writing…</p>
-      <div className="animate-pulse space-y-4">
-        <div className="h-10 w-3/4 rounded bg-foreground/10" />
-        <div className="h-5 w-full rounded bg-foreground/10" />
-        <div className="h-5 w-5/6 rounded bg-foreground/10" />
-        <div className="h-5 w-2/3 rounded bg-foreground/10" />
+    <main aria-busy="true" className="raw-doc">
+      <div className="raw-doc-inner">
+        <p role="status" className="note" style={{ marginBottom: "20px" }}>
+          Loading writing…
+        </p>
+        <div className="skeleton-stack">
+          <div className="skeleton skeleton-title" />
+          <div className="skeleton" />
+          <div className="skeleton" style={{ width: "86%" }} />
+          <div className="skeleton" style={{ width: "68%" }} />
+        </div>
       </div>
     </main>
   );

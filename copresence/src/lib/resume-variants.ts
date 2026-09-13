@@ -5,19 +5,21 @@ export type ResumeVariant = {
 
 const sharedStyles = `
   *{box-sizing:border-box}
-  body{margin:0;color:#222;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6}
-  a{color:#1a5fb4;text-decoration:none}a:hover{text-decoration:underline}
+  body{margin:0;color:#171717;background:#fff;font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.65}
+  a{color:#1c1917;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(28,25,23,.35)}
+  a:hover{color:#1a5fb4;text-decoration-color:currentColor}
   h1,h2,h3,p,ul{margin:0}ul{padding-left:18px;list-style:disc}li+li{margin-top:6px}
-  .muted{color:#5f5f5f}
-  .label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#5f5f5f;margin-bottom:14px}
-  .resume{max-width:42rem;margin:0 auto;padding:8px 4px 40px}
+  li::marker{color:#78716c}
+  .muted{color:#57534e}
+  .label{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#78716c;margin-bottom:14px}
+  .resume{max-width:42rem;margin:0 auto;padding:0 4px 32px}
   .contact{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
-  .section{padding:26px 0;border-top:1px solid #eee}
+  .section{padding:26px 0;border-top:1px solid #e7decb}
   .section:first-of-type{border-top:none}
   .item+.item{margin-top:20px}
   .item-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
-  .item h3{font-size:16px;font-weight:600}
-  .date{font-size:13px;color:#5f5f5f;white-space:nowrap}
+  .item h3{font-size:16px;font-weight:700}
+  .date{font-size:13px;color:#78716c;white-space:nowrap}
   .skills{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px}
   @media(max-width:640px){body{font-size:14px}.contact{gap:4px 12px}}
 `;

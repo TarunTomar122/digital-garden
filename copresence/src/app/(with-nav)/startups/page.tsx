@@ -48,17 +48,43 @@ export default async function StartupsPage() {
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <header>
-          <h1>Startups</h1>
-          <p className="note">Building stuff, one stupid idea at a time.</p>
+        <header className="page-head">
+          <p className="page-kicker">Ventures</p>
+          <h1>
+            Startups <span className="page-count">({startups.length})</span>
+          </h1>
+          <p className="note">
+            Building stuff, one stupid idea at a time. Live numbers from the
+            last 30 days.
+          </p>
         </header>
 
-        <ul className="list-plain">
+        <ul className="cards">
           {startups.map((s, idx) => (
             <li key={s.name}>
-              <a href={s.link} target="_blank" rel="noreferrer">{s.name}</a> — <span className="desc">{s.tagline}</span>
-              <Sparkline data={series[idx]} />
-              <p className="desc">{s.highlight}{stats[idx] ? ` · ${stats[idx]} ${idx === 2 ? "downloads" : "unique visitors"} (30d)` : ""}</p>
+              <div className="panel">
+                <div className="card-row">
+                  <div className="card-body">
+                    <h3 className="card-title card-title-sm">
+                      <a href={s.link} target="_blank" rel="noreferrer">
+                        {s.name}
+                      </a>
+                    </h3>
+                    <p className="card-meta">
+                      {s.highlight}
+                      {stats[idx] ? (
+                        <>
+                          <span className="sep">·</span>
+                          {stats[idx]}{" "}
+                          {idx === 2 ? "downloads" : "unique visitors"} (30d)
+                        </>
+                      ) : null}
+                    </p>
+                    <p className="card-desc">{s.tagline}</p>
+                    <Sparkline data={series[idx]} />
+                  </div>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

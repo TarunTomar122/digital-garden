@@ -224,48 +224,48 @@ export default function TaratAIPage() {
   };
 
   return (
-    <div className="raw-doc-inner" style={{ paddingBottom: "96px" }}>
+    <div className="raw-doc-inner" style={{ paddingBottom: "140px" }}>
         {messages.length == 0 && (
-            <main>
-              <article className="prose prose-neutral max-w-none
-                prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-                prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4]
-                prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-                prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
-                  <h1>Talk to Tarat&apos;s AI</h1>
-                  <p className="note">Ask it anything about my work, projects, books, or life.</p>
-                  <p className="note">Note: It&apos;s an AI so don&apos;t hold me accountable for its answers.</p>
-                  <div className="not-prose" style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
-                    {[
-                      "Why should we hire you?",
-                      "What are your best ML related projects?",
-                      "What kind of books do you like?",
-                      "How was your NYC trip?",
-                    ].map((q) => (
-                      <button
-                        key={q}
-                        onClick={() => { void onSubmit(q); }}
-                        style={{ textAlign: "left", width: "100%", border: "1px solid #eee", borderRadius: "6px", background: "none", padding: "8px 12px", fontSize: "14px", cursor: "pointer", color: "#222" }}
-                      >
-                        {q}
-                      </button>
-                    ))}
-                  </div>
-                </article>
+            <main className="animate-in">
+              <header className="page-head">
+                <p className="page-kicker">Experiment</p>
+                <h1>Talk to Tarat&apos;s AI</h1>
+                <p className="note">
+                  Ask it anything about my work, projects, books, or life.
+                </p>
+                <p className="note">
+                  It&apos;s an AI, so don&apos;t hold me accountable for its
+                  answers.
+                </p>
+              </header>
+              <div className="suggest-grid">
+                {[
+                  "Why should we hire you?",
+                  "What are your best ML related projects?",
+                  "What kind of books do you like?",
+                  "How was your NYC trip?",
+                ].map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => { void onSubmit(q); }}
+                    className="suggest-card"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
             </main>
         )}
         {modelLoading && (
-          <div className="left-1/2 top-16 z-50">
-            <div style={{ border: "1px solid #eee", borderRadius: "6px", background: "#fff", padding: "8px 12px" }}>
-              <div className="flex items-center space-x-2" style={{ color: "#5f5f5f" }}>
-                <div className="flex space-x-1">
-                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                </div>
-                <span>Loading the embedding model…</span>
-              </div>
-            </div>
+          <div className="model-loading">
+            <span className="thinking">
+              <span className="thinking-dots" aria-hidden="true">
+                <span className="dot" style={{ animationDelay: "0ms" }} />
+                <span className="dot" style={{ animationDelay: "150ms" }} />
+                <span className="dot" style={{ animationDelay: "300ms" }} />
+              </span>
+              Loading the embedding model…
+            </span>
           </div>
         )}
         {messages.map((m, i) => {
@@ -275,73 +275,61 @@ export default function TaratAIPage() {
             const lastUserMessageIndex = messages.map((msg, idx) => msg.role === 'user' ? idx : -1).filter(idx => idx !== -1).pop();
             const isLatestQuestion = i === lastUserMessageIndex;
             return (
-              <main key={i} style={{ padding: "32px 0", borderBottom: "1px solid #eee" }} ref={isLatestQuestion ? latestQuestionRef : null}>
-                <article className="prose prose-neutral max-w-none
-                  prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-                  prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4]
-                  prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-                  prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
-                  <h1 data-question-anchor="true" style={{ marginTop: 0 }}>{m.content}</h1>
-                </article>
+              <main key={i} className="chat-turn" ref={isLatestQuestion ? latestQuestionRef : null}>
+                <p className="chat-question-label">You asked</p>
+                <h2 className="chat-question-text" data-question-anchor="true">
+                  {m.content}
+                </h2>
               </main>
             );
           } else {
             // Show AI response with same styling as writings/projects
             return (
-              <main key={i}>
-                <article className="prose prose-neutral max-w-none
-                  prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-                  prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4]
-                  prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-                  prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
-                  <div dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml(m.content) }} />
-                </article>
+              <main key={i} className="chat-turn">
+                <div
+                  className="prose-garden chat-answer"
+                  dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml(m.content) }}
+                />
               </main>
             );
           }
         })}
         {loading && (
-          <main>
-            <article className="prose prose-neutral max-w-none
-              prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-              prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4]
-              prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-              prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
-              <div className="flex items-center space-x-1" style={{ color: "#5f5f5f" }}>
-                <span>Thinking</span>
-                <div className="flex space-x-1">
-                  <div className="w-1 h-1 bg-current rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-1 h-1 bg-current rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-1 h-1 bg-current rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                </div>
-              </div>
-            </article>
+          <main className="chat-turn">
+            <span className="thinking">
+              <span>Thinking</span>
+              <span className="thinking-dots" aria-hidden="true">
+                <span className="dot" style={{ animationDelay: "0ms" }} />
+                <span className="dot" style={{ animationDelay: "150ms" }} />
+                <span className="dot" style={{ animationDelay: "300ms" }} />
+              </span>
+            </span>
           </main>
         )}
-        {error && <div className="text-red-600 text-sm">{error}</div>}
+        {error && <p className="chat-error">{error}</p>}
         <div ref={messagesEndRef} />
         {/* Dynamic bottom spacer to allow placing latest question at top */}
         <div style={{ height: bottomSpacer }} />
 
-        <div data-composer="true" className="fixed inset-x-0 bottom-0" style={{ maxWidth: "640px", margin: "0 auto", padding: "24px", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)" }}>
-            <div style={{ position: "relative" }}>
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={onKeyDown}
-                placeholder="Why should we hire you?"
-                style={{ width: "100%", border: "1px solid #ccc", borderRadius: "6px", paddingRight: "56px", padding: "12px 56px 12px 12px", minHeight: "48px", maxHeight: "160px", overflowY: "auto", fontFamily: "inherit" }}
-              />
-              <button
-                onClick={() => { void onSubmit(); }}
-                disabled={loading || modelLoading || !modelReady}
-                style={{ position: "absolute", right: "8px", top: "50%", transform: "translateY(-50%)", padding: "4px 8px", background: "none", border: "none", cursor: "pointer", opacity: loading || modelLoading || !modelReady ? 0.4 : 1, color: "#222" }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-send" viewBox="0 0 16 16">
-                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
-                </svg>
-              </button>
-          
+        <div data-composer="true" className="composer">
+          <div className="composer-inner">
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={onKeyDown}
+              placeholder="Ask me anything…"
+              rows={1}
+            />
+            <button
+              onClick={() => { void onSubmit(); }}
+              disabled={loading || modelLoading || !modelReady}
+              className="composer-send"
+              aria-label="Send"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+              </svg>
+            </button>
           </div>
         </div>
     </div>

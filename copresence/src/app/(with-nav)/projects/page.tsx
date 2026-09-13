@@ -27,8 +27,11 @@ export default function ProjectsIndex() {
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <header>
-          <h1>Projects</h1>
+        <header className="page-head">
+          <p className="page-kicker">Builds</p>
+          <h1>
+            Projects <span className="page-count">({projects.length})</span>
+          </h1>
           <p className="note">Notes and build logs from ongoing/finished projects.</p>
         </header>
 

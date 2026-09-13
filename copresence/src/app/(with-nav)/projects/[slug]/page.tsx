@@ -49,6 +49,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function formatDate(dateString?: string): string {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const doc = getProjectBySlug(slug);
@@ -57,6 +67,9 @@ export default async function ProjectPage({ params }: PageProps) {
   const index = projects.findIndex((project) => project.slug === slug);
   const previous = projects[index + 1];
   const next = projects[index - 1];
+
+  const words = doc.content.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200));
 
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -71,42 +84,78 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <article className="prose prose-neutral max-w-none
-          prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-          prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4] prose-th:text-[#222] prose-td:text-[#333]
-          prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-          prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
+        <article>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-          <h1>{doc.meta.title}</h1>
-          {doc.meta.description ? (
-            <p className="note">{doc.meta.description}</p>
-          ) : null}
-          {doc.meta.links && doc.meta.links.length > 0 && (
-            <div className="not-prose" style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "8px" }}>
-              {doc.meta.links.map((l, idx) => (
-                <a key={idx} href={l.url} target="_blank" rel="noreferrer">
+
+          <header className="article-head">
+            <p className="page-kicker">Project</p>
+            <h1>{doc.meta.title}</h1>
+            {doc.meta.description ? (
+              <p className="article-lede">{doc.meta.description}</p>
+            ) : null}
+            <div className="article-meta">
+              {doc.meta.date ? (
+                <span className="desc">
+                  {formatDate(doc.meta.date)}
+                  <span className="sep">·</span>
+                  {minutes} min read
+                </span>
+              ) : null}
+              {doc.meta.tags?.map((tag) => (
+                <span key={tag} className="pill" style={{ cursor: "default" }}>
+                  {tag}
+                </span>
+              ))}
+              {doc.meta.links?.map((l, idx) => (
+                <a
+                  key={idx}
+                  href={l.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-pill"
+                >
                   {l.type ? l.type : "link"}
                 </a>
               ))}
             </div>
-          )}
-          <MDXRemote
-            source={doc.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
-              },
-            }}
-            components={{ img: MarkdownImage }}
-          />
-        </article>
-        <footer aria-label="More projects">
-          <div className="prev-next">
-            {previous ? <Link href={`/projects/${previous.slug}`}>← {previous.title}</Link> : <span />}
-            {next ? <Link href={`/projects/${next.slug}`}>{next.title} →</Link> : <span />}
+          </header>
+
+          <div className="prose-garden">
+            <MDXRemote
+              source={doc.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
+                },
+              }}
+              components={{ img: MarkdownImage }}
+            />
           </div>
-          <Link href="/projects" className="all-link">All projects</Link>
+        </article>
+
+        <footer aria-label="More projects">
+          <div className={`post-nav ${!previous || !next ? "post-nav-single" : ""}`}>
+            {previous ? (
+              <Link href={`/projects/${previous.slug}`} className="card">
+                <p className="post-nav-label">← Previous</p>
+                <p className="post-nav-title">{previous.title}</p>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link href={`/projects/${next.slug}`} className="card post-nav-next">
+                <p className="post-nav-label">Next →</p>
+                <p className="post-nav-title">{next.title}</p>
+              </Link>
+            ) : (
+              <span />
+            )}
+          </div>
+          <Link href="/projects" className="all-link">
+            All projects
+          </Link>
         </footer>
       </div>
     </main>

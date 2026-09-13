@@ -365,12 +365,15 @@ export default function GardenMap() {
           .attr("class", "graph-tooltip")
           .style("position", "absolute")
           .style("visibility", "hidden")
-          .style("background", "rgba(0, 0, 0, 0.85)")
-          .style("color", "#fff")
-          .style("padding", "8px 12px")
-          .style("border-radius", "6px")
-          .style("font-size", "12px")
-          .style("max-width", "260px")
+          .style("background", "#ffffff")
+          .style("color", "#1c1917")
+          .style("border", "1px solid #e7decb")
+          .style("box-shadow", "0 16px 32px -14px rgba(68, 54, 24, 0.28)")
+          .style("padding", "10px 14px")
+          .style("border-radius", "10px")
+          .style("font-size", "12.5px")
+          .style("line-height", "1.5")
+          .style("max-width", "280px")
           .style("pointer-events", "none")
           .style("z-index", "9999");
 
@@ -519,26 +522,26 @@ export default function GardenMap() {
       {/* Canvas */}
       <div className="relative flex-1 overflow-hidden">
         {loading && (
-            <div className="absolute inset-0 flex items-center justify-center text-muted">
-                Computing semantic nebula...
+            <div className="absolute inset-0 flex items-center justify-center text-muted" style={{ fontStyle: "italic" }}>
+                Computing semantic nebula…
             </div>
         )}
         <svg ref={svgRef} className="w-full h-full" />
         
         {/* Controls */}
-        <div className="absolute top-4 left-4 flex flex-col gap-2 cursor-pointer">
+        <div className="absolute top-4 left-4 flex flex-col gap-2">
           <button
             onClick={handleBack}
-            className="px-3 py-2 bg-background/90 backdrop-blur border border-black/10 rounded-lg shadow-sm text-sm hover:bg-black/5 transition-colors cursor-pointer"
+            className="chrome-btn"
             title="Back to Home"
           >
-             Back
+            ← Back
           </button>
         </div>
-        <div className="absolute top-4 right-4 flex flex-col gap-2 cursor-pointer">
+        <div className="absolute top-4 right-4 flex flex-col gap-2">
           <button
             onClick={handleRecenter}
-            className="px-3 py-2 bg-background/90 backdrop-blur border border-black/10 rounded-lg shadow-sm text-sm hover:bg-black/5 transition-colors cursor-pointer"
+            className="chrome-btn"
             title="Recenter View"
           >
             ⌘ Recenter
@@ -546,20 +549,20 @@ export default function GardenMap() {
         </div>
 
         {/* Legend */}
-        <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur p-3 rounded-lg border border-black/5 shadow-sm text-xs space-y-1 pointer-events-none">
+        <div className="absolute bottom-4 right-4 chrome-card p-3 text-xs space-y-1 pointer-events-none">
             {Object.entries(DOMAIN_COLORS).map(([domain, color]) => (
                 <div key={domain} className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: color }} />
                     <span className="capitalize">{domain}</span>
                 </div>
             ))}
         </div>
 
         {/* Instructions */}
-        <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur p-3 rounded-lg border border-black/5 shadow-sm text-xs text-muted pointer-events-none max-w-[260px]">
+        <div className="absolute bottom-4 left-4 chrome-card p-3 text-xs text-muted pointer-events-none max-w-[280px] leading-relaxed">
           <p>Drag nodes to explore. Click a node to open its page. Scroll to zoom. Click an edge to highlight related nodes.</p>
           {!loading && stats && (
-            <p className="mt-1 text-[10px] opacity-60">{stats.nodes} nodes • {stats.links} connections</p>
+            <p className="mt-1 opacity-70">{stats.nodes} nodes • {stats.links} connections</p>
           )}
         </div>
       </div>

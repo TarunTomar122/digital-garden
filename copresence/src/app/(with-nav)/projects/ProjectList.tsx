@@ -2,10 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import LinkLoadingIndicator from "@/components/LinkLoadingIndicator";
 import { ProjectMeta } from "@/lib/projects";
 
 const PAGE_SIZE = 7;
+
+function formatDate(dateString?: string): string {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
 
 interface ProjectListProps {
   projects: ProjectMeta[];
@@ -33,11 +39,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
   return (
     <>
       {allTags.length > 0 && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px", marginBottom: "24px" }}>
+        <div className="pill-row" role="group" aria-label="Filter projects by tag">
           <button
             onClick={() => handleTagChange(null)}
-            className={selectedTag === null ? "active" : ""}
-            style={{ background: "none", border: "none", padding: 0, font: "inherit", cursor: "pointer", color: selectedTag === null ? "#222" : "#777", textDecoration: selectedTag === null ? "underline" : "none" }}
+            className={`pill ${selectedTag === null ? "active" : ""}`}
           >
             all
           </button>
@@ -45,7 +50,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
             <button
               key={tag}
               onClick={() => handleTagChange(tag === selectedTag ? null : tag)}
-              style={{ background: "none", border: "none", padding: 0, font: "inherit", cursor: "pointer", color: selectedTag === tag ? "#222" : "#777", textDecoration: selectedTag === tag ? "underline" : "none" }}
+              className={`pill ${selectedTag === tag ? "active" : ""}`}
             >
               {tag}
             </button>
@@ -53,36 +58,59 @@ export default function ProjectList({ projects }: ProjectListProps) {
         </div>
       )}
 
-      <ul className="list-plain">
+      <ul className="cards" key={selectedTag ?? "all"}>
         {paginatedProjects.map((p) => (
           <li key={p.slug}>
-            <Link href={`/projects/${p.slug}`}>
-              {p.title}
-              <LinkLoadingIndicator />
+            <Link href={`/projects/${p.slug}`} className="card">
+              <div className="card-row">
+                <div className="card-body">
+                  <h3 className="card-title card-title-sm">{p.title}</h3>
+                  <p className="card-meta">
+                    {p.date ? `Built ${formatDate(p.date)}` : "Build log"}
+                    {p.tags && p.tags.length > 0 ? (
+                      <>
+                        <span className="sep">·</span>
+                        {p.tags.join(", ")}
+                      </>
+                    ) : null}
+                  </p>
+                  {p.description ? (
+                    <p className="card-desc">{p.description}</p>
+                  ) : null}
+                </div>
+              </div>
             </Link>
-            {p.description ? <p className="desc">{p.description}</p> : null}
           </li>
         ))}
-        {paginatedProjects.length === 0 && <p className="note">No projects found with this tag.</p>}
       </ul>
 
+      {paginatedProjects.length === 0 && (
+        <p className="note" style={{ marginTop: "24px" }}>
+          No projects found with this tag.
+        </p>
+      )}
+
       {totalPages > 1 && (
-        <footer style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          {currentPage > 1 ? (
-            <button onClick={() => setCurrentPage(currentPage - 1)} style={{ background: "none", border: "none", padding: 0, font: "inherit", cursor: "pointer", color: "#1a5fb4" }}>
-              ← Previous
-            </button>
-          ) : (
-            <span />
-          )}
-          <span className="desc">Page {currentPage} of {totalPages}</span>
-          {currentPage < totalPages ? (
-            <button onClick={() => setCurrentPage(currentPage + 1)} style={{ background: "none", border: "none", padding: 0, font: "inherit", cursor: "pointer", color: "#1a5fb4" }}>
-              Next →
-            </button>
-          ) : (
-            <span />
-          )}
+        <footer aria-label="Pagination">
+          <div className="prev-next">
+            {currentPage > 1 ? (
+              <button className="link-btn" onClick={() => setCurrentPage(currentPage - 1)}>
+                ← Previous
+              </button>
+            ) : (
+              <span />
+            )}
+            <span className="desc">
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <button className="link-btn" onClick={() => setCurrentPage(currentPage + 1)}>
+                Next →
+              </button>
+            ) : (
+              <span />
+            )}
+          </div>
         </footer>
       )}
     </>

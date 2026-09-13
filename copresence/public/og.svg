@@ -1,0 +1,12 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect x="528" y="150" width="144" height="144" rx="36" fill="#171717"/>
+  <g stroke="#FFFFFF" stroke-width="13.5" stroke-linecap="round" fill="none">
+    <path d="M574 198 C574 222 584.5 234 600 234"/>
+    <path d="M626 198 C626 222 615.5 234 600 234"/>
+    <path d="M600 234 V261"/>
+    <path d="M582 261 H618"/>
+  </g>
+  <text x="600" y="412" text-anchor="middle" font-family="Domine, Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#171717">Tarat's Garden</text>
+  <text x="600" y="472" text-anchor="middle" font-family="Domine, Georgia, 'Times New Roman', serif" font-size="30" fill="#52525B">Robotics, AI, and small things on the internet.</text>
+</svg>

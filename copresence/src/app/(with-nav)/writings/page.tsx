@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import LinkLoadingIndicator from "@/components/LinkLoadingIndicator";
 import { getAllWritings, type WritingMeta } from "@/lib/writings";
-
-const PAGE_SIZE = 7;
-
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Writings",
@@ -26,92 +21,83 @@ export const metadata: Metadata = {
   },
 };
 
-function formatMonth(dateString: string): string {
-  // dateString is YYYY-MM, so append -01 to make it a valid date
-  const date = new Date(dateString + "-01T00:00:00Z");
-  if (isNaN(date.getTime())) {
-    return "Undated";
-  }
-  return date.toLocaleDateString("en-US", { month: "short", year: "2-digit" });
+function toISODate(dateValue?: string | Date): string | undefined {
+  if (!dateValue) return undefined;
+  if (dateValue instanceof Date) return dateValue.toISOString().slice(0, 10);
+  return String(dateValue);
 }
 
-function groupWritingsByMonth(writings: WritingMeta[]) {
-  const grouped: { [key: string]: WritingMeta[] } = {};
-  writings.forEach((writing) => {
-    if (writing.date) {
-      // Convert to ISO string if it's a Date object, otherwise use as-is
-      const dateStr = writing.date instanceof Date 
-        ? writing.date.toISOString().substring(0, 7)
-        : String(writing.date).substring(0, 7); // YYYY-MM
-      if (!grouped[dateStr]) {
-        grouped[dateStr] = [];
-      }
-      grouped[dateStr].push(writing);
-    } else {
-      if (!grouped["no-date"]) {
-        grouped["no-date"] = [];
-      }
-      grouped["no-date"].push(writing);
-    }
-  });
-  return grouped;
+function formatShortDate(dateValue?: string | Date): string {
+  const iso = toISODate(dateValue);
+  if (!iso) return "Undated";
+  const date = new Date(iso);
+  if (isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-export default async function WritingsIndex({ 
-  searchParams 
-}: { 
-  searchParams?: Promise<{ page?: string }> 
-}) {
+function getYear(dateValue?: string | Date): string {
+  const iso = toISODate(dateValue);
+  if (!iso) return "Undated";
+  const match = iso.match(/^(\d{4})/);
+  return match ? match[1] : "Undated";
+}
+
+export default function WritingsIndex() {
   const writings = getAllWritings();
-  const params = await searchParams;
-  const page = Math.max(1, Number(params?.page ?? 1) || 1);
-  const totalPages = Math.max(1, Math.ceil(writings.length / PAGE_SIZE));
-  const start = (page - 1) * PAGE_SIZE;
-  const pageItems = writings.slice(start, start + PAGE_SIZE);
-  
-  const groupedByMonth = groupWritingsByMonth(pageItems);
-  const monthKeys = Object.keys(groupedByMonth).sort().reverse(); // Most recent first
+
+  const byYear = writings.reduce<Record<string, WritingMeta[]>>((acc, w) => {
+    const year = getYear(w.date);
+    (acc[year] ??= []).push(w);
+    return acc;
+  }, {});
+
+  const years = Object.keys(byYear).sort((a, b) => {
+    if (a === "Undated") return 1;
+    if (b === "Undated") return -1;
+    return Number(b) - Number(a);
+  });
 
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <header>
-          <h1>Writings</h1>
-          <p className="note">Collected essays, notes, and experiments.</p>
+        <header className="page-head">
+          <p className="page-kicker">Journal</p>
+          <h1>
+            Writings <span className="page-count">({writings.length})</span>
+          </h1>
+          <p className="note">
+            Essays, notes, and things I learn the hard way. Sorted with the
+            most recent stuff first.
+          </p>
         </header>
 
-        {monthKeys.map((monthKey) => (
-          <section key={monthKey}>
-            <h2>{monthKey === "no-date" ? "Undated" : formatMonth(monthKey)}</h2>
-            <ul className="list-plain">
-              {groupedByMonth[monthKey].map((w) => (
+        {years.map((year) => (
+          <section key={year}>
+            <div className="section-head">
+              <h2>
+                {year}
+                <span className="count">({byYear[year].length})</span>
+              </h2>
+            </div>
+            <ul className="card-grid">
+              {byYear[year].map((w) => (
                 <li key={w.slug}>
-                  <Link href={`/writings/${w.slug}`}>
-                    {w.title}
-                    <LinkLoadingIndicator />
+                  <Link href={`/writings/${w.slug}`} className="card">
+                    <div className="card-body">
+                      <h3 className="card-title card-title-sm">{w.title}</h3>
+                      <p className="card-meta">{formatShortDate(w.date)}</p>
+                      {w.description ? (
+                        <p className="card-desc card-desc-clamp">
+                          {w.description}
+                        </p>
+                      ) : null}
+                    </div>
                   </Link>
-                  {w.description ? <p className="desc">{w.description}</p> : null}
                 </li>
               ))}
             </ul>
           </section>
         ))}
-
-        {totalPages > 1 && (
-          <footer style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            {page > 1 ? (
-              <Link prefetch={false} href={`/writings?page=${page - 1}`}>← Previous</Link>
-            ) : (
-              <span />
-            )}
-            <span className="desc">Page {page} of {totalPages}</span>
-            {page < totalPages ? (
-              <Link prefetch={false} href={`/writings?page=${page + 1}`}>Next →</Link>
-            ) : (
-              <span />
-            )}
-          </footer>
-        )}
       </div>
     </main>
   );

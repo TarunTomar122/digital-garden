@@ -10,27 +10,42 @@ export default function List100Page() {
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <header>
-          <h1>List 100</h1>
-          <p className="note">Created on April 30, 2024.</p>
+        <header className="page-head">
+          <p className="page-kicker">Bucket list</p>
+          <h1>
+            List 100 <span className="page-count">({done}/{total})</span>
+          </h1>
           <p className="note">
-            Note: I have intentionally decided to never add/remove any items from this list. It is
-            here to capture a moment in time when I was 22 years old and thought I wanted all of
-            the following things to happen before I turn 100.
+            Created on April 30, 2024. I have intentionally decided to never
+            add or remove any items from this list. It captures a moment in
+            time when I was 22 years old and thought I wanted all of the
+            following things to happen before I turn 100.
           </p>
         </header>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-          <span style={{ fontWeight: 600, fontSize: "14px" }}>{done} of {total} done ({pct}%)</span>
-          <div style={{ height: "6px", width: "140px", borderRadius: "3px", background: "#eee" }}>
-            <div style={{ height: "6px", borderRadius: "3px", background: "#222", width: `${pct}%` }} />
+        <div className="panel progress-card">
+          <div className="progress-row">
+            <span className="progress-label">
+              {done} of {total} done
+            </span>
+            <span className="progress-pct">{pct}%</span>
+          </div>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${pct}%` }} />
           </div>
         </div>
 
-        <ul className="list-plain">
+        <ul className="goal-list">
           {items.map((item, idx) => (
-            <li key={idx} style={{ color: item.status === "done" ? "#5f5f5f" : "#222", textDecoration: item.status === "done" ? "line-through" : "none" }}>
-              {item.status === "done" ? "✓ " : "— "}{item.text}
+            <li
+              key={idx}
+              className={`goal ${item.status === "done" ? "done" : ""}`}
+              style={{ animationDelay: `${Math.min(idx * 18, 420)}ms` }}
+            >
+              <span className="goal-mark" aria-hidden="true">
+                {item.status === "done" ? "✓" : "○"}
+              </span>
+              <span className="goal-text">{item.text}</span>
             </li>
           ))}
         </ul>
@@ -38,5 +53,3 @@ export default function List100Page() {
     </main>
   );
 }
-
-

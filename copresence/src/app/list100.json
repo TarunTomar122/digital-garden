@@ -1,6 +1,6 @@
 {
   "list100": [
-    { "text": "Get married", "status": "done" },
+    { "text": "Get married", "status": "todo" },
     { "text": "Own a house", "status": "todo" },
     { "text": "Own a car", "status": "todo" },
     { "text": "Learn how to drive a car", "status": "todo" },
@@ -25,7 +25,7 @@
     { "text": "Celebrate Holi", "status": "todo" },
     { "text": "Plan and execute an epic proposal", "status": "done" },
     { "text": "Travel across Northeast India", "status": "todo" },
-    { "text": "Attend a house concert", "status": "done" },
+    { "text": "Attend a house concert", "status": "todo" },
     { "text": "Travel by bicycle for an entire week", "status": "todo" },
     { "text": "Write a nonfiction book", "status": "todo" },
     { "text": "Write a fiction book", "status": "todo" },
@@ -42,7 +42,7 @@
     { "text": "Build 10 electronics projects", "status": "todo" },
     { "text": "Cook for 50 people at once", "status": "todo" },
     { "text": "Donate 5 lakhs to someone", "status": "todo" },
-    { "text": "Take a trip with my siblings", "status": "done" },
+    { "text": "Take a trip with my siblings", "status": "todo" },
     { "text": "Learn origami", "status": "done" },
     { "text": "Meet my manager in person", "status": "done" },
     { "text": "Volunteer for a social cause", "status": "todo" },

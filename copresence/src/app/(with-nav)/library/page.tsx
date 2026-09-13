@@ -9,40 +9,104 @@ type Book = {
   link: string;
 };
 
+function Stars({ rating }: { rating?: string }) {
+  if (!rating) return null;
+  const match = rating.match(/(\d)\s*\/\s*(\d)/);
+  if (!match) return <span className="book-rating">{rating}</span>;
+  const score = Number(match[1]);
+  return (
+    <span className="book-rating" aria-label={`${score} out of 5`}>
+      {"★".repeat(score)}
+      {"☆".repeat(Math.max(0, 5 - score))}
+    </span>
+  );
+}
+
+function BookGrid({ books }: { books: Book[] }) {
+  return (
+    <ul className="card-grid">
+      {books.map((b, idx) => (
+        <li key={`${b.title}-${idx}`}>
+          <a
+            href={b.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card book-card"
+          >
+            <div className="book-row">
+              <img
+                className="book-cover"
+                src={b.img}
+                alt={b.title}
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="book-info">
+                <p className="book-title">{b.title}</p>
+                <p className="book-author">{b.author}</p>
+                <Stars rating={b.rating} />
+              </div>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function LibraryPage() {
   const books = (data.books as Book[]) || [];
+  const reading = books.filter((b) => b.status === "reading");
+  const read = books.filter((b) => b.status === "read");
+  const shelved = books.filter(
+    (b) => b.status !== "reading" && b.status !== "read"
+  );
+
+  const sections = [
+    {
+      title: "Currently reading",
+      books: reading,
+      blurb: "On the nightstand right now.",
+    },
+    {
+      title: "Read",
+      books: read,
+      blurb: "Books I've finished and what I thought of them.",
+    },
+    {
+      title: "Shelved",
+      books: shelved,
+      blurb: "Tried, gave up, or never quite finished.",
+    },
+  ].filter((s) => s.books.length > 0);
+
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <header>
-          <h1>Library</h1>
-          <p className="note">Books I&rsquo;m reading and have read lately.</p>
-          <p className="note">Total read: {books.filter((b) => b.status === "read").length}</p>
+        <header className="page-head">
+          <p className="page-kicker">Reading</p>
+          <h1>
+            Library <span className="page-count">({books.length})</span>
+          </h1>
+          <p className="note">
+            Books I&rsquo;m reading and have read lately.{" "}
+            {read.length} finished so far.
+          </p>
         </header>
 
-        <ul className="list-plain" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "20px" }}>
-          {books.map((b, idx) => (
-            <li key={`${b.title}-${idx}`} style={{ display: "flex", gap: "14px", marginBottom: 0 }}>
-              <a href={b.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${b.title} on Goodreads`}>
-                <img
-                  src={b.img}
-                  alt={b.title}
-                  loading="lazy"
-                  decoding="async"
-                  style={{ height: "112px", width: "80px", flexShrink: 0, objectFit: "cover", borderRadius: "4px", border: "1px solid #eee" }}
-                />
-              </a>
-              <div>
-                <p style={{ fontWeight: 600, lineHeight: 1.3 }}>{b.title}</p>
-                <p className="desc">{b.author}</p>
-                <p className="desc">{b.status}{b.rating && b.rating.trim().length > 0 ? ` · ${b.rating}` : ""}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {sections.map((section) => (
+          <section key={section.title}>
+            <div className="section-head">
+              <h2>
+                {section.title}
+                <span className="count">({section.books.length})</span>
+              </h2>
+              <p>{section.blurb}</p>
+            </div>
+            <BookGrid books={section.books} />
+          </section>
+        ))}
       </div>
     </main>
   );
 }
-
-

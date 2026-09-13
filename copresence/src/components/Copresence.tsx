@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import PartySocket from "partysocket";
 
 type Peer = {
   x: number;
@@ -29,12 +28,6 @@ const hashId = (id: string): number => {
     h |= 0;
   }
   return Math.abs(h);
-};
-
-// Pseudo-random based on seed for consistent shape per peer
-const seededRandom = (seed: number, index: number): number => {
-  const x = Math.sin((seed + index) * 12.9898) * 43758.5453;
-  return x - Math.floor(x);
 };
 
 // Draw a soft gaussian heat point (no visible boundary), tinted per-peer via hue
@@ -70,108 +63,124 @@ export default function Copresence() {
   React.useEffect(() => {
     if (!enabled || !ROOM_HOST) return;
 
-    const ws = new PartySocket({ host: ROOM_HOST, room: "global" });
-    const peers = new Map<string, Peer & { seed: number }>();
-    const myId = crypto.randomUUID();
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
 
-    const send = (data: any) => {
-      try { ws.readyState === 1 && ws.send(JSON.stringify(data)); } catch {}
-    };
+    (async () => {
+      // Load the websocket client only when copresence is actually on.
+      const { default: PartySocket } = await import("partysocket");
+      if (cancelled) return;
 
-    let lastSend = 0;
-    const onPointer = (e: PointerEvent) => {
-      const now = performance.now();
-      if (now - lastSend < 80) return;
-      lastSend = now;
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      send({ t: "cursor", id: myId, x, y });
-    };
+      const ws = new PartySocket({ host: ROOM_HOST, room: "global" });
+      const peers = new Map<string, Peer & { seed: number }>();
+      const myId = crypto.randomUUID();
 
-    const onTouch = (e: TouchEvent) => {
-      const now = performance.now();
-      if (now - lastSend < 80) return;
-      lastSend = now;
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        const x = touch.clientX / window.innerWidth;
-        const y = touch.clientY / window.innerHeight;
+      const send = (data: Record<string, unknown>) => {
+        try {
+          if (ws.readyState === 1) ws.send(JSON.stringify(data));
+        } catch {}
+      };
+
+      let lastSend = 0;
+      const onPointer = (e: PointerEvent) => {
+        const now = performance.now();
+        if (now - lastSend < 80) return;
+        lastSend = now;
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
         send({ t: "cursor", id: myId, x, y });
-      }
-    };
+      };
 
-    const onMessage = (ev: MessageEvent) => {
-      try {
-        const m = JSON.parse(ev.data as string);
-        if (m.t === "cursor" && m.id !== myId) {
-          if (!peers.has(m.id)) {
-            peers.set(m.id, { x: m.x, y: m.y, tx: m.x, ty: m.y, seed: hashId(m.id) });
-          } else {
-            const p = peers.get(m.id)!;
-            p.tx = m.x;
-            p.ty = m.y;
-          }
-        } else if (m.t === "leave") {
-          peers.delete(m.id);
+      const onTouch = (e: TouchEvent) => {
+        const now = performance.now();
+        if (now - lastSend < 80) return;
+        lastSend = now;
+        if (e.touches.length > 0) {
+          const touch = e.touches[0];
+          const x = touch.clientX / window.innerWidth;
+          const y = touch.clientY / window.innerHeight;
+          send({ t: "cursor", id: myId, x, y });
         }
-      } catch {}
-    };
+      };
 
-    ws.addEventListener("message", onMessage as any);
-    window.addEventListener("pointermove", onPointer, { passive: true });
-    window.addEventListener("touchmove", onTouch, { passive: true });
+      const onMessage = (ev: MessageEvent) => {
+        try {
+          const m = JSON.parse(ev.data as string);
+          if (m.t === "cursor" && m.id !== myId) {
+            if (!peers.has(m.id)) {
+              peers.set(m.id, { x: m.x, y: m.y, tx: m.x, ty: m.y, seed: hashId(m.id) });
+            } else {
+              const p = peers.get(m.id)!;
+              p.tx = m.x;
+              p.ty = m.y;
+            }
+          } else if (m.t === "leave") {
+            peers.delete(m.id);
+          }
+        } catch {}
+      };
 
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+      ws.addEventListener("message", onMessage as EventListener);
+      window.addEventListener("pointermove", onPointer, { passive: true });
+      window.addEventListener("touchmove", onTouch, { passive: true });
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
 
-    // Apply filter blur to the canvas
-    canvas.style.filter = "blur(15px)";
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
 
-    let raf = 0;
-    const tick = () => {
-      // Even slower easing: 0.02 instead of 0.05
-      for (const p of peers.values()) {
-        p.x += (p.tx - p.x) * 0.02;
-        p.y += (p.ty - p.y) * 0.02;
-      }
+      // Apply filter blur to the canvas
+      canvas.style.filter = "blur(15px)";
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.globalCompositeOperation = "screen";
+      let raf = 0;
+      const tick = () => {
+        // Even slower easing: 0.02 instead of 0.05
+        for (const p of peers.values()) {
+          p.x += (p.tx - p.x) * 0.02;
+          p.y += (p.ty - p.y) * 0.02;
+        }
 
-      const heatRadius = 240;
-      for (const p of peers.values()) {
-        const px = p.x * canvas.width;
-        const py = p.y * canvas.height;
-        const hue = p.seed % 360;
-        drawHeatPoint(ctx, px, py, heatRadius, 0.32, hue);
-      }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = "screen";
 
+        const heatRadius = 240;
+        for (const p of peers.values()) {
+          const px = p.x * canvas.width;
+          const py = p.y * canvas.height;
+          const hue = p.seed % 360;
+          drawHeatPoint(ctx, px, py, heatRadius, 0.32, hue);
+        }
+
+        raf = requestAnimationFrame(tick);
+      };
       raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
+
+      cleanup = () => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener("pointermove", onPointer);
+        window.removeEventListener("touchmove", onTouch);
+        window.removeEventListener("resize", resizeCanvas);
+        ws.removeEventListener("message", onMessage as EventListener);
+        try {
+          ws.close();
+        } catch {}
+      };
+    })();
 
     return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("pointermove", onPointer);
-      window.removeEventListener("touchmove", onTouch);
-      window.removeEventListener("resize", resizeCanvas);
-      ws.removeEventListener("message", onMessage);
-      try { ws.close(); } catch {}
+      cancelled = true;
+      cleanup?.();
     };
   }, [enabled]);
 
   if (!ROOM_HOST) return null;
   return <canvas ref={canvasRef} aria-hidden className="absolute inset-0 w-full h-full" />;
 }
-
-

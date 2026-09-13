@@ -7,15 +7,19 @@ const GARDEN_DESIGN = `
 Native page feel — not a separate template.
 
 Colors:
-- background: #fdf5e2
-- foreground: #000000
-- muted: #6b7280
+- paper: #fdf5e2
+- card: #ffffff
+- ink: #1c1917
+- ink-soft: #57534e
+- muted: #78716c
+- line: #e7decb
+- star: #eab308
 
 Typography:
-- Headings: Canela, Georgia, serif
-- Body: Inter, ui-sans-serif, system-ui, sans-serif
+- Everything: Domine, Georgia, "Times New Roman", serif (headings weight 700, tight letter-spacing)
+- Body: 15px / 1.65, headings generous margins
 
-Layout: max-width ~48rem, generous vertical rhythm, subtle borders at ~10% foreground opacity.
+Layout: max-width ~42rem, generous vertical rhythm, hairline borders in #e7decb, cards = #fff with 10px radius and a 1px #e7decb border. Clean, serif, paper-like.
 `;
 
 const GEIST_SUMMARY = `

@@ -59,6 +59,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function formatDate(dateString?: string): string {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 export default async function WritingPage({ params }: PageProps) {
   const { slug } = await params;
   const doc = getWritingBySlug(slug);
@@ -67,6 +78,9 @@ export default async function WritingPage({ params }: PageProps) {
   const index = writings.findIndex((writing) => writing.slug === slug);
   const previous = writings[index + 1];
   const next = writings[index - 1];
+
+  const words = doc.content.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200));
 
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -81,39 +95,64 @@ export default async function WritingPage({ params }: PageProps) {
   return (
     <main className="raw-doc">
       <div className="raw-doc-inner">
-        <article className="prose prose-neutral max-w-none
-          prose-headings:text-[#222] prose-strong:text-[#222] prose-em:text-[#222]
-          prose-p:text-[#333] prose-li:text-[#333] prose-a:text-[#1a5fb4] prose-th:text-[#222] prose-td:text-[#333]
-          prose-blockquote:text-[#555] prose-blockquote:border-[#ccc] prose-hr:border-[#eee]
-          prose-pre:bg-[#f5f5f5] prose-pre:text-[#222] prose-pre:rounded-lg prose-pre:p-4 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-[#eee] prose-pre:overflow-x-auto prose-pre:font-mono">
+        <article>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-          <h1>{doc.meta.title}</h1>
-          {doc.meta.description ? (
-            <p className="note">{doc.meta.description}</p>
-          ) : null}
-          <div className="not-prose mt-2">
-            <LikeButton id={doc.meta.slug} type="writings" />
+
+          <header className="article-head">
+            <p className="page-kicker">Writing</p>
+            <h1>{doc.meta.title}</h1>
+            {doc.meta.description ? (
+              <p className="article-lede">{doc.meta.description}</p>
+            ) : null}
+            <div className="article-meta">
+              <span className="desc">
+                {formatDate(doc.meta.date)}
+                <span className="sep">·</span>
+                {minutes} min read
+              </span>
+              <LikeButton id={doc.meta.slug} type="writings" />
+            </div>
+          </header>
+
+          <div className="prose-garden">
+            <MDXRemote
+              source={doc.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
+                },
+              }}
+              components={{
+                img: MarkdownImage,
+                InstagramEmbed,
+              }}
+            />
           </div>
-          <MDXRemote
-            source={doc.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [[rehypePrettyCode, { theme: "github-light", keepBackground: false }]],
-              },
-            }}
-            components={{
-              img: MarkdownImage,
-              InstagramEmbed,
-            }}
-          />
         </article>
+
         <footer aria-label="More writings">
-          <div className="prev-next">
-            {previous ? <Link href={`/writings/${previous.slug}`}>← {previous.title}</Link> : <span />}
-            {next ? <Link href={`/writings/${next.slug}`}>{next.title} →</Link> : <span />}
+          <div className={`post-nav ${!previous || !next ? "post-nav-single" : ""}`}>
+            {previous ? (
+              <Link href={`/writings/${previous.slug}`} className="card">
+                <p className="post-nav-label">← Previous</p>
+                <p className="post-nav-title">{previous.title}</p>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link href={`/writings/${next.slug}`} className="card post-nav-next">
+                <p className="post-nav-label">Next →</p>
+                <p className="post-nav-title">{next.title}</p>
+              </Link>
+            ) : (
+              <span />
+            )}
           </div>
-          <Link href="/writings" className="all-link">All writings</Link>
+          <Link href="/writings" className="all-link">
+            All writings
+          </Link>
         </footer>
       </div>
     </main>
