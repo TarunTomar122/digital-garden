@@ -32,7 +32,10 @@ export default function ProjectsIndex() {
           <h1>
             Projects <span className="page-count">({projects.length})</span>
           </h1>
-          <p className="note">Notes and build logs from ongoing/finished projects.</p>
+          <p className="note">
+            Notes and build logs from ongoing/finished projects. Written with
+            AI, so yes — it smells a little like slop.
+          </p>
         </header>
 
         <ProjectList projects={projects} />

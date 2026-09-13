@@ -127,7 +127,7 @@ export default async function Home() {
             <h2>
               Selected writing <span className="count">({writings.length})</span>
             </h2>
-            <p>Essays, notes, and things I learn the hard way.</p>
+            <p>Essays, notes, and things I learn the hard way — written by me.</p>
           </div>
           <ul className="cards">
             {recentWritings.map((w) => (
@@ -156,7 +156,7 @@ export default async function Home() {
             <h2>
               Projects <span className="count">({projects.length})</span>
             </h2>
-            <p>Experiments and builds, with write-ups.</p>
+            <p>Experiments and builds. Written with AI, so it might smell like slop.</p>
           </div>
           <ul className="cards">
             {recentProjects.map((p) => (

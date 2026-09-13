@@ -66,8 +66,8 @@ export default function WritingsIndex() {
             Writings <span className="page-count">({writings.length})</span>
           </h1>
           <p className="note">
-            Essays, notes, and things I learn the hard way. Sorted with the
-            most recent stuff first.
+            Essays, notes, and things I learn the hard way — every word
+            written by me. Sorted with the most recent stuff first.
           </p>
         </header>
 
