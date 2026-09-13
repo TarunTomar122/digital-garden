@@ -43,6 +43,9 @@ yarn-error.log*
 .claude/
 .opencode/
 
+# embedding model cache
+taratai/.cache/
+
 
 # vercel
 .vercel

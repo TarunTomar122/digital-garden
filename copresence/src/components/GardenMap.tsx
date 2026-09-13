@@ -154,7 +154,7 @@ export default function GardenMap() {
                 label = "List 100";
             } else if (domain === "experience") {
                 // Experience is aggregated
-                path = "/experience";
+                path = "/resume";
                 label = "Experience";
                 description = "Places I've worked";
             }

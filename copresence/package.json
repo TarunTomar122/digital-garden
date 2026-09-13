@@ -6,7 +6,8 @@
     "dev": "next dev --webpack --port 3001",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "embeddings": "node taratai/create_embeddings.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^2.0.53",
@@ -18,6 +19,7 @@
     "d3": "^7.9.0",
     "firebase-admin": "^13.5.0",
     "groq-sdk": "^0.33.0",
+    "marked": "^18.0.13",
     "next": "16.0.7",
     "partysocket": "^1.1.6",
     "posthog-js": "^1.373.5",

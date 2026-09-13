@@ -53,7 +53,7 @@ const eggs = [
   },
   {
     emoji: "🤖",
-    title: "Tarat&apos;s AI",
+    title: "Tarat's AI",
     body: (
       <>
         <p className="note">

@@ -1361,6 +1361,18 @@ iframe.resume-iframe {
   padding-left: 0.2em;
 }
 
+.prose-garden li > p {
+  margin: 0.35em 0;
+}
+
+.prose-garden li > p:first-child {
+  margin-top: 0.2em;
+}
+
+.prose-garden li > p:last-child {
+  margin-bottom: 0.2em;
+}
+
 .prose-garden li::marker {
   color: var(--muted);
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { marked } from "marked";
 
 type EmbeddingsData = {
   model: string;
@@ -14,7 +15,14 @@ type EmbeddingsData = {
 
 type SearchResult = { index: number; score: number };
 
-type Domain = "projects" | "writings" | "books" | "list100" | "experience";
+type Domain = "projects" | "writings" | "books" | "list100" | "experience" | "site";
+
+type DomainData = {
+  embs: Float32Array[];
+  norms: Float32Array;
+  texts: string[];
+  metadata: Record<string, unknown>[];
+};
 
 export default function TaratAIPage() {
   const [embeddings, setEmbeddings] = useState<Float32Array[] | null>(null);
@@ -33,6 +41,7 @@ export default function TaratAIPage() {
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const latestQuestionRef = useRef<HTMLDivElement>(null);
+  const siteDataRef = useRef<DomainData | null>(null);
 
   type FeatureExtractor = (
     q: string,
@@ -40,8 +49,8 @@ export default function TaratAIPage() {
   ) => Promise<{ data: Float32Array } | Array<{ data: Float32Array }>>;
   const extractorRef = useRef<FeatureExtractor | null>(null);
 
-  const loadEmbeddingsFor = useMemo(() => {
-    return async (domain: Domain) => {
+  const fetchDomainData = useMemo(() => {
+    return async (domain: Domain): Promise<DomainData> => {
       const res = await fetch(`/embeddings-${domain}.json`, { cache: "no-store" });
       const data: EmbeddingsData = await res.json();
 
@@ -53,15 +62,28 @@ export default function TaratAIPage() {
         norms[i] = Math.sqrt(sum) || 1;
       }
 
-      setEmbeddings(embs);
-      setEmbeddingsNorm(norms);
-      setTexts(data.texts);
-      setMetadata(data.metadata);
-      setLoadedDomain((data.domain as Domain) ?? domain);
-
-      return { embs, norms, texts: data.texts, metadata: data.metadata } as const;
+      return {
+        embs,
+        norms,
+        texts: data.texts,
+        metadata: data.metadata,
+      };
     };
   }, []);
+
+  const loadEmbeddingsFor = useMemo(() => {
+    return async (domain: Domain) => {
+      const data = await fetchDomainData(domain);
+
+      setEmbeddings(data.embs);
+      setEmbeddingsNorm(data.norms);
+      setTexts(data.texts);
+      setMetadata(data.metadata);
+      setLoadedDomain(domain);
+
+      return data;
+    };
+  }, [fetchDomainData]);
 
   const loadModel = useMemo(() => {
     return async () => {
@@ -197,16 +219,47 @@ export default function TaratAIPage() {
         });
       }, 0);
       const d: Domain = classifyDomain(userMsg);
-      let E = embeddings; let N = embeddingsNorm;
-      if (loadedDomain !== d || !E || !N) { const loaded = await loadEmbeddingsFor(d); E = loaded.embs; N = loaded.norms; }
-      if (!E || !N) throw new Error("Embeddings not loaded yet");
-      const qvec = await computeQueryEmbedding(userMsg);
-      const top = cosineTopKWith(E, N, qvec, 5);
 
-      const k = Math.min(3, top.length);
-      const currentTexts = (loadedDomain === d ? texts : (await loadEmbeddingsFor(d)).texts);
-      const currentMeta = (loadedDomain === d ? metadata : (await loadEmbeddingsFor(d)).metadata);
-      const contexts = Array.from({ length: k }).map((_, i) => ({ text: currentTexts[top[i].index], meta: currentMeta[top[i].index] }));
+      // Load the classified domain (reuse what's already in memory).
+      let primary: DomainData;
+      if (loadedDomain === d && embeddings && embeddingsNorm) {
+        primary = {
+          embs: embeddings,
+          norms: embeddingsNorm,
+          texts,
+          metadata,
+        };
+      } else {
+        primary = await loadEmbeddingsFor(d);
+      }
+
+      const qvec = await computeQueryEmbedding(userMsg);
+
+      // Always ground answers with the site summary (llms.txt), loaded once.
+      if (!siteDataRef.current) {
+        try {
+          siteDataRef.current = await fetchDomainData("site");
+        } catch {
+          siteDataRef.current = null;
+        }
+      }
+      const site = siteDataRef.current;
+      const siteTop = site
+        ? cosineTopKWith(site.embs, site.norms, qvec, 2)
+        : [];
+
+      const top = cosineTopKWith(primary.embs, primary.norms, qvec, 3);
+
+      const contexts = [
+        ...siteTop.map((r) => ({
+          text: site!.texts[r.index],
+          meta: site!.metadata[r.index],
+        })),
+        ...top.map((r) => ({
+          text: primary.texts[r.index],
+          meta: primary.metadata[r.index],
+        })),
+      ];
 
       const res = await fetch("/api/tarat-ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: userMsg, contexts }) });
       const text = await res.text();
@@ -215,7 +268,7 @@ export default function TaratAIPage() {
       const msg = e instanceof Error ? e.message : "Search failed";
       setError(msg);
     } finally { setLoading(false); }
-  }, [input, embeddings, embeddingsNorm, loadedDomain, texts, metadata, loadEmbeddingsFor, computeQueryEmbedding, scrollToLatestQuestion]);
+  }, [input, embeddings, embeddingsNorm, loadedDomain, texts, metadata, loadEmbeddingsFor, fetchDomainData, computeQueryEmbedding, scrollToLatestQuestion]);
 
   // (Removed URL bootstrap: no longer auto-submitting from query params)
 
@@ -288,7 +341,7 @@ export default function TaratAIPage() {
               <main key={i} className="chat-turn">
                 <div
                   className="prose-garden chat-answer"
-                  dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml(m.content) }}
+                  dangerouslySetInnerHTML={{ __html: renderAnswer(m.content) }}
                 />
               </main>
             );
@@ -336,55 +389,15 @@ export default function TaratAIPage() {
   );
 }
 
-function simpleMarkdownToHtml(text: string): string {
-  let html = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  
-  // Headers
-  html = html.replace(/^####\s?(.*)$/gm, '<h4>$1</h4>');
-  html = html.replace(/^###\s?(.*)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^##\s?(.*)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^#\s?(.*)$/gm, '<h1>$1</h1>');
-  
-  // Code blocks (triple backticks)
-  html = html.replace(/```[\s\S]*?```/g, (match) => {
-    const code = match.replace(/```\w*\n?/g, '').trim();
-    return `<pre><code>${code}</code></pre>`;
-  });
-  
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-  
-  // Bold and italic
-  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  
-  // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-  
-  // Lists
-  html = html.replace(/^\s*[-\u2022*]\s+(.*)$/gm, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>\n?)+/g, (m) => `<ul>${m}</ul>`);
-  
-  // Numbered lists
-  html = html.replace(/^\s*\d+\.\s+(.*)$/gm, '<li>$1</li>');
-  
-  // Blockquotes
-  html = html.replace(/^&gt;\s?(.*)$/gm, '<blockquote>$1</blockquote>');
-  
-  // Horizontal rules
-  html = html.replace(/^---$/gm, '<hr>');
-  
-  // Line breaks (double space at end of line or double newline)
-  html = html.replace(/\n\n/g, '</p><p>');
-  
-  // Wrap remaining text in paragraphs
-  html = html.replace(/^(?!<h\d|<ul|<ol|<li|<\/li|<\/ul|<\/ol|<pre|<\/pre|<blockquote|<hr)(.+)$/gm, '<p>$1</p>');
-  
-  // Clean up multiple consecutive paragraph tags
-  html = html.replace(/<\/p>\s*<p>/g, '</p><p>');
-  
-  return html;
+function renderAnswer(markdown: string): string {
+  // Escape raw HTML so model output can't inject markup, then parse as GFM.
+  // (Only `<` and `&` need escaping — `>` must stay for blockquotes.)
+  const escaped = markdown.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  return marked.parse(escaped, {
+    gfm: true,
+    breaks: true,
+    async: false,
+  }) as string;
 }
 
 
