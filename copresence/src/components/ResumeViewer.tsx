@@ -47,17 +47,43 @@ export default function ResumeViewer({ html }: { html: string }) {
     };
   }, [resizeIframe]);
 
+  const handleDownloadPdf = useCallback(() => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+
+    printWindow.document.open();
+    printWindow.document.write(
+      `<!doctype html><html><head><meta charset="utf-8">` +
+        `<title>Tarun Tomar — Resume</title>` +
+        `<style>@page { margin: 16mm; } html, body { background: #fff; }</style>` +
+        `</head><body>${html}</body></html>`
+    );
+    printWindow.document.close();
+    printWindow.focus();
+
+    printWindow.onafterprint = () => printWindow.close();
+    window.setTimeout(() => printWindow.print(), 350);
+  }, [html]);
+
   return (
-    <div className="panel resume-panel">
-      <iframe
-        ref={iframeRef}
-        title="Resume"
-        srcDoc={wrapResumeHtml(html)}
-        className="resume-iframe w-full border-0 bg-transparent overflow-hidden p-0 m-0"
-        sandbox="allow-same-origin"
-        scrolling="no"
-        onLoad={resizeIframe}
-      />
+    <div>
+      <div className="resume-toolbar">
+        <button type="button" className="link-pill" onClick={handleDownloadPdf}>
+          Download PDF
+        </button>
+      </div>
+
+      <div className="panel resume-panel">
+        <iframe
+          ref={iframeRef}
+          title="Resume"
+          srcDoc={wrapResumeHtml(html)}
+          className="resume-iframe w-full border-0 bg-transparent overflow-hidden p-0 m-0"
+          sandbox="allow-same-origin"
+          scrolling="no"
+          onLoad={resizeIframe}
+        />
+      </div>
     </div>
   );
 }

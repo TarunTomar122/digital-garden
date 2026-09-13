@@ -12,7 +12,7 @@ const sharedStyles = `
   li::marker{color:#78716c}
   .muted{color:#57534e}
   .label{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#78716c;margin-bottom:14px}
-  .resume{max-width:42rem;margin:0 auto;padding:0 4px 32px}
+  .resume{max-width:42rem;margin:0 auto;padding:40px 4px 44px}
   .contact{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
   .section{padding:26px 0;border-top:1px solid #e7decb}
   .section:first-of-type{border-top:none}
