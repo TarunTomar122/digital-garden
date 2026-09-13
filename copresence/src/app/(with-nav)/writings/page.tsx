@@ -79,7 +79,7 @@ export default function WritingsIndex() {
                 <span className="count">({byYear[year].length})</span>
               </h2>
             </div>
-            <ul className="card-grid">
+            <ul className="cards">
               {byYear[year].map((w) => (
                 <li key={w.slug}>
                   <Link href={`/writings/${w.slug}`} className="card">
@@ -87,9 +87,7 @@ export default function WritingsIndex() {
                       <h3 className="card-title card-title-sm">{w.title}</h3>
                       <p className="card-meta">{formatShortDate(w.date)}</p>
                       {w.description ? (
-                        <p className="card-desc card-desc-clamp">
-                          {w.description}
-                        </p>
+                        <p className="card-desc">{w.description}</p>
                       ) : null}
                     </div>
                   </Link>

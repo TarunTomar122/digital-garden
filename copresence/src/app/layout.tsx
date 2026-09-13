@@ -68,7 +68,7 @@ export default async function RootLayout({
       <body
         className={`${domine.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-[60]">
           <Copresence />
         </div>
         {children}

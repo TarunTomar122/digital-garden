@@ -403,13 +403,6 @@ iframe.resume-iframe {
   line-height: 1.55;
 }
 
-.card-desc-clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .card-thumb {
   flex: 0 0 auto;
   width: 92px;
