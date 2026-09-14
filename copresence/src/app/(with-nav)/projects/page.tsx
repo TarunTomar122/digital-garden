@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Notes and build logs from ongoing/finished projects.",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Projects | Tarat's Garden",
     description: "Notes and build logs from ongoing/finished projects.",
   },

@@ -7,7 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
 import InstagramEmbed from "@/components/InstagramEmbed";
 import MarkdownImage from "@/components/MarkdownImage";
-import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 import Link from "next/link";
 
 // Fully static - only regenerates on deploy (blogs don't change dynamically)
@@ -47,14 +47,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalPath,
       siteName: SITE_NAME,
-      images: [{ url: DEFAULT_OG_IMAGE_PATH }],
       publishedTime,
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
-      images: [DEFAULT_OG_IMAGE_PATH],
     },
   };
 }

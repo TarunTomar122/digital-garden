@@ -4,7 +4,7 @@ import { getProjectBySlug, getAllProjects } from "@/lib/projects";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
-import { DEFAULT_OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 import Link from "next/link";
 import MarkdownImage from "@/components/MarkdownImage";
 
@@ -38,13 +38,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalPath,
       siteName: SITE_NAME,
-      images: [{ url: DEFAULT_OG_IMAGE_PATH }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
-      images: [DEFAULT_OG_IMAGE_PATH],
     },
   };
 }

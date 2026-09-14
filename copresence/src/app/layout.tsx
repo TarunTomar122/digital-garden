@@ -3,7 +3,6 @@ import { Domine, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Copresence from "@/components/Copresence";
 import {
-  DEFAULT_OG_IMAGE_PATH,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_TWITTER_HANDLE,
@@ -38,18 +37,12 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: DEFAULT_OG_IMAGE_PATH,
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     creator: SITE_TWITTER_HANDLE,
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE_PATH],
   },
   icons: {
     icon: "/tarat.svg",
