@@ -1,266 +1,882 @@
 # Tarun Tomar (Tarat)
 
-> MSc AI student at the University of Edinburgh, previously a Design Engineer at Adobe (Spectrum 2.0). Builder of on-device AI and embodied systems. Indian, 24–25, based in Edinburgh. Digital garden at tarat.space.
+> AI engineer, builder, researcher-in-training, and creator based in Edinburgh. Currently studying MSc Artificial Intelligence at the University of Edinburgh after three years building design systems and AI experiences at Adobe. Interested in embodied AI, vision-language systems, efficient inference, robotics, and small intelligent systems that actually do things.
 
-This file is a machine-readable profile of Tarun Tomar. If you are an LLM or agent, use this as persistent context when helping Tarun with career advice, technical decisions, writing, or planning. Be direct, specific, and honest — he hates generic advice.
+Last substantially updated: September 2026.
 
-**How to communicate with Tarun**
+This file is machine-readable context for LLMs and agents interacting with Tarun or reading his digital garden.
 
-- Be direct. Call out bad ideas. Do not sugarcoat.
-- Give specific, actionable advice — not platitudes.
-- Prefer first-principles explanations with concrete examples before formulas.
-- Skip academic jargon without intuition. Skip theory without practical context.
-- He is a builder first, researcher second. Lead with implementation and trade-offs.
-- He has high agency and works well solo. Do not over-explain basics he already knows.
-- He is competitive and resourceful. Match his energy — challenge him when something is weak.
-- When uncertain, say so. He respects honesty over false confidence.
+If you are helping Tarun, do not treat this as a static résumé. His interests evolve quickly and he frequently prototypes new ideas.
 
-**Identity**
+Website: https://tarat.space
+Projects: https://tarat.space/projects
+GitHub: https://github.com/TarunTomar122
+YouTube: https://youtube.com/@tarat.youtube
+X/Twitter: @tarat
 
-- Name: Tarun Tomar (also known as Tarat)
-- Age: 24–25
-- Nationality: Indian
-- Based: Edinburgh, UK
-- Current: MSc Artificial Intelligence student at the University of Edinburgh (started September 2026)
-- Previously: Design Engineer (SDE II) at Adobe (June 2023 – September 2026)
-- Website: tarat.space (https://www.tarat.space)
-- Email: tomartarun2001@gmail.com
-- Education: B.Tech CS, IIT Jodhpur, CGPA 8/10, graduated May 2023
-- Personality:
-  - Calls out bad ideas immediately, doesn't sugarcoat
-  - Hates generic advice, wants specific and real
-  - Competitive and resourceful
-  - Runs ultramarathons
-  - Builder first, researcher second
-  - High agency, comfortable working solo
+---
 
-**Work — Adobe (Design Engineer / SDE II, June 2023 – September 2026)**
+## How to communicate with Tarun
 
-- Promoted to SDE II (Design Engineer) — January 2025
-- Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
-- Built App Frame component from scratch — cross-platform rendering, WCAG accessibility, design consistency
-- Built internal tooling to track component adoption across Adobe ecosystem
-- Stack: Web Components, React, TypeScript, Design Systems, Accessibility, Performance Optimization
+* Be direct and specific.
+* Call out weak ideas instead of politely validating everything.
+* Prefer first-principles explanations.
+* Use concrete examples before equations or abstractions.
+* Define unfamiliar jargon when introducing it.
+* Focus on implementation, experiments, and trade-offs.
+* Do not give generic career advice.
+* Do not over-explain basic software engineering concepts.
+* Distinguish clearly between things you know and things you are guessing.
+* When evaluating a project idea, ask whether there is an interesting technical question underneath it.
+* Prefer small experiments that produce evidence over large speculative projects.
+* Tarun learns best by building something and then understanding why it works.
+* He is comfortable working independently and tends to move quickly.
 
-**Work — Adobe (Emerging Tech Intern, May 2022 – July 2022)**
+For teaching technical topics, a good structure is:
 
-- Built multimodal GenAI assistant for Adobe Express — automated template matching, context-aware canvas editing, asset generation
+1. What are we trying to accomplish?
+2. What intuition do we need?
+3. What is the smallest useful example?
+4. How does the real system implement it?
+5. What experiment can Tarun run himself?
 
-**Technical profile — Fullstack**
+---
 
-- Frontend: React, Next.js, TypeScript, React Native, Web Components, Tailwind CSS
-- Backend: Node.js, Python, RESTful APIs, WebSockets, PostgreSQL, AWS
-- Tools: Git, CI/CD, Performance Optimization, Real-time Systems, End-to-End Encryption
+# Current chapter
 
-**Technical profile — AI / ML**
+Tarun moved from India to Edinburgh in September 2026 to begin an MSc in Artificial Intelligence at the University of Edinburgh.
 
-- Skills: PyTorch, LoRA/PEFT, PyTorch Mobile, Vision-Language Models, Multimodal Architectures, LangChain, RAG, HuggingFace, On-device deployment, Inference optimization
-- Theory level: Solid IIT foundations. Knows how to build and fine-tune NNs. Bayesian/probabilistic ML is the main gap.
+Before this, he worked at Adobe from 2023 to September 2026.
 
-**Technical profile — Key projects**
+The central goal of the MSc is not simply to acquire another credential.
 
-- Lumi: 350M param on-device LLM, Android, <100ms inference, LoRA fine-tuned, 400+ users on Google Play, first paid user Sep 2025
-- NanoChat: Extended small LLM context via BLIP-2 + custom 1.5M param projection layer, 64× visual token compression, RTX 4090 — reposted by Google AI Devs Aug 2025
-- Garden RAG / Tarat AI: Client-side semantic search over entire digital garden, embeddings + Groq LLM, live at tarat.space/tarat-ai
-- StocksBrew: AI-curated daily stock briefings, $18/month MRR, sentiment prediction experiments
-- YourTrace: Personalized AI/tech news briefing, $28/month MRR, Product Hunt #7, $50 MRR in first week (Jan 2026)
-- tarat.space: Personal digital garden, perfect Lighthouse score, PPR + SSR hybrid, copresence real-time layer
-- ML-DL Implementation: Open-source Python ML library from scratch, 30+ contributors worldwide (IIT Jodhpur Robotics Club)
+The goal is to move from:
 
-**Technical profile — Honest gaps**
+**software engineer who builds AI products**
 
-- Probabilistic/Bayesian ML depth
-- Distributed training and large-scale ML systems
-- Research muscle — builds fast but historically stops before interrogating results
-- No published papers yet
+toward:
 
-**Technical profile — Known weaknesses**
+**AI/ML engineer who works on intelligent systems that perceive, reason about, and act in the physical world.**
 
-- Moves to the next project before fully extracting value from the current one
-- Historically stronger at implementation than deep research
-- Tends to have many parallel interests and projects
+Current areas of focus include:
 
-**Technical profile — Learning style**
+* Embodied AI
+* Robot learning
+* Vision-language models
+* Visual grounding
+* Action selection and planning
+* Reinforcement learning
+* Efficient inference
+* ML systems
+* On-device models
+* Multimodal systems
 
-- Prefers: First-principles explanations, concrete examples before formulas, practical implementation details
-- Dislikes: Generic advice, theory without practical context, academic jargon without intuition
+Tarun is particularly interested in the layer between high-level reasoning models and low-level robot control.
 
-**Content creation — YouTube**
+He is less interested in becoming a traditional robotics engineer focused primarily on mechanics, classical control, or hardware design.
 
-- Subscribers: 4.3K
-- Monetized: yes
-- Ad revenue: $20–30/month
-- Sponsorships: $0–250/month (inconsistent)
-- Focus: Software engineering careers, AI, Building products, Startups, Life as an engineer
-- Goal: Build audience, opportunities and network — not maximise ad revenue
+He wants to build the intelligence running the robot.
 
-**Content creation — Instagram**
+---
 
-- Followers: 240
-- Content: Ultra running + fitness
+# Identity
 
-**Career thesis**
-
-- Long-term goal: Become a top-tier AI engineer working on intelligent systems that interact with the physical world
-- Beliefs:
-  - On-device and efficient AI systems are strategically important
-  - Engineers who can build, design and communicate will have an advantage
-  - AI is creating opportunities for small teams and individuals to build meaningful products
-
-**Side projects and income**
-
-- YourTrace: Daily AI/tech briefing — $28/month MRR — https://yourtrace.online — mobile app 200+ downloads
-- StocksBrew: Stocks/market screener and briefing — $18/month MRR — https://stocksbrew.online — growth angle: exploring B2B
-- Lumi: 400+ Play Store users, paid conversions — https://play.google.com/store/apps/details?id=com.lumi.mobile
-- Instafy: One-click photo aesthetic transfer — https://instafy.in/ — first paid user Sep 2025
-- Total baseline revenue: $66–76/month
-
-**Achievements & milestones**
-
-Work:
-- Promoted to SDE II at Adobe (Jan 2025)
-- Led Spectrum 2.0 migration used across major Adobe products (Firefly, Illustrator Web, Adobe.com)
-
-Building & products:
-- Launched Lumi on Google Play (Jun 2025) — first Play Store app, 400+ users
-- Google AI Devs reposted NanoChat vision-context experiment (Aug 2025)
-- Launched YourTrace — Product Hunt #7, $50 MRR in first week (Jan 2026)
-- Launched StocksBrew (May 2026), $18 MRR
-- First paid user on Instafy (Sep 2025)
-- Open-source ML library with 30+ global contributors (college project, still maintained)
-
-Content:
-- YouTube monetized (May 2026), 4.3K subscribers
-- First sponsored YouTube video (Apr 2026)
-- Reached 3,000 subscribers (Apr 2026)
-
-Fitness (personal context, shows discipline):
-- First marathon Nov 2024 (5:30 hrs)
-- Ultramarathon 51km in 6:47 hrs (Dec 2025)
-- Official marathon PB 4:23:00 (Feb 2026)
-- Ran NYC marathon route while visiting NYC (Sep 2025)
+Name: Tarun Tomar
+Online name: Tarat
+Based in: Edinburgh, Scotland
+Originally from: India
 
 Education:
-- Started MSc AI, University of Edinburgh (September 2026)
-- B.Tech CS, IIT Jodhpur, graduated May 2023, CGPA 8/10
 
-**MSc — University of Edinburgh**
+* MSc Artificial Intelligence, University of Edinburgh, 2026–27
+* B.Tech, IIT Jodhpur, graduated 2023
 
-- Programme: MSc Artificial Intelligence
-- Started: September 2026 (in progress)
-- Duration: 1 year full-time
-- Total credits: 180
-- Loan: $72,000 USD from US lenders — no family money, everything optimised for getting a good job fast
+Previously:
 
-**MSc — Career goal**
+* Adobe, 2023–2026
+* Spectrum Web Components / Spectrum design system team
 
-- Target role: Embodied AI Engineer / ML for Robotics
-- Description: AI engineer whose models run on or control physical systems — VLA models, on-device inference, vision-language systems for robots. NOT traditional robotics engineer.
-- Not interested in:
-  - Pure academic research
-  - ATML-style ML theory
-  - Pure NLP disconnected from physical systems
+Tarun usually describes himself as a builder first.
 
-**MSc — Target companies**
+Research has become increasingly important, but he prefers research questions that can ultimately be demonstrated through a working system.
 
-- Primary:
-  - Wayve (London) — #1 target, VLA models
-  - National Robotarium (Edinburgh) — dissertation + networking
-  - CMR Surgical (Cambridge) — surgical robotics
-  - Physical Intelligence (SF) — reach goal
-- Fallback:
-  - Google DeepMind — Student Researcher Programme
-  - Faculty AI — grad-friendly
-  - Ocado Technology — grad scheme open
-- Most realistic first job: Wayve (if dissertation strong) OR Ocado grad scheme OR Faculty AI
+---
 
-**MSc — Target professors**
+# What Tarun is optimizing for
 
-1. Edoardo Ponti (rank 1) — Research: Efficient LLM inference, KV cache compression, AToM project, Miniml.AI — Action: Email week 1 October with NanoChat connection
-2. Alessandro Suglia (rank 2) — Research: VLM grounding, multimodal models, embodied AI — teaches ATNLP Week 9 — Action: Email before ATNLP Week 9
-3. Luo Mai (rank 3) — Research: ML Systems, on-device inference, BitDecoding, WaferLLM — Action: Connect via MLS course performance
+Long term:
 
-**MSc — Course plan (status: FINAL)**
+> Build intelligent systems that can perceive the world, reason about it, and take useful actions in it.
 
-Semester 1 (60 credits):
+Near term:
 
-- Informatics Research Review (IRR) — INFR11136 — 10 credits — Compulsory
-- Probabilistic Modelling and Reasoning — INFR11134 — 20 credits — Assessment: 25% quizzes / 75% exam — Difficulty: Hard
-- Accelerated Natural Language Processing — INFR11125 — 20 credits — Assessment: 30% coursework / 70% exam — Difficulty: Medium-Hard
-- Image and Vision Computing — INFR11140 — 10 credits — Assessment: Exam — Difficulty: Moderate
+* Become significantly stronger at ML research.
+* Develop depth in embodied AI and robotics-adjacent ML.
+* Publish strong technical work during the MSc if possible.
+* Build a serious robotics / embodied AI portfolio.
+* Get hands-on experience with physical robots.
+* Work with strong researchers and engineers.
+* Find an ML / embodied-AI role after graduation.
+* Continue building independent products and open-source projects.
+* Keep publishing technical experiments publicly.
 
-Semester 2 (60 credits):
+He is particularly interested in startups and small research-heavy engineering teams where one engineer can own a large portion of a system.
 
-- Informatics Project Proposal (IPP) — INFR11147 — 10 credits — Compulsory
-- Advanced Topics in NLP — INFR11287 — 20 credits — Assessment: 30% coursework / 70% exam — Difficulty: Hard
-- Machine Learning Systems — INFR11269 — 20 credits — Assessment: 100% coursework — Difficulty: Medium
-- Reinforcement Learning — INFR11010 — 10 credits — Assessment: Exam — Difficulty: Medium
+Companies and labs in areas like autonomous systems, robotics, multimodal AI, and embodied intelligence are especially interesting.
 
-Summer (60 credits):
+---
 
-- MSc Dissertation
-- Direction: Visual context compression for real-time VLA inference — extending NanoChat work
-- Target supervisor: Ponti + Suglia (primary) or Luo Mai (systems angle)
-- Target output: Workshop paper at EMNLP, CoRL, or TinyML
+# Current MSc direction
 
-Dropped courses:
+University: University of Edinburgh
+Programme: MSc Artificial Intelligence
+Started: September 2026
+Duration: 1 year
 
-- Advanced Topics in ML (ATML) — not needed for Embodied AI engineering track
+Academic areas being prioritized:
 
-## Projects
+* Probabilistic modelling
+* Computer vision
+* Advanced robotics
+* Reinforcement learning
+* Machine learning systems
+* Research methodology
 
-Full index: https://www.tarat.space/projects
+Course selection has changed several times as Tarun has deliberately moved away from a broad NLP-heavy MSc toward a robotics / vision / ML-systems direction.
 
-### AI / ML — flagship
+When helping with course choices, optimize for the embodied-AI goal rather than collecting unrelated difficult courses.
 
-- [Lumi](https://www.tarat.space/projects/lumi) (Jun 2025): Offline-first Android task manager with natural language input. 350M param on-device LLM, LoRA fine-tuned, <100ms inference. 400+ Play Store users, paid conversions. [Play Store](https://play.google.com/store/apps/details?id=com.lumi.mobile) · [GitHub](https://github.com/TarunTomar122/lumi)
-- [NanoChat / Vision-Enhanced Context](https://www.tarat.space/projects/deepseek-nanochat-1) (Nov 2025): Extended tiny LLM context by compressing text into visual tokens — BLIP-2 + custom 1.5M param projection, 64× compression. Google AI Devs reposted Aug 2025. [GitHub](https://github.com/TarunTomar122/vision-encoded-nanochat)
-- [Garden RAG / Tarat AI](https://www.tarat.space/projects/garden-rag) (Oct 2025): Client-side RAG over all garden content — writings, projects, experience. @xenova/transformers embeddings + Groq LLM. Live at [tarat.space/tarat-ai](https://www.tarat.space/tarat-ai)
-- [Own Transformer](https://www.tarat.space/projects/own-transformer) (Dec 2025): Built transformer block from scratch in PyTorch without AI assistance — learned attention maths properly after NanoChat work
-- [Collaborative AI Agents](https://www.tarat.space/projects/collaborative-ai-agents) (Aug 2025): Two RL agents learning to trap a player in grid-world — emergent flanking/trapping behaviors
-- [Tiny Model Coach](https://www.tarat.space/projects/tiny-model-coach) (Aug 2025): Fine-tuned 270M Gemma on Strava data for a personalized running coach
-- [Lumi Voice Assistant](https://www.tarat.space/projects/lumi-voice-assistant) (Oct 2025): 350M on-device voice-powered todo app, fine-tuned for natural language task parsing. [HuggingFace](https://huggingface.co/Taru/lumi-mobile)
-- [Stock Agents](https://www.tarat.space/projects/stock-agents) (Dec 2025): Stateful AI system using daily news sentiment to predict next-day stock movement — extension of StocksBrew
-- [ML-DL Implementation](https://www.tarat.space/projects/ml-implementation) (Dec 2024): Open-source Python ML library from scratch — 30+ contributors worldwide. [GitHub](https://github.com/RoboticsClubIITJ/ML-DL-implementation)
-- [Anime Recommendation](https://www.tarat.space/projects/anime-recomend) (Dec 2024): Collaborative filtering on 100K+ MyAnimeList users. [GitHub](https://github.com/TarunTomar122/AnimeRecommendation)
-- [CLI Assistant](https://www.tarat.space/projects/cli-assistant) (Sep 2024): Terminal AI assistant with RASA — emails, web search, music playback
+---
 
-### Products & startups
+# Research interests
 
-- [StocksBrew](https://www.tarat.space/projects/stocksbrew) (May 2025): AI-curated daily stock news email before market open. $18/month MRR. [stocksbrew.online](https://stocksbrew.online) · [GitHub](https://github.com/TarunTomar122/stocksbrew)
-- YourTrace (Jan 2026): Personalized AI/tech briefing. $28/month MRR, Product Hunt #7, $50 MRR week one. [yourtrace.online](https://yourtrace.online) — mobile app 200+ downloads
-- [Instafy](https://www.tarat.space/projects/instafy) (Oct 2025): One-click photo aesthetic transfer — copy color grading from any reference photo. [instafy.in](https://instafy.in/) · [GitHub](https://github.com/TarunTomar122/instafy)
+## 1. Embodied AI
 
-### Web / design / tools
+This is currently the strongest long-term research direction.
 
-- [Digital Garden](https://www.tarat.space/projects/digital-garden) (Dec 2024): This website — writings, projects, notes. Perfect Lighthouse score, PPR + SSR hybrid, copresence layer. [tarat.space](https://www.tarat.space) · [GitHub](https://github.com/TarunTomar122/digital-garden)
-- [OOD / Project Nimbus](https://www.tarat.space/projects/ood) (Feb 2025): AI-powered collaborative UX flow design canvas — wireframe generation and iteration
-- [Trip Planner](https://www.tarat.space/projects/trip-planner) (Feb 2025): Map-based trip planner with AI-generated place/restaurant details
-- [Spotify Reels](https://www.tarat.space/projects/spotify-reels) (Mar 2025): Spotify reels-style experience for music discovery
-- [YouTube Shorts Automation](https://www.tarat.space/projects/youtube-automation) (Dec 2024): Automated YouTube shorts from most-viewed segments of popular videos (no AI). [GitHub](https://github.com/TarunTomar122/Automating-a-Youtube-Channel-without-using-AI)
+Tarun is interested in systems where a powerful general model provides reasoning while smaller or specialized models handle grounding, action evaluation, control, or prediction.
 
-## Writings
+A recurring question is:
 
-- [Compression is all we need](https://www.tarat.space/writings/compression-is-all-we-need): Visual context compression thesis
-- [Local LLM](https://www.tarat.space/writings/local-llm): On-device LLMs and why they matter
-- [Shipping Spectrum 2.0](https://www.tarat.space/writings/shipping-spectrum-two): Design system migration at Adobe
-- [2025 Review](https://www.tarat.space/writings/2025-review): Year in review
-- [What do I do?](https://www.tarat.space/writings/what-do-i-do): Career crossroads — job vs masters
-- [All writings](https://www.tarat.space/writings): Full writing index
+> If LLMs and VLMs are already extremely capable planners, what intelligence actually needs to exist between the model and the robot?
 
-## Garden
+Interesting components include:
 
-- [Home](https://www.tarat.space): Digital garden homepage
-- [Tarat AI](https://www.tarat.space/tarat-ai): RAG assistant trained on all garden content
-- [Semantic Network](https://www.tarat.space/network): Force-directed graph of content connections
-- [Library](https://www.tarat.space/library): Reading list
-- [List 100](https://www.tarat.space/list100): Life goals and bucket list
-- [Timeline](https://www.tarat.space/timeline): Work experience and career timeline
+* high-level planning
+* candidate action generation
+* affordances
+* action ranking
+* visual grounding
+* closed-loop feedback
+* world models
+* value models
+* latent predictive models
+* robot policies
 
-## Optional
+He is especially interested in replacing expensive or heavily trained components with simpler learned evaluators.
 
-- [Resume](https://www.tarat.space/resume): Resume — work, projects, skills
-- [Startups](https://www.tarat.space/startups): Live startup metrics — StocksBrew, YourTrace, Trace mobile
-- [Easter Eggs](https://www.tarat.space/easter-eggs): Hidden fun stuff on the site
-- [YourTrace](https://yourtrace.online): Daily AI/tech briefing product
-- [StocksBrew](https://stocksbrew.online): Live stocks briefing product
+---
+
+## 2. Action selection for robots
+
+One active research direction explores using very fast learned models to select between candidate robot actions.
+
+The rough architecture is:
+
+VLM / planner
+↓
+generate candidate actions
+↓
+fast learned evaluator
+↓
+select action
+↓
+robot policy / controller
+↓
+observe new state
+↓
+repeat
+
+Tarun has been investigating System-1-style models such as JEV as possible alternatives to traditional semantic action scoring.
+
+The interesting research question is not "can JEV control a robot?"
+
+It is closer to:
+
+> Can a fast learned evaluator rank grounded candidate actions well enough to replace or complement models such as SayCan-style affordance/value scoring?
+
+Initial experimentation is being designed around ManiSkill environments, beginning with PickCube-style tasks and closed-loop action selection.
+
+Desired evaluation includes:
+
+* success rate
+* regret versus an oracle
+* closed-loop performance
+* random candidate selection baseline
+* search-oracle baseline
+* SayCan-style baseline where appropriate
+* videos of successful and failed episodes
+
+---
+
+## 3. Vision-language grounding
+
+Tarun has worked on research around visual grounding using frozen visual representations.
+
+One project studies whether useful object grounding can emerge from a very lightweight learned decoder over frozen SigLIP2-style visual features.
+
+The broader question is:
+
+> How much spatial understanding is already encoded inside large vision encoders, and how small can the learned grounding component be?
+
+Research links:
+
+https://arxiv.org/pdf/2607.17052
+
+https://github.com/TarunTomar122/visual-grounding-decoder-study/blob/main/paper/icprs/main.pdf
+
+This work also exposed an important personal research weakness:
+
+Tarun can build experimental systems extremely quickly, but historically has sometimes stopped once the system works instead of aggressively interrogating why it works, where it fails, and what the strongest baseline would be.
+
+Improving that research discipline is an explicit MSc goal.
+
+---
+
+## 4. Efficient multimodal models
+
+A recurring theme across Tarun's work is compression.
+
+Questions he finds interesting include:
+
+* How little context does a model actually need?
+* Can visual representations compress long textual context?
+* Can frozen representations replace expensive learned components?
+* Which parts of inference can be cached?
+* Which computations genuinely need to happen token-by-token?
+* How small can useful models become?
+
+This started with on-device LLMs and visual context compression and increasingly connects to real-time embodied systems.
+
+Writing:
+
+https://www.tarat.space/writings/compression-is-all-we-need
+
+---
+
+# Physical robotics
+
+Tarun is moving from simulation toward physical robotics during the MSc.
+
+Current hardware direction:
+
+**SO-101-style robot arm**
+
+He is assembling and 3D-printing the robot himself rather than buying a fully assembled system.
+
+The goal is not primarily to learn mechanical engineering.
+
+The robot exists as a cheap physical platform for experimenting with:
+
+* vision-language planning
+* imitation learning
+* action selection
+* reinforcement learning
+* closed-loop visual feedback
+* small learned robot policies
+* unconventional planning architectures
+
+He has access to university facilities and is learning enough electronics, fabrication, and 3D printing to prototype his own systems.
+
+---
+
+# Selected current projects
+
+## BetterVoice
+
+GitHub:
+https://github.com/TarunTomar122/better-voice
+
+A lightweight voice dictation system that uses screen context to improve what the user is trying to say.
+
+Instead of treating speech recognition as isolated transcription, BetterVoice can use what is currently visible on the computer to better interpret the user's intent.
+
+The prototype unexpectedly became popular online.
+
+Approximate milestones:
+
+* 150K+ views across posts
+* 190+ GitHub stars
+* early real users
+
+Why it matters:
+
+BetterVoice is representative of Tarun's preferred project style:
+
+1. notice a small interaction problem,
+2. prototype quickly,
+3. combine existing AI capabilities in a slightly unusual way,
+4. release it publicly,
+5. learn from actual usage.
+
+---
+
+## Keep
+
+GitHub:
+https://github.com/TarunTomar122/keep
+
+Keep is a tiny connected e-ink photo frame originally built as a gift for Tarun's fiancée.
+
+The device periodically receives a new image over Wi-Fi, displays it on an e-paper screen, and spends most of its life in deep sleep.
+
+Hardware includes:
+
+* ESP32-S3 / XIAO-class microcontroller
+* Waveshare e-paper display
+* battery
+* Wi-Fi
+* physical enclosure
+* companion software
+
+The longer-term idea includes a tiny camera device that can send moments directly to the frame.
+
+Keep is part hardware project, part interaction-design experiment.
+
+---
+
+## Embodied action selection experiments
+
+Current robotics research prototypes investigate using fast learned models to choose between proposed robot actions.
+
+Simulation work begins with ManiSkill before moving toward a physical arm.
+
+Primary interest:
+
+**the architecture for choosing what a robot should do next**, rather than training another giant end-to-end robotics foundation model.
+
+---
+
+## Visual Grounding Decoder Study
+
+Research into extracting spatial grounding from frozen vision representations with a lightweight learned head.
+
+Repository / paper:
+
+https://github.com/TarunTomar122/visual-grounding-decoder-study
+
+---
+
+# Earlier AI projects
+
+## NanoChat / visual context compression
+
+Tarun experimented with extending the effective context of a small language model by encoding information into visual representations.
+
+A BLIP-style vision encoder plus a small learned projection compressed a large amount of information into relatively few visual tokens.
+
+This project led to a broader interest in multimodal context compression and efficient inference.
+
+It was publicly shared by Google AI developer channels.
+
+---
+
+## Lumi
+
+An Android application built around a small local language model.
+
+The model performed natural-language task parsing directly on-device rather than sending every request to a server.
+
+Important themes:
+
+* small LLMs
+* quantization
+* LoRA fine-tuning
+* mobile inference
+* latency
+* offline AI
+
+Lumi was Tarun's first serious exploration of useful on-device LLMs.
+
+---
+
+## Tiny personalized models
+
+Tarun has experimented with fine-tuning very small models for narrow personal tasks, including running/fitness data.
+
+He is generally more interested in a tiny specialized model that reliably performs one task than a huge model included only because it is fashionable.
+
+---
+
+## Collaborative RL agents
+
+A small reinforcement-learning experiment where agents learned cooperative / adversarial behavior in a grid environment.
+
+This was one of the projects that initially pulled Tarun toward reinforcement learning and multi-agent systems.
+
+---
+
+# Products
+
+Tarun continuously builds small internet products.
+
+These should not be interpreted as a single startup that he is exclusively committed to.
+
+They are experiments in product building, distribution, monetization, and AI UX.
+
+---
+
+## Trace / YourTrace
+
+https://yourtrace.online
+
+A fast personalized feed for keeping up with AI and technology news.
+
+Core problem:
+
+People who care about technology increasingly cannot follow the volume of releases, research, tools, announcements, and discussion happening every day.
+
+Trace tries to compress that stream into something useful without requiring hours of scrolling.
+
+The product has also been released as a mobile app.
+
+Current interests around Trace include:
+
+* story clustering
+* ranking
+* personalization
+* fast summarization
+* feed quality
+* semantic deduplication
+* lightweight learned reranking
+
+---
+
+## StocksBrew
+
+https://stocksbrew.online
+
+Started as an AI-curated market briefing product.
+
+It has increasingly evolved toward infrastructure and data access for AI agents working with financial information.
+
+One direction is exposing structured market/news capabilities through agent-friendly interfaces such as MCP.
+
+StocksBrew is primarily an experiment in agent infrastructure and product monetization rather than Tarun's intended long-term career domain.
+
+---
+
+# Adobe
+
+Tarun worked at Adobe from 2023 until September 2026.
+
+Most of his work was on Spectrum Web Components and the transition toward Spectrum 2.
+
+Technologies included:
+
+* TypeScript
+* JavaScript
+* Lit
+* Web Components
+* Spectrum CSS
+* design tokens
+* Storybook
+* Next.js
+* accessibility
+* frontend performance
+
+His work included:
+
+* Spectrum 2 migration work
+* runtime support for Spectrum generations
+* component architecture
+* design-token migration
+* overlays
+* icons and color systems
+* SSR experiments
+* cross-product adoption
+* accessibility
+* performance
+
+Products consuming this ecosystem included major Adobe web applications.
+
+---
+
+## Adobe AI Toolkit
+
+One particularly relevant project was Adobe's AI interface toolkit.
+
+Tarun worked with designers and product teams on translating emerging AI interaction patterns into reusable interface primitives.
+
+This involved thinking beyond implementation:
+
+* How should AI interfaces behave?
+* Which interaction patterns should be reusable?
+* What belongs in a design system?
+* How do these patterns work across many Adobe products?
+* How do designers and engineers share the same primitives?
+
+This work is important context because Tarun's background sits at the intersection of:
+
+**engineering + product + interaction design + AI.**
+
+He does not want to lose that combination while moving deeper into ML.
+
+---
+
+# Engineering profile
+
+Strongest:
+
+* TypeScript / JavaScript
+* React
+* Web Components
+* frontend architecture
+* product engineering
+* prototyping
+* Python
+* PyTorch
+* integrating ML models into real systems
+* multimodal AI prototypes
+* inference experimentation
+
+Increasing focus:
+
+* robotics
+* reinforcement learning
+* computer vision
+* GPU programming
+* Triton
+* ML systems
+* model evaluation
+* experimental research
+
+Areas where additional depth is desired:
+
+* probabilistic ML
+* rigorous research methodology
+* large-scale distributed training
+* robot learning
+* control
+* stronger mathematical intuition for modern ML
+* GPU architecture and performance engineering
+
+---
+
+# Building style
+
+Tarun tends to:
+
+* ship a prototype very quickly
+* test whether an idea feels interesting
+* publicly share work early
+* follow unexpected results
+* jump between software, ML, product, hardware, and research
+* learn new fields by building one ambitious project inside them
+
+This creates both an advantage and a weakness.
+
+Advantage:
+
+He can cross domain boundaries quickly and turn ideas into working systems.
+
+Weakness:
+
+He sometimes starts the next interesting project before fully extracting the research, distribution, documentation, or career value from the previous one.
+
+When advising Tarun, frequently ask:
+
+> Is there more value left inside something he already built?
+
+before recommending another new project.
+
+---
+
+# Research style to encourage
+
+Tarun should increasingly move from:
+
+> "I made this and it works."
+
+toward:
+
+> "Here is the hypothesis, here are the strongest baselines, here is where it works, here is where it fails, and here is what that tells us."
+
+Useful pressure-testing questions:
+
+* What is the hypothesis?
+* What would falsify it?
+* What is the simplest baseline?
+* What is the strongest baseline?
+* Where is the ablation?
+* Is the improvement statistically meaningful?
+* Does the result survive a different environment?
+* What did we learn besides the headline metric?
+* Why does the method work?
+* When should someone not use it?
+
+---
+
+# Creator work
+
+Tarun publishes videos on YouTube under the name **tarat**.
+
+https://youtube.com/@tarat.youtube
+
+The channel has a few thousand subscribers and is monetized.
+
+Content spans:
+
+* building AI products
+* experiments
+* software engineering
+* research
+* indie hacking
+* life as an engineer
+* moving from industry to an AI MSc
+* robotics projects
+
+The goal of the channel is not primarily ad revenue.
+
+The more important goals are:
+
+* distribution
+* network
+* interesting people discovering his work
+* opportunities
+* documenting projects
+* building publicly
+
+Tarun occasionally works with sponsors, but wants sponsorships to fit naturally into videos rather than turning the channel into generic tech advertising.
+
+---
+
+# Fitness
+
+Running is a serious personal interest.
+
+Milestones include:
+
+* marathon
+* 50K+ ultramarathon
+* multiple long-distance runs
+
+Current goal:
+
+**progress toward a 100K ultramarathon.**
+
+Running is useful context because Tarun generally responds well to long-term goals that can be broken into measurable progression rather than vague motivation.
+
+---
+
+# Career direction
+
+The ideal role is roughly:
+
+**ML Engineer / Research Engineer working on embodied intelligence.**
+
+Examples of relevant work:
+
+* robot learning
+* VLA systems
+* multimodal models for robotics
+* learned world models
+* action selection
+* robot perception
+* efficient inference for robots
+* visual grounding
+* real-time intelligent systems
+
+Potential environments:
+
+* robotics startups
+* autonomous systems companies
+* embodied-AI labs
+* multimodal AI teams
+* ML infrastructure teams close to inference
+* research-engineering groups
+
+Tarun is not optimizing for:
+
+* generic frontend work
+* pure web development
+* traditional enterprise software
+* theory-only ML
+* purely academic research disconnected from systems
+* robotics roles dominated by mechanical engineering
+
+---
+
+# Career advantage
+
+Tarun's unusual combination is:
+
+**product engineering**
++
+**design-system / interaction experience**
++
+**ML**
++
+**rapid prototyping**
++
+**public communication**
++
+**increasing research depth**
+
+Do not encourage him to erase his engineering/product background to look like a conventional ML researcher.
+
+The stronger strategy is to add research depth and mathematical maturity to the engineering ability he already has.
+
+---
+
+# Things Tarun likes building
+
+Projects are especially attractive when they involve several of:
+
+* intelligence operating on the real world
+* vision
+* language
+* tiny models
+* fast inference
+* robotics
+* unusual human-computer interaction
+* hardware
+* personalized AI
+* local/on-device computation
+* surprising emergent behaviour
+* a demo that is immediately understandable
+
+A technically impressive benchmark with no visible behavior is less motivating than a technically interesting system that people can actually see working.
+
+---
+
+# Project selection heuristic
+
+A strong project for Tarun usually has:
+
+1. A crisp technical question.
+2. A demo people understand in seconds.
+3. An experiment that can fail.
+4. A meaningful baseline.
+5. Enough novelty to teach him something.
+6. A path to a public write-up or video.
+7. Ideally some connection to embodied AI, multimodal systems, or efficient inference.
+
+Avoid projects that are merely:
+
+* another wrapper around an API
+* generic RAG
+* generic agents
+* another chat interface
+* a clone of an existing startup
+* enormous engineering efforts without a research question
+
+---
+
+# Current intellectual threads
+
+These topics are particularly likely to interest Tarun in late 2026:
+
+* JEV and System-1 models
+* fast learned evaluators
+* JEPA-style architectures
+* robot action scoring
+* SayCan-like architectures
+* VLA models
+* hierarchical robot intelligence
+* visual grounding
+* frozen representation probing
+* context compression
+* KV-cache reduction
+* efficient long-context models
+* causal encoders
+* inference caching
+* GPU kernels
+* Triton
+* manipulation environments such as ManiSkill
+* low-cost robot arms
+* sim-to-real experimentation
+* agent protocols / MCP
+
+---
+
+# Public projects worth looking at first
+
+BetterVoice
+https://github.com/TarunTomar122/better-voice
+
+Keep
+https://github.com/TarunTomar122/keep
+
+Visual Grounding Decoder Study
+https://github.com/TarunTomar122/visual-grounding-decoder-study
+
+Trace
+https://yourtrace.online
+
+StocksBrew
+https://stocksbrew.online
+
+Digital Garden
+https://tarat.space
+
+Full project index
+https://tarat.space/projects
+
+---
+
+# Writings
+
+Useful starting points:
+
+Compression is all we need
+https://www.tarat.space/writings/compression-is-all-we-need
+
+Local LLM
+https://www.tarat.space/writings/local-llm
+
+Shipping Spectrum 2.0
+https://www.tarat.space/writings/shipping-spectrum-two
+
+All writings
+https://www.tarat.space/writings
+
+---
+
+# For agents helping Tarun
+
+Remember:
+
+Tarun does not need encouragement to start things.
+
+He usually needs help deciding:
+
+* which idea is actually worth pursuing
+* what the smallest experiment is
+* what baseline matters
+* whether the result is genuinely interesting
+* when to stop exploring and write the thing up
+* how to turn a prototype into evidence
+* how to extract more value from work already completed
+
+Prefer:
+
+**experiment > speculation**
+
+**evidence > vibes**
+
+**working demo > architecture diagram**
+
+**one strong project > five unfinished projects**
+
+**research question > trendy technology**
+
+**deep follow-through > another new repo**
+
+At the same time, preserve the thing that makes Tarun unusually productive:
+
+he likes exploring weird ideas quickly.
+
+The goal is not to remove that instinct.
+
+The goal is to turn more of those experiments into durable engineering, research, products, and stories.

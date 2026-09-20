@@ -1,19 +1,27 @@
 {
     "books":[
         {
+            "title": "The Odyssey",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1711957706i/1381.jpg",
+            "author": "Homer",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/1381.The_Odyssey"
+        },
+        {
             "title": "Sell like crazy",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1548823837i/43787527.jpg",
             "author": "Sabri Suby",
-            "rating": "",
-            "status": "reading",
+            "rating": "4/5",
+            "status": "read",
             "link": "https://www.goodreads.com/en/book/show/43787527-sell-like-crazy"
         },
         {
             "title": "The $100 Startup",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1345666854i/12605157.jpg",
             "author": "Chris Guillebeau",
-            "rating": "",
-            "status": "reading",
+            "rating": "3/5",
+            "status": "read",
             "link": "https://www.goodreads.com/book/show/12605157-the-100-startup"
         },
         {

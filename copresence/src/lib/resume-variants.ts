@@ -21,31 +21,36 @@ const sharedStyles = `
   .item h3{font-size:16px;font-weight:700}
   .date{font-size:13px;color:#78716c;white-space:nowrap}
   .skills{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px}
+  .story p{margin:0 0 14px}.story p:last-child{margin-bottom:0}
+  .story .item p{margin-top:8px}
   @media(max-width:640px){body{font-size:14px}.contact{gap:4px 12px}}
 `;
 
 const plain = `
 <style>${sharedStyles}</style>
-<main class="resume">
+<main class="resume story">
   <header>
     <h1>Tarun Tomar</h1>
-    <p class="muted" style="margin-top:6px">AI builder, currently doing an MSc in AI at the University of Edinburgh. Previously a Design Engineer at Adobe.</p>
+    <p class="muted" style="margin-top:6px">I work somewhere between design, engineering, and figuring out how people should actually interact with intelligent systems.</p>
     <div class="contact muted" style="margin-top:14px"><a href="mailto:tomartarun2001@gmail.com">email</a><a href="https://www.tarat.space">tarat.space</a><a href="https://github.com/TarunTomar122">github</a><a href="https://x.com/tarat_211">@tarat_211</a></div>
   </header>
-  <section class="section"><h2 class="label">Education</h2>
-    <article class="item"><div class="item-head"><h3>MSc Artificial Intelligence · University of Edinburgh</h3><span class="date">Sep 2026 — Sep 2027</span></div><p class="muted">In progress.</p></article>
-    <article class="item"><div class="item-head"><h3>B.Tech Computer Science · IIT Jodhpur</h3><span class="date">Graduated May 2023</span></div><p class="muted">CGPA 8.0 / 10</p></article>
+  <section class="section">
+    <p>At Adobe, I spent a good amount of time working on the <a href="https://spectrum-web-components.adobe.com/?path=/docs/patterns-ai-toolkit-conversational-pattern-overview–docs">AI Toolkit for Spectrum</a>. That started much earlier than just implementing components. I was working with designers, talking to product teams about the kinds of AI experiences they were trying to build, thinking through the interaction and visual patterns, and then helping turn that into something reusable across Adobe products.</p>
   </section>
-  <section class="section"><h2 class="label">Experience</h2>
-    <article class="item"><div class="item-head"><h3>Adobe · Design Engineer (SDE II)</h3><span class="date">Jun 2023 — Sep 2026</span></div><ul><li>Led the architectural migration of Spectrum Web Components to Spectrum 2.0, impacting Firefly, Illustrator Web, Adobe.com, and thousands of engineers.</li><li>Built App Frame from scratch for cross-platform rendering, WCAG accessibility, and design consistency.</li><li>Built internal tooling to track component adoption across Adobe; promoted to SDE II in January 2025.</li></ul></article>
-    <article class="item"><div class="item-head"><h3>Adobe · Emerging Tech Intern</h3><span class="date">May — Jul 2022</span></div><p>Built a multimodal GenAI assistant for Adobe Express covering template matching, context-aware canvas editing, and asset generation.</p></article>
+  <section class="section"><h2 class="label">Smaller things, outside work</h2>
+    <p>Outside work I tend to build smaller things whenever an interaction feels like it could be better.</p>
+    <article class="item"><h3><a href="https://github.com/TarunTomar122/better-voice">BetterVoice</a></h3><p class="muted">I wanted voice input to AI to carry some of the context that is usually lost when you have to describe everything in words, so I made a macOS prototype where you can talk while circling things on your screen and the visual context gets captured alongside what you are saying. I put it online fairly quickly and it unexpectedly took off on X, which was fun.</p></article>
+    <article class="item"><h3><a href="https://github.com/TarunTomar122/keep">Keep</a></h3><p class="muted">More recently I built Keep for my fiancée. We have been long distance for most of our relationship, and I wanted something much quieter and more physical than another messaging app. It is a tiny camera and e-ink display system where a photo taken in one place eventually appears on the other person&#8217;s desk. I ended up working across the hardware, firmware, mobile app, image processing and the object itself.</p></article>
   </section>
-  <section class="section"><h2 class="label">Selected AI projects</h2>
-    <article class="item"><h3><a href="https://www.tarat.space/projects/smollms">i trained tiny LLMs on Shakespeare</a></h3><p class="muted">smollms is my tiny architecture lab for understanding dense attention, recurrence, sparse selection, compressed memory, and MoE without pretending I have a GPU cluster.</p></article>
-    <article class="item"><h3><a href="https://www.tarat.space/projects/deepseek-nanochat-1">Vision-Enhanced NanoChat with Extended Context</a></h3><p class="muted">Extending a tiny LLM's context limit by compressing text into visual tokens using a vision encoder.</p></article>
-    <article class="item"><h3><a href="https://stocksbrew.online">StocksBrew</a></h3><p class="muted">AI-curated stock briefings delivered before market open; a live, revenue-generating product.</p></article>
+  <section class="section"><h2 class="label">Products on the side</h2>
+    <article class="item"><h3><a href="https://yourtrace.online">Trace</a></h3><p class="muted">The one I spend the most time on currently is Trace, a personalised daily briefing that tries to understand what you care about and compress everything happening in tech and AI into a small feed for you.</p></article>
   </section>
-  <section class="section"><h2 class="label">Toolbox</h2><div class="skills muted"><span>TypeScript</span><span>React / Next.js</span><span>Web Components</span><span>Design systems</span><span>Accessibility</span><span>Python</span><span>PyTorch</span><span>Vision-language models</span><span>LoRA / PEFT</span><span>On-device inference</span><span>RAG</span></div></section>
+  <section class="section"><h2 class="label">ML research</h2>
+    <p>Over the last year I have also been moving further down the stack into ML research. One piece of work looked at <a href="https://arxiv.org/pdf/2607.17052">pruning visual networks</a>, and more recently I have been studying <a href="https://github.com/TarunTomar122/visual-grounding-decoder-study/blob/main/paper/icprs/main.pdf">visual grounding architectures and how much of the standard decoder architecture is actually necessary</a>.</p>
+  </section>
+  <section class="section"><h2 class="label">Toward robotics</h2>
+    <p>My interest in building intelligent systems has naturally pulled me toward robotics. I am currently putting together an SO-101 arm and experimenting with visual reasoning and planning for it, particularly how higher-level models can reason about the state of the world and choose useful actions rather than treating the robot as a direct action prediction problem.</p>
+  </section>
 </main>`;
 
 export const RESUME_VARIANTS: readonly ResumeVariant[] = [{ name: "plain", html: plain }];

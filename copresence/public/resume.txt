@@ -1,6 +1,6 @@
-# Tarun Tomar — Resume Source Data
+# Tarun Tomar — Resume (a story, not a traditional resume)
 
-> Source data for tarat.space/resume. Do not fabricate facts beyond what is listed here.
+> Plain-text version of tarat.space/resume.
 
 ## Contact
 
@@ -8,134 +8,47 @@
 - Location: Edinburgh, UK
 - Email: tomartarun2001@gmail.com
 - Website: https://www.tarat.space
-- YouTube: 4.3K subscribers, monetized
-- Twitter/X: @tarat_211
 - GitHub: https://github.com/TarunTomar122
-- Instagram: 240 followers (ultra running + fitness)
+- Twitter/X: @tarat_211
 
-## Summary
+## Story
 
-Design Engineer at Adobe building design systems used by thousands of engineers across Firefly, Illustrator Web, and Adobe.com. Builder of on-device AI systems, embodied-AI experiments, and indie products with real users and revenue. B.Tech CS from IIT Jodhpur. Starting MSc Artificial Intelligence at University of Edinburgh (Sep 2026). Targeting embodied AI / VLA engineering roles.
+A lot of my work has ended up sitting somewhere between design, engineering, and figuring out how people should actually interact with intelligent systems.
 
-Personality for tone: direct, builder-first, competitive, high-agency. Hates generic fluff. Ultramarathon runner.
+At Adobe, I spent a good amount of time working on the AI Toolkit for Spectrum. That started much earlier than just implementing components. I was working with designers, talking to product teams about the kinds of AI experiences they were trying to build, thinking through the interaction and visual patterns, and then helping turn that into something reusable across Adobe products.
 
-## Education
+https://spectrum-web-components.adobe.com/?path=/docs/patterns-ai-toolkit-conversational-pattern-overview–docs
 
-- MSc Artificial Intelligence — University of Edinburgh — Sep 2026 – Sep 2027 (incoming)
-- B.Tech Computer Science — IIT Jodhpur — Graduated May 2023 — CGPA 8.0/10
+Outside work I tend to build smaller things whenever an interaction feels like it could be better.
 
-## Experience
+### BetterVoice
 
-### Adobe — Design Engineer (SDE II)
-June 2023 – Present | Remote / India
+One of those was BetterVoice. I wanted voice input to AI to carry some of the context that is usually lost when you have to describe everything in words, so I made a macOS prototype where you can talk while circling things on your screen and the visual context gets captured alongside what you are saying. I put it online fairly quickly and it unexpectedly took off on X, which was fun.
 
-- Led architectural migration of Spectrum Web Components to Spectrum 2.0 — impacted Firefly, Illustrator Web, Adobe.com, thousands of engineers
-- Built App Frame component from scratch — cross-platform rendering, WCAG accessibility, design consistency
-- Built internal tooling to track component adoption across Adobe ecosystem
-- Promoted to SDE II (Design Engineer) — Jan 2025
-- Stack: Web Components, React, TypeScript, Design Systems, Accessibility, Performance Optimization
+https://github.com/TarunTomar122/better-voice
 
-### Adobe — Emerging Tech Intern
-May 2022 – July 2022
+### Keep
 
-- Built multimodal GenAI assistant for Adobe Express — automated template matching, context-aware canvas editing, asset generation
+More recently I built Keep for my fiancée. We have been long distance for most of our relationship, and I wanted something much quieter and more physical than another messaging app. It is a tiny camera and e-ink display system where a photo taken in one place eventually appears on the other person's desk. I ended up working across the hardware, firmware, mobile app, image processing and the object itself.
 
-## Technical Skills
+https://github.com/TarunTomar122/keep
 
-### Fullstack
-React, Next.js, TypeScript, React Native, Web Components, Tailwind CSS, Node.js, Python, REST APIs, WebSockets, PostgreSQL, AWS, Git, CI/CD, real-time systems
+### Products on the side
 
-### AI / ML
-PyTorch, LoRA/PEFT, PyTorch Mobile, Vision-Language Models, multimodal architectures, LangChain, RAG, HuggingFace, on-device deployment, inference optimization, reinforcement learning
+I also build products on the side. The one I spend the most time on currently is Trace, a personalised daily briefing that tries to understand what you care about and compress everything happening in tech and AI into a small feed for you.
 
-### Honest gaps (do not oversell)
-Probabilistic/Bayesian ML depth, distributed training at scale, published research papers
-
-## Featured Projects
-
-### Lumi — On-Device LLM Todo App
-https://www.tarat.space/projects/lumi
-- 350M param on-device LLM for Android, <100ms inference, LoRA fine-tuned
-- 400+ users on Google Play
-- Offline-first task manager with natural language input
-- Launched Jun 2025; first paid user Sep 2025
-
-### NanoChat / Vision-Enhanced Context Extension
-https://www.tarat.space/projects/deepseek-nanochat-1
-- Extended small LLM context via BLIP-2 + custom 1.5M param projection layer
-- 64× visual token compression for multimodal context
-- Google AI Devs reposted the experiment (Aug 2025)
-- GitHub: https://github.com/TarunTomar122/vision-encoded-nanochat
-
-### Garden RAG — AI Assistant for Digital Garden
-https://www.tarat.space/projects/garden-rag
-- Client-side RAG with semantic search over writings, projects, experience
-- Live at https://www.tarat.space/tarat-ai
-
-### StocksBrew — AI Stock News Newsletter
-https://www.tarat.space/projects/stocksbrew
-- Daily AI-curated stock briefings before market open
-- $18/month MRR — https://stocksbrew.online
-- Stock sentiment prediction side project
-
-### YourTrace — Daily AI/Tech Briefing
 https://yourtrace.online
-- $28/month MRR
-- Product Hunt #7 launch, $50 MRR in first week (Jan 2026)
-- Mobile app: 200+ downloads
 
-### Instafy — One-Click Photo Aesthetic Transfer
-https://www.tarat.space/projects/instafy
-- Upload reference photo, copy color grading to your images
-- https://instafy.in/
+### ML research
 
-### Collaborative AI Agents — Multi-Agent RL
-https://www.tarat.space/projects/collaborative-ai-agents
-- Two RL agents learning to trap a player in grid-world
+Over the last year I have also been moving further down the stack into ML research. One piece of work looked at pruning visual networks:
 
-### Own Transformer — Built from Scratch
-https://www.tarat.space/projects/own-transformer
-- Coded transformer block from scratch in PyTorch without AI assistance
+https://arxiv.org/pdf/2607.17052
 
-### ML-DL Implementation Library — Open Source
-https://www.tarat.space/projects/ml-implementation
-- Python ML library from scratch, 30+ contributors worldwide
-- GitHub: https://github.com/RoboticsClubIITJ/ML-DL-implementation
+And more recently I have been studying visual grounding architectures and how much of the standard decoder architecture is actually necessary:
 
-### Other Projects
-- Tiny Model Coach — 270M Gemma fine-tuned on Strava data for running coach
-- Lumi Voice Assistant — 350M on-device voice todo app
-- OOD / Project Nimbus — AI-powered UX flow design canvas
-- Trip Planner — Map-based AI trip planner
-- Spotify Reels — Spotify reels experience
-- Anime Recommendation — Collaborative filtering on 100K MyAnimeList users
-- CLI Assistant — Terminal AI assistant with RASA
-- YouTube Shorts Automation — Automated shorts from popular video segments
-- Digital Garden — This website, perfect Lighthouse score, PPR + SSR hybrid
+https://github.com/TarunTomar122/visual-grounding-decoder-study/blob/main/paper/icprs/main.pdf
 
-## Products & Revenue
+### Toward robotics
 
-- YourTrace: $28/month MRR
-- StocksBrew: $18/month MRR
-- Total baseline: ~$66–76/month
-- Lumi: 400+ Play Store users, paid conversions
-
-## Content & Community
-
-- YouTube: 4.3K subscribers, monetized (May 2026), software engineering / AI / startups focus
-- First sponsored YouTube video (Apr 2026)
-- Instagram: ultra running, fitness — finished ultramarathon 51km in 6:47 (Dec 2025), marathon PB 4:23 (Feb 2026)
-
-## Career Direction (context only — optional on resume)
-
-- Target: Embodied AI Engineer / ML for Robotics (VLA models, on-device inference)
-- Target companies: Wayve, National Robotarium, CMR Surgical, Physical Intelligence
-- MSc dissertation direction: Visual context compression for real-time VLA inference
-
-## Links
-
-- Portfolio: https://www.tarat.space
-- Projects: https://www.tarat.space/projects
-- Writings: https://www.tarat.space/writings
-- Timeline: https://www.tarat.space/timeline
-- Startups: https://www.tarat.space/startups
+My interest in building intelligent systems has naturally pulled me toward robotics. I am currently putting together an SO-101 arm and experimenting with visual reasoning and planning for it, particularly how higher-level models can reason about the state of the world and choose useful actions rather than treating the robot as a direct action prediction problem.

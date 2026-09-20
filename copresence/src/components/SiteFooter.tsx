@@ -26,18 +26,7 @@ export default function SiteFooter() {
         </div>
         <p className="site-footer-note">
           got an ai agent? give it <a href="/llms.txt">this</a> and ask about
-          me. ·{" "}
-          <a href="https://x.com/tarat_211" target="_blank" rel="noreferrer">
-            @tarat_211
-          </a>{" "}
-          ·{" "}
-          <a
-            href="https://github.com/TarunTomar122"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github
-          </a>
+          me.
         </p>
       </div>
     </footer>

@@ -39,7 +39,7 @@ const sections = [
   {
     href: "/resume",
     label: "Resume",
-    desc: "Work, projects, and skills.",
+    desc: "A story, not a traditional resume.",
   },
 ];
 
