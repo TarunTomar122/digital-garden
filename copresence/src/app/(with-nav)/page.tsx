@@ -19,13 +19,22 @@ async function NowPlaying() {
   );
 }
 
-function formatDate(dateString?: string): string {
+function formatWritingDate(dateString?: string): string {
   if (!dateString) return "";
   const date = new Date(dateString);
   if (isNaN(date.getTime())) return dateString;
   return date.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
+  });
+}
+
+function formatProjectDate(dateString?: string): string {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString("en-US", {
+    month: "short",
     year: "numeric",
   });
 }
@@ -127,7 +136,7 @@ export default async function Home() {
             <h2>
               Selected writing <span className="count">({writings.length})</span>
             </h2>
-            <p>Essays, notes, and things I learn the hard way — written by me.</p>
+            <p>Random thoughts and blogs — written by me.</p>
           </div>
           <ul className="cards">
             {recentWritings.map((w) => (
@@ -136,9 +145,11 @@ export default async function Home() {
                   <div className="card-row">
                     <div className="card-body">
                       <h3 className="card-title">{w.title}</h3>
-                      <p className="card-meta">{formatDate(w.date)}</p>
                       {w.description ? (
                         <p className="card-desc">{w.description}</p>
+                      ) : null}
+                      {w.date ? (
+                        <p className="writing-card-date">{formatWritingDate(w.date)}</p>
                       ) : null}
                     </div>
                   </div>
@@ -156,7 +167,7 @@ export default async function Home() {
             <h2>
               Projects <span className="count">({projects.length})</span>
             </h2>
-            <p>Experiments and builds. Written with AI, so it might smell like slop.</p>
+            <p>Logs of experiments and builds - Written by using AI heavily.</p>
           </div>
           <ul className="cards">
             {recentProjects.map((p) => (
@@ -165,11 +176,17 @@ export default async function Home() {
                   <div className="card-row">
                     <div className="card-body">
                       <h3 className="card-title">{p.title}</h3>
-                      {p.tags && p.tags.length > 0 ? (
-                        <p className="card-meta">{p.tags.join(" · ")}</p>
-                      ) : null}
                       {p.description ? (
                         <p className="card-desc">{p.description}</p>
+                      ) : null}
+                      {p.date || (p.tags && p.tags.length > 0) ? (
+                        <p className="project-card-meta">
+                          {p.date ? formatProjectDate(p.date) : null}
+                          {p.date && p.tags && p.tags.length > 0 ? (
+                            <span className="sep">·</span>
+                          ) : null}
+                          {p.tags && p.tags.length > 0 ? p.tags.join(", ") : null}
+                        </p>
                       ) : null}
                     </div>
                   </div>
@@ -184,8 +201,8 @@ export default async function Home() {
 
         <section>
           <div className="section-head">
-            <h2>Recently on the timeline</h2>
-            <p>Little proofs of progress.</p>
+            <h2>Updates</h2>
+            <p>Big and small updates from my life.</p>
           </div>
           <ul className="cards">
             {timeline.map((item) => (
@@ -225,7 +242,7 @@ export default async function Home() {
         {reading.length > 0 ? (
           <section>
             <div className="section-head">
-              <h2>On the nightstand</h2>
+              <h2>Library</h2>
               <p>What I&apos;m reading right now.</p>
             </div>
             <ul className="card-grid">

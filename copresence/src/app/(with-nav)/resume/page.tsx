@@ -1,9 +1,9 @@
-import ResumeViewer from "@/components/ResumeViewer";
+import ResumeViewer, { ResumeDownloadButton } from "@/components/ResumeViewer";
 import { generateResumeHtml } from "@/lib/resume-generate";
 
 export const metadata = {
   title: "Resume",
-  description: "A story, not a traditional resume.",
+  description: "I'd rather tell you my story",
 };
 
 export default async function ResumePage() {
@@ -13,11 +13,12 @@ export default async function ResumePage() {
     <main className="raw-doc">
       <div className="raw-doc-inner" style={{ maxWidth: "860px" }}>
         <header className="page-head">
-          <p className="page-kicker">About</p>
-          <h1>Resume</h1>
+          <div className="resume-page-title-row">
+            <h1>Resume</h1>
+            <ResumeDownloadButton html={html} />
+          </div>
           <p className="note">
-            A story, not a traditional resume. Prefer plain text? Grab the{" "}
-            <a href="/resume.txt">txt version</a>.
+            Resumes are useless... I'd rather tell you my story.
           </p>
         </header>
         <ResumeViewer html={html} />

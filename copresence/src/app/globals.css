@@ -372,6 +372,24 @@ iframe.resume-iframe {
   font-size: 1.35rem;
 }
 
+.writing-card-date {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+.project-card-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+.project-card-meta .sep {
+  margin: 0 6px;
+}
+
 .card-title .count {
   font-size: 0.95rem;
   font-weight: 400;
@@ -1801,16 +1819,30 @@ iframe.resume-iframe {
    Resume
    ========================================================================== */
 
-.resume-toolbar {
+.resume-page-title-row {
   display: flex;
-  justify-content: flex-end;
-  margin: 0 0 14px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.resume-toolbar .link-pill {
+.resume-page-title-row h1 {
+  margin: 0;
+}
+
+.resume-page-title-row .link-pill {
   cursor: pointer;
   font: inherit;
   font-size: 0.95rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+  .resume-page-title-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
 
 .resume-panel {

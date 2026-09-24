@@ -16,12 +16,11 @@ export default function TimeLinePage() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Milestones</p>
           <h1>
             Timeline <span className="page-count">({TIMELINE_ITEMS.length})</span>
           </h1>
           <p className="note">
-            A running log of moments, milestones, and little proofs of progress.
+            When and what I did.
           </p>
         </header>
 

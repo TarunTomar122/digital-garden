@@ -28,14 +28,10 @@ export default function ProjectsIndex() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Builds</p>
           <h1>
             Projects <span className="page-count">({projects.length})</span>
           </h1>
-          <p className="note">
-            Notes and build logs from ongoing/finished projects. Written with
-            AI, so yes — it smells a little like slop.
-          </p>
+          <p>Logs of experiments and builds - Written by using AI heavily.</p>
         </header>
 
         <ProjectList projects={projects} />

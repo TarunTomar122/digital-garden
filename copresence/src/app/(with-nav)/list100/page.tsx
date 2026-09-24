@@ -11,12 +11,11 @@ export default function List100Page() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Bucket list</p>
           <h1>
             List 100 <span className="page-count">({done}/{total})</span>
           </h1>
           <p className="note">
-            Created on April 30, 2024. I have intentionally decided to never
+            Created on April 30, 2024. I have intentionally decided to not
             add or remove any items from this list. It captures a moment in
             time when I was 22 years old and thought I wanted all of the
             following things to happen before I turn 100.

@@ -61,13 +61,11 @@ export default function WritingsIndex() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Journal</p>
           <h1>
             Writings <span className="page-count">({writings.length})</span>
           </h1>
           <p className="note">
-            Essays, notes, and things I learn the hard way — every word
-            written by me. Sorted with the most recent stuff first.
+            Random thoughts and blogs — written by me.
           </p>
         </header>
 
@@ -85,10 +83,10 @@ export default function WritingsIndex() {
                   <Link href={`/writings/${w.slug}`} className="card">
                     <div className="card-body">
                       <h3 className="card-title card-title-sm">{w.title}</h3>
-                      <p className="card-meta">{formatShortDate(w.date)}</p>
                       {w.description ? (
                         <p className="card-desc">{w.description}</p>
                       ) : null}
+                      <p className="writing-card-date">{formatShortDate(w.date)}</p>
                     </div>
                   </Link>
                 </li>

@@ -16,6 +16,32 @@ function wrapResumeHtml(html: string) {
   return base + html;
 }
 
+export function ResumeDownloadButton({ html }: { html: string }) {
+  const handleDownloadPdf = useCallback(() => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+
+    printWindow.document.open();
+    printWindow.document.write(
+      `<!doctype html><html><head><meta charset="utf-8">` +
+        `<title>Tarun Tomar — Resume</title>` +
+        `<style>@page { margin: 16mm; } html, body { background: #fff; }</style>` +
+        `</head><body>${html}</body></html>`
+    );
+    printWindow.document.close();
+    printWindow.focus();
+
+    printWindow.onafterprint = () => printWindow.close();
+    window.setTimeout(() => printWindow.print(), 350);
+  }, [html]);
+
+  return (
+    <button type="button" className="link-pill" onClick={handleDownloadPdf}>
+      Download PDF
+    </button>
+  );
+}
+
 export default function ResumeViewer({ html }: { html: string }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -47,32 +73,8 @@ export default function ResumeViewer({ html }: { html: string }) {
     };
   }, [resizeIframe]);
 
-  const handleDownloadPdf = useCallback(() => {
-    const printWindow = window.open("", "_blank");
-    if (!printWindow) return;
-
-    printWindow.document.open();
-    printWindow.document.write(
-      `<!doctype html><html><head><meta charset="utf-8">` +
-        `<title>Tarun Tomar — Resume</title>` +
-        `<style>@page { margin: 16mm; } html, body { background: #fff; }</style>` +
-        `</head><body>${html}</body></html>`
-    );
-    printWindow.document.close();
-    printWindow.focus();
-
-    printWindow.onafterprint = () => printWindow.close();
-    window.setTimeout(() => printWindow.print(), 350);
-  }, [html]);
-
   return (
     <div>
-      <div className="resume-toolbar">
-        <button type="button" className="link-pill" onClick={handleDownloadPdf}>
-          Download PDF
-        </button>
-      </div>
-
       <div className="panel resume-panel">
         <iframe
           ref={iframeRef}

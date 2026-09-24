@@ -135,7 +135,6 @@ Duration: 1 year
 
 Academic areas being prioritized:
 
-* Probabilistic modelling
 * Computer vision
 * Advanced robotics
 * Reinforcement learning
@@ -553,7 +552,6 @@ Increasing focus:
 
 Areas where additional depth is desired:
 
-* probabilistic ML
 * rigorous research methodology
 * large-scale distributed training
 * robot learning

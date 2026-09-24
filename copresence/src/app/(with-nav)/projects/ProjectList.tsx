@@ -65,17 +65,17 @@ export default function ProjectList({ projects }: ProjectListProps) {
               <div className="card-row">
                 <div className="card-body">
                   <h3 className="card-title card-title-sm">{p.title}</h3>
-                  <p className="card-meta">
-                    {p.date ? `Built ${formatDate(p.date)}` : "Build log"}
-                    {p.tags && p.tags.length > 0 ? (
-                      <>
-                        <span className="sep">·</span>
-                        {p.tags.join(", ")}
-                      </>
-                    ) : null}
-                  </p>
                   {p.description ? (
                     <p className="card-desc">{p.description}</p>
+                  ) : null}
+                  {p.date || (p.tags && p.tags.length > 0) ? (
+                    <p className="project-card-meta">
+                      {p.date ? formatDate(p.date) : null}
+                      {p.date && p.tags && p.tags.length > 0 ? (
+                        <span className="sep">·</span>
+                      ) : null}
+                      {p.tags && p.tags.length > 0 ? p.tags.join(", ") : null}
+                    </p>
                   ) : null}
                 </div>
               </div>

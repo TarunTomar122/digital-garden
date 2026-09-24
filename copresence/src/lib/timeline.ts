@@ -104,6 +104,12 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
     link: "https://www.instagram.com/reel/DYU2n42tgH-/",
   },
   {
+    date: "2026-09",
+    title: "Started Uni again.",
+    detail: "Masters in AI at University of Edinburgh",
+    link: "https://www.instagram.com/p/DdghC3qCJFe/?img_index=1",
+  },
+  {
     date: "2026-07",
     title: "Published my first research paper",
     link: "https://arxiv.org/pdf/2607.17052",

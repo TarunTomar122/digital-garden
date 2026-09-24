@@ -74,7 +74,6 @@ export default function EasterEggs() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Extras</p>
           <h1>Easter Eggs 🥚</h1>
           <p className="note">
             Things I built to make this garden feel alive. Small touches,

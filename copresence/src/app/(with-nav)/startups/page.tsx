@@ -5,19 +5,19 @@ export const revalidate = 21600; // 6 hours
 const startups = [
   {
     name: "stocksbrew.online",
-    tagline: "Know what to do with your stocks.",
+    tagline: "Tells you what to do with your stocks.",
     link: "https://stocksbrew.online",
-    highlight: "$30 MRR",
+    highlight: "$36 MRR",
   },
   {
     name: "yourtrace.online",
-    tagline: "The fastest way to catch up with tech.",
+    tagline: "Tells you the 10 big things in tech and AI every morning",
     link: "https://yourtrace.online",
-    highlight: "$29 MRR",
+    highlight: "$21 MRR",
   },
   {
     name: "trace mobile app",
-    tagline: "TikTok for news.",
+    tagline: "Replaces your doomscrolling with news-scrolling",
     link: "https://play.google.com/store/apps/details?id=online.yourtrace.app",
     highlight: "500+ total downloads",
   },
@@ -49,13 +49,11 @@ export default async function StartupsPage() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Ventures</p>
           <h1>
             Startups <span className="page-count">({startups.length})</span>
           </h1>
           <p className="note">
-            Building stuff, one stupid idea at a time. Live numbers from the
-            last 30 days.
+            I build stuff and then sometimes people use it. These are my most recent ones.
           </p>
         </header>
 

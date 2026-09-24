@@ -97,7 +97,6 @@ export default async function WritingPage({ params }: PageProps) {
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
           <header className="article-head">
-            <p className="page-kicker">Writing</p>
             <h1>{doc.meta.title}</h1>
             {doc.meta.description ? (
               <p className="article-lede">{doc.meta.description}</p>

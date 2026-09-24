@@ -66,7 +66,7 @@ export default function LibraryPage() {
     {
       title: "Currently reading",
       books: reading,
-      blurb: "On the nightstand right now.",
+      blurb: "On the desk right now.",
     },
     {
       title: "Read",
@@ -84,7 +84,6 @@ export default function LibraryPage() {
     <main className="raw-doc">
       <div className="raw-doc-inner">
         <header className="page-head">
-          <p className="page-kicker">Reading</p>
           <h1>
             Library <span className="page-count">({books.length})</span>
           </h1>
