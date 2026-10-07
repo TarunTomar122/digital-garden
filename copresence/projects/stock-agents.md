@@ -2,6 +2,7 @@
 title: A stateful AI system that tries to predict stock prices (using news)
 description: Using daily news sentiment as a signal for next-day stock price movement
 category: project
+cover: /assets/projects/stocks-agent/stocks-trend.png
 date: 2025-12-30
 tags:
     - python

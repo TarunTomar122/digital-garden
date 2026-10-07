@@ -2,6 +2,7 @@
 title: Vision-Enhanced NanoChat with Extended Context
 description: Extending a tiny LLM's context limit by compressing text into visual tokens using a vision encoder
 category: project
+cover: /assets/projects/vision-nanochat.svg
 date: 2025-11-05
 tags: 
     - python

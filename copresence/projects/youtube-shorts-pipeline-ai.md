@@ -2,6 +2,7 @@
 title: How I automated my YouTube Shorts pipeline
 description: Zero-touch YouTube Shorts from story to post.
 category: project
+cover: /assets/projects/shorts-pipeline.svg
 date: 2026-06-09
 tags:
   - automation

@@ -2,6 +2,7 @@
 title: Voice-Powered Todo App with On-Device AI
 description: Finetuned a 350M parameter LLM to understand natural language tasks and run locally on mobile
 category: project
+cover: /assets/posts/overengineering-lumi/feature.png
 date: 2025-10-07
 tags:
     - react-native
@@ -115,5 +116,4 @@ It only took like 15 minutes (4 hours) to do this whole thing and the result is.
 ####
 
 SHUT UP! I have a 9-5 job you know! So I'll do it when I do it. For now let me just admire how fast this thing is on a relatively old phone :)
-
 

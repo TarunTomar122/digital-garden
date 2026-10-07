@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#eff1ed"/>
+  <g stroke="#cbd0c6" stroke-width="1">
+    <path d="M0 80H640M0 160H640M0 240H640M0 320H640M80 0V400M160 0V400M240 0V400M320 0V400M400 0V400M480 0V400M560 0V400" opacity=".45"/>
+  </g>
+  <path d="M183 195H262M378 195H457" stroke="#788570" stroke-width="2" stroke-dasharray="4 5"/>
+  <g fill="#fafbf8" stroke="#9da894" stroke-width="1.5">
+    <rect x="67" y="139" width="116" height="112" rx="12"/>
+    <rect x="262" y="102" width="116" height="186" rx="16"/>
+    <rect x="457" y="139" width="116" height="112" rx="12"/>
+  </g>
+  <g stroke="#43533c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M104 175H146M104 189H146M104 203H135M104 217H140"/>
+    <path d="M308 171L340 195L308 219Z" fill="#43533c"/>
+    <path d="M297 265H343M301 122H339" stroke-width="2"/>
+    <path d="M515 218V172M498 189L515 172L532 189M495 218H486V229H544V218H535"/>
+  </g>
+  <g fill="#43533c" font-family="monospace" font-size="16" letter-spacing="2" text-anchor="middle">
+    <text x="125" y="324">STORY</text>
+    <text x="320" y="324">VIDEO</text>
+    <text x="515" y="324">PUBLISH</text>
+  </g>
+</svg>

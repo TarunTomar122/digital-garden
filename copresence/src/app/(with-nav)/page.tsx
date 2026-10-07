@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getTopTrack } from "@/actions/spotifyembed";
 import RobotArm from "@/components/RobotArm";
+import Bookshelf from "@/components/Bookshelf";
+import ProjectCard from "@/components/ProjectCard";
 import { getAllWritings } from "@/lib/writings";
 import { getAllProjects } from "@/lib/projects";
 import { getRecentTimeline, formatYearMonth } from "@/lib/timeline";
@@ -26,16 +28,6 @@ function formatWritingDate(dateString?: string): string {
   return date.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
-  });
-}
-
-function formatProjectDate(dateString?: string): string {
-  if (!dateString) return "";
-  const date = new Date(dateString);
-  if (isNaN(date.getTime())) return dateString;
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
   });
 }
 
@@ -81,12 +73,20 @@ export default async function Home() {
   const writings = getAllWritings();
   const projects = getAllProjects();
   const recentWritings = writings.slice(0, 3);
-  const recentProjects = projects.slice(0, 3);
+  const featuredProjects = [
+    "deepseek-nanochat-1",
+    "smollms",
+    "lumi-voice-assistant",
+  ].flatMap((slug) => {
+    const project = projects.find((p) => p.slug === slug);
+    return project ? [project] : [];
+  });
   const timeline = getRecentTimeline(4);
-  const reading = books.books.filter((b) => b.status === "reading").slice(0, 4);
+  // Keep the library's curated order for the homepage preview.
+  const recentBooks = books.books.slice(0, 4);
 
   return (
-    <main className="raw-doc">
+    <main className="raw-doc home-page">
       <div className="raw-doc-inner">
         <header className="hero">
           <div className="hero-robot">
@@ -131,7 +131,7 @@ export default async function Home() {
           <NowPlaying />
         </div>
 
-        <section>
+        <section className="home-writing-section">
           <div className="section-head">
             <h2>
               Selected writing <span className="count">({writings.length})</span>
@@ -169,28 +169,10 @@ export default async function Home() {
             </h2>
             <p>Logs of experiments and builds - Written by using AI heavily.</p>
           </div>
-          <ul className="cards">
-            {recentProjects.map((p) => (
+          <ul className="project-showcase">
+            {featuredProjects.map((p) => (
               <li key={p.slug}>
-                <Link href={`/projects/${p.slug}`} className="card">
-                  <div className="card-row">
-                    <div className="card-body">
-                      <h3 className="card-title">{p.title}</h3>
-                      {p.description ? (
-                        <p className="card-desc">{p.description}</p>
-                      ) : null}
-                      {p.date || (p.tags && p.tags.length > 0) ? (
-                        <p className="project-card-meta">
-                          {p.date ? formatProjectDate(p.date) : null}
-                          {p.date && p.tags && p.tags.length > 0 ? (
-                            <span className="sep">·</span>
-                          ) : null}
-                          {p.tags && p.tags.length > 0 ? p.tags.join(", ") : null}
-                        </p>
-                      ) : null}
-                    </div>
-                  </div>
-                </Link>
+                <ProjectCard project={p} />
               </li>
             ))}
           </ul>
@@ -204,73 +186,35 @@ export default async function Home() {
             <h2>Updates</h2>
             <p>Big and small updates from my life.</p>
           </div>
-          <ul className="cards">
+          <ol className="home-timeline">
             {timeline.map((item) => (
               <li key={`${item.date}-${item.title}`}>
-                <div className="panel">
-                  <div className="card-row">
-                    <div className="card-body">
-                      <h3 className="card-title card-title-sm">
-                        {item.link ? (
-                          <a href={item.link} target="_blank" rel="noreferrer">
-                            {item.title}
-                          </a>
-                        ) : (
-                          item.title
-                        )}
-                      </h3>
-                      <p className="card-meta">
-                        {formatYearMonth(item.date)}
-                        {item.detail ? (
-                          <>
-                            <span className="sep">·</span>
-                            {item.detail}
-                          </>
-                        ) : null}
-                      </p>
-                    </div>
-                  </div>
+                <time dateTime={item.date}>{formatYearMonth(item.date)}</time>
+                <div className="home-timeline-entry">
+                  <h3>
+                    {item.link ? (
+                      <a href={item.link} target="_blank" rel="noreferrer">
+                        {item.title} <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : item.title}
+                  </h3>
+                  {item.detail ? <p>{item.detail}</p> : null}
                 </div>
               </li>
             ))}
-          </ul>
+          </ol>
           <p className="section-more">
             <Link href="/timeline">Full timeline →</Link>
           </p>
         </section>
 
-        {reading.length > 0 ? (
+        {recentBooks.length > 0 ? (
           <section>
             <div className="section-head">
               <h2>Library</h2>
-              <p>What I&apos;m reading right now.</p>
+              <p>The latest books on my shelf.</p>
             </div>
-            <ul className="card-grid">
-              {reading.map((b, idx) => (
-                <li key={`${b.title}-${idx}`}>
-                  <a
-                    href={b.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card book-card"
-                  >
-                    <div className="book-row">
-                      <img
-                        className="book-cover"
-                        src={b.img}
-                        alt={b.title}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div className="book-info">
-                        <p className="book-title">{b.title}</p>
-                        <p className="book-author">{b.author}</p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <Bookshelf books={recentBooks} />
             <p className="section-more">
               <Link href="/library">The whole library →</Link>
             </p>

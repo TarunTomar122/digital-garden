@@ -1,17 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ProjectMeta } from "@/lib/projects";
+import ProjectCard from "@/components/ProjectCard";
+import type { ProjectMeta } from "@/lib/projects";
 
 const PAGE_SIZE = 7;
-
-function formatDate(dateString?: string): string {
-  if (!dateString) return "";
-  const date = new Date(dateString);
-  if (isNaN(date.getTime())) return dateString;
-  return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
-}
 
 interface ProjectListProps {
   projects: ProjectMeta[];
@@ -58,28 +51,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
         </div>
       )}
 
-      <ul className="cards" key={selectedTag ?? "all"}>
+      <ul className="project-showcase" key={selectedTag ?? "all"}>
         {paginatedProjects.map((p) => (
           <li key={p.slug}>
-            <Link href={`/projects/${p.slug}`} className="card">
-              <div className="card-row">
-                <div className="card-body">
-                  <h3 className="card-title card-title-sm">{p.title}</h3>
-                  {p.description ? (
-                    <p className="card-desc">{p.description}</p>
-                  ) : null}
-                  {p.date || (p.tags && p.tags.length > 0) ? (
-                    <p className="project-card-meta">
-                      {p.date ? formatDate(p.date) : null}
-                      {p.date && p.tags && p.tags.length > 0 ? (
-                        <span className="sep">·</span>
-                      ) : null}
-                      {p.tags && p.tags.length > 0 ? p.tags.join(", ") : null}
-                    </p>
-                  ) : null}
-                </div>
-              </div>
-            </Link>
+            <ProjectCard project={p} />
           </li>
         ))}
       </ul>
