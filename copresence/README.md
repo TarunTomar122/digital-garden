@@ -232,8 +232,8 @@ Instead of using a vector database (Pinecone, Weaviate), embeddings are:
 
 ### Pagination Strategy
 
-- **Writings:** Server-side pagination (URL params)
-- **Projects:** Client-side pagination + tag filtering
+- **Writings:** All public entries are available in the server-rendered listing.
+- **Projects:** All entries are server-rendered; tag filters provide optional client-side browsing.
 
 ## 🔧 Configuration
 
@@ -242,6 +242,20 @@ Instead of using a vector database (Pinecone, Weaviate), embeddings are:
 1. Add/edit markdown files in `/projects` or `/writings`
 2. Regenerate embeddings: `cd taratai && python3 create_embeddings.py && python3 covert_to_json.py`
 3. Rebuild: `npm run build`
+
+### Publishing for search
+
+Use Markdown frontmatter `title` and `description` for the displayed content. Optional `seoTitle` and `seoDescription` provide a specific search title and summary without changing the visible heading. Keep `date` as the original publication date; set `updated` to the actual date of a substantial change (ISO `YYYY-MM-DD`). Optional `related` lists public content paths such as `/projects/smollms` or `/writings/Learning-GPU`. Writings with `hidden: true` are excluded from public listings and the sitemap.
+
+After deploying, verify the live page and canonical URL, then review [the production sitemap](https://www.tarat.space/sitemap.xml). It contains public canonical pages, excludes query/filter URLs, and uses valid `updated` or publication dates when available. Submit this sitemap in Google Search Console and Bing Webmaster Tools for the verified site.
+
+To notify participating search engines after deployment, run from this directory with Node.js 18+:
+
+```bash
+node scripts/submit-indexnow.mjs
+```
+
+The script checks the deployed public ownership key, validates production sitemap URLs, and sends one IndexNow request. HTTP 200 confirms submission acceptance; HTTP 202 means receipt with key validation pending. Neither confirms crawling, indexing, or ranking. The public key text file must remain deployed. See [IndexNow documentation](https://www.indexnow.org/documentation).
 
 ### Customizing AI Personality
 

@@ -3,11 +3,17 @@ title: I got into a toxic relationship (again)
 description: But this time I won't play the victim because it's me, I am the problem it's me.
 category: tech
 date: 2025-03-02
+seoTitle: "Learning to Understand the Code Cursor AI Writes"
+seoDescription: "A personal account of building projects with Cursor, getting stuck in code I did not understand, and learning to review AI-generated work."
+related:
+  - /writings/cursor-ai
+  - /writings/tokens-are-cheap-thinking-isnt
+updated: "2026-10-07"
 ---
 
 ### The beginning
 
-It all began about a month ago—when I first laid eyes on Cursor. There was an undeniable spark, a magnetic pull that drew me in. The moment I discovered Cursor, it felt like fate. I was so enchanted that I even wrote a [blog](https://www.tarat.space/writings/cursor-ai) about this miraculous encounter.
+It all began about a month ago—when I first laid eyes on Cursor. There was an undeniable spark, a magnetic pull that drew me in. The moment I discovered Cursor, it felt like fate. I was so enchanted that I even wrote a [blog about Cursor](/writings/cursor-ai) about this miraculous encounter.
 
 ####
 
@@ -40,7 +46,7 @@ And then, miraculously, things started to click. In just two weeks, Cursor and I
 - [Added a like button to my blogs](https://github.com/TarunTomar122/digital-garden/commit/639fd6d7e802c72bebcf66632fa5265c0d9ebaec)
 - Made a stupid trip planner project - [Map My Trip](https://www.tarat.space/projects/trip-planner)
 - Made shit ton amount of progress on [Project Nimbus](https://www.tarat.space/projects/ood)
-- Figured out how to run Qwen 14b on my local machine
+- Figured out [how to run Qwen 14b on my local machine](/writings/local-llm)
 - Created an api using websockets to stream in the model output in real time
 - Figured out how to run Stable Diffusion on my local machine
 - Created [a custom inference api for Stable Diffusion](https://github.com/TarunTomar122/stable-diffusion-inference-module)

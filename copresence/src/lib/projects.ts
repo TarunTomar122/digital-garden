@@ -8,6 +8,10 @@ export type ProjectMeta = {
   slug: string;
   title: string;
   description?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  updated?: string;
+  related?: string[];
   cover?: string;
   date?: string;
   links?: ProjectLink[];
@@ -30,11 +34,12 @@ export function getAllProjects(): ProjectMeta[] {
     const derivedTitle = firstLine.replace(/^#\s+/, "").trim();
     const title = (data.title as string) || derivedTitle || filename.replace(/\.(md|mdx)$/i, "");
     const description = (data.description as string) || undefined;
+    const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
     const cover = (data.cover as string) || content.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const date = (data.date as string) || undefined;
     const tags = (data.tags as string[]) || undefined;
     const slug = filename.replace(/\.(md|mdx)$/i, "");
-    return { slug, title, description, cover, date, tags } satisfies ProjectMeta;
+    return { slug, title, description, seoTitle, seoDescription, updated, related, cover, date, tags } satisfies ProjectMeta;
   });
 
   return items.sort((a, b) => {
@@ -60,11 +65,12 @@ export function getProjectBySlug(
   const derivedTitle = firstLine.replace(/^#\s+/, "").trim();
   const title = (data.title as string) || derivedTitle || slug;
   const description = (data.description as string) || undefined;
+  const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
   const cover = (data.cover as string) || content.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
   const date = (data.date as string) || undefined;
   const tags = (data.tags as string[]) || undefined;
   const links: ProjectLink[] | undefined = normalizeLinks((data as any).links);
-  return { content, meta: { slug, title, description, cover, date, links, tags } };
+  return { content, meta: { slug, title, description, seoTitle, seoDescription, updated, related, cover, date, links, tags } };
 }
 
 function normalizeLinks(input: any): ProjectLink[] | undefined {
@@ -102,4 +108,15 @@ function normalizeLinks(input: any): ProjectLink[] | undefined {
     }
   }
   return output.length ? output : undefined;
+}
+
+function getSearchMeta(data: Record<string, unknown>) {
+  return {
+    seoTitle: typeof data.seoTitle === "string" ? data.seoTitle : undefined,
+    seoDescription: typeof data.seoDescription === "string" ? data.seoDescription : undefined,
+    updated: typeof data.updated === "string" ? data.updated : undefined,
+    related: Array.isArray(data.related)
+      ? data.related.filter((value): value is string => typeof value === "string")
+      : undefined,
+  };
 }

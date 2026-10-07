@@ -3,6 +3,9 @@ title: keep
 description: A long distance gift for my fiancee
 category: life
 date: 2026-09-24
+seoTitle: "Keep: an ESP32 E-Paper Photo Frame for Long Distance"
+seoDescription: "How I built a personal photo frame with an ESP32, an e-paper display, daily image updates, and a companion app for Wi-Fi setup."
+updated: "2026-10-07"
 ---
 
 ![keep](/assets/posts/keep/keep-thumb.jpg)

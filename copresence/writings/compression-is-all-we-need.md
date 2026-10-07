@@ -3,6 +3,10 @@ title: Compression is all we need
 description: Drawing parallels between compression and intelligence
 category: tech
 date: 2025-04-28
+related:
+  - /projects/deepseek-nanochat-1
+  - /projects/smollms
+updated: "2026-10-07"
 ---
 
 <iframe width="600" height="300" src="https://www.youtube.com/embed/6nJZopACRuQ" title="Pre-Training GPT-4.5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

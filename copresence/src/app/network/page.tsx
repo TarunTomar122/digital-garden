@@ -1,9 +1,13 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/network",
+  "Garden Galaxy",
+  "Explore connections between Tarat's projects, writings, and work experience in an interactive semantic map of the garden."
+);
+
 import GardenMap from "@/components/GardenMap";
 
-export const metadata = {
-  title: "Garden Galaxy",
-  description: "A semantic map of my digital garden.",
-};
 
 export default function GardenPage() {
   return (

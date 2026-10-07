@@ -3,6 +3,11 @@ title: An Overthinking version of ChatGPT
 description: DeepSeek ai is basically ChatGPT but with a lot of overthinking.
 category: tech
 date: 2025-01-25
+seoTitle: "Trying DeepSeek R1: Reasoning and First Impressions"
+seoDescription: "My first impressions of DeepSeek R1 in January 2025, with examples of reasoning, search, and comparisons with ChatGPT."
+related:
+  - /writings/local-llm
+updated: "2026-10-07"
 ---
 
 ###

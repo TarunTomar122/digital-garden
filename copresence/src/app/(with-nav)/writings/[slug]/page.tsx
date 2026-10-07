@@ -7,6 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import LikeButton from "@/components/LikeButton";
 import InstagramEmbed from "@/components/InstagramEmbed";
 import MarkdownImage from "@/components/MarkdownImage";
+import RelatedContent from "@/components/RelatedContent";
 import { SITE_NAME } from "@/lib/site";
 import Link from "next/link";
 
@@ -24,16 +25,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const doc = getWritingBySlug(slug);
   if (!doc) return {};
 
-  const title = doc.meta.title;
+  const title = doc.meta.seoTitle ?? doc.meta.title;
   const description =
-    doc.meta.description ?? "Writing from Tarat's Garden.";
+    doc.meta.seoDescription ?? doc.meta.description ?? "Writing from Tarat's Garden.";
   const canonicalPath = `/writings/${slug}`;
-  const publishedTime = doc.meta.date
-    ? (() => {
-        const parsed = new Date(doc.meta.date);
-        return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
-      })()
-    : undefined;
+  const publishedTime = toIsoDate(doc.meta.date);
+
+  const modifiedTime = toIsoDate(doc.meta.updated);
 
   return {
     title,
@@ -47,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalPath,
       siteName: SITE_NAME,
+      modifiedTime,
       publishedTime,
     },
     twitter: {
@@ -55,6 +54,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
     },
   };
+}
+
+function toIsoDate(dateString?: string): string | undefined {
+  if (!dateString) return undefined;
+  const date = new Date(dateString);
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
 function formatDate(dateString?: string): string {
@@ -84,7 +89,8 @@ export default async function WritingPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: doc.meta.title,
-    description: doc.meta.description,
+    description: doc.meta.seoDescription ?? doc.meta.description,
+    dateModified: toIsoDate(doc.meta.updated),
     datePublished: doc.meta.date,
     mainEntityOfPage: `https://www.tarat.space/writings/${slug}`,
     author: { "@type": "Person", name: "Tarat" },
@@ -127,6 +133,8 @@ export default async function WritingPage({ params }: PageProps) {
             />
           </div>
         </article>
+
+        <RelatedContent paths={doc.meta.related} currentPath={`/writings/${slug}`} />
 
         <footer aria-label="More writings">
           <div className={`post-nav ${!previous || !next ? "post-nav-single" : ""}`}>

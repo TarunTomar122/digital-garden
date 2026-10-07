@@ -12,9 +12,13 @@ links:
       url: https://www.tarat.space/tarat-ai
     - type: github
       url: https://github.com/TarunTomar122/digital-garden/tree/main/copresence/taratai
+related:
+  - /projects/digital-garden
+  - /writings/nextjs-homepage-faster
+updated: "2026-10-07"
 ---
 
-So I knew what RAG is and how it works but I never actually built one. So I decided to build one for my digital garden.
+So I knew what RAG is and how it works but I never actually built one. So I decided to build one for [my digital garden](/projects/digital-garden).
 It's actually pretty straightforward and below I will take you through the process of how I built one for this website.
 
 ####

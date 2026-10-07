@@ -1,3 +1,11 @@
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+
+export const metadata = {
+  title: { absolute: SITE_NAME },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+};
+
 import Link from "next/link";
 import { getTopTrack } from "@/actions/spotifyembed";
 import RobotArm from "@/components/RobotArm";

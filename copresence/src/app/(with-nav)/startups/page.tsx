@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/startups",
+  "Startups",
+  "Explore Tarat's startups: StocksBrew, Trace, and the Trace mobile app, with product links and progress."
+);
+
 import { getUniquePageviews, getAppInstalls } from "@/lib/posthogAPI";
 
 export const revalidate = 21600; // 6 hours

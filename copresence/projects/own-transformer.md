@@ -7,9 +7,16 @@ tags:
     - python
     - machine-learning
     - pytorch
+seoTitle: "Building a Transformer from Scratch in PyTorch"
+seoDescription: "How I learned the attention math, coded my own transformer block, and trained a small model on personal conversations."
+related:
+  - /projects/deepseek-nanochat-1
+  - /projects/smollms
+  - /writings/Learning-GPU
+updated: "2026-10-07"
 ---
 
-If you've read my past blogs then you know how I was playing around with nanochat and trying add vision to that tiny model (which worked out fine!!) and while I was doing all that I realised how little I know about transformers. 
+If you've read my past blogs then you know how I was [playing around with nanochat and trying add vision to that tiny model](/projects/deepseek-nanochat-1) (which worked out fine!!) and while I was doing all that I realised how little I know about transformers.
 
 Long story short, I didn't like that feeling and so I put my head down for next 2 weeks to learn all the maths behind "Attention is All You Need" with one simple goal of coding my own transformer block from scratch without using AI. 
 
@@ -71,6 +78,5 @@ I simply exported the whatsapp chats and then asked cursor to write a script to 
 #### So why did I write all this?
 
 Maybe just to highlight how in the age of abundance you can just do things.
-
 
 

@@ -7,6 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { SITE_NAME } from "@/lib/site";
 import Link from "next/link";
 import MarkdownImage from "@/components/MarkdownImage";
+import RelatedContent from "@/components/RelatedContent";
 
 // Fully static - only regenerates on deploy (projects don't change dynamically)
 export const revalidate = false;
@@ -22,9 +23,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const doc = getProjectBySlug(slug);
   if (!doc) return {};
 
-  const title = doc.meta.title;
-  const description = doc.meta.description ?? "Project from Tarat's Garden.";
+  const title = doc.meta.seoTitle ?? doc.meta.title;
+  const description = doc.meta.seoDescription ?? doc.meta.description ?? "Project from Tarat's Garden.";
   const canonicalPath = `/projects/${slug}`;
+
+  const modifiedTime = toIsoDate(doc.meta.updated);
 
   return {
     title,
@@ -38,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalPath,
       siteName: SITE_NAME,
+      modifiedTime,
     },
     twitter: {
       card: "summary_large_image",
@@ -45,6 +49,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
     },
   };
+}
+
+function toIsoDate(dateString?: string): string | undefined {
+  if (!dateString) return undefined;
+  const date = new Date(dateString);
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
 function formatDate(dateString?: string): string {
@@ -73,7 +83,8 @@ export default async function ProjectPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: doc.meta.title,
-    description: doc.meta.description,
+    description: doc.meta.seoDescription ?? doc.meta.description,
+    dateModified: toIsoDate(doc.meta.updated),
     dateCreated: doc.meta.date,
     url: `https://www.tarat.space/projects/${slug}`,
     author: { "@type": "Person", name: "Tarat" },
@@ -130,6 +141,8 @@ export default async function ProjectPage({ params }: PageProps) {
             />
           </div>
         </article>
+
+        <RelatedContent paths={doc.meta.related} currentPath={`/projects/${slug}`} />
 
         <footer aria-label="More projects">
           <div className={`post-nav ${!previous || !next ? "post-nav-single" : ""}`}>

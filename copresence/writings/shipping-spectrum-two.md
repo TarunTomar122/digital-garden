@@ -3,6 +3,11 @@ title: My biggest work achievement so far
 description: Shipping Spectrum Web Components 1.0
 category: tech
 date: 2024-11-08
+seoTitle: "Shipping Adobe Spectrum Web Components 1.0"
+seoDescription: "My experience helping ship Spectrum Web Components 1.0, including component migrations, icon sets, and collaboration across time zones."
+related:
+  - /writings/too-many-tests
+updated: "2026-10-07"
 ---
 
 ## Introduction

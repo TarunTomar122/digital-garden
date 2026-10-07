@@ -12,11 +12,14 @@ links:
     - url: https://stocksbrew.vercel.app/sentiment
     - type: github
     - url: https://github.com/TarunTomar122/stocksbrew
+related:
+  - /projects/stocksbrew
+updated: "2026-10-07"
 ---
 
 ### ok so what is this?
 
-I built an app called [stocksbrew](http://tarat.space/projects/stocksbrew) a while back. It sends me a clean little email every morning with **AI summaries** of news about the stocks I care about (before the market opens).
+I built an app called [stocksbrew](/projects/stocksbrew) a while back. It sends me a clean little email every morning with **AI summaries** of news about the stocks I care about (before the market opens).
 
 Then my brain went: *yuh but… does this news stuff actually mean anything?*  
 Like, if the news around a stock is positive today, is the stock more likely to go up tomorrow? And if yes, is it **predictive enough** to not just be vibes?

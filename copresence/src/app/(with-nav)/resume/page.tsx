@@ -1,10 +1,14 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/resume",
+  "Resume",
+  "Read Tarat's story, work experience, projects, and achievements, and download a resume."
+);
+
 import ResumeViewer, { ResumeDownloadButton } from "@/components/ResumeViewer";
 import { generateResumeHtml } from "@/lib/resume-generate";
 
-export const metadata = {
-  title: "Resume",
-  description: "I'd rather tell you my story",
-};
 
 export default async function ResumePage() {
   const { html } = await generateResumeHtml();

@@ -3,6 +3,11 @@ title: Break some to fix more
 description: How breaking things can help you fix them faster
 category: tech
 date: 2024-09-24
+seoTitle: "Debugging CSS by Reproducing Visual Regressions"
+seoDescription: "How I reproduced visual regressions by changing the original component styles while migrating Adobe's design system."
+related:
+  - /writings/shipping-spectrum-two
+updated: "2026-10-07"
 ---
 
 ## Context

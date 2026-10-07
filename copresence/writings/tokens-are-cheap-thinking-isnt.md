@@ -3,6 +3,9 @@ title: Tokens Are Cheap. Thinking Isn't
 description: Why I am limiting my daily AI prompts to protect clarity and attention.
 category: tech
 date: 2026-04-23
+related:
+  - /writings/ai-stuff-fun
+updated: "2026-10-07"
 ---
 
 I've decided to put a limit on the number of messages I send to AI every day, and here's why.

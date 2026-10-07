@@ -11,6 +11,12 @@ tags:
 links:   
     - type: github
       url: https://github.com/TarunTomar122/vision-encoded-nanochat
+seoTitle: "Adding Vision to Nanochat with BLIP-2 and a Projector"
+seoDescription: "An experiment aligning frozen BLIP-2 visual tokens with Nanochat using a trainable projector, with early image captions and planned context compression."
+related:
+  - /projects/own-transformer
+  - /writings/compression-is-all-we-need
+updated: "2026-10-07"
 ---
 
 ### Introduction

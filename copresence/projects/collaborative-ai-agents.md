@@ -7,6 +7,11 @@ tags:
     - python
     - machine-learning
     - reinforcement-learning
+seoTitle: "Collaborative Reinforcement Learning with Two DQN Agents"
+seoDescription: "A grid-world experiment in team rewards, shared embeddings, escape-route shaping, and the challenges of partial observability."
+related:
+  - /writings/aws-deepracer
+updated: "2026-10-07"
 ---
 
 ### Introduction

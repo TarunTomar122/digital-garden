@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/library",
+  "Library",
+  "Browse Tarat's bookshelf, including books currently being read, finished books, reading status, and ratings."
+);
+
 import data from "@/app/(with-nav)/library/books.json";
 import Bookshelf from "@/components/Bookshelf";
 

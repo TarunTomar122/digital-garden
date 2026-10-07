@@ -8,6 +8,9 @@ tags:
 links:
     - type: github
       url: https://github.com/TarunTomar122/Automating-a-Youtube-Channel-without-using-AI
+related:
+  - /projects/youtube-shorts-pipeline-ai
+updated: "2026-10-07"
 ---
 
 ###

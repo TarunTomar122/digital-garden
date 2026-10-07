@@ -3,6 +3,9 @@ title: An Almost Perfect Like Button
 description: How hard can it be to code a like button? Well more than you think.
 category: tech
 date: 2025-02-01
+related:
+  - /projects/digital-garden
+updated: "2026-10-07"
 ---
 
 ### Introduction

@@ -10,6 +10,9 @@ links:
     - url: https://play.google.com/store/apps/details?id=com.lumi.mobile
     - type: github
     - url: https://github.com/TarunTomar122/lumi
+related:
+  - /projects/lumi-voice-assistant
+updated: "2026-10-07"
 ---
 
 ### Why?

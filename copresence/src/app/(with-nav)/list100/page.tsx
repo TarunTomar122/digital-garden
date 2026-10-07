@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/list100",
+  "List 100",
+  "Tarat's list of 100 life goals, written in April 2024, with progress on experiences and ambitions to complete before turning 100."
+);
+
 import data from "@/app/list100.json";
 
 type Item = { text: string; status: "done" | "todo" };

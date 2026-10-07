@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata(
+  "/easter-eggs",
+  "Easter Eggs",
+  "Discover the interactive features in Tarat's Garden: shared cursor glows, a semantic map, and an AI assistant."
+);
+
 import Link from "next/link";
 
 const eggs = [

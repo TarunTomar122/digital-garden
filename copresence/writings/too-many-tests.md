@@ -3,6 +3,11 @@ title: Ship it! Or not?
 description: How much testing is too much testing?
 category: tech
 date: 2024-09-06
+seoTitle: "Testing Expected Behavior in Spectrum Web Components"
+seoDescription: "A small menu-item bug at Adobe led to a discussion about why even expected component behavior needs a regression test."
+related:
+  - /writings/shipping-spectrum-two
+updated: "2026-10-07"
 ---
 
 ### Flashback

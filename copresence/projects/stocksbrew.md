@@ -11,6 +11,10 @@ links:
     - url: https://stocksbrew.vercel.app/
     - type: github
     - url: https://github.com/TarunTomar122/stocksbrew
+related:
+  - /projects/stock-agents
+  - /projects/youtube-shorts-pipeline-ai
+updated: "2026-10-07"
 ---
 
 ### Why?

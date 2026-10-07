@@ -3,6 +3,13 @@ title: Chinese AI got me excited about LLMs again
 description: Alibaba and DeepSeek to the rescue!
 category: tech
 date: 2025-02-18
+seoTitle: "Running Local LLMs: DeepSeek, Qwen, and Quantization"
+seoDescription: "My introduction to local language models, distillation, quantization, and building an inference service after exploring DeepSeek and Qwen."
+related:
+  - /projects/tiny-model-coach
+  - /projects/lumi-voice-assistant
+  - /writings/deepseek
+updated: "2026-10-07"
 ---
 
 ### Chapter 1: The Beginning

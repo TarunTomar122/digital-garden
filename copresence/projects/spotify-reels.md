@@ -10,6 +10,9 @@ links:
       url: https://spotify-reels.netlify.app/
     - type: github
       url: https://github.com/TarunTomar122/spotify-reels
+seoTitle: "Spotify Reels: a Short-Form Music Discovery App"
+seoDescription: "Why I built a reels-style app for discovering music when Spotify did not offer the experience I wanted."
+updated: "2026-10-07"
 ---
 
 ### Why?

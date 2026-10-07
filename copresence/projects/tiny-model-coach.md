@@ -10,6 +10,12 @@ tags:
 links:
     - type: link
       url: https://colab.research.google.com/drive/1pwAkDF5Q5J9EVt01GUMrqS0DhI_dqn0V?usp=sharing
+seoTitle: "Fine-Tuning Gemma 270M on Strava Running Data"
+seoDescription: "How I fine-tuned a tiny Gemma model with Unsloth and LoRA on summaries of 200+ Strava runs to make a sarcastic personal running coach."
+related:
+  - /projects/lumi-voice-assistant
+  - /writings/local-llm
+updated: "2026-10-07"
 ---
 
 ### The beginning
@@ -42,7 +48,7 @@ Some of the obvious choices were:
 
 ####
 
-- Finetuning it to act like a personal agent and then merge it with "Lumi" to give lumi superpowers.
+- Finetuning it to act like a personal agent and then merge it with ["Lumi"](/projects/lumi) to give lumi superpowers.
 - Finetuning it to auto tag my notes in "Lumi" to make it more useful.
 - Finetuning it to act like a "cat" and just say cat stuff.
 etc. etc.

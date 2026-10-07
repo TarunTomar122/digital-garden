@@ -3,6 +3,13 @@ title: Notes from writing software in 2025
 description: A year full of lessons and learnings
 category: tech
 date: 2026-01-12
+seoTitle: "Lessons from Building Software with AI Agents in 2025"
+seoDescription: "Notes on choosing what to build, shipping personal projects, learning transformers, and using AI as a tutor during 2025."
+related:
+  - /projects/own-transformer
+  - /projects/lumi
+  - /projects/stocksbrew
+updated: "2026-10-07"
 ---
 
 ### 
@@ -111,8 +118,8 @@ They were just… meaningful *to me*.
 ####
 
 Some examples from my year:
-- **Lumi**: a to-do / day-planner type app I genuinely use.
-- **StocksBrew**: an AI agent that tracks stock news and gives summaries before market open.
+- **[Lumi](/projects/lumi)**: a to-do / day-planner type app I genuinely use.
+- **[StocksBrew](/projects/stocksbrew)**: an AI agent that tracks stock news and gives summaries before market open.
 - **Instafy**: a tool I didn’t need daily, but I saw a small market moment and went for it.
 
 ####
@@ -263,7 +270,7 @@ And because of that, I actually did the things I kept postponing for years.
 
 ####
 
-I built my own transformer model.
+I built [my own transformer model](/projects/own-transformer).
 I fine-tuned a model on a custom dataset.
 I fine-tuned NanoChat.
 I added vision to NanoChat (and that got a lot of attention online).

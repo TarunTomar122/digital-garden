@@ -9,6 +9,9 @@ tags:
 links:
     - type: github
       url: https://github.com/RoboticsClubIITJ/ML-DL-implementation
+related:
+  - /projects/own-transformer
+updated: "2026-10-07"
 ---
 
 ###

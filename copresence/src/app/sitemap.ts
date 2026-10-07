@@ -17,10 +17,10 @@ const STATIC_ROUTES = [
   "/network",
 ];
 
-function toValidDate(value?: string): Date {
-  if (!value) return new Date();
+function toValidDate(value?: string): Date | undefined {
+  if (!value) return undefined;
   const parsed = new Date(value);
-  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,14 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const writingEntries: MetadataRoute.Sitemap = getAllWritings().map((writing) => ({
     url: `${SITE_URL}/writings/${writing.slug}`,
-    lastModified: toValidDate(writing.date),
+    lastModified: toValidDate(writing.updated) ?? toValidDate(writing.date),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const projectEntries: MetadataRoute.Sitemap = getAllProjects().map((project) => ({
     url: `${SITE_URL}/projects/${project.slug}`,
-    lastModified: toValidDate(project.date),
+    lastModified: toValidDate(project.updated) ?? toValidDate(project.date),
     changeFrequency: "monthly",
     priority: 0.75,
   }));

@@ -3,6 +3,12 @@ title: Falling in love with Next.js
 description: Partial Pre Rendering in Nextjs can help you make your page load 10x faster.
 category: tech
 date: 2024-08-09
+seoTitle: "Next.js Partial Prerendering and Suspense for a Faster Homepage"
+seoDescription: "How I used Partial Prerendering and React Suspense to load static homepage content while a Last.fm section fetched its data."
+related:
+  - /projects/digital-garden
+  - /projects/garden-rag
+updated: "2026-10-07"
 ---
 
 ## Introduction

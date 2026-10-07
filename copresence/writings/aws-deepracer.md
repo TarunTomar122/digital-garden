@@ -3,6 +3,11 @@ title: Our car ranked 5th among 200+ participants
 description: I raced a RC car in the office on a random wednesday
 category: tech
 date: 2024-09-25
+seoTitle: "AWS DeepRacer: Reward Functions and Our Fifth-Place Finish"
+seoDescription: "How our team trained a reinforcement learning model, tuned its reward function, and raced an RC car in the AWS-Adobe DeepRacer challenge."
+related:
+  - /projects/collaborative-ai-agents
+updated: "2026-10-07"
 ---
 
 ![Image](/assets/posts/deepracer/logo.png)

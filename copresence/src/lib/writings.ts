@@ -6,6 +6,10 @@ export type WritingMeta = {
   slug: string;
   title: string;
   description?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  updated?: string;
+  related?: string[];
   date?: string;
   hidden?: boolean;
 };
@@ -26,10 +30,11 @@ export function getAllWritings(): WritingMeta[] {
     const derivedTitle = firstLine.replace(/^#\s+/, "").trim();
     const title = (data.title as string) || derivedTitle || filename.replace(/\.(md|mdx)$/i, "");
     const description = (data.description as string) || undefined;
+    const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
     const date = (data.date as string) || undefined;
     const hidden = (data.hidden as boolean) || undefined;
     const slug = filename.replace(/\.(md|mdx)$/i, "");
-    return { slug, title, description, date, hidden } satisfies WritingMeta;
+    return { slug, title, description, seoTitle, seoDescription, updated, related, date, hidden } satisfies WritingMeta;
   });
 
   return items.filter((item) => !item.hidden).sort((a, b) => {
@@ -55,8 +60,20 @@ export function getWritingBySlug(
   const derivedTitle = firstLine.replace(/^#\s+/, "").trim();
   const title = (data.title as string) || derivedTitle || slug;
   const description = (data.description as string) || undefined;
+  const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
   const date = (data.date as string) || undefined;
-  return { content, meta: { slug, title, description, date } };
+  return { content, meta: { slug, title, description, seoTitle, seoDescription, updated, related, date } };
 }
 
 
+
+function getSearchMeta(data: Record<string, unknown>) {
+  return {
+    seoTitle: typeof data.seoTitle === "string" ? data.seoTitle : undefined,
+    seoDescription: typeof data.seoDescription === "string" ? data.seoDescription : undefined,
+    updated: typeof data.updated === "string" ? data.updated : undefined,
+    related: Array.isArray(data.related)
+      ? data.related.filter((value): value is string => typeof value === "string")
+      : undefined,
+  };
+}

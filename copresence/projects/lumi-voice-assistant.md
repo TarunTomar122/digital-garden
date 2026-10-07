@@ -13,6 +13,11 @@ links:
       url: https://colab.research.google.com/drive/1EOMzitHtcx7j-MU0xczpG9FX0xmS2_AG?usp=sharing
     - type: github
       url: https://huggingface.co/Taru/lumi-mobile
+related:
+  - /projects/lumi
+  - /projects/tiny-model-coach
+  - /writings/local-llm
+updated: "2026-10-07"
 ---
 
 ### Backstory
@@ -33,7 +38,7 @@ The idea was simple. I wanted it to be simple and frictionless to use. Kinda lik
 
 ####
 
-**And that's how Lumi was born.**
+**And that's how [Lumi](/projects/lumi) was born.**
 
 ![Image](/assets/posts/overengineering-lumi/feature.png)
 
@@ -90,7 +95,7 @@ So I immediately thought, can I finetune this model and run it on my mobile phon
 
 ####
 
-Fyi, this idea didn't just randomly spawn. I have had some success in finetuning a SLM before. Let's just say it was good enough to get Google to repost my blog on their X account :)
+Fyi, this idea didn't just randomly spawn. I have had some success in [finetuning a SLM before](/projects/tiny-model-coach). Let's just say it was good enough to get Google to repost my blog on their X account :)
 
 ![Image](/assets/posts/overengineering-lumi/repost.png)
 

@@ -3,6 +3,9 @@ title: Meet my new intern - Cursor AI
 description: Got my hands on Cursor AI and I'm in love.
 category: tech
 date: 2025-01-15
+related:
+  - /writings/ai-stuff-fun
+updated: "2026-10-07"
 ---
 
 ###

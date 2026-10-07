@@ -11,6 +11,10 @@ tags:
 links:
   - type: youtube
     url: https://www.youtube.com/@stocksbrew.online
+related:
+  - /projects/stocksbrew
+  - /projects/youtube-automation
+updated: "2026-10-07"
 ---
 
 ### The setup

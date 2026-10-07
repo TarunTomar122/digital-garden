@@ -10,6 +10,13 @@ links:
       url: https://www.tarat.space/
     - type: github
       url: https://github.com/TarunTomar122/digital-garden
+seoTitle: "Building My Digital Garden with Next.js and Tailwind CSS"
+seoDescription: "The personal website where I document projects and thoughts, built with Next.js and Tailwind CSS and explored through a homepage performance experiment."
+related:
+  - /writings/nextjs-homepage-faster
+  - /projects/garden-rag
+  - /writings/a-perfect-like-button
+updated: "2026-10-07"
 ---
 
 ###
@@ -29,7 +36,7 @@ This website is mainly built using Next.js and Tailwind CSS. I chose Next.js bec
 
 ####
 
-I wrote a detailed [blog](https://www.tarat.space/writings/nextjs-homepage-faster) on how I used *Partial Pre Rendering* and React `Suspense` to minimize the first load time of this page.
+I wrote a detailed [blog on Partial Pre Rendering and Suspense](/writings/nextjs-homepage-faster) on how I used *Partial Pre Rendering* and React `Suspense` to minimize the first load time of this page.
 
 ####
 

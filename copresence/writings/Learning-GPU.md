@@ -3,6 +3,12 @@ title: Making a small language model slower on purpose
 description: A quest to understand how GPUs work
 category: tech
 date: 2026-08-03
+seoTitle: "Learning GPU Kernels by Slowing Down Qwen with Triton"
+seoDescription: "My Qwen3-0.6B experiment on a Tesla T4: custom Triton RMSNorm, matmul, and attention kernels reveal memory traffic and launch overhead."
+related:
+  - /projects/smollms
+  - /projects/own-transformer
+updated: "2026-10-07"
 ---
 
 ### Chapter 1: The question

@@ -11,6 +11,13 @@ tags:
 links:
   - type: github
     url: https://github.com/TarunTomar122/smollms
+seoTitle: "Tiny LLM Architecture Experiments on Shakespeare | smollms"
+seoDescription: "Controlled small-model experiments comparing dense attention, recurrence, token selection, compressed memory, and MoE on Tiny Shakespeare."
+related:
+  - /projects/own-transformer
+  - /writings/Learning-GPU
+  - /writings/compression-is-all-we-need
+updated: "2026-10-07"
 ---
 
 ![William Shakespeare teaching four tiny robot students labelled Qwen, Kimi, GLM, and DeepSeek V4.](/assets/posts/smollms/shakespeare-teaches-tiny-llms.png)
