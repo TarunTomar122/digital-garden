@@ -1,5 +1,16 @@
 /* eslint-disable */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: "/experience", destination: "/resume", permanent: true },
+      { source: "/writings/smollms", destination: "/projects/smollms", permanent: true },
+      {
+        source: "/writings/youtube-shorts-pipeline-ai",
+        destination: "/projects/youtube-shorts-pipeline-ai",
+        permanent: true,
+      },
+    ];
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
