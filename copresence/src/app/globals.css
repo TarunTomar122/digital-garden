@@ -379,6 +379,14 @@ iframe.resume-iframe {
   font-weight: 400;
 }
 
+.writing-card-date .sep {
+  margin: 0 6px;
+}
+
+.writing-card-tag {
+  text-transform: lowercase;
+}
+
 .project-card-meta {
   margin: 8px 0 0;
   color: var(--muted);
@@ -1848,34 +1856,54 @@ iframe.resume-iframe {
   border-radius: 3px;
 }
 
+.home-timeline {
+  /* Dot and rail sit on the centre of each title's first line. */
+  --tl-dot: 9px;
+  --tl-mid: calc(1.06rem * 0.75);
+}
+
 .home-timeline > li {
   display: grid;
   grid-template-columns: 95px minmax(0, 1fr);
+  align-items: baseline;
   gap: 24px;
 }
-
-.home-timeline time { padding-top: 3px; }
 
 .home-timeline-entry {
   position: relative;
   padding: 0 0 28px 25px;
-  border-left: 1px solid var(--line-strong);
+}
+
+.home-timeline-entry::before,
+.home-timeline-entry::after {
+  content: "";
+  position: absolute;
 }
 
 .home-timeline-entry::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
+  z-index: 1;
+  box-sizing: border-box;
+  width: var(--tl-dot);
+  height: var(--tl-dot);
   border-radius: 50%;
   background: var(--paper);
   border: 1px solid var(--muted);
-  left: -4px;
-  top: 8px;
+  left: calc(var(--tl-dot) / -2);
+  top: calc(var(--tl-mid) - var(--tl-dot) / 2);
+}
+
+/* Rail runs from this dot down to the next one. */
+.home-timeline-entry::after {
+  width: 1px;
+  left: -0.5px;
+  top: var(--tl-mid);
+  bottom: calc(var(--tl-mid) * -1);
+  background: var(--line-strong);
 }
 
 .home-timeline > li:first-child .home-timeline-entry::before { background: var(--ink); border-color: var(--ink); }
-.home-timeline > li:last-child .home-timeline-entry { padding-bottom: 2px; border-color: transparent; }
+.home-timeline > li:last-child .home-timeline-entry { padding-bottom: 0; }
+.home-timeline > li:last-child .home-timeline-entry::after { content: none; }
 .home-timeline h3 { font-size: 1.06rem; font-weight: 400; line-height: 1.5; margin: 0; }
 .home-timeline h3 a { text-decoration: none; }
 .home-timeline h3 a:hover { text-decoration: underline; }

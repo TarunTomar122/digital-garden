@@ -105,6 +105,12 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   },
   {
     date: "2026-09",
+    title: "First Official Ultramarathon",
+    detail: "Wild Deer Scottish Trail Running Festival",
+    link: "https://www.instagram.com/p/Dd3wxRcCKH8/",
+  },
+  {
+    date: "2026-09",
     title: "Started Uni again.",
     detail: "Masters in AI at University of Edinburgh",
     link: "https://www.instagram.com/p/DdghC3qCJFe/?img_index=1",
@@ -112,6 +118,7 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     date: "2026-07",
     title: "Published my first research paper",
+    detail: "Evolutionary Block Pruning Across Vision-Language Models",
     link: "https://arxiv.org/pdf/2607.17052",
   },
   {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllWritings, type WritingMeta } from "@/lib/writings";
+import { getAllWritings } from "@/lib/writings";
+import WritingList, { type WritingListItem, type WritingYear } from "./WritingList";
 
 export const metadata: Metadata = {
   title: "Writings",
@@ -45,17 +45,25 @@ function getYear(dateValue?: string | Date): string {
 export default function WritingsIndex() {
   const writings = getAllWritings();
 
-  const byYear = writings.reduce<Record<string, WritingMeta[]>>((acc, w) => {
+  const byYear = writings.reduce<Record<string, WritingListItem[]>>((acc, w) => {
     const year = getYear(w.date);
-    (acc[year] ??= []).push(w);
+    (acc[year] ??= []).push({
+      slug: w.slug,
+      title: w.title,
+      description: w.description,
+      category: w.category,
+      dateLabel: formatShortDate(w.date),
+    });
     return acc;
   }, {});
 
-  const years = Object.keys(byYear).sort((a, b) => {
-    if (a === "Undated") return 1;
-    if (b === "Undated") return -1;
-    return Number(b) - Number(a);
-  });
+  const years: WritingYear[] = Object.keys(byYear)
+    .sort((a, b) => {
+      if (a === "Undated") return 1;
+      if (b === "Undated") return -1;
+      return Number(b) - Number(a);
+    })
+    .map((year) => ({ year, writings: byYear[year] }));
 
   return (
     <main className="raw-doc">
@@ -69,31 +77,7 @@ export default function WritingsIndex() {
           </p>
         </header>
 
-        {years.map((year) => (
-          <section key={year}>
-            <div className="section-head">
-              <h2>
-                {year}
-                <span className="count">({byYear[year].length})</span>
-              </h2>
-            </div>
-            <ul className="cards">
-              {byYear[year].map((w) => (
-                <li key={w.slug}>
-                  <Link href={`/writings/${w.slug}`} className="card">
-                    <div className="card-body">
-                      <h3 className="card-title card-title-sm">{w.title}</h3>
-                      {w.description ? (
-                        <p className="card-desc">{w.description}</p>
-                      ) : null}
-                      <p className="writing-card-date">{formatShortDate(w.date)}</p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
+        <WritingList years={years} />
       </div>
     </main>
   );

@@ -11,6 +11,7 @@ export type WritingMeta = {
   updated?: string;
   related?: string[];
   date?: string;
+  category?: string;
   hidden?: boolean;
 };
 
@@ -32,9 +33,10 @@ export function getAllWritings(): WritingMeta[] {
     const description = (data.description as string) || undefined;
     const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
     const date = (data.date as string) || undefined;
+    const category = typeof data.category === "string" ? data.category : undefined;
     const hidden = (data.hidden as boolean) || undefined;
     const slug = filename.replace(/\.(md|mdx)$/i, "");
-    return { slug, title, description, seoTitle, seoDescription, updated, related, date, hidden } satisfies WritingMeta;
+    return { slug, title, description, seoTitle, seoDescription, updated, related, date, category, hidden } satisfies WritingMeta;
   });
 
   return items.filter((item) => !item.hidden).sort((a, b) => {
@@ -62,7 +64,8 @@ export function getWritingBySlug(
   const description = (data.description as string) || undefined;
   const { seoTitle, seoDescription, updated, related } = getSearchMeta(data);
   const date = (data.date as string) || undefined;
-  return { content, meta: { slug, title, description, seoTitle, seoDescription, updated, related, date } };
+  const category = typeof data.category === "string" ? data.category : undefined;
+  return { content, meta: { slug, title, description, seoTitle, seoDescription, updated, related, date, category } };
 }
 
 

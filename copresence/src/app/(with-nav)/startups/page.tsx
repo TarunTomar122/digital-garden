@@ -15,19 +15,16 @@ const startups = [
     name: "stocksbrew.online",
     tagline: "Tells you what to do with your stocks.",
     link: "https://stocksbrew.online",
-    highlight: "$36 MRR",
   },
   {
     name: "yourtrace.online",
     tagline: "Tells you the 10 big things in tech and AI every morning",
     link: "https://yourtrace.online",
-    highlight: "$21 MRR",
   },
   {
     name: "trace mobile app",
     tagline: "Replaces your doomscrolling with news-scrolling",
     link: "https://play.google.com/store/apps/details?id=online.yourtrace.app",
-    highlight: "500+ total downloads",
   },
 ];
 
@@ -50,7 +47,6 @@ export default async function StartupsPage() {
     getAppInstalls(),
   ]);
 
-  const stats = [stocksbrewViews?.total, yourtraceViews?.total, appInstallData?.total];
   const series = [stocksbrewViews?.data, yourtraceViews?.data, appInstallData?.data];
 
   return (
@@ -76,16 +72,6 @@ export default async function StartupsPage() {
                         {s.name}
                       </a>
                     </h3>
-                    <p className="card-meta">
-                      {s.highlight}
-                      {stats[idx] ? (
-                        <>
-                          <span className="sep">·</span>
-                          {stats[idx]}{" "}
-                          {idx === 2 ? "downloads" : "unique visitors"} (30d)
-                        </>
-                      ) : null}
-                    </p>
                     <p className="card-desc">{s.tagline}</p>
                     <Sparkline data={series[idx]} />
                   </div>

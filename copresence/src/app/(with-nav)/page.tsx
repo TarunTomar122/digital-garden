@@ -81,14 +81,9 @@ export default async function Home() {
   const writings = getAllWritings();
   const projects = getAllProjects();
   const recentWritings = writings.slice(0, 3);
-  const featuredProjects = [
-    "deepseek-nanochat-1",
-    "smollms",
-    "lumi-voice-assistant",
-  ].flatMap((slug) => {
-    const project = projects.find((p) => p.slug === slug);
-    return project ? [project] : [];
-  });
+  // getAllProjects is newest-first, so featured projects follow date order too.
+  const featuredSlugs = new Set(["trace", "better-voice", "deepseek-nanochat-1"]);
+  const featuredProjects = projects.filter((p) => featuredSlugs.has(p.slug));
   const timeline = getRecentTimeline(4);
   // Keep the library's curated order for the homepage preview.
   const recentBooks = books.books.slice(0, 4);

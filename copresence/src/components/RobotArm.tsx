@@ -9,6 +9,10 @@ const SHOULDER = { x: 150, y: 220 };
 const REST = { x: SHOULDER.x + 88, y: SHOULDER.y - 78 };
 const MIN_REACH = 100;
 const MAX_REACH = 128;
+// Hover only nudges the arm toward the cursor; dragging still follows fully.
+const HINT_X = 14;
+const HINT_Y = 10;
+const HINT_FALLOFF = 260;
 
 // Disable before the wave starts → raise arm → wave a few times → back to rest.
 const WAVE_UP_START = 0.35;
@@ -127,9 +131,17 @@ export default function RobotArm() {
         const t = now / 1000;
         tx = REST.x + 16 * Math.sin(t / 1.7) + 7 * Math.sin(t / 0.53);
         ty = REST.y + 12 * Math.sin(t / 2.13) + 5 * Math.cos(t / 0.61);
-      } else {
+      } else if (dragging) {
         tx = target.x;
         ty = target.y;
+      } else {
+        // A soft lean toward the cursor that saturates with distance.
+        const hx = target.x - REST.x;
+        const hy = target.y - REST.y;
+        const hd = Math.hypot(hx, hy);
+        const lean = hd > 0 ? Math.tanh(hd / HINT_FALLOFF) / hd : 0;
+        tx = REST.x + hx * lean * HINT_X;
+        ty = REST.y + hy * lean * HINT_Y;
       }
 
       // Reach envelope: never behind the base, never straight down, always
@@ -167,7 +179,7 @@ export default function RobotArm() {
       const ey = SHOULDER.y + L1 * Math.sin(a1);
       const a2 = Math.atan2(ty - ey, tx - ex);
 
-      const speed = dragging ? 0.22 : phase === "wave" ? 0.2 : 0.09;
+      const speed = dragging ? 0.22 : phase === "wave" ? 0.2 : 0.035;
       let d1 = a1 - state.a1;
       d1 = Math.atan2(Math.sin(d1), Math.cos(d1));
       let d2 = a2 - state.a2;

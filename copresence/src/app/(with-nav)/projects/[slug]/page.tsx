@@ -107,13 +107,14 @@ export default async function ProjectPage({ params }: PageProps) {
                   {formatDate(doc.meta.date)}
                   <span className="sep">·</span>
                   {minutes} min read
+                  {doc.meta.tags?.length ? (
+                    <>
+                      <span className="sep">·</span>
+                      {doc.meta.tags.join(", ")}
+                    </>
+                  ) : null}
                 </span>
               ) : null}
-              {doc.meta.tags?.map((tag) => (
-                <span key={tag} className="pill" style={{ cursor: "default" }}>
-                  {tag}
-                </span>
-              ))}
               {doc.meta.links?.map((l, idx) => (
                 <a
                   key={idx}
