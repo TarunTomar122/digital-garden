@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Georgia, 'Times New Roman', serif" fill="#2a2a2a">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <style>
+      .lane { font-family: Menlo, 'Geist Mono', monospace; font-size: 13px; fill: #888; letter-spacing: 1px; }
+      .box { fill: #fff; stroke: #2a2a2a; stroke-width: 1.5; }
+      .hl { fill: #f2f9ee; stroke: #4f9a3a; stroke-width: 2; }
+      .sim { fill: #f6f6f6; stroke: #999; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .t { font-size: 18px; font-weight: bold; }
+      .s { font-size: 14px; fill: #555; }
+      .m { font-family: Menlo, 'Geist Mono', monospace; font-size: 12.5px; fill: #555; }
+      .ln { stroke: #555; stroke-width: 1.6; fill: none; marker-end: url(#a); }
+      .lnd { stroke: #999; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; marker-end: url(#a); }
+      .tag { font-family: Menlo, 'Geist Mono', monospace; font-size: 12.5px; fill: #b0279b; }
+    </style>
+  </defs>
+
+  <!-- lane 1: talking -->
+  <text class="lane" x="30" y="34">TALKING · CLOUD</text>
+  <rect class="box" x="30" y="50" width="170" height="110" rx="10"/>
+  <text class="t" x="115" y="95" text-anchor="middle">You</text>
+  <text class="s" x="115" y="120" text-anchor="middle">"put the yellow cube</text>
+  <text class="s" x="115" y="138" text-anchor="middle">in the bowl"</text>
+
+  <rect class="box" x="260" y="50" width="330" height="110" rx="10"/>
+  <text class="t" x="280" y="80">Voice model</text>
+  <text class="m" x="280" y="101">gpt-realtime-2.1</text>
+  <text class="s" x="280" y="124">listens, sees both cameras every turn,</text>
+  <text class="s" x="280" y="143">plans and talks back</text>
+
+  <rect class="box" x="680" y="50" width="250" height="110" rx="10"/>
+  <text class="t" x="700" y="80">Vision model</text>
+  <text class="m" x="700" y="101">GPT, top camera image</text>
+  <text class="s" x="700" y="124">puts one dot on</text>
+  <text class="s" x="700" y="143">"yellow cube"</text>
+  <circle cx="900" cy="80" r="9" fill="none" stroke="#e020c8" stroke-width="3"/>
+
+  <path class="ln" d="M200,105 L258,105"/>
+  <path class="ln" d="M590,105 L678,105"/>
+  <text class="tag" x="598" y="96">grab(</text>
+  <text class="tag" x="598" y="125">"yellow</text>
+  <text class="tag" x="598" y="140">cube")</text>
+
+  <!-- lane 2: moving -->
+  <text class="lane" x="30" y="222">MOVING · ON MY MAC, LOOPING</text>
+  <rect class="hl" x="30" y="238" width="420" height="200" rx="10"/>
+  <text class="t" x="50" y="268">Policy (grab or reach)</text>
+  <text class="m" x="50" y="292">in:  top image 96×128 + dot heatmap</text>
+  <text class="m" x="50" y="310">     wrist image 128×64</text>
+  <text class="m" x="50" y="328">     6 motor readings</text>
+  <text class="m" x="50" y="352">net: 2 cut-down ResNet-18s + MLP, 6.8M params</text>
+  <text class="m" x="50" y="376">out: move x / y / z, wrist turn, gripper</text>
+  <text class="m" x="50" y="400">     + side answers (only in training)</text>
+  <text class="s" x="50" y="426">~25 ms per step on the CPU</text>
+
+  <rect class="box" x="530" y="268" width="230" height="140" rx="10"/>
+  <text class="t" x="550" y="298">Arm server</text>
+  <text class="s" x="550" y="322">inverse kinematics</text>
+  <text class="s" x="550" y="342">+ safety checks</text>
+  <text class="s" x="550" y="362">(table, self-collision)</text>
+  <text class="s" x="550" y="388">→ motor targets</text>
+
+  <rect class="hl" x="840" y="268" width="320" height="140" rx="10"/>
+  <text class="t" x="860" y="298">Froggy (SO-101)</text>
+  <text class="s" x="860" y="322">6 motors</text>
+  <text class="s" x="860" y="342">top camera, looking down</text>
+  <text class="s" x="860" y="362">wrist camera, on the gripper</text>
+  <text class="s" x="860" y="388">~7 steps a second, ~9 s a grab</text>
+
+  <path class="ln" d="M450,338 L528,338"/>
+  <path class="ln" d="M760,338 L838,338"/>
+  <!-- camera loop back to the policy -->
+  <path class="ln" d="M1000,408 L1000,470 L240,470 L240,440"/>
+  <text class="s" x="560" y="492" text-anchor="middle">new camera frames + motor readings, every step</text>
+  <!-- dot into the policy -->
+  <path class="ln" d="M805,160 L805,200 L400,200 L400,236"/>
+  <text class="tag" x="412" y="194">the dot</text>
+  <!-- result back to the voice model -->
+  <path class="ln" d="M1160,338 L1180,338 L1180,30 L425,30 L425,48"/>
+  <text class="s" x="1172" y="190" text-anchor="end">"holding it"</text>
+
+  <!-- lane 3: training -->
+  <text class="lane" x="30" y="560">TRAINING · BEFORE ANY OF THIS</text>
+  <rect class="sim" x="30" y="576" width="250" height="140" rx="10"/>
+  <text class="t" x="50" y="606">Digital twin</text>
+  <text class="s" x="50" y="630">MuJoCo copy of my desk:</text>
+  <text class="s" x="50" y="650">calibrated cameras, weak</text>
+  <text class="s" x="50" y="670">shoulder, camera lag,</text>
+  <text class="s" x="50" y="690">random scenes</text>
+
+  <rect class="sim" x="340" y="576" width="250" height="140" rx="10"/>
+  <text class="t" x="360" y="606">Scripted teacher</text>
+  <text class="s" x="360" y="630">knows where everything is,</text>
+  <text class="s" x="360" y="650">does the grab thousands</text>
+  <text class="s" x="360" y="670">of times; its decisions use</text>
+  <text class="s" x="360" y="690">only what the cameras see</text>
+
+  <rect class="sim" x="650" y="576" width="250" height="140" rx="10"/>
+  <text class="t" x="670" y="606">Training data</text>
+  <text class="s" x="670" y="630">~800k sim frames</text>
+  <text class="s" x="670" y="650">+ 12k real frames, relabelled</text>
+  <text class="s" x="670" y="670">with what the teacher</text>
+  <text class="s" x="670" y="690">would have done</text>
+
+  <rect class="sim" x="960" y="576" width="200" height="140" rx="10"/>
+  <text class="t" x="980" y="606">Imitation</text>
+  <text class="s" x="980" y="630">the policy learns to</text>
+  <text class="s" x="980" y="650">copy the teacher from</text>
+  <text class="s" x="980" y="670">images alone</text>
+  <text class="m" x="980" y="696">grab 101/144 (hard sim)</text>
+
+  <path class="lnd" d="M280,646 L338,646"/>
+  <path class="lnd" d="M590,646 L648,646"/>
+  <path class="lnd" d="M900,646 L958,646"/>
+  <path class="lnd" d="M1060,576 L1060,530 L120,530 L120,440"/>
+  <text class="s" x="590" y="548" text-anchor="middle" fill="#999">trained weights</text>
+</svg>

@@ -82,7 +82,7 @@ export default async function Home() {
   const projects = getAllProjects();
   const recentWritings = writings.slice(0, 3);
   // getAllProjects is newest-first, so featured projects follow date order too.
-  const featuredSlugs = new Set(["trace", "better-voice", "deepseek-nanochat-1"]);
+  const featuredSlugs = new Set(["froggy", "trace", "better-voice", "deepseek-nanochat-1"]);
   const featuredProjects = projects.filter((p) => featuredSlugs.has(p.slug));
   const timeline = getRecentTimeline(4);
   // Keep the library's curated order for the homepage preview.
