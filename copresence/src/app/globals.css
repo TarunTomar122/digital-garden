@@ -1702,7 +1702,8 @@ iframe.resume-iframe {
 
 .hero {
   display: flex;
-  align-items: center;
+  /* Sit the text level with the arm's base, not floating above empty space. */
+  align-items: flex-end;
   gap: 44px;
   padding: 24px 0 0;
 }
@@ -1716,6 +1717,7 @@ iframe.resume-iframe {
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
   cursor: grab;
   touch-action: none;
   -webkit-user-select: none;
@@ -1729,6 +1731,7 @@ iframe.resume-iframe {
 .hero-text {
   flex: 1 1 auto;
   min-width: 0;
+  padding-bottom: 6px;
 }
 
 .hero-text h1 {

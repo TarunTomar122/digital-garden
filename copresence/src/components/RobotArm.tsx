@@ -1,87 +1,180 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { LINKS, PIVOTS, type Layer, type Tone } from "./so101-geometry";
 
-const VIEW = 300;
-const L1 = 80;
-const L2 = 70;
-const SHOULDER = { x: 150, y: 220 };
-const REST = { x: SHOULDER.x + 88, y: SHOULDER.y - 78 };
-const MIN_REACH = 100;
-const MAX_REACH = 128;
+// Side view of my SO-101, drawn from its real CAD. Units are millimetres.
+// Square frame (same footprint as before); the SVG overflows visibly so the
+// gripper is never clipped when it waves or reaches past the edges.
+const VB = { x: -36, y: -352, w: 362, h: 362 };
+
+const S = PIVOTS.shoulder_lift;
+const E = PIVOTS.elbow_flex;
+const W = PIVOTS.wrist_flex;
+const G = PIVOTS.gripper;
+const T = PIVOTS.tip;
+
+const L1 = Math.hypot(E[0] - S[0], E[1] - S[1]);
+const L2 = Math.hypot(W[0] - E[0], W[1] - E[1]);
+const L3 = Math.hypot(T[0] - W[0], T[1] - W[1]);
+// Link directions with every joint at zero (SVG coords, y down).
+const B1 = Math.atan2(E[1] - S[1], E[0] - S[0]);
+const B2 = Math.atan2(W[1] - E[1], W[0] - E[0]);
+const B3 = Math.atan2(T[1] - W[1], T[0] - W[0]);
+
+const DEG = Math.PI / 180;
+// URDF joint limits (shoulder_lift, elbow_flex, wrist_flex), a little inset.
+const LIM1 = 95 * DEG;
+const LIM2 = 92 * DEG;
+const LIM3 = 92 * DEG;
+
+const REST = { x: S[0] + 220, y: S[1] - 10 };
+const REST_TOOL = 38 * DEG;
 // Hover only nudges the arm toward the cursor; dragging still follows fully.
-const HINT_X = 14;
-const HINT_Y = 10;
-const HINT_FALLOFF = 260;
+const HINT_X = 22;
+const HINT_Y = 16;
+const HINT_FALLOFF = 340;
 
-// Disable before the wave starts → raise arm → wave a few times → back to rest.
+// Raise arm → wave the wrist a few times → back to rest.
 const WAVE_UP_START = 0.35;
 const WAVE_UP_END = 0.95;
-const WAVE_END = 2.5;
-const WAVE_DOWN_END = 3.15;
-const WAVE_LOOP_MS = 1500;
+const WAVE_END = 2.6;
+const WAVE_DOWN_END = 3.25;
+const WAVE_LOOP_MS = 650;
+
+const FILL: Record<Tone, string> = {
+  p0: "#6cbc2a",
+  p1: "#86d63c",
+  p2: "#a3e65c",
+  s0: "#161618",
+  s1: "#222226",
+  s2: "#33333a",
+};
+// The moving jaw is printed in black on my arm.
+const JAW_FILL: Record<Tone, string> = {
+  p0: "#1f1f22",
+  p1: "#2c2c31",
+  p2: "#3e3e45",
+  s0: "#161618",
+  s1: "#222226",
+  s2: "#33333a",
+};
+
+type Joints = { q1: number; q2: number; q3: number; grip: number };
+
+function clamp(v: number, lo: number, hi: number) {
+  return Math.min(hi, Math.max(lo, v));
+}
 
 function smoothstep(edge0: number, edge1: number, x: number) {
-  const u = Math.min(1, Math.max(0, (x - edge0) / (edge1 - edge0)));
+  const u = clamp((x - edge0) / (edge1 - edge0), 0, 1);
   return u * u * (3 - 2 * u);
+}
+
+/** Planar IK for the tool tip at (tx, ty) pointing along `tool` (radians, y down). */
+function solve(tx: number, ty: number, tool: number): Omit<Joints, "grip"> {
+  let wx = tx - L3 * Math.cos(tool);
+  let wy = ty - L3 * Math.sin(tool);
+  let dx = wx - S[0];
+  let dy = wy - S[1];
+  let dist = Math.hypot(dx, dy);
+  const maxR = L1 + L2 - 2;
+  const minR = Math.abs(L1 - L2) + 40;
+  if (dist > maxR || dist < minR) {
+    const r = clamp(dist, minR, maxR);
+    const k = dist > 0 ? r / dist : 0;
+    dx *= k;
+    dy *= k;
+    wx = S[0] + dx;
+    wy = S[1] + dy;
+    dist = r;
+  }
+  const phi = Math.atan2(dy, dx);
+  const A = Math.acos(clamp((L1 * L1 + dist * dist - L2 * L2) / (2 * L1 * dist), -1, 1));
+  // Elbow up: in y-down coords that's the solution rotated counter-clockwise.
+  const a1 = phi - A;
+  const ex = S[0] + L1 * Math.cos(a1);
+  const ey = S[1] + L1 * Math.sin(a1);
+  const a2 = Math.atan2(wy - ey, wx - ex);
+
+  const q1 = clamp(a1 - B1, -LIM1, LIM1);
+  const q2 = clamp(a2 - B2 - q1, -LIM2, LIM2);
+  const q3 = clamp(tool - B3 - q1 - q2, -LIM3, LIM3);
+  return { q1, q2, q3 };
+}
+
+function wrap(a: number) {
+  return Math.atan2(Math.sin(a), Math.cos(a));
+}
+
+// Hand-picked so the raised gripper stays inside the frame while it flaps.
+const WAVE_POSE = { q1: -20 * DEG, q2: 55 * DEG, q3: -100 * DEG };
+
+const REST_POSE: Joints = { ...solve(REST.x, REST.y, REST_TOOL), grip: 18 * DEG };
+
+const rot = (q: number, p: readonly [number, number]) =>
+  `rotate(${(q / DEG).toFixed(2)} ${p[0]} ${p[1]})`;
+
+function Layers({ layers, fill }: { layers: readonly Layer[]; fill: Record<Tone, string> }) {
+  return (
+    <>
+      {layers.map(([tone, d], i) => (
+        <path
+          key={i}
+          d={d}
+          fill={fill[tone]}
+          fillRule="evenodd"
+          stroke={tone.endsWith("0") ? (tone[0] === "s" ? "#000" : "#4b8f1c") : undefined}
+          strokeWidth={tone.endsWith("0") ? 0.7 : undefined}
+          strokeLinejoin="round"
+        />
+      ))}
+    </>
+  );
 }
 
 export default function RobotArm() {
   const svgRef = useRef<SVGSVGElement>(null);
   const upperRef = useRef<SVGGElement>(null);
-  const foreRef = useRef<SVGGElement>(null);
-  const gripRef = useRef<SVGGElement>(null);
+  const lowerRef = useRef<SVGGElement>(null);
+  const wristRef = useRef<SVGGElement>(null);
+  const jawRef = useRef<SVGGElement>(null);
 
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const pose = (a1: number, a2: number) => {
-      upperRef.current?.setAttribute(
-        "transform",
-        `translate(${SHOULDER.x} ${SHOULDER.y}) rotate(${(a1 * 180) / Math.PI})`
-      );
-      foreRef.current?.setAttribute(
-        "transform",
-        `translate(${L1} 0) rotate(${((a2 - a1) * 180) / Math.PI})`
-      );
+    const apply = (j: Joints) => {
+      upperRef.current?.setAttribute("transform", rot(j.q1, S));
+      lowerRef.current?.setAttribute("transform", rot(j.q2, E));
+      wristRef.current?.setAttribute("transform", rot(j.q3, W));
+      // The jaw opens counter-clockwise in this view.
+      jawRef.current?.setAttribute("transform", rot(-j.grip, G));
     };
 
-    const setGrip = (amount: number) => {
-      gripRef.current?.setAttribute(
-        "transform",
-        `translate(${L2 + 8} 0) scale(1 ${(1 - amount * 0.35).toFixed(3)})`
-      );
-    };
-
-    if (reduce) {
-      pose(-Math.PI / 3.4, -Math.PI / 5);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      apply(REST_POSE);
       return;
     }
 
     const startedAt = performance.now();
     const target = { x: REST.x, y: REST.y };
-    const state = { a1: -Math.PI / 3.4, a2: -Math.PI / 5 };
+    const state: Joints = { ...REST_POSE };
     let lastMove = startedAt;
     let phase: "wave" | "follow" = "wave";
     let dragging = false;
-    let grabAmount = 0;
-    let branch = 1; // knee preference for IK continuity
 
     const onMove = (e: PointerEvent) => {
       const rect = svg.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
-      target.x = ((e.clientX - rect.left) / rect.width) * VIEW;
-      target.y = ((e.clientY - rect.top) / rect.height) * VIEW;
+      target.x = VB.x + ((e.clientX - rect.left) / rect.width) * VB.w;
+      target.y = VB.y + ((e.clientY - rect.top) / rect.height) * VB.h;
       lastMove = performance.now();
     };
 
     const onDown = (e: PointerEvent) => {
       phase = "follow";
       dragging = true;
-      grabAmount = 1;
       svg.setPointerCapture?.(e.pointerId);
       onMove(e);
     };
@@ -99,102 +192,65 @@ export default function RobotArm() {
     let raf = 0;
     const tick = (now: number) => {
       raf = requestAnimationFrame(tick);
-
       const elapsed = now - startedAt;
-      let tx: number;
-      let ty: number;
+      let goal: Joints;
+      let speed = 0.05;
 
       if (phase === "wave") {
         const t = elapsed / 1000;
-        const rising = smoothstep(WAVE_UP_START, WAVE_UP_END, t);
-        const falling = 1 - smoothstep(WAVE_END, WAVE_DOWN_END, t);
-        const blend = Math.min(rising, falling);
-
-        const wavePos = {
-          x: SHOULDER.x + 84,
-          y: SHOULDER.y - 112,
-        };
+        const blend = Math.min(
+          smoothstep(WAVE_UP_START, WAVE_UP_END, t),
+          1 - smoothstep(WAVE_END, WAVE_DOWN_END, t)
+        );
+        // Arm up, gripper pointing at the sky, wrist flapping hello.
+        const up = WAVE_POSE;
         const waving = t > WAVE_UP_END && t < WAVE_END;
-        const swing = waving
-          ? Math.sin(((elapsed % WAVE_LOOP_MS) / WAVE_LOOP_MS) * Math.PI * 2) * 34
-          : 0;
-
-        tx = REST.x + (wavePos.x + swing - REST.x) * blend;
-        ty = REST.y + (wavePos.y - REST.y) * blend;
-
+        const flap = waving ? Math.sin(((elapsed % WAVE_LOOP_MS) / WAVE_LOOP_MS) * Math.PI * 2) : 0;
+        goal = {
+          q1: REST_POSE.q1 + (up.q1 - REST_POSE.q1) * blend,
+          q2: REST_POSE.q2 + (up.q2 - REST_POSE.q2) * blend,
+          q3: REST_POSE.q3 + (up.q3 - REST_POSE.q3) * blend + flap * 25 * DEG * blend,
+          grip: REST_POSE.grip + blend * 14 * DEG,
+        };
+        speed = 0.2;
         if (t > WAVE_DOWN_END) {
           phase = "follow";
           lastMove = now;
         }
-      } else if (now - lastMove > 2600) {
-        // Curious idle: slow wander with small quick glances.
-        const t = now / 1000;
-        tx = REST.x + 16 * Math.sin(t / 1.7) + 7 * Math.sin(t / 0.53);
-        ty = REST.y + 12 * Math.sin(t / 2.13) + 5 * Math.cos(t / 0.61);
-      } else if (dragging) {
-        tx = target.x;
-        ty = target.y;
       } else {
-        // A soft lean toward the cursor that saturates with distance.
-        const hx = target.x - REST.x;
-        const hy = target.y - REST.y;
-        const hd = Math.hypot(hx, hy);
-        const lean = hd > 0 ? Math.tanh(hd / HINT_FALLOFF) / hd : 0;
-        tx = REST.x + hx * lean * HINT_X;
-        ty = REST.y + hy * lean * HINT_Y;
+        let tx: number;
+        let ty: number;
+        if (dragging) {
+          tx = target.x;
+          ty = target.y;
+          speed = 0.2;
+        } else if (now - lastMove > 2600) {
+          // Curious idle: slow wander with small quick glances.
+          const t = now / 1000;
+          tx = REST.x + 22 * Math.sin(t / 1.7) + 9 * Math.sin(t / 0.53);
+          ty = REST.y + 16 * Math.sin(t / 2.13) + 7 * Math.cos(t / 0.61);
+        } else {
+          // A soft lean toward the cursor that saturates with distance.
+          const hx = target.x - REST.x;
+          const hy = target.y - REST.y;
+          const hd = Math.hypot(hx, hy);
+          const lean = hd > 0 ? Math.tanh(hd / HINT_FALLOFF) / hd : 0;
+          tx = REST.x + hx * lean * HINT_X;
+          ty = REST.y + hy * lean * HINT_Y;
+        }
+        // Stay in frame and above the table.
+        tx = clamp(tx, S[0] + 60, VB.x + VB.w + 30);
+        ty = clamp(ty, -280, -12);
+        // Point the gripper down at low targets, more forward at high ones.
+        const tool = clamp(REST_TOOL + ((ty - REST.y) / 200) * 55 * DEG, -15 * DEG, 85 * DEG);
+        goal = { ...solve(tx, ty, tool), grip: dragging ? -4 * DEG : REST_POSE.grip };
       }
 
-      // Reach envelope: never behind the base, never straight down, always
-      // extended enough that the arm can't fold onto itself.
-      tx = Math.max(56, Math.min(VIEW - 56, tx));
-      ty = Math.max(44, Math.min(SHOULDER.y + 30, ty));
-
-      const dx = tx - SHOULDER.x;
-      const dy = ty - SHOULDER.y;
-      const dist = Math.min(
-        Math.max(Math.hypot(dx, dy), MIN_REACH),
-        MAX_REACH
-      );
-      const phi = Math.atan2(dy, dx);
-      const cosA = (L1 * L1 + dist * dist - L2 * L2) / (2 * L1 * dist);
-      const A = Math.acos(Math.min(1, Math.max(-1, cosA)));
-
-      // Prefer the "elbow up" solution so the arm arches instead of drooping.
-      const a1a = phi - A;
-      const a1b = phi + A;
-      const elbowYA = SHOULDER.y + L1 * Math.sin(a1a);
-      const elbowYB = SHOULDER.y + L1 * Math.sin(a1b);
-      let a1: number;
-      if (Math.abs(elbowYA - elbowYB) < 2) {
-        // Singular pose (target straight up): keep the previous branch.
-        a1 = branch >= 0 ? a1a : a1b;
-      } else if (elbowYA < elbowYB) {
-        a1 = a1a;
-        branch = 1;
-      } else {
-        a1 = a1b;
-        branch = -1;
-      }
-      const ex = SHOULDER.x + L1 * Math.cos(a1);
-      const ey = SHOULDER.y + L1 * Math.sin(a1);
-      const a2 = Math.atan2(ty - ey, tx - ex);
-
-      const speed = dragging ? 0.22 : phase === "wave" ? 0.2 : 0.035;
-      let d1 = a1 - state.a1;
-      d1 = Math.atan2(Math.sin(d1), Math.cos(d1));
-      let d2 = a2 - state.a2;
-      d2 = Math.atan2(Math.sin(d2), Math.cos(d2));
-      state.a1 += d1 * speed;
-      state.a2 += d2 * speed;
-
-      pose(state.a1, state.a2);
-
-      // Close the gripper while grabbed.
-      const gripTarget = dragging ? 1 : 0;
-      if (Math.abs(grabAmount - gripTarget) > 0.001) {
-        grabAmount += (gripTarget - grabAmount) * 0.2;
-        setGrip(grabAmount);
-      }
+      state.q1 += wrap(goal.q1 - state.q1) * speed;
+      state.q2 += wrap(goal.q2 - state.q2) * speed;
+      state.q3 += wrap(goal.q3 - state.q3) * speed;
+      state.grip += (goal.grip - state.grip) * 0.2;
+      apply(state);
     };
 
     raf = requestAnimationFrame(tick);
@@ -210,99 +266,22 @@ export default function RobotArm() {
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${VIEW} ${VIEW}`}
+      viewBox={`${VB.x} ${VB.y} ${VB.w} ${VB.h}`}
       className="robot-arm"
       role="img"
-      aria-label="A little robot arm that waves hello and follows your cursor"
+      aria-label="My SO-101 robot arm, which waves hello and follows your cursor"
     >
-      <defs>
-        <linearGradient id="ra-metal" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fafafa" />
-          <stop offset="0.55" stopColor="#e4e4e7" />
-          <stop offset="1" stopColor="#c9c9ce" />
-        </linearGradient>
-        <radialGradient id="ra-joint" cx="0.35" cy="0.3" r="0.95">
-          <stop offset="0" stopColor="#52525b" />
-          <stop offset="1" stopColor="#18181b" />
-        </radialGradient>
-        <linearGradient id="ra-base" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#3f3f46" />
-          <stop offset="1" stopColor="#18181b" />
-        </linearGradient>
-      </defs>
-
-      {/* ground shadow */}
-      <ellipse cx={SHOULDER.x} cy="272" rx="60" ry="8" fill="rgba(23,23,23,0.08)" />
-
-      {/* base pedestal */}
-      <rect x={SHOULDER.x - 34} y="263" width="68" height="10" rx="4" fill="#18181b" />
-      <rect x={SHOULDER.x - 22} y="231" width="44" height="36" rx="9" fill="url(#ra-base)" />
-      <rect x={SHOULDER.x - 22} y="231" width="44" height="9" rx="4.5" fill="#52525b" opacity="0.55" />
-
-      {/* shoulder housing */}
-      <circle cx={SHOULDER.x} cy={SHOULDER.y + 4} r="18" fill="#18181b" />
-      <circle cx={SHOULDER.x} cy={SHOULDER.y + 4} r="18" fill="url(#ra-joint)" />
-      <circle
-        cx={SHOULDER.x}
-        cy={SHOULDER.y + 4}
-        r="11"
-        fill="none"
-        stroke="#dc2626"
-        strokeWidth="1.4"
-        strokeDasharray="2.5 3.5"
-        opacity="0.9"
-      />
-      <circle cx={SHOULDER.x} cy={SHOULDER.y + 4} r="4" fill="#71717a" />
-
-      {/* upper arm */}
-      <g ref={upperRef} transform={`translate(${SHOULDER.x} ${SHOULDER.y}) rotate(-60)`}>
-        <rect
-          x="8"
-          y="-12"
-          width={L1 - 8}
-          height="24"
-          rx="12"
-          fill="url(#ra-metal)"
-          stroke="#a1a1aa"
-          strokeWidth="1"
-        />
-        <rect x="20" y="-4" width={L1 - 38} height="8" rx="4" fill="#18181b" opacity="0.82" />
-        <rect x="14" y="-8.5" width="10" height="17" rx="4" fill="#d4d4d8" opacity="0.7" />
-
-        {/* elbow housing */}
-        <circle cx={L1} cy="0" r="14" fill="#18181b" />
-        <circle cx={L1} cy="0" r="14" fill="url(#ra-joint)" />
-        <circle cx={L1} cy="0" r="5" fill="#3f3f46" />
-        <circle cx={L1} cy="0" r="2" fill="#a1a1aa" />
-
-        {/* forearm */}
-        <g ref={foreRef} transform={`translate(${L1} 0) rotate(10)`}>
-          <rect
-            x="6"
-            y="-10"
-            width={L2 - 6}
-            height="20"
-            rx="10"
-            fill="url(#ra-metal)"
-            stroke="#a1a1aa"
-            strokeWidth="1"
-          />
-          <rect x="16" y="-3.5" width={L2 - 32} height="7" rx="3.5" fill="#18181b" opacity="0.82" />
-
-          {/* wrist */}
-          <rect x={L2 - 6} y="-11" width="16" height="22" rx="5" fill="#18181b" />
-          <circle cx={L2 + 2} cy="0" r="3" fill="#52525b" />
-
-          {/* gripper fingers */}
-          <g ref={gripRef} transform={`translate(${L2 + 8} 0)`}>
-            <path
-              d="M0 -14 C10 -15 20 -13 27 -9 L23 -3 C17 -6 9 -6 2 -5 Z"
-              fill="#27272a"
-            />
-            <path
-              d="M0 14 C10 15 20 13 27 9 L23 3 C17 6 9 6 2 5 Z"
-              fill="#27272a"
-            />
+      <ellipse cx="30" cy="4" rx="92" ry="9" fill="rgba(23,23,23,0.08)" />
+      <Layers layers={LINKS.base} fill={FILL} />
+      <g ref={upperRef} transform={rot(REST_POSE.q1, S)}>
+        <Layers layers={LINKS.upper} fill={FILL} />
+        <g ref={lowerRef} transform={rot(REST_POSE.q2, E)}>
+          <Layers layers={LINKS.lower} fill={FILL} />
+          <g ref={wristRef} transform={rot(REST_POSE.q3, W)}>
+            <Layers layers={LINKS.wrist} fill={FILL} />
+            <g ref={jawRef} transform={rot(-REST_POSE.grip, G)}>
+              <Layers layers={LINKS.jaw} fill={JAW_FILL} />
+            </g>
           </g>
         </g>
       </g>
