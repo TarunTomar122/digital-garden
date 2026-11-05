@@ -116,6 +116,12 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
     link: "https://www.instagram.com/p/DdghC3qCJFe/?img_index=1",
   },
   {
+    date: "2026-11",
+    title: "Invited to OpenAI DevDay Exchange",
+    detail: "London, 3rd Nov",
+    link: "https://lnkd.in/p/e5cjecEQ",
+  },
+  {
     date: "2026-07",
     title: "Published my first research paper",
     detail: "Evolutionary Block Pruning Across Vision-Language Models",
