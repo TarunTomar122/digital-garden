@@ -2,7 +2,7 @@
 title: Trace
 description: Reads 100+ tech sources every morning and turns them into the 10 stories that matter. Now free and open source
 category: project
-cover: /assets/posts/trace/landing.png
+cover: /assets/posts/trace/landing-2026-11.png
 date: 2026-01-18
 tags:
     - nextjs
@@ -37,7 +37,7 @@ I had already built [StocksBrew](/projects/stocksbrew) to do this for my stocks,
 
 **And that's how Trace was born :)**
 
-![Trace landing page](/assets/posts/trace/landing.png)
+![Trace landing page](/assets/posts/trace/landing-2026-11.png)
 
 ### What it does
 
@@ -55,7 +55,7 @@ You can read it wherever you are:
 - **Chrome new tab:** the latest stories every time you open a tab
 - **Your AI agent:** Trace is an MCP server, so Claude, Cursor, Codex or anything else that speaks MCP can read your brief
 
-![Build your own brief](/assets/posts/trace/builder.png)
+![Build your own brief](/assets/posts/trace/builder-2026-11.png)
 
 ### How it works
 

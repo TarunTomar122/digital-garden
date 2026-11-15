@@ -117,14 +117,15 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   },
   {
     date: "2026-11",
-    title: "Invited to OpenAI DevDay Exchange",
-    detail: "London, 3rd Nov",
-    link: "https://lnkd.in/p/e5cjecEQ",
+    title: "Runner-up at Hack the Burgh 2026",
+    detail: "Built a browser-use legal agent",
+    link: "https://lnkd.in/p/eNdhYtCs",
   },
   {
     date: "2026-11",
-    title: "Runner-up at Hack the Burgh 2026",
-    detail: "Built a browser-use legal agent",
+    title: "Invited to OpenAI DevDay Exchange",
+    detail: "London, 3rd Nov",
+    link: "https://lnkd.in/p/e5cjecEQ",
   },
   {
     date: "2026-07",

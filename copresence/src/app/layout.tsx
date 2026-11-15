@@ -41,11 +41,6 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
   },
-  icons: {
-    icon: "/tarat.svg",
-    shortcut: "/tarat.svg",
-    apple: "/tarat.svg",
-  },
 };
 
 export default async function RootLayout({

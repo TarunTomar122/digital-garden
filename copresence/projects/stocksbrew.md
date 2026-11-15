@@ -12,6 +12,7 @@ links:
     - type: github
     - url: https://github.com/TarunTomar122/stocksbrew
 related:
+  - /projects/stocksbrew-online
   - /projects/stock-agents
   - /projects/youtube-shorts-pipeline-ai
 updated: "2026-10-07"
