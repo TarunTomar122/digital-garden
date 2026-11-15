@@ -1,6 +1,14 @@
 {
     "books":[
         {
+            "title": "Before I Knew I Loved You",
+            "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1763122436i/240963852.jpg",
+            "author": "Toshikazu Kawaguchi, Geoffrey Trousselot",
+            "rating": "",
+            "status": "reading",
+            "link": "https://www.goodreads.com/book/show/240963852"
+        },
+        {
             "title": "The Odyssey",
             "img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1711957706i/1381.jpg",
             "author": "Homer",

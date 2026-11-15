@@ -1,10 +1,14 @@
 import { pageMetadata } from "@/lib/site";
 
-export const metadata = pageMetadata(
-  "/startups",
-  "Startups",
-  "Explore Tarat's startups: StocksBrew, Trace, and the Trace mobile app, with product links and progress."
-);
+// Hidden: unlinked from nav/footer/sitemap and kept out of search results.
+export const metadata = {
+  ...pageMetadata(
+    "/startups",
+    "Startups",
+    "Explore Tarat's startups: StocksBrew, Trace, and the Trace mobile app, with product links and progress."
+  ),
+  robots: { index: false, follow: false },
+};
 
 import { getUniquePageviews, getAppInstalls } from "@/lib/posthogAPI";
 

@@ -25,6 +25,7 @@ const EXPERIENCE_FILE = path.join(PUBLIC_DIR, "resume.txt");
 const SITE_FILE = path.join(PUBLIC_DIR, "llms.txt");
 const LIST100_FILE = path.join(ROOT, "src/app/list100.json");
 const BOOKS_FILE = path.join(ROOT, "src/app/(with-nav)/library/books.json");
+const TIMELINE_FILE = path.join(ROOT, "src/lib/timeline.ts");
 
 const MODEL = "Xenova/all-mpnet-base-v2";
 const CHUNK_SIZE = 1200;
@@ -208,17 +209,33 @@ async function main() {
     if (fs.existsSync(SITE_FILE)) {
       const content = fs.readFileSync(SITE_FILE, "utf8");
       const chunks = chunkText(content, 1400, 200);
+      const metadata = chunks.map((_, i) => ({
+        type: "site",
+        name: "llms.txt",
+        part: i + 1,
+        path: "llms.txt",
+      }));
+
+      // Updates timeline (src/lib/timeline.ts) — recent milestones, newest first.
+      const { TIMELINE_ITEMS } = await import(TIMELINE_FILE);
+      const updates = [...TIMELINE_ITEMS]
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .map((u) => `- ${u.date}: ${u.title}${u.detail ? ` — ${u.detail}` : ""}`);
+      for (let i = 0; i < updates.length; i += 12) {
+        chunks.push(
+          `Tarun's updates timeline / recent milestones & achievements (newest first):\n${updates
+            .slice(i, i + 12)
+            .join("\n")}`
+        );
+        metadata.push({ type: "site", name: "updates", part: i / 12 + 1, path: "timeline" });
+      }
+
       const vectors = await encodeAll(extractor, chunks);
       writeDomain("site", {
         embeddings: vectors,
         texts: chunks,
         embedTexts: chunks,
-        metadata: chunks.map((_, i) => ({
-          type: "site",
-          name: "llms.txt",
-          part: i + 1,
-          path: "llms.txt",
-        })),
+        metadata,
       });
     } else {
       log("  no llms.txt found, skipping");

@@ -122,6 +122,11 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
     link: "https://lnkd.in/p/e5cjecEQ",
   },
   {
+    date: "2026-11",
+    title: "Runner-up at Hack the Burgh 2026",
+    detail: "Built a browser-use legal agent",
+  },
+  {
     date: "2026-07",
     title: "Published my first research paper",
     detail: "Evolutionary Block Pruning Across Vision-Language Models",

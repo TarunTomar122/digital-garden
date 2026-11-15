@@ -32,11 +32,6 @@ const sections = [
     desc: "Things I want to do before I turn 100.",
   },
   {
-    href: "/startups",
-    label: "Startups",
-    desc: "Small products with real users and revenue.",
-  },
-  {
     href: "/resume",
     label: "Resume",
     desc: "A story, not a traditional resume.",
